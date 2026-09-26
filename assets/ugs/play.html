@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Nyx Game</title>
+  <style>
+    *{box-sizing:border-box}html,body{width:100%;height:100%;margin:0;background:#050814;color:#eef6ff;font-family:Outfit,Segoe UI,Arial,sans-serif}.loading{position:fixed;inset:0;z-index:2;display:grid;place-items:center;background:#050814}.loading.hidden{display:none}.status{width:min(440px,calc(100vw - 40px));padding:22px;border:1px solid #638ee8;border-radius:14px;background:#0b1225;text-align:center}.track{height:6px;margin-top:13px;overflow:hidden;border-radius:99px;background:#1c2945}.fill{width:18%;height:100%;border-radius:inherit;background:#76a4ff;animation:load 2.2s ease-in-out infinite}.status button{min-height:36px;margin-top:14px;border:1px solid #638ee8;border-radius:9px;background:#111d39;color:#eef6ff;padding:0 13px;font:inherit;cursor:pointer}iframe{position:fixed;inset:0;width:100%;height:100%;border:0;background:#050814}@keyframes load{50%{width:82%}}
+  </style>
+</head>
+<body>
+  <div class="loading" id="loading"><div class="status" id="status"><span>Loading game…</span><div class="track"><div class="fill"></div></div></div></div>
+  <iframe id="game" title="Game" allow="autoplay; fullscreen; gamepad; keyboard-map" allowfullscreen tabindex="0"></iframe>
+  <script>
+    const frame=document.getElementById('game');
+    const loading=document.getElementById('loading');
+    const status=document.getElementById('status');
+    const rawPath=String(new URLSearchParams(location.search).get('game')||'').replace(/^\/+/, '');
+    const externalGames={
+      'F/clfnafps.html':'https://classroomlesson.github.io/basic-ruffle-player/html/fnaf_pizzeria_simulator/index.html',
+      'F/clfnafsl.html':'https://classroomlesson.github.io/basic-ruffle-player/html/fnaf5/index.html'
+    };
+    let failed=false;
+    function safePath(path){return path&&!path.includes('..')&&/^[a-z0-9_./%() +'\-]+$/i.test(path)?path:''}
+    function fail(message){if(failed)return;failed=true;status.textContent=String(message||'This game could not be loaded.');const retry=document.createElement('button');retry.type='button';retry.textContent='retry';retry.onclick=()=>location.reload();status.append(document.createElement('br'),retry);loading.classList.remove('hidden');parent.postMessage({type:'nyx:game-failed'},'*')}
+    function unwrap(source){const match=String(source).match(/<Content\b[^>]*>\s*<!\[CDATA\[([\s\S]*?)\]\]>\s*<\/Content>/i);return match?match[1]:String(source)}
+    function isWrapped(source){return /<Content\b[^>]*>\s*<!\[CDATA\[/i.test(String(source))}
+    function prepare(source,path){const dir=path.includes('/')?path.slice(0,path.lastIndexOf('/')+1):'';const localBase=`<base href="${location.origin}/assets/ugs/${dir}">`;const fit='<style>html,body{width:100%;height:100%;margin:0;overflow:hidden;background:#050814}object,embed,canvas,iframe{max-width:100%;max-height:100%}.ads,.ad,.adsbygoogle,iframe[src*="doubleclick"],iframe[src*="googlesyndication"]{display:none!important}</style>';const html=unwrap(source).replace(/<script\b[^>]*src=["'][^"']*(?:\.\.\/)+storage\/js\/cloak(?:i)?\.js[^"']*["'][^>]*>\s*<\/script>/gi,'');const base=/<base\b[^>]*>/i.test(html)?'':localBase;return /<head[^>]*>/i.test(html)?html.replace(/<head([^>]*)>/i,`<head$1>${base}${fit}`):`<!doctype html><html><head>${base}${fit}</head><body>${html}</body></html>`}
+    let launchStarted=false;
+    let launched=false;
+    function reportLaunched(){if(launched||failed)return;launched=true;loading.classList.add('hidden');frame.focus();parent.postMessage({type:'nyx:game-launched'},'*')}
+    function gameSurfaceReady(doc){
+      if(!doc?.body)return false;
+      const visible=element=>{
+        const box=element.getBoundingClientRect?.();
+        const style=getComputedStyle(element);
+        return !!box&&box.width>40&&box.height>40&&style.display!=='none'&&style.visibility!=='hidden'&&style.opacity!=='0';
+      };
+      const gameSurface=[...doc.querySelectorAll('canvas,object,embed,ruffle-player,ruffle-object,iframe,#game,#game-container,#unity-container,#unity-canvas,#ruffle,#player')].find(visible);
+      if(gameSurface)return true;
+      const visiblePage=[...doc.body.children].find(element=>
+        !/^(?:SCRIPT|STYLE|LINK|META|NOSCRIPT|TEMPLATE)$/.test(element.tagName)&&visible(element)
+      );
+      return !!visiblePage||String(doc.body.textContent||'').replace(/\s+/g,' ').trim().length>8;
+    }
+    async function missingLocalResource(win,important,ignorable){const entries=win.performance?.getEntriesByType?.('resource')||[];for(const entry of entries){let url;try{url=new URL(entry.name)}catch{continue}if(url.origin!==location.origin||!important.test(url.href)||ignorable.test(url.href)||entry.encodedBodySize>0)continue;try{const response=await fetch(url.href,{method:'HEAD',cache:'no-store'});if(!response.ok)return url.href}catch{return url.href}}return''}
+    function monitorGame(){if(!launchStarted||failed)return;try{const win=frame.contentWindow;const doc=frame.contentDocument;if(!doc?.body){setTimeout(reportLaunched,900);return}const important=/\.(?:wasm|data|unityweb|json|swf|zip|7z|js)(?:[?#]|$)|\/Build\//i;const ignorable=/googletagmanager|google-analytics|googlesyndication|doubleclick|facebook|recaptcha|pagead/i;doc.addEventListener('error',event=>{const target=event.target;const url=target&&(target.src||target.href);if(url&&important.test(String(url))&&!ignorable.test(String(url))&&!gameSurfaceReady(doc))fail(`A required game file failed to load: ${url}`)},true);win.addEventListener('unhandledrejection',event=>{const message=String(event.reason?.message||event.reason||'');if(/failed to fetch|missing (?:part|file)|http (?:4|5)\d\d|load failed/i.test(message)&&!gameSurfaceReady(doc))fail(`A required game file failed to load: ${message}`)});const started=performance.now();const check=async()=>{if(failed)return;const surfaceReady=gameSurfaceReady(doc);const missing=await missingLocalResource(win,important,ignorable);if(missing&&!surfaceReady){fail(`A required game file failed to load: ${missing}`);return}if(surfaceReady){reportLaunched();return}if(performance.now()-started>12_000){fail('This game loaded a blank screen.');return}setTimeout(check,650)};setTimeout(check,500)}catch{setTimeout(reportLaunched,900)}}
+    frame.addEventListener('load',monitorGame);
+    const path=safePath(rawPath);
+    if(!path) fail('Invalid game path.');
+    else if(externalGames[path]){launchStarted=true;frame.src=externalGames[path]}
+    else {const assetUrl=`/assets/ugs/${path}`;fetch(assetUrl,{cache:'no-store'}).then(response=>{if(!response.ok)throw new Error(`HTTP ${response.status}`);return response.text()}).then(source=>{launchStarted=true;const hasDeadCloak=/(?:\.\.\/)+storage\/js\/cloak(?:i)?\.js/i.test(source);if(isWrapped(source)||hasDeadCloak)frame.srcdoc=prepare(source,path);else frame.src=assetUrl}).catch(error=>fail(`Could not load game: ${error.message||error}`))}
+  </script>
+</body>
+</html>

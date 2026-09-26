@@ -1,0 +1,49 @@
+/* Owner dashboard presentation polish. Interaction and data styles remain in owner-dashboard.css. */
+.nyx-owner-dashboard-overlay{
+  --owner-bg:#0b0e14;
+  --owner-panel:#121722;
+  --owner-panel-2:#191f2b;
+  --owner-line:rgba(172,190,222,.13);
+  --owner-muted:#8995a9;
+  --owner-text:#eef2fa;
+  background:rgba(3,5,9,.8);
+  backdrop-filter:blur(12px);
+}
+.nyx-owner-dashboard{
+  gap:16px;margin:14px;padding:clamp(18px,2.2vw,28px);border-color:rgba(194,207,236,.13);border-radius:20px;
+  background:radial-gradient(70% 58% at 98% -12%,rgba(120,156,255,.13),transparent 68%),radial-gradient(42% 48% at 0% 100%,rgba(168,129,255,.07),transparent 72%),var(--owner-bg);
+  box-shadow:0 28px 80px rgba(0,0,0,.48),inset 0 1px rgba(255,255,255,.025);
+}
+.nyx-owner-header{gap:20px}.nyx-owner-header>div:first-child{gap:5px}.nyx-owner-eyebrow{font-size:9px;letter-spacing:.18em}.nyx-owner-header h1{font-size:clamp(24px,2.1vw,30px);letter-spacing:-.04em}.nyx-owner-header p{margin-top:0;font-size:12px}.nyx-owner-header-actions{gap:7px}
+.nyx-owner-header-actions button,.nyx-owner-quick-actions button,.nyx-owner-pagination button,.nyx-owner-error button{
+  border-color:transparent;border-radius:9px;background:rgba(255,255,255,.055);box-shadow:inset 0 0 0 1px rgba(191,207,240,.1);transition:background-color .18s ease,color .18s ease,box-shadow .18s ease,transform .18s ease;
+}
+.nyx-owner-header-actions button:hover,.nyx-owner-quick-actions button:hover,.nyx-owner-pagination button:not(:disabled):hover,.nyx-owner-error button:hover{border-color:transparent;background:rgba(120,156,255,.15);box-shadow:inset 0 0 0 1px rgba(144,174,255,.34),0 5px 14px rgba(0,0,0,.16);transform:translateY(-1px)}
+.nyx-owner-header-actions .nyx-owner-close{background:transparent;box-shadow:none;color:var(--owner-muted)}.nyx-owner-header-actions .nyx-owner-close:hover{background:rgba(255,255,255,.07);box-shadow:none;color:var(--owner-text)}
+
+.nyx-owner-metrics{grid-template-columns:1.34fr repeat(2,1fr) repeat(3,.92fr);gap:9px}
+.nyx-owner-metric{min-height:76px;padding:12px;border-color:transparent;border-radius:13px;background:rgba(255,255,255,.038);box-shadow:inset 0 0 0 1px rgba(191,207,240,.09),inset 0 1px rgba(255,255,255,.02)}
+.nyx-owner-metric:hover{border-color:transparent;background:rgba(120,156,255,.085);box-shadow:inset 0 0 0 1px rgba(151,179,248,.28),0 8px 20px rgba(0,0,0,.15)}
+.nyx-owner-metric.active{border-color:transparent;background:linear-gradient(125deg,rgba(120,156,255,.2),rgba(168,129,255,.09));box-shadow:inset 0 0 0 1px rgba(144,174,255,.42),0 10px 22px rgba(0,0,0,.18)}
+.nyx-owner-metric:first-child{min-height:88px;background:linear-gradient(120deg,rgba(120,156,255,.2),rgba(120,156,255,.065) 68%,rgba(168,129,255,.1));box-shadow:inset 0 0 0 1px rgba(144,174,255,.26),0 10px 25px rgba(0,0,0,.16)}
+.nyx-owner-metric:first-child>svg{width:40px;height:40px;flex-basis:40px;padding:10px;background:rgba(191,208,255,.16)}.nyx-owner-metric:first-child strong{font-size:26px}
+.nyx-owner-metric:nth-child(n+4){min-height:68px;padding:10px;gap:9px;background:rgba(255,255,255,.027)}.nyx-owner-metric:nth-child(n+4)>svg{width:30px;height:30px;flex-basis:30px;padding:7px;border-radius:8px}.nyx-owner-metric:nth-child(n+4) strong{font-size:18px}
+.nyx-owner-metric>svg{background:rgba(120,156,255,.11)}.nyx-owner-metric span{font-size:9px;letter-spacing:.01em}
+
+.nyx-owner-workspace{grid-template-columns:minmax(0,1fr) 318px;gap:12px}
+.nyx-owner-users-panel,.nyx-owner-activity-panel{border-color:transparent;border-radius:15px;background:rgba(18,23,34,.88);box-shadow:inset 0 0 0 1px rgba(191,207,240,.1),inset 0 1px rgba(255,255,255,.018),0 12px 32px rgba(0,0,0,.12)}
+.nyx-owner-panel-head,.nyx-owner-activity-panel>header{padding:15px 16px;border-bottom-color:rgba(191,207,240,.09)}.nyx-owner-panel-head h2,.nyx-owner-activity-panel h2{font-size:14px;letter-spacing:-.01em}.nyx-owner-panel-head span,.nyx-owner-activity-panel header span{font-size:9px}.nyx-owner-quick-actions{gap:6px}.nyx-owner-quick-actions button{min-height:28px;padding:4px 8px;background:rgba(255,255,255,.04)}
+.nyx-owner-filters{gap:7px;padding:10px 12px;border-bottom-color:rgba(191,207,240,.08);background:rgba(3,6,11,.13)}
+.nyx-owner-search,.nyx-owner-filters select{border-color:transparent;background:rgba(5,9,16,.52);box-shadow:inset 0 0 0 1px rgba(191,207,240,.1);transition:background-color .18s ease,box-shadow .18s ease}
+.nyx-owner-search:hover,.nyx-owner-filters select:hover{background:rgba(18,26,41,.88);box-shadow:inset 0 0 0 1px rgba(191,207,240,.17)}.nyx-owner-search:focus-within{border-color:transparent;background:#0d1420;box-shadow:inset 0 0 0 1px rgba(120,156,255,.72),0 0 0 3px rgba(120,156,255,.12)}.nyx-owner-filters select:focus{border-color:transparent;box-shadow:inset 0 0 0 1px rgba(120,156,255,.72),0 0 0 3px rgba(120,156,255,.12)}
+
+.nyx-owner-table{font-size:11px}.nyx-owner-table th{padding:11px 14px;border-bottom-color:rgba(191,207,240,.09);background:rgba(12,17,27,.96)}.nyx-owner-table th button{font-size:8px;letter-spacing:.09em;transition:color .16s ease}.nyx-owner-table td{height:60px;padding:10px 14px;border-bottom-color:rgba(191,207,240,.065);color:#c9d2e0}.nyx-owner-table tbody tr{transition:background-color .18s ease,box-shadow .18s ease}.nyx-owner-table tbody tr:hover{background:linear-gradient(90deg,rgba(120,156,255,.09),rgba(120,156,255,.025) 68%,transparent);box-shadow:inset 2px 0 var(--owner-accent)}
+.nyx-owner-user-cell{transition:opacity .18s ease!important}.nyx-owner-user-cell:hover{opacity:.86}.nyx-owner-avatar{width:34px;height:34px;flex-basis:34px;border-radius:10px;box-shadow:0 3px 9px rgba(0,0,0,.22)}.nyx-owner-user-cell strong{font-size:11px}.nyx-owner-user-cell small{font-size:9px}.nyx-owner-badge{min-height:23px;padding:3px 7px;border-color:rgba(191,207,240,.12);border-radius:7px}.nyx-owner-row-action{transition:background-color .16s ease,color .16s ease,transform .16s ease}.nyx-owner-row-action:hover{border-color:transparent;background:rgba(120,156,255,.14);color:#dce7ff;transform:translateX(1px)}.nyx-owner-pagination{min-height:48px;padding:9px 13px;border-top-color:rgba(191,207,240,.08);background:rgba(4,7,12,.13)}.nyx-owner-pagination select{border-color:transparent;background:rgba(255,255,255,.055);box-shadow:inset 0 0 0 1px rgba(191,207,240,.1)}
+
+.nyx-owner-activity-list{padding:10px;display:grid;align-content:start;gap:12px}.nyx-owner-activity-group{display:grid;gap:4px}.nyx-owner-activity-group>header{display:flex;align-items:center;justify-content:space-between;padding:0 4px;color:var(--owner-muted)}.nyx-owner-activity-group>header strong{color:#b9c4d7;font-size:9px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.nyx-owner-activity-group>header span{font-size:8px}
+.nyx-owner-activity-item{grid-template-columns:28px minmax(0,1fr);gap:9px;padding:9px 8px;border-radius:10px;transition:background-color .18s ease,transform .18s ease}.nyx-owner-activity-item:not(:last-child)::after{display:none}.nyx-owner-activity-item:hover{background:rgba(120,156,255,.08);transform:translateX(2px)}.nyx-owner-activity-dot{display:grid;width:25px;height:25px;margin:0;place-items:center;border:0;border-radius:8px;background:rgba(120,156,255,.13);box-shadow:inset 0 0 0 1px rgba(144,174,255,.16)}.nyx-owner-activity-dot svg{width:13px;height:13px;fill:none;stroke:var(--owner-accent);stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}.nyx-owner-activity-item[data-owner-activity-type="premium"] .nyx-owner-activity-dot{background:rgba(232,189,100,.12);box-shadow:inset 0 0 0 1px rgba(232,189,100,.18)}.nyx-owner-activity-item[data-owner-activity-type="premium"] .nyx-owner-activity-dot svg{stroke:#e8bd64}.nyx-owner-activity-item[data-owner-activity-type="online"] .nyx-owner-activity-dot{background:rgba(79,209,139,.11);box-shadow:inset 0 0 0 1px rgba(79,209,139,.17)}.nyx-owner-activity-item[data-owner-activity-type="online"] .nyx-owner-activity-dot svg{stroke:#69dba0}.nyx-owner-activity-item>div{gap:3px}.nyx-owner-activity-item strong{font-size:10px;line-height:1.2}.nyx-owner-activity-item p{font-size:9px;line-height:1.35}.nyx-owner-activity-item span{color:#9fadc4;font-size:8px;font-weight:650}
+
+@media(max-width:1180px){.nyx-owner-metrics{grid-template-columns:repeat(3,minmax(0,1fr))}.nyx-owner-metric:first-child{min-height:76px}.nyx-owner-workspace{grid-template-columns:minmax(0,1fr) 285px}}
+@media(max-width:900px){.nyx-owner-dashboard{margin:0;border:0;border-radius:0}.nyx-owner-activity-panel{display:none}}
+@media(max-width:620px){.nyx-owner-dashboard{padding:14px;gap:12px}.nyx-owner-metrics{grid-template-columns:1fr 1fr;gap:7px}.nyx-owner-metric,.nyx-owner-metric:first-child,.nyx-owner-metric:nth-child(n+4){min-height:64px;padding:9px;gap:8px}.nyx-owner-metric:first-child>svg,.nyx-owner-metric>svg,.nyx-owner-metric:nth-child(n+4)>svg{width:30px;height:30px;flex-basis:30px;padding:7px}.nyx-owner-metric:first-child strong,.nyx-owner-metric strong,.nyx-owner-metric:nth-child(n+4) strong{font-size:18px}.nyx-owner-panel-head{padding:12px}.nyx-owner-table th,.nyx-owner-table td{padding-left:12px;padding-right:12px}}
+@media(prefers-reduced-motion:reduce){.nyx-owner-header-actions button,.nyx-owner-quick-actions button,.nyx-owner-pagination button,.nyx-owner-metric,.nyx-owner-table tbody tr,.nyx-owner-row-action,.nyx-owner-activity-item{transition:none}}

@@ -1,0 +1,171 @@
+/* Final Default-only chrome paint. Loaded after shared theme rules. */
+html body.browser-shell.theme-default .top-os.top-os{
+  background:#09111d!important;
+  background-image:none!important;
+  border-bottom-color:#1f2b3d!important;
+}
+
+html body.browser-shell.theme-default .top-os.top-os .brand-mini > :is(
+  .browser-mode-app-button,
+  .browser-mode-shell-tab,
+  .browser-mode-tab
+),
+html body.browser-shell.theme-default .top-os.top-os form.browser-mode-address > button{
+  background-color:#0b1320!important;
+  background-image:none!important;
+  border-color:#26364f!important;
+  color:#9fc1f7!important;
+  -webkit-text-fill-color:#9fc1f7!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.035)!important;
+}
+
+html body.browser-shell.theme-midnight.theme-default .top-os.top-os .brand-mini > button.browser-mode-app-button,
+html body.browser-shell.theme-midnight.theme-default .top-os.top-os .brand-mini > button.browser-mode-shell-tab,
+html body.browser-shell.theme-midnight.theme-default .top-os.top-os .brand-mini > button.browser-mode-tab:not(.browser-mode-shell-tab){
+  background-color:#0b1320!important;
+  background-image:none!important;
+  border-color:#26364f!important;
+  color:#9fc1f7!important;
+  -webkit-text-fill-color:#9fc1f7!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.035)!important;
+}
+
+html body.browser-shell.theme-default .top-os.top-os .brand-mini > :is(
+  .browser-mode-app-button,
+  .browser-mode-shell-tab,
+  .browser-mode-tab
+).active{
+  background-color:#17243a!important;
+  background-image:none!important;
+  border-color:#45658f!important;
+  color:#dce9ff!important;
+  -webkit-text-fill-color:#dce9ff!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.055)!important;
+}
+
+html body.browser-shell.theme-midnight.theme-default .top-os.top-os .brand-mini > button.browser-mode-app-button.active,
+html body.browser-shell.theme-midnight.theme-default .top-os.top-os .brand-mini > button.browser-mode-shell-tab.active{
+  background-color:#17243a!important;
+  background-image:none!important;
+  border-color:#45658f!important;
+  color:#dce9ff!important;
+  -webkit-text-fill-color:#dce9ff!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.055)!important;
+}
+
+html body.browser-shell.theme-default .top-os.top-os .brand-mini > :is(
+  .browser-mode-app-button,
+  .browser-mode-shell-tab,
+  .browser-mode-tab
+):hover,
+html body.browser-shell.theme-default .top-os.top-os form.browser-mode-address > button:hover{
+  background-color:#1c2d49!important;
+  background-image:none!important;
+  border-color:#5677a4!important;
+  color:#eef4ff!important;
+  -webkit-text-fill-color:#eef4ff!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.065)!important;
+}
+
+html body.browser-shell.theme-midnight.theme-default .top-os.top-os .brand-mini > button.browser-mode-app-button:hover,
+html body.browser-shell.theme-midnight.theme-default .top-os.top-os .brand-mini > button.browser-mode-shell-tab:hover,
+html body.browser-shell.theme-midnight.theme-default .top-os.top-os .brand-mini > button.browser-mode-tab:not(.browser-mode-shell-tab):hover{
+  background-color:#1c2d49!important;
+  background-image:none!important;
+  border-color:#5677a4!important;
+  color:#eef4ff!important;
+  -webkit-text-fill-color:#eef4ff!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.065)!important;
+}
+
+html body.browser-shell.theme-default .top-os.top-os form.browser-mode-address > input.browser-mode-url,
+html body.browser-shell.theme-default .top-os.top-os form.browser-mode-address > input.browser-mode-url:hover{
+  background:#111a29!important;
+  background-image:none!important;
+  border-color:#26364f!important;
+  color:#dbe8ff!important;
+  -webkit-text-fill-color:#dbe8ff!important;
+  box-shadow:none!important;
+}
+
+html body.browser-shell.theme-default .top-os.top-os form.browser-mode-address > input.browser-mode-url:focus{
+  border-color:#5677a4!important;
+  box-shadow:0 0 0 2px rgba(111,158,232,.12)!important;
+}
+
+html body.browser-shell.theme-default .top-os.top-os form.browser-mode-address > :is(
+  button[data-browser-shell-back],
+  button[data-browser-shell-forward]
+){
+  border-color:#26364f!important;
+  color:#9fc1f7!important;
+  -webkit-text-fill-color:#9fc1f7!important;
+}
+
+html body.browser-shell.theme-default .top-os.top-os form.browser-mode-address > :is(
+  button[data-browser-shell-back],
+  button[data-browser-shell-forward]
+)::before{
+  background:#9fc1f7!important;
+  color:#9fc1f7!important;
+  -webkit-text-fill-color:#9fc1f7!important;
+  filter:none!important;
+}
+
+html body.browser-shell.theme-default .top-os.top-os .browser-mode-app-button::before,
+html body.browser-shell.theme-default .top-os.top-os .browser-mode-tab:not(.browser-mode-shell-tab)::before,
+html body.browser-shell.theme-default .top-os.top-os .browser-mode-weather .weather-cloud-icon{
+  background-color:#9fc1f7!important;
+  color:#9fc1f7!important;
+  -webkit-text-fill-color:#9fc1f7!important;
+  filter:none!important;
+}
+
+html body.browser-shell.theme-default .top-os.top-os .browser-mode-shell-tab-close,
+html body.browser-shell.theme-default .top-os.top-os .browser-mode-shell-tab-close::before,
+html body.browser-shell.theme-default .top-os.top-os .browser-mode-app-button::after{
+  color:#91acd5!important;
+  -webkit-text-fill-color:#91acd5!important;
+}
+
+html body.browser-shell.theme-default .top-os.top-os .browser-mode-shell-tab-icon{
+  filter:none!important;
+}
+
+html body.browser-shell.theme-default .top-os.top-os > .browser-top-clock{
+  color:#a9bddf!important;
+  -webkit-text-fill-color:#a9bddf!important;
+}
+
+html body.browser-shell.theme-default .top-os.top-os .browser-mode-menu{
+  background:#0a121f!important;
+  background-image:none!important;
+  border-color:#26364f!important;
+  box-shadow:0 18px 42px rgba(2,6,13,.34)!important;
+}
+
+html body.browser-shell.theme-default .top-os.top-os .browser-mode-menu > button{
+  background:#0b1320!important;
+  background-image:none!important;
+  border-color:#26364f!important;
+  color:#a9bddf!important;
+  -webkit-text-fill-color:#a9bddf!important;
+  box-shadow:none!important;
+}
+
+html body.browser-shell.theme-default .top-os.top-os .browser-mode-menu > button:hover,
+html body.browser-shell.theme-default .top-os.top-os .browser-mode-menu > button:focus-visible{
+  background:#17253a!important;
+  border-color:#45658f!important;
+  color:#eef4ff!important;
+  -webkit-text-fill-color:#eef4ff!important;
+}
+
+html body.browser-shell.theme-default .top-os.top-os .browser-mode-menu > hr{
+  border-color:#223149!important;
+}
+
+html body.browser-shell.theme-default .top-os.top-os :is(button,input):focus-visible{
+  outline:2px solid #6f9ee8!important;
+  outline-offset:2px!important;
+}

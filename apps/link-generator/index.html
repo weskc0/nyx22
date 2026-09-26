@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="dark light">
+  <title>Link Generator</title>
+  <link rel="icon" type="image/svg+xml" href="../../assets/icons/link-generator.svg">
+  <link rel="stylesheet" href="./styles.css?v=20260728-fern-9">
+</head>
+<body>
+  <main class="utility-shell generator-shell">
+    <header class="utility-header">
+      <span class="brand-lockup" aria-label="Nyx utilities">
+        <span class="brand-mark" aria-hidden="true"><img src="../../assets/icons/nyx-app-192.png" alt=""></span>
+        <span class="brand-copy"><strong>nyx</strong><span>utilities</span></span>
+      </span>
+      <div class="utility-nav" aria-label="Nyx utility pages">
+        <a class="utility-nav-item" href="../link-checker/"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 14a5 5 0 007.5.5l2-2a5 5 0 00-7-7l-1.1 1.1M14 10a5 5 0 00-7.5-.5l-2 2a5 5 0 007 7l1.1-1.1" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg><span>Link Checker</span></a>
+        <a class="utility-nav-item" href="../link-generator/" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M3 12h18M5.5 5.5l13 13M18.5 5.5l-13 13" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><span>Generator</span></a>
+      </div>
+      <span class="service-status" data-service-status><i aria-hidden="true"></i><span>Checking setup</span></span>
+    </header>
+
+    <section class="utility-intro" aria-labelledby="page-title">
+      <span class="intro-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9.5 14.5l-2 2a3.5 3.5 0 01-5-5l3-3a3.5 3.5 0 015 0M14.5 9.5l2-2a3.5 3.5 0 015 5l-3 3a3.5 3.5 0 01-5 0M8.5 15.5l7-7" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span>
+      <div><h1 id="page-title">Link Generator</h1><p>Nyx utility</p></div>
+    </section>
+
+    <section class="generator-card surface" aria-labelledby="generator-title" data-wizard-card>
+      <div class="section-bar">
+        <div class="section-id">
+          <div>
+            <h2 id="generator-title">Build your link</h2>
+          </div>
+        </div>
+        <span class="origin-badge"><i aria-hidden="true"></i><code data-origin>Loading...</code></span>
+      </div>
+
+      <div class="wizard-progress" aria-label="Link Generator progress">
+        <div class="wizard-progress-line" aria-hidden="true"><span data-wizard-progress></span></div>
+        <ol>
+          <li class="active" data-wizard-indicator="0" aria-current="step"><span>1</span><small>Access</small></li>
+          <li data-wizard-indicator="1"><span>2</span><small>Details</small></li>
+          <li data-wizard-indicator="2"><span>3</span><small>Review</small></li>
+          <li data-wizard-indicator="3"><span>4</span><small>Done</small></li>
+        </ol>
+      </div>
+
+      <form class="generator-form" data-generator-form>
+        <section class="wizard-step active" data-wizard-step="0" aria-labelledby="access-step-title">
+          <div class="wizard-step-heading">
+            <span class="wizard-step-number" aria-hidden="true">01</span>
+            <div><p class="eyebrow">Access</p><h3 id="access-step-title">How would you like to continue?</h3><p>Sign in to use your account benefits. Premium subscriptions unlock automatically.</p></div>
+          </div>
+          <fieldset class="access-method form-panel">
+            <legend class="sr-only">Access method</legend>
+            <div class="access-tabs" role="tablist" aria-label="Link Generator access method">
+              <button class="active" data-access-mode="account" type="button" role="tab" aria-selected="true">Account</button>
+              <button data-access-mode="administrator" type="button" role="tab" aria-selected="false">Access code</button>
+            </div>
+            <div class="account-access" data-account-access>
+              <div class="account-fields" data-account-fields>
+                <label><span>Email</span><input data-account-email type="email" autocomplete="email" placeholder="you@example.com"></label>
+                <label><span>Password</span><input data-account-password type="password" minlength="6" autocomplete="current-password" placeholder="At least 6 characters"></label>
+              </div>
+              <div class="account-actions">
+                <button data-account-sign-in type="button">Sign in</button>
+                <button data-account-create type="button">Create account</button>
+                <button data-account-refresh type="button" hidden>I verified my email</button>
+                <button data-account-sign-out type="button" hidden>Sign out</button>
+              </div>
+              <p class="account-status" data-account-status>Sign in with a verified email to receive 3 free links per day.</p>
+            </div>
+            <div class="administrator-access" data-administrator-access hidden>
+              <label>
+                <span>Premium access code</span>
+                <input name="accessCode" data-access-code type="password" maxlength="128" autocomplete="current-password" placeholder="Enter your Premium code">
+              </label>
+              <p>Legacy Premium codes remain available when an account sign-in cannot be used.</p>
+            </div>
+          </fieldset>
+          <div class="wizard-actions wizard-actions-end">
+            <button class="primary-action wizard-next" data-wizard-next type="button"><span>Continue</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-5-5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          </div>
+        </section>
+
+        <section class="wizard-step" data-wizard-step="1" hidden aria-labelledby="details-step-title">
+          <div class="wizard-step-heading">
+            <span class="wizard-step-number" aria-hidden="true">02</span>
+            <div><p class="eyebrow">Details</p><h3 id="details-step-title">Set up the new link</h3><p>Choose a short label and the filter Nyx should check.</p></div>
+          </div>
+          <div class="details-panel form-panel">
+            <div class="details-grid" data-details-grid>
+              <label>
+                <span>Link label</span>
+                <input name="label" data-label-input maxlength="40" autocomplete="off" placeholder="Example: study-room">
+                <small>Up to 40 characters are preserved. Dots and spaces become hyphens in the CDN address.</small>
+              </label>
+              <label>
+                <span>Content filter report</span>
+                <select name="filter" data-filter-select required disabled>
+                  <option value="">Loading filters...</option>
+                </select>
+                <small>Nyx checks the generated link with this filter once.</small>
+              </label>
+              <label class="amount-field" data-premium-amount-field hidden>
+                <span>Amount</span>
+                <input name="amount" data-premium-amount type="number" min="1" max="10" step="1" value="1" inputmode="numeric">
+                <small data-premium-amount-hint>Choosing 5–10 links starts a 10-minute cooldown. Smaller batches start it after 30 total links.</small>
+              </label>
+            </div>
+          </div>
+          <div class="wizard-actions">
+            <button class="secondary-action" data-wizard-back type="button">Back</button>
+            <button class="primary-action wizard-next" data-wizard-next type="button"><span>Review</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-5-5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          </div>
+        </section>
+
+        <section class="wizard-step" data-wizard-step="2" hidden aria-labelledby="review-step-title">
+          <div class="wizard-step-heading">
+            <span class="wizard-step-number" aria-hidden="true">03</span>
+            <div><p class="eyebrow">Review</p><h3 id="review-step-title">Ready to create?</h3><p>Check the details below before Nyx makes the link.</p></div>
+          </div>
+          <div class="review-panel form-panel">
+            <dl class="review-list">
+              <div><dt>Access</dt><dd data-review-access>Free account</dd></div>
+              <div><dt>Label</dt><dd data-review-label>Automatic</dd></div>
+              <div><dt>Filter</dt><dd data-review-filter>Not selected</dd></div>
+              <div><dt>Destination</dt><dd data-review-origin>Loading...</dd></div>
+              <div data-review-amount-row hidden><dt>Amount</dt><dd data-review-amount>1 link</dd></div>
+            </dl>
+            <label class="confirmation">
+              <input data-confirm type="checkbox" required>
+              <span data-confirm-text>I understand this creates one resource on the Nyx Bunny account.</span>
+            </label>
+          </div>
+          <div class="wizard-actions">
+            <button class="secondary-action" data-wizard-back type="button">Back</button>
+            <button class="primary-action" data-generate-button type="submit"><span>Generate link</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-5-5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          </div>
+        </section>
+      </form>
+
+      <div class="notice" data-notice role="status" aria-live="polite" hidden></div>
+
+      <section class="wizard-step result-card" data-wizard-step="3" data-result-card hidden aria-labelledby="result-title">
+        <div class="result-heading"><span class="result-icon"><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><p class="eyebrow">Created</p><h2 id="result-title" data-result-title>Your Nyx link is ready</h2><p data-result-subtitle>The link was created and checked successfully.</p></div></div>
+        <div class="bulk-link-box">
+          <div class="bulk-link-head"><span>Generated links</span><strong data-result-count>1 link</strong></div>
+          <textarea data-result-url readonly rows="7" spellcheck="false" aria-label="Generated Nyx URLs"></textarea>
+          <div class="bulk-link-actions">
+            <button data-copy type="button">Copy all</button>
+            <a data-open data-nyx-generated-popup class="disabled" href="#" target="_blank" rel="noopener noreferrer" aria-disabled="true">Starting CDN...</a>
+          </div>
+        </div>
+        <div class="filter-check checking" data-filter-check role="status" aria-live="polite">
+          <span data-filter-check-label>Selected filter</span>
+          <strong data-filter-check-state>Waiting to check</strong>
+          <small data-filter-check-detail>Nyx checks this link once and does not generate replacements automatically.</small>
+        </div>
+        <p class="propagation-note">A new pull zone can take a short time to become available everywhere.</p>
+        <div class="wizard-actions result-actions"><button class="secondary-action" data-wizard-restart type="button">Create another link</button></div>
+      </section>
+    </section>
+  </main>
+  <script src="./app.js?v=20260803-account-premium-10"></script>
+</body>
+</html>

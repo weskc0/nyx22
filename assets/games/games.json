@@ -1,0 +1,49 @@
+{
+  "version": 1,
+  "fallbackCover": "/game-cover?title={title}",
+  "catalogs": [
+    {
+      "id": "local",
+      "format": "ugs",
+      "url": "/assets/ugs/games.json",
+      "coversUrl": "/assets/ugs/thumbs.json",
+      "player": "/assets/ugs/play.html?v=20260803-ready-v2&game={path}",
+      "priority": 50
+    },
+    {
+      "id": "gn",
+      "format": "gn",
+      "url": "/assets/gn-math/games.json",
+      "player": "/assets/gn-math/play.html?v=20260803-resource-fix&game={path}",
+      "priority": 40
+    },
+    {
+      "id": "gms",
+      "format": "gms",
+      "url": "/assets/gms-games/games.json",
+      "player": "/assets/gms-games/play.html?v=20260803-resource-fix&game={path}",
+      "gbaPlayer": "/assets/gms-games/play.html?v=20260803-resource-fix&gba={romId}",
+      "priority": 30
+    },
+    {
+      "id": "seraph",
+      "format": "seraph",
+      "url": "/assets/seraph/games.json",
+      "player": "/assets/seraph/play.html?game={path}",
+      "priority": 20
+    },
+    {
+      "id": "catclass",
+      "format": "external",
+      "url": "/catclass-games",
+      "priority": 5
+    },
+    {
+      "id": "duckmath",
+      "format": "duckmath",
+      "url": "/duckmath-games",
+      "priority": 10,
+      "fallbackOnly": true
+    }
+  ]
+}

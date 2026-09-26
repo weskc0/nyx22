@@ -1,0 +1,2160 @@
+/* //fresh-theme-final */
+body.theme-fresh{
+  --theme-border:#ffffff!important;
+  --nyx-purple-edge:rgba(255,255,255,.84)!important;
+  color:#0f8fa3;
+}
+body.theme-fresh::before{
+  background:var(--theme-bg)!important;
+  background-size:cover!important;
+  background-position:center!important;
+  filter:brightness(1.05) contrast(.98) saturate(1.08)!important;
+}
+body.theme-fresh :is(.top-os,.window,.titlebar,.browser-tabs,.browser-tools,.dock,.settings-panel,.settings-card,.settings-app,.settings-main,.settings-side,.glass-card,.quick-tile,.quick-icon,.browser-mode-menu,.browser-bookmark-panel,.weather-panel,.weather-restore,.apps-panel,.panel){
+  background-color:rgba(255,255,255,.28)!important;
+  background-image:none!important;
+  border-color:rgba(255,255,255,.72)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.52),0 14px 36px rgba(59,86,91,.18)!important;
+}
+body.theme-fresh :is(button,input,select,textarea,.urlbar,.browser-mode-url,.browser-mode-tab,.browser-mode-shell-tab,.browser-mode-app-button,.browser-mode-address button,.tool-btn,.go-btn,.menu-btn,.settings-action,.settings-preset){
+  background:rgba(255,255,255,.58)!important;
+  border-color:rgba(255,255,255,.86)!important;
+  color:#133034!important;
+  -webkit-text-fill-color:#133034!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.72),0 8px 22px rgba(49,83,90,.12)!important;
+}
+body.theme-fresh :is(h1,h2,h3,p,span,label,strong,.home-heading,.home-sub,.titlebar-title,.desktop-center-clock,.browser-shell-clock,.quick-tile span,.dock span,.browser-mode-menu button){
+  background:none!important;
+  color:#0f8fa3!important;
+  -webkit-text-fill-color:#0f8fa3!important;
+  text-shadow:0 2px 12px rgba(24,54,58,.42)!important;
+}
+body.theme-fresh :is(.browser-mode-url,.urlbar,input,select,textarea)::placeholder{
+  color:rgba(19,48,52,.62)!important;
+  -webkit-text-fill-color:rgba(19,48,52,.62)!important;
+}
+body.theme-fresh :is(button,.quick-tile,.quick-icon,.browser-mode-tab,.browser-mode-shell-tab,.browser-mode-app-button,.browser-mode-address button,.settings-action,.settings-preset):hover{
+  border-color:#fff!important;
+  background:rgba(255,255,255,.74)!important;
+}
+body.browser-shell.theme-fresh .top-os{
+  background:linear-gradient(90deg,rgba(255,255,255,.74),rgba(255,255,255,.46),rgba(255,255,255,.74))!important;
+  border-bottom-color:#fff!important;
+}
+body.browser-shell.theme-fresh .browser-window.maximized.browser-blank{
+  background:transparent!important;
+}
+body.theme-fresh select option{
+  color:#133034!important;
+  background:#ffffff!important;
+}
+body.browser-shell.theme-fresh :is(.browser-mode-app-button,.browser-mode-tab,.browser-mode-address button,.browser-mode-url,[data-browser-shell-back],[data-browser-shell-forward],[data-browser-shell-reload],[data-browser-shell-bookmark],.browser-mode-weather,[data-browser-shell-menu]){
+  color:#0f8fa3!important;
+  -webkit-text-fill-color:#0f8fa3!important;
+}
+body.browser-shell.theme-fresh .browser-mode-url::placeholder{
+  color:rgba(15,143,163,.66)!important;
+  -webkit-text-fill-color:rgba(15,143,163,.66)!important;
+}
+body.browser-shell.theme-fresh :is(.browser-mode-app-button,.browser-mode-tab,.browser-mode-address button)::before,
+body.browser-shell.theme-fresh :is(.browser-mode-app-button,.browser-mode-tab,.browser-mode-address button)::after,
+body.browser-shell.theme-fresh :is([data-browser-shell-bookmark],[data-browser-shell-menu])::before,
+body.browser-shell.theme-fresh :is([data-browser-shell-bookmark],[data-browser-shell-menu])::after{
+  color:#0f8fa3!important;
+  -webkit-text-fill-color:#0f8fa3!important;
+}
+body.browser-shell.theme-fresh .weather-cloud-icon{
+  filter:none!important;
+}
+/* //fresh-polish-final */
+body.theme-fresh{
+  --fresh-ink:#0b7186;
+  --fresh-blue:#2f80ed;
+  --fresh-blue-deep:#1d64c8;
+  --fresh-glass:rgba(255,255,255,.50);
+  --fresh-glass-strong:rgba(255,255,255,.64);
+  --fresh-line:rgba(47,128,237,.46);
+}
+body.browser-shell.theme-fresh :is(.top-os,.window,.titlebar,.browser-tabs,.browser-tools,.browser-mode-menu,.browser-bookmark-panel,.settings-panel,.settings-card,.settings-app,.settings-main,.settings-side,.browser-shell-settings-panel,.weather-panel,.weather-restore,.apps-panel,.panel){
+  background:var(--fresh-glass)!important;
+  background-image:linear-gradient(135deg,rgba(255,255,255,.44),rgba(219,247,255,.26))!important;
+  border-color:var(--fresh-line)!important;
+  color:var(--fresh-ink)!important;
+  -webkit-text-fill-color:var(--fresh-ink)!important;
+  box-shadow:0 18px 54px rgba(44,121,145,.18),inset 0 1px 0 rgba(255,255,255,.72)!important;
+  backdrop-filter:blur(24px) saturate(1.22)!important;
+  -webkit-backdrop-filter:blur(24px) saturate(1.22)!important;
+}
+body.browser-shell.theme-fresh :is(button,.browser-mode-tab,.browser-mode-app-button,.browser-mode-address button,.browser-mode-menu button,.settings-action,.settings-preset,.tool-btn,.go-btn,.menu-btn,.home-shortcut-menu button,.weather-icon-btn){
+  background:rgba(47,128,237,.18)!important;
+  background-image:linear-gradient(180deg,rgba(255,255,255,.50),rgba(47,128,237,.18))!important;
+  border-color:rgba(47,128,237,.58)!important;
+  color:var(--fresh-blue-deep)!important;
+  -webkit-text-fill-color:var(--fresh-blue-deep)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.74),0 8px 22px rgba(47,128,237,.14)!important;
+}
+body.browser-shell.theme-fresh :is(button,.browser-mode-tab,.browser-mode-app-button,.browser-mode-address button,.browser-mode-menu button,.settings-action,.settings-preset,.tool-btn,.go-btn,.menu-btn,.home-shortcut-menu button,.weather-icon-btn):hover{
+  background:rgba(47,128,237,.28)!important;
+  border-color:rgba(29,100,200,.76)!important;
+  color:#174ea6!important;
+  -webkit-text-fill-color:#174ea6!important;
+}
+body.browser-shell.theme-fresh :is(input,select,textarea,.browser-mode-url,.urlbar,.settings-input,.settings-select,.panic-key-display){
+  background:rgba(255,255,255,.70)!important;
+  background-image:none!important;
+  border-color:rgba(47,128,237,.42)!important;
+  color:#064e5f!important;
+  -webkit-text-fill-color:#064e5f!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.78),0 8px 22px rgba(44,121,145,.10)!important;
+  backdrop-filter:blur(18px) saturate(1.18)!important;
+  -webkit-backdrop-filter:blur(18px) saturate(1.18)!important;
+}
+body.browser-shell.theme-fresh :is(.browser-mode-url,.urlbar,input,textarea)::placeholder{
+  color:rgba(11,113,134,.68)!important;
+  -webkit-text-fill-color:rgba(11,113,134,.68)!important;
+}
+body.browser-shell.theme-fresh .browser-mode-menu{
+  background:rgba(255,255,255,.58)!important;
+  border-radius:0!important;
+}
+body.browser-shell.theme-fresh .browser-mode-menu button{
+  background:rgba(255,255,255,.22)!important;
+  background-image:none!important;
+  border-color:rgba(47,128,237,.20)!important;
+  color:var(--fresh-ink)!important;
+  -webkit-text-fill-color:var(--fresh-ink)!important;
+}
+body.browser-shell.theme-fresh .browser-shell-settings-panel{
+  background:rgba(244,253,255,.58)!important;
+  border-color:rgba(47,128,237,.56)!important;
+  color:var(--fresh-ink)!important;
+  -webkit-text-fill-color:var(--fresh-ink)!important;
+}
+body.browser-shell.theme-fresh .browser-shell-settings-panel :is(.settings-app,.settings-main,.settings-side,.settings-block,.settings-card){
+  background:rgba(255,255,255,.34)!important;
+  background-image:linear-gradient(135deg,rgba(255,255,255,.38),rgba(219,247,255,.20))!important;
+  border-color:rgba(47,128,237,.38)!important;
+  color:var(--fresh-ink)!important;
+  -webkit-text-fill-color:var(--fresh-ink)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.58),0 12px 30px rgba(44,121,145,.10)!important;
+  backdrop-filter:blur(18px) saturate(1.18)!important;
+  -webkit-backdrop-filter:blur(18px) saturate(1.18)!important;
+}
+body.browser-shell.theme-fresh .browser-shell-settings-panel :is(h1,h2,h3,p,span,label,strong,b,.settings-block h2,.settings-block p){
+  color:var(--fresh-ink)!important;
+  -webkit-text-fill-color:var(--fresh-ink)!important;
+  text-shadow:none!important;
+}
+body.browser-shell.theme-fresh .browser-home-normal .quick-tile,
+body.browser-shell.theme-fresh .home-shortcut,
+body.browser-shell.theme-fresh .home-shortcut-add{
+  background:rgba(255,255,255,.34)!important;
+  background-image:linear-gradient(145deg,rgba(255,255,255,.56),rgba(180,232,246,.22))!important;
+  border:1px solid rgba(47,128,237,.42)!important;
+  border-radius:12px!important;
+  box-shadow:0 14px 34px rgba(44,121,145,.18),inset 0 1px 0 rgba(255,255,255,.70)!important;
+  backdrop-filter:blur(20px) saturate(1.22)!important;
+  -webkit-backdrop-filter:blur(20px) saturate(1.22)!important;
+}
+body.browser-shell.theme-fresh .browser-home-normal .quick-tile:hover,
+body.browser-shell.theme-fresh .home-shortcut:hover,
+body.browser-shell.theme-fresh .home-shortcut-add:hover{
+  background:rgba(255,255,255,.48)!important;
+  border-color:rgba(29,100,200,.70)!important;
+  transform:translateY(-3px) scale(1.035)!important;
+  box-shadow:0 18px 42px rgba(47,128,237,.22),inset 0 1px 0 rgba(255,255,255,.82)!important;
+}
+body.browser-shell.theme-fresh .browser-home-normal .quick-tile span,
+body.browser-shell.theme-fresh .home-shortcut span,
+body.browser-shell.theme-fresh .home-shortcut-add span{
+  color:#075466!important;
+  -webkit-text-fill-color:#075466!important;
+  text-shadow:0 1px 8px rgba(255,255,255,.38)!important;
+}
+body.browser-shell.theme-fresh .home-shortcut .home-shortcut-open{
+  background:transparent!important;
+  background-image:none!important;
+  border-color:transparent!important;
+  box-shadow:none!important;
+  color:#075466!important;
+  -webkit-text-fill-color:#075466!important;
+}
+body.browser-shell.theme-fresh .home-shortcut .home-shortcut-menu-btn{
+  background:rgba(47,128,237,.22)!important;
+  border-color:rgba(47,128,237,.58)!important;
+  color:#1d64c8!important;
+  -webkit-text-fill-color:#1d64c8!important;
+}
+/* //fresh-cleanup-final */
+body.browser-shell.theme-fresh :is(button,.browser-mode-tab,.browser-mode-app-button,.browser-mode-address button,.browser-mode-menu button,.settings-action,.settings-preset,.tool-btn,.go-btn,.menu-btn,.home-shortcut-menu button,.weather-icon-btn){
+  background:#ffffff!important;
+  background-image:none!important;
+  border-color:rgba(126,150,214,.42)!important;
+  color:#0b7186!important;
+  -webkit-text-fill-color:#0b7186!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.86),0 8px 20px rgba(35,96,122,.12)!important;
+}
+body.browser-shell.theme-fresh :is(button,.browser-mode-tab,.browser-mode-app-button,.browser-mode-address button,.browser-mode-menu button,.settings-action,.settings-preset,.tool-btn,.go-btn,.menu-btn,.home-shortcut-menu button,.weather-icon-btn):hover{
+  background:#ffffff!important;
+  background-image:none!important;
+  border-color:rgba(11,113,134,.58)!important;
+  color:#075466!important;
+  -webkit-text-fill-color:#075466!important;
+}
+body.browser-shell.theme-fresh .weather-cloud-icon,
+body.browser-shell.theme-fresh .browser-mode-weather > .weather-cloud-icon,
+body.browser-shell.theme-fresh #weatherRestore > .weather-cloud-icon{
+  display:block!important;
+  opacity:1!important;
+  visibility:visible!important;
+  background:url("../assets/icons/cloud-weather.png") center/contain no-repeat!important;
+  filter:brightness(0) invert(1)!important;
+}
+body.browser-shell.theme-fresh .browser-mode-weather{
+  overflow:hidden!important;
+}
+body.browser-shell.theme-fresh .browser-home-normal .quick-tile,
+body.browser-shell.theme-fresh .home-shortcut,
+body.browser-shell.theme-fresh .home-shortcut-add{
+  background:rgba(255,255,255,.46)!important;
+  background-image:none!important;
+  border-color:rgba(126,150,214,.46)!important;
+  box-shadow:0 12px 30px rgba(35,96,122,.14),inset 0 1px 0 rgba(255,255,255,.76)!important;
+  backdrop-filter:blur(22px) saturate(1.18)!important;
+  -webkit-backdrop-filter:blur(22px) saturate(1.18)!important;
+}
+body.browser-shell.theme-fresh .home-shortcut .home-shortcut-open{
+  border:0!important;
+  background:transparent!important;
+  background-image:none!important;
+  box-shadow:none!important;
+}
+body.browser-shell.theme-fresh .home-shortcut .home-shortcut-menu-btn{
+  width:30px!important;
+  height:30px!important;
+  top:-7px!important;
+  right:-7px!important;
+  border:1px solid rgba(126,150,214,.58)!important;
+  background:rgba(255,255,255,.74)!important;
+  background-image:none!important;
+  box-shadow:0 8px 18px rgba(35,96,122,.14)!important;
+  color:#0b7186!important;
+  -webkit-text-fill-color:#0b7186!important;
+}
+body.browser-shell.theme-fresh .home-shortcut .home-shortcut-menu-btn::before{
+  background:#0b7186!important;
+  box-shadow:0 -6px 0 #0b7186,0 6px 0 #0b7186!important;
+}
+body.browser-shell .home-shortcut-menu{
+  z-index:2147482500!important;
+}
+body.browser-shell .home-shortcut.menu-open{
+  z-index:2147482400!important;
+}
+body.browser-shell .home-shortcut.menu-open .home-shortcut-menu{
+  display:grid!important;
+  top:auto!important;
+  bottom:calc(100% + 8px)!important;
+  right:0!important;
+  transform:none!important;
+}
+body.browser-shell.theme-fresh .home-shortcut-menu{
+  background:#ffffff!important;
+  background-image:none!important;
+  border:1px solid rgba(126,150,214,.42)!important;
+  border-radius:8px!important;
+  box-shadow:0 18px 42px rgba(35,96,122,.18)!important;
+}
+body.browser-shell.theme-fresh .home-shortcut-menu button{
+  background:#ffffff!important;
+  background-image:none!important;
+  border:0!important;
+  color:#0b7186!important;
+  -webkit-text-fill-color:#0b7186!important;
+  box-shadow:none!important;
+}
+body.browser-shell.theme-fresh .home-shortcut-menu button:hover{
+  background:rgba(11,113,134,.08)!important;
+}
+body.browser-shell.theme-fresh .home-shortcut-add b{
+  font-size:32px!important;
+  line-height:1!important;
+  color:#1d64c8!important;
+  -webkit-text-fill-color:#1d64c8!important;
+}
+body.browser-shell .home-shortcut .home-shortcut-menu-btn{
+  border:0!important;
+  box-shadow:none!important;
+  background:transparent!important;
+  background-image:none!important;
+}
+body.browser-shell.theme-fresh .home-shortcut .home-shortcut-menu-btn{
+  border:0!important;
+  box-shadow:none!important;
+  background:transparent!important;
+  background-image:none!important;
+}
+body.browser-shell.theme-fresh .browser-mode-weather > .weather-cloud-icon,
+body.browser-shell.theme-fresh #weatherRestore > .weather-cloud-icon{
+  background:#0b7186!important;
+  -webkit-mask:url("../assets/icons/cloud-weather.png") center/contain no-repeat!important;
+  mask:url("../assets/icons/cloud-weather.png") center/contain no-repeat!important;
+  filter:none!important;
+}
+/* //fresh-blur-menu-final */
+body.browser-shell.theme-fresh :is(button,.browser-mode-tab,.browser-mode-app-button,.browser-mode-address button,.browser-mode-menu button,.settings-action,.settings-preset,.tool-btn,.go-btn,.menu-btn,.home-shortcut-menu button,.weather-icon-btn){
+  background:rgba(255,255,255,.58)!important;
+  background-image:none!important;
+  backdrop-filter:blur(18px) saturate(1.16)!important;
+  -webkit-backdrop-filter:blur(18px) saturate(1.16)!important;
+}
+body.browser-shell.theme-fresh :is(button,.browser-mode-tab,.browser-mode-app-button,.browser-mode-address button,.browser-mode-menu button,.settings-action,.settings-preset,.tool-btn,.go-btn,.menu-btn,.home-shortcut-menu button,.weather-icon-btn):hover{
+  background:rgba(255,255,255,.72)!important;
+  background-image:none!important;
+}
+body.browser-shell.theme-fresh .browser-mode-menu{
+  overflow:hidden!important;
+  background:rgba(255,255,255,.56)!important;
+  background-image:none!important;
+  border:1px solid rgba(126,150,214,.42)!important;
+  border-radius:8px!important;
+  box-shadow:0 18px 48px rgba(35,96,122,.18),inset 0 1px 0 rgba(255,255,255,.74)!important;
+  backdrop-filter:blur(24px) saturate(1.18)!important;
+  -webkit-backdrop-filter:blur(24px) saturate(1.18)!important;
+}
+body.browser-shell.theme-fresh .browser-mode-menu button{
+  min-height:38px!important;
+  background:rgba(255,255,255,.22)!important;
+  background-image:none!important;
+  border:0!important;
+  border-radius:0!important;
+  box-shadow:none!important;
+}
+body.browser-shell.theme-fresh .browser-mode-menu button:hover{
+  background:rgba(255,255,255,.46)!important;
+}
+body.browser-shell.theme-fresh .browser-mode-menu hr{
+  border:0!important;
+  height:1px!important;
+  background:rgba(11,113,134,.22)!important;
+  margin:2px 0!important;
+}
+body.browser-shell.theme-fresh .home-shortcut-menu{
+  background:rgba(255,255,255,.62)!important;
+  background-image:none!important;
+  backdrop-filter:blur(22px) saturate(1.16)!important;
+  -webkit-backdrop-filter:blur(22px) saturate(1.16)!important;
+}
+body.browser-shell.theme-fresh .home-shortcut-menu button{
+  background:rgba(255,255,255,.18)!important;
+}
+body.browser-shell.theme-fresh .home-shortcut-menu button:hover{
+  background:rgba(255,255,255,.46)!important;
+}
+/* //fresh-icon-toolbar-final */
+body.browser-shell :is([data-browser-shell-back],.tool-btn[data-back])::before{
+  content:""!important;
+  width:23px!important;
+  height:23px!important;
+  background:currentColor!important;
+  -webkit-mask:url("../assets/icons/fresh-left-arrow.png") center/contain no-repeat!important;
+  mask:url("../assets/icons/fresh-left-arrow.png") center/contain no-repeat!important;
+  transform:translate(-50%,-50%)!important;
+}
+body.browser-shell :is([data-browser-shell-back],.tool-btn[data-back]):hover::before{
+  transform:translate(-54%,-50%)!important;
+}
+body.browser-shell.theme-fresh .browser-mode-address button{
+  background:transparent!important;
+  background-image:none!important;
+  border-color:transparent!important;
+  box-shadow:none!important;
+  color:#0b7186!important;
+  -webkit-text-fill-color:#0b7186!important;
+  transition:transform .34s cubic-bezier(.16,.86,.2,1),color .22s ease,background-color .22s ease!important;
+}
+body.browser-shell.theme-fresh .browser-mode-address button:hover{
+  background:rgba(255,255,255,.32)!important;
+  border-color:transparent!important;
+  box-shadow:none!important;
+  transform:translateY(-1px) scale(1.06)!important;
+}
+body.browser-shell.theme-fresh .browser-mode-address button:active{
+  transform:translateY(0) scale(.96)!important;
+}
+body.browser-shell.theme-fresh :is([data-browser-shell-back],[data-browser-shell-forward],[data-browser-shell-reload],[data-browser-shell-bookmark],[data-browser-shell-menu])::before,
+body.browser-shell.theme-fresh :is([data-browser-shell-back],[data-browser-shell-forward],[data-browser-shell-reload],[data-browser-shell-bookmark],[data-browser-shell-menu])::after{
+  color:#0b7186!important;
+  -webkit-text-fill-color:#0b7186!important;
+}
+body.browser-shell.theme-fresh [data-browser-shell-menu]::before{
+  background:#0b7186!important;
+  box-shadow:0 -6px 0 #0b7186,0 6px 0 #0b7186!important;
+}
+body.browser-shell.theme-fresh .browser-mode-weather{
+  position:relative!important;
+  display:grid!important;
+  place-items:center!important;
+  overflow:hidden!important;
+}
+body.browser-shell.theme-fresh .browser-mode-weather > .weather-cloud-icon,
+body.browser-shell.theme-fresh #weatherRestore > .weather-cloud-icon{
+  position:absolute!important;
+  left:50%!important;
+  top:50%!important;
+  width:23px!important;
+  height:23px!important;
+  margin:0!important;
+  transform:translate(-50%,-50%)!important;
+  background:#0b7186!important;
+  -webkit-mask:url("../assets/icons/cloud-weather.png") center/contain no-repeat!important;
+  mask:url("../assets/icons/cloud-weather.png") center/contain no-repeat!important;
+  filter:none!important;
+  z-index:5!important;
+}
+body.browser-shell.theme-fresh .home-shortcut .home-shortcut-menu-btn{
+  color:#0b7186!important;
+  -webkit-text-fill-color:#0b7186!important;
+  transition:transform .28s cubic-bezier(.16,.86,.2,1),opacity .2s ease!important;
+}
+body.browser-shell.theme-fresh .home-shortcut .home-shortcut-menu-btn:hover{
+  transform:scale(1.12)!important;
+}
+body.browser-shell.theme-fresh .home-shortcut .home-shortcut-menu-btn::before{
+  background:#0b7186!important;
+  box-shadow:0 -6px 0 #0b7186,0 6px 0 #0b7186!important;
+}
+body.browser-shell.theme-fresh .browser-mode-menu{
+  padding:6px!important;
+  background:rgba(255,255,255,.48)!important;
+  border:1px solid rgba(126,150,214,.32)!important;
+  border-radius:10px!important;
+  box-shadow:0 22px 56px rgba(35,96,122,.16),inset 0 1px 0 rgba(255,255,255,.68)!important;
+}
+body.browser-shell.theme-fresh .browser-mode-menu button{
+  min-height:36px!important;
+  padding:0 12px!important;
+  border-radius:7px!important;
+  background:transparent!important;
+  transition:background-color .24s ease,transform .28s cubic-bezier(.16,.86,.2,1),color .2s ease!important;
+}
+body.browser-shell.theme-fresh .browser-mode-menu button:hover{
+  background:rgba(255,255,255,.42)!important;
+  transform:translateX(2px)!important;
+}
+body.browser-shell.theme-fresh .home-shortcut-menu{
+  padding:5px!important;
+  border-radius:10px!important;
+  background:rgba(255,255,255,.50)!important;
+  border-color:rgba(126,150,214,.30)!important;
+}
+body.browser-shell.theme-fresh .home-shortcut-menu button{
+  border-radius:7px!important;
+  background:transparent!important;
+  transition:background-color .22s ease,transform .26s cubic-bezier(.16,.86,.2,1)!important;
+}
+body.browser-shell.theme-fresh .home-shortcut-menu button:hover{
+  background:rgba(255,255,255,.44)!important;
+  transform:translateX(2px)!important;
+}
+/* //fresh-shortcut-single-box-final */
+body.browser-shell.theme-fresh .home-shortcut .home-shortcut-menu-btn{
+  background:transparent!important;
+  background-image:none!important;
+  border:0!important;
+  border-radius:0!important;
+  box-shadow:none!important;
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+  width:24px!important;
+  height:32px!important;
+  top:-3px!important;
+  right:1px!important;
+  color:#0b7186!important;
+  -webkit-text-fill-color:#0b7186!important;
+}
+body.browser-shell.theme-fresh .home-shortcut .home-shortcut-menu-btn:hover{
+  background:transparent!important;
+  box-shadow:none!important;
+  transform:scale(1.08)!important;
+}
+body.browser-shell.theme-fresh .home-shortcut .home-shortcut-menu-btn::before{
+  width:3.8px!important;
+  height:3.8px!important;
+  background:#0b7186!important;
+  box-shadow:0 -6.5px 0 #0b7186,0 6.5px 0 #0b7186!important;
+}
+body.browser-shell.theme-fresh .home-shortcut-add b{
+  color:#0b7186!important;
+  -webkit-text-fill-color:#0b7186!important;
+  text-shadow:none!important;
+}
+body.browser-shell.theme-fresh :is([data-browser-shell-back],.tool-btn[data-back])::before{
+  width:24px!important;
+  height:24px!important;
+  background:#0b7186!important;
+  -webkit-mask:url("../assets/icons/fresh-left-arrow.png") center/contain no-repeat!important;
+  mask:url("../assets/icons/fresh-left-arrow.png") center/contain no-repeat!important;
+}
+/* //fresh-hover-smooth-final */
+body.browser-shell.theme-fresh :is(
+  button,
+  .browser-mode-tab,
+  .browser-mode-app-button,
+  .browser-mode-address button,
+  .browser-mode-menu button,
+  .settings-action,
+  .settings-preset,
+  .tool-btn,
+  .go-btn,
+  .menu-btn,
+  .home-shortcut,
+  .home-shortcut-add,
+  .home-shortcut-menu button,
+  .home-shortcut-menu-btn,
+  .quick-tile,
+  .quick-icon,
+  .weather-icon-btn
+){
+  transition:
+    transform .68s cubic-bezier(.18,.82,.2,1),
+    background-color .62s ease,
+    border-color .62s ease,
+    box-shadow .68s ease,
+    color .55s ease,
+    opacity .55s ease,
+    filter .62s ease!important;
+}
+body.browser-shell.theme-fresh :is(
+  [data-browser-shell-back],
+  [data-browser-shell-forward],
+  [data-browser-shell-reload],
+  [data-browser-shell-bookmark],
+  [data-browser-shell-menu],
+  .tool-btn[data-back],
+  .tool-btn[data-forward],
+  .tool-btn[data-reload],
+  .home-shortcut-menu-btn
+)::before,
+body.browser-shell.theme-fresh :is(
+  [data-browser-shell-back],
+  [data-browser-shell-forward],
+  [data-browser-shell-reload],
+  [data-browser-shell-bookmark],
+  [data-browser-shell-menu],
+  .tool-btn[data-back],
+  .tool-btn[data-forward],
+  .tool-btn[data-reload],
+  .home-shortcut-menu-btn
+)::after{
+  transition:
+    transform .72s cubic-bezier(.18,.82,.2,1),
+    background-color .62s ease,
+    color .62s ease,
+    box-shadow .62s ease!important;
+}
+body.browser-shell.theme-fresh .browser-mode-address button:hover{
+  transform:translateY(-1px) scale(1.04)!important;
+}
+body.browser-shell.theme-fresh .home-shortcut .home-shortcut-menu-btn:hover{
+  transform:scale(1.08)!important;
+}
+body.browser-shell.theme-fresh .browser-mode-menu button:hover,
+body.browser-shell.theme-fresh .home-shortcut-menu button:hover{
+  transform:translateX(1px)!important;
+}
+/* //fresh-shortcut-one-border-final */
+body.browser-shell.theme-fresh .browser-home-normal :is(.home-shortcut,.home-shortcut-add,.quick-tile){
+  border:1px solid rgba(126,150,214,.46)!important;
+  border-radius:14px!important;
+}
+body.browser-shell.theme-fresh .browser-home-normal :is(.home-shortcut,.home-shortcut-add,.quick-tile) :is(.quick-icon,.home-shortcut-open){
+  background:transparent!important;
+  background-image:none!important;
+  border:0!important;
+  box-shadow:none!important;
+  outline:0!important;
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+}
+body.browser-shell.theme-fresh .browser-home-normal :is(.home-shortcut,.home-shortcut-add,.quick-tile):hover .quick-icon,
+body.browser-shell.theme-fresh .browser-home-normal .home-shortcut:hover .home-shortcut-open{
+  background:transparent!important;
+  background-image:none!important;
+  border:0!important;
+  box-shadow:none!important;
+}
+/* //fresh-logo-aqua-glow-final */
+body.browser-shell.theme-fresh .browser-shell-logo{
+  filter:
+    brightness(0) saturate(100%)
+    invert(34%) sepia(72%) saturate(870%) hue-rotate(151deg) brightness(88%) contrast(96%)
+    drop-shadow(0 0 3px rgba(11,113,134,.92))
+    drop-shadow(0 0 14px rgba(11,113,134,.78))
+    drop-shadow(0 0 32px rgba(11,113,134,.46))!important;
+  opacity:.98!important;
+}
+/* //fresh-electric-aqua-final */
+body.theme-fresh{
+  --fresh-electric:#00f5d4;
+  --fresh-electric-deep:#00bfae;
+  --fresh-electric-glow:rgba(0,245,212,.76);
+  --theme-strong:var(--fresh-electric)!important;
+  --theme-text-gradient:none!important;
+  --accent:var(--fresh-electric)!important;
+}
+body.browser-shell.theme-fresh :is(
+  h1,h2,h3,p,span,label,strong,b,
+  button,
+  .browser-mode-tab,
+  .browser-mode-app-button,
+  .browser-mode-address button,
+  .browser-mode-menu button,
+  .settings-action,
+  .settings-preset,
+  .settings-input,
+  .settings-select,
+  .browser-mode-url,
+  .urlbar,
+  .tool-btn,
+  .go-btn,
+  .menu-btn,
+  .home-shortcut-menu button,
+  .home-shortcut span,
+  .home-shortcut-add span,
+  .home-shortcut-add b,
+  .quick-tile span,
+  .browser-shell-clock,
+  .weather-icon-btn
+){
+  color:var(--fresh-electric)!important;
+  -webkit-text-fill-color:var(--fresh-electric)!important;
+  text-shadow:0 0 8px rgba(0,245,212,.34),0 0 18px rgba(0,245,212,.20)!important;
+}
+body.browser-shell.theme-fresh :is(
+  button,
+  .browser-mode-tab,
+  .browser-mode-app-button,
+  .browser-mode-address button,
+  .tool-btn,
+  .go-btn,
+  .menu-btn,
+  .home-shortcut-menu button,
+  .weather-icon-btn
+):hover{
+  color:#8ffff0!important;
+  -webkit-text-fill-color:#8ffff0!important;
+}
+body.browser-shell.theme-fresh :is(
+  [data-browser-shell-back],
+  [data-browser-shell-forward],
+  [data-browser-shell-reload],
+  [data-browser-shell-bookmark],
+  [data-browser-shell-menu],
+  .tool-btn[data-back],
+  .tool-btn[data-forward],
+  .tool-btn[data-reload],
+  .home-shortcut-menu-btn
+)::before,
+body.browser-shell.theme-fresh :is(
+  [data-browser-shell-back],
+  [data-browser-shell-forward],
+  [data-browser-shell-reload],
+  [data-browser-shell-bookmark],
+  [data-browser-shell-menu],
+  .tool-btn[data-back],
+  .tool-btn[data-forward],
+  .tool-btn[data-reload],
+  .home-shortcut-menu-btn
+)::after,
+body.browser-shell.theme-fresh .browser-mode-weather > .weather-cloud-icon,
+body.browser-shell.theme-fresh #weatherRestore > .weather-cloud-icon{
+  background:var(--fresh-electric)!important;
+  color:var(--fresh-electric)!important;
+  -webkit-text-fill-color:var(--fresh-electric)!important;
+  box-shadow:0 0 10px rgba(0,245,212,.38)!important;
+}
+body.browser-shell.theme-fresh .home-shortcut .home-shortcut-menu-btn{
+  color:var(--fresh-electric)!important;
+  -webkit-text-fill-color:var(--fresh-electric)!important;
+}
+body.browser-shell.theme-fresh .home-shortcut .home-shortcut-menu-btn::before{
+  background:var(--fresh-electric)!important;
+  box-shadow:0 -6.5px 0 var(--fresh-electric),0 6.5px 0 var(--fresh-electric),0 0 10px rgba(0,245,212,.42)!important;
+}
+body.browser-shell.theme-fresh .browser-shell-logo{
+  filter:
+    brightness(0) saturate(100%)
+    invert(82%) sepia(85%) saturate(1229%) hue-rotate(112deg) brightness(104%) contrast(103%)
+    drop-shadow(0 0 5px rgba(0,245,212,1))
+    drop-shadow(0 0 15px rgba(0,245,212,.92))
+    drop-shadow(0 0 34px rgba(0,245,212,.72))
+    drop-shadow(0 0 58px rgba(0,245,212,.48))!important;
+  opacity:1!important;
+}
+/* //fresh-smooth-borderless-dots-final */
+body.browser-shell.theme-fresh :is(
+  button,
+  .browser-mode-tab,
+  .browser-mode-app-button,
+  .browser-mode-address button,
+  .browser-mode-menu button,
+  .settings-action,
+  .settings-preset,
+  .tool-btn,
+  .go-btn,
+  .menu-btn,
+  .quick-tile,
+  .home-shortcut,
+  .home-shortcut-add,
+  .home-shortcut-menu button,
+  .weather-icon-btn
+){
+  transition:
+    transform .92s cubic-bezier(.16,.84,.18,1),
+    background-color .78s ease,
+    border-color .78s ease,
+    box-shadow .86s ease,
+    color .72s ease,
+    filter .82s ease,
+    opacity .72s ease!important;
+}
+body.browser-shell.theme-fresh :is(
+  button,
+  .browser-mode-tab,
+  .browser-mode-app-button,
+  .browser-mode-address button,
+  .tool-btn,
+  .go-btn,
+  .menu-btn,
+  .weather-icon-btn
+):hover{
+  transform:translateY(-1px) scale(1.018)!important;
+}
+body.browser-shell.theme-fresh .browser-home-normal :is(.quick-tile,.home-shortcut,.home-shortcut-add):hover{
+  transform:translateY(-2px) scale(1.018)!important;
+}
+body.browser-shell.theme-fresh .home-shortcut .home-shortcut-menu-btn,
+body.browser-shell.theme-fresh .home-shortcut .home-shortcut-menu-btn:hover,
+body.browser-shell.theme-fresh .home-shortcut.menu-open .home-shortcut-menu-btn{
+  background:transparent!important;
+  background-color:transparent!important;
+  background-image:none!important;
+  border:0!important;
+  box-shadow:none!important;
+  outline:0!important;
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+  transform:none!important;
+}
+body.browser-shell.theme-fresh .home-shortcut .home-shortcut-menu-btn::before{
+  transition:transform .92s cubic-bezier(.16,.84,.18,1),background-color .78s ease,box-shadow .78s ease!important;
+}
+body.browser-shell.theme-fresh .home-shortcut .home-shortcut-menu-btn:hover::before{
+  transform:translate(-50%,-50%) scale(1.08)!important;
+}
+/* //fresh-toolbar-icon-repair-final */
+body.browser-shell.theme-fresh :is(
+  .top-os,
+  .browser-tabs,
+  .browser-tools,
+  .browser-mode-tab,
+  .browser-mode-app-button,
+  .browser-mode-address button,
+  .browser-mode-url,
+  .browser-mode-menu,
+  .browser-bookmark-panel,
+  .settings-panel,
+  .settings-card,
+  .settings-app,
+  .settings-main,
+  .settings-side,
+  .weather-panel,
+  .weather-restore,
+  .home-shortcut,
+  .home-shortcut-add,
+  .home-shortcut-menu
+){
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+}
+body.browser-shell.theme-fresh :is(
+  [data-browser-shell-back],
+  [data-browser-shell-forward],
+  [data-browser-shell-reload],
+  [data-browser-shell-bookmark],
+  [data-browser-shell-menu]
+){
+  color:transparent!important;
+  -webkit-text-fill-color:transparent!important;
+  font-size:0!important;
+  text-indent:0!important;
+}
+body.browser-shell.theme-fresh :is(
+  [data-browser-shell-back],
+  [data-browser-shell-forward],
+  [data-browser-shell-reload],
+  [data-browser-shell-bookmark],
+  [data-browser-shell-menu]
+)::after{
+  content:none!important;
+  display:none!important;
+}
+body.browser-shell.theme-fresh :is(
+  [data-browser-shell-forward],
+  [data-browser-shell-reload],
+  [data-browser-shell-bookmark]
+)::before{
+  position:absolute!important;
+  left:50%!important;
+  top:50%!important;
+  display:grid!important;
+  place-items:center!important;
+  width:auto!important;
+  height:auto!important;
+  background:transparent!important;
+  background-image:none!important;
+  border:0!important;
+  border-radius:0!important;
+  box-shadow:none!important;
+  color:var(--fresh-electric)!important;
+  -webkit-text-fill-color:var(--fresh-electric)!important;
+  font-family:Arial,Helvetica,sans-serif!important;
+  font-weight:800!important;
+  line-height:1!important;
+  text-indent:0!important;
+  text-shadow:0 0 9px rgba(0,245,212,.46),0 0 18px rgba(0,245,212,.24)!important;
+  transform:translate(-50%,-50%)!important;
+}
+body.browser-shell.theme-fresh [data-browser-shell-forward]::before{
+  content:"\279C"!important;
+  font-size:24px!important;
+}
+body.browser-shell.theme-fresh [data-browser-shell-reload]::before{
+  content:"\1F5D8"!important;
+  font-size:22px!important;
+}
+body.browser-shell.theme-fresh [data-browser-shell-bookmark]::before{
+  content:"\2606"!important;
+  font-size:22px!important;
+}
+body.browser-shell.theme-fresh [data-browser-shell-bookmark].saved::before{
+  content:"\2605"!important;
+}
+body.browser-shell.theme-fresh :is([data-browser-shell-back],.tool-btn[data-back])::before{
+  content:""!important;
+  position:absolute!important;
+  left:50%!important;
+  top:50%!important;
+  display:block!important;
+  width:24px!important;
+  height:24px!important;
+  background:var(--fresh-electric)!important;
+  box-shadow:0 0 10px rgba(0,245,212,.38)!important;
+  -webkit-mask:url("../assets/icons/fresh-left-arrow.png") center/contain no-repeat!important;
+  mask:url("../assets/icons/fresh-left-arrow.png") center/contain no-repeat!important;
+  transform:translate(-50%,-50%)!important;
+}
+body.browser-shell.theme-fresh [data-browser-shell-menu]::before,
+body.browser-shell.theme-fresh .home-shortcut .home-shortcut-menu-btn::before{
+  content:""!important;
+  position:absolute!important;
+  left:50%!important;
+  top:50%!important;
+  display:block!important;
+  width:3.6px!important;
+  height:3.6px!important;
+  border-radius:999px!important;
+  background:var(--fresh-electric)!important;
+  border:0!important;
+  box-shadow:0 -6.5px 0 var(--fresh-electric),0 6.5px 0 var(--fresh-electric),0 0 10px rgba(0,245,212,.36)!important;
+  transform:translate(-50%,-50%)!important;
+}
+body.browser-shell.theme-fresh :is(
+  [data-browser-shell-forward],
+  [data-browser-shell-reload],
+  [data-browser-shell-bookmark],
+  [data-browser-shell-menu],
+  .home-shortcut .home-shortcut-menu-btn
+):hover::before{
+  transform:translate(-50%,-50%) scale(1.08)!important;
+}
+body.browser-shell.theme-fresh [data-browser-shell-back]:hover::before{
+  transform:translate(-54%,-50%) scale(1.04)!important;
+}
+body.browser-shell.theme-fresh [data-browser-shell-forward]:hover::before{
+  transform:translate(-46%,-50%) scale(1.04)!important;
+}
+body.browser-shell.theme-fresh [data-browser-shell-reload]:hover::before{
+  transform:translate(-50%,-50%) rotate(18deg) scale(1.04)!important;
+}
+/* //fresh-dot-border-erasure-final */
+body.browser-shell.theme-fresh .browser-home-normal .home-shortcut .home-shortcut-menu-btn,
+body.browser-shell.theme-fresh .browser-home-normal .home-shortcut .home-shortcut-menu-btn:hover,
+body.browser-shell.theme-fresh .browser-home-normal .home-shortcut.menu-open .home-shortcut-menu-btn{
+  appearance:none!important;
+  -webkit-appearance:none!important;
+  background:transparent!important;
+  background-color:transparent!important;
+  background-image:none!important;
+  border:0!important;
+  border-color:transparent!important;
+  border-radius:0!important;
+  box-shadow:none!important;
+  filter:none!important;
+  outline:0!important;
+  outline-color:transparent!important;
+  text-shadow:none!important;
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+}
+body.browser-shell.theme-fresh .browser-home-normal .home-shortcut .home-shortcut-menu-btn::after{
+  content:none!important;
+  display:none!important;
+  background:none!important;
+  border:0!important;
+  box-shadow:none!important;
+}
+body.browser-shell.theme-fresh .browser-home-normal .home-shortcut .home-shortcut-menu-btn:focus,
+body.browser-shell.theme-fresh .browser-home-normal .home-shortcut .home-shortcut-menu-btn:focus-visible{
+  outline:0!important;
+  box-shadow:none!important;
+}
+body.browser-shell .browser-mode-weather,
+body.browser-shell #weatherRestore{
+  position:relative!important;
+  display:grid!important;
+  place-items:center!important;
+  color:#f8fafc!important;
+  -webkit-text-fill-color:#f8fafc!important;
+  overflow:visible!important;
+}
+body.browser-shell.theme-ruby .browser-mode-weather,
+body.browser-shell.theme-ruby #weatherRestore,
+body.browser-shell.theme-emerald .browser-mode-weather,
+body.browser-shell.theme-emerald #weatherRestore,
+body.browser-shell.theme-sakura .browser-mode-weather,
+body.browser-shell.theme-sakura #weatherRestore{
+  color:var(--theme-border,#f8fafc)!important;
+  -webkit-text-fill-color:var(--theme-border,#f8fafc)!important;
+}
+body.browser-shell.theme-fresh .browser-mode-weather,
+body.browser-shell.theme-fresh #weatherRestore{
+  color:var(--fresh-electric,#00f5d4)!important;
+  -webkit-text-fill-color:var(--fresh-electric,#00f5d4)!important;
+}
+body.browser-shell .weather-cloud-icon,
+body.browser-shell .browser-mode-weather > .weather-cloud-icon,
+body.browser-shell #weatherRestore > .weather-cloud-icon{
+  position:absolute!important;
+  left:50%!important;
+  top:50%!important;
+  display:block!important;
+  width:22px!important;
+  height:22px!important;
+  min-width:22px!important;
+  min-height:22px!important;
+  margin:0!important;
+  opacity:1!important;
+  visibility:visible!important;
+  pointer-events:none!important;
+  background:currentColor!important;
+  background-image:none!important;
+  -webkit-mask:url("../assets/icons/cloud-weather.png") center/contain no-repeat!important;
+  mask:url("../assets/icons/cloud-weather.png") center/contain no-repeat!important;
+  filter:none!important;
+  transform:translate(-50%,-50%)!important;
+  z-index:5!important;
+}
+body.browser-shell .weather-cloud-icon::before,
+body.browser-shell .weather-cloud-icon::after{
+  content:none!important;
+  display:none!important;
+}
+/* //fresh-shortcut-and-player-final */
+body.browser-shell.theme-fresh .browser-home-normal .home-shortcut .home-shortcut-menu-btn{
+  position:absolute!important;
+  right:3px!important;
+  top:1px!important;
+  z-index:20!important;
+  width:13px!important;
+  min-width:13px!important;
+  max-width:13px!important;
+  height:34px!important;
+  min-height:34px!important;
+  max-height:34px!important;
+  padding:0!important;
+  margin:0!important;
+  appearance:none!important;
+  -webkit-appearance:none!important;
+  background:none!important;
+  background-color:transparent!important;
+  background-image:none!important;
+  border:0!important;
+  border-width:0!important;
+  border-color:transparent!important;
+  border-radius:0!important;
+  box-shadow:none!important;
+  filter:none!important;
+  outline:0!important;
+  outline-offset:0!important;
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+  transform:none!important;
+}
+body.browser-shell.theme-fresh .browser-home-normal .home-shortcut .home-shortcut-menu-btn::before{
+  width:3.4px!important;
+  height:3.4px!important;
+  border:0!important;
+  border-radius:999px!important;
+  background:var(--fresh-electric,#00f5d4)!important;
+  box-shadow:0 -6.2px 0 var(--fresh-electric,#00f5d4),0 6.2px 0 var(--fresh-electric,#00f5d4)!important;
+}
+body.browser-shell.theme-fresh .browser-home-normal .home-shortcut .home-shortcut-menu-btn::after{
+  content:none!important;
+  display:none!important;
+}
+body.browser-shell.theme-fresh .browser-home-normal :is(.home-shortcut,.home-shortcut-add){
+  overflow:visible!important;
+}
+body.browser-shell.theme-fresh .browser-home-normal .home-shortcut .home-shortcut-open{
+  position:relative!important;
+  z-index:1!important;
+  pointer-events:auto!important;
+}
+/* //fresh-final-button-repair */
+body.browser-shell.theme-fresh :is(
+  button,
+  .browser-mode-tab,
+  .browser-mode-app-button,
+  .browser-mode-address button,
+  .browser-mode-menu button,
+  .settings-action,
+  .settings-preset,
+  .tool-btn,
+  .go-btn,
+  .menu-btn,
+  .quick-tile,
+  .home-shortcut,
+  .home-shortcut-add,
+  .home-shortcut-menu button,
+  .weather-icon-btn
+){
+  transition:
+    transform 1.35s cubic-bezier(.12,.82,.14,1),
+    background-color 1.05s ease,
+    border-color 1.05s ease,
+    box-shadow 1.15s ease,
+    color .95s ease,
+    filter 1.05s ease,
+    opacity .95s ease!important;
+}
+body.browser-shell.theme-fresh .browser-mode-address button{
+  background:rgba(255,255,255,.58)!important;
+  background-color:rgba(255,255,255,.58)!important;
+  background-image:none!important;
+  border:1px solid rgba(126,150,214,.44)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.72),0 8px 20px rgba(35,96,122,.10)!important;
+  backdrop-filter:blur(30px) saturate(1.2)!important;
+  -webkit-backdrop-filter:blur(30px) saturate(1.2)!important;
+  color:transparent!important;
+  -webkit-text-fill-color:transparent!important;
+  font-size:0!important;
+  text-indent:0!important;
+  transform:none!important;
+}
+body.browser-shell.theme-fresh .browser-mode-address button:hover{
+  background:rgba(255,255,255,.68)!important;
+  background-color:rgba(255,255,255,.68)!important;
+  background-image:none!important;
+  border-color:rgba(0,191,174,.50)!important;
+  transform:translateY(-1px) scale(1.01)!important;
+}
+body.browser-shell.theme-fresh .browser-mode-address button::after{
+  content:none!important;
+  display:none!important;
+}
+body.browser-shell.theme-fresh :is(
+  [data-browser-shell-forward],
+  [data-browser-shell-reload],
+  [data-browser-shell-bookmark]
+)::before{
+  position:absolute!important;
+  left:50%!important;
+  top:50%!important;
+  display:grid!important;
+  place-items:center!important;
+  width:auto!important;
+  height:auto!important;
+  min-width:0!important;
+  min-height:0!important;
+  padding:0!important;
+  margin:0!important;
+  background:transparent!important;
+  background-color:transparent!important;
+  background-image:none!important;
+  -webkit-mask:none!important;
+  mask:none!important;
+  border:0!important;
+  border-radius:0!important;
+  box-shadow:none!important;
+  color:var(--fresh-electric,#00f5d4)!important;
+  -webkit-text-fill-color:var(--fresh-electric,#00f5d4)!important;
+  font-family:Arial,Helvetica,sans-serif!important;
+  font-weight:900!important;
+  line-height:1!important;
+  text-indent:0!important;
+  text-shadow:0 0 8px rgba(0,245,212,.38)!important;
+  transform:translate(-50%,-50%)!important;
+}
+body.browser-shell.theme-fresh [data-browser-shell-forward]::before{
+  content:"\279C"!important;
+  font-size:23px!important;
+}
+body.browser-shell.theme-fresh [data-browser-shell-reload]::before{
+  content:"\27F3"!important;
+  font-size:21px!important;
+}
+body.browser-shell.theme-fresh [data-browser-shell-bookmark]::before{
+  content:"\2606"!important;
+  font-size:21px!important;
+}
+body.browser-shell.theme-fresh [data-browser-shell-bookmark].saved::before{
+  content:"\2605"!important;
+}
+body.browser-shell.theme-fresh :is([data-browser-shell-back],.tool-btn[data-back])::before{
+  content:""!important;
+  position:absolute!important;
+  left:50%!important;
+  top:50%!important;
+  display:block!important;
+  width:24px!important;
+  height:24px!important;
+  min-width:24px!important;
+  min-height:24px!important;
+  background:var(--fresh-electric,#00f5d4)!important;
+  background-color:var(--fresh-electric,#00f5d4)!important;
+  background-image:none!important;
+  -webkit-mask:url("../assets/icons/fresh-left-arrow.png") center/contain no-repeat!important;
+  mask:url("../assets/icons/fresh-left-arrow.png") center/contain no-repeat!important;
+  border:0!important;
+  border-radius:0!important;
+  box-shadow:0 0 8px rgba(0,245,212,.28)!important;
+  transform:translate(-50%,-50%)!important;
+}
+body.browser-shell.theme-fresh [data-browser-shell-menu]::before{
+  content:""!important;
+  position:absolute!important;
+  left:50%!important;
+  top:50%!important;
+  width:3.5px!important;
+  height:3.5px!important;
+  min-width:3.5px!important;
+  min-height:3.5px!important;
+  background:var(--fresh-electric,#00f5d4)!important;
+  background-color:var(--fresh-electric,#00f5d4)!important;
+  background-image:none!important;
+  -webkit-mask:none!important;
+  mask:none!important;
+  border:0!important;
+  border-radius:999px!important;
+  box-shadow:0 -6.5px 0 var(--fresh-electric,#00f5d4),0 6.5px 0 var(--fresh-electric,#00f5d4)!important;
+  transform:translate(-50%,-50%)!important;
+}
+body.browser-shell.theme-fresh .browser-mode-address button:hover::before,
+body.browser-shell.theme-fresh [data-browser-shell-menu]:hover::before{
+  transform:translate(-50%,-50%) scale(1.045)!important;
+}
+body.browser-shell.theme-fresh [data-browser-shell-reload]:hover::before{
+  transform:translate(-50%,-50%) rotate(14deg) scale(1.035)!important;
+}
+body.browser-shell.theme-fresh .browser-home-normal .home-shortcut .home-shortcut-menu-btn{
+  right:8px!important;
+  top:5px!important;
+  width:10px!important;
+  min-width:10px!important;
+  max-width:10px!important;
+  height:26px!important;
+  min-height:26px!important;
+  max-height:26px!important;
+  background:transparent!important;
+  background-color:transparent!important;
+  background-image:none!important;
+  border:0!important;
+  border-radius:0!important;
+  box-shadow:none!important;
+  outline:0!important;
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+}
+body.browser-shell.theme-fresh .browser-home-normal .home-shortcut .home-shortcut-menu-btn::before{
+  width:3.2px!important;
+  height:3.2px!important;
+  min-width:3.2px!important;
+  min-height:3.2px!important;
+  background:var(--fresh-electric,#00f5d4)!important;
+  border:0!important;
+  border-radius:999px!important;
+  box-shadow:0 -5.8px 0 var(--fresh-electric,#00f5d4),0 5.8px 0 var(--fresh-electric,#00f5d4)!important;
+  transform:translate(-50%,-50%)!important;
+}
+body.browser-shell.theme-fresh .browser-home-normal .home-shortcut .home-shortcut-menu-btn:hover{
+  transform:none!important;
+}
+body.browser-shell.theme-fresh .browser-home-normal .home-shortcut .home-shortcut-menu-btn:hover::before{
+  transform:translate(-50%,-50%) scale(1.045)!important;
+}
+body.browser-shell.theme-fresh .browser-home-normal :is(.quick-tile,.home-shortcut,.home-shortcut-add):hover{
+  transform:translateY(-1px) scale(1.01)!important;
+}
+/* //fresh-card-settings-tone-final */
+body.browser-shell.theme-fresh :is(
+  .browser-mode-menu,
+  .browser-bookmark-panel,
+  .browser-shell-settings-panel,
+  .settings-panel,
+  .settings-app,
+  .settings-main,
+  .settings-side,
+  .settings-card,
+  .settings-block,
+  .browser-home-normal .quick-tile,
+  .browser-home-normal .home-shortcut,
+  .browser-home-normal .home-shortcut-add,
+  .weather-panel,
+  .weather-restore
+){
+  background:rgba(232,245,246,.62)!important;
+  background-color:rgba(232,245,246,.62)!important;
+  background-image:linear-gradient(135deg,rgba(255,255,255,.22),rgba(184,219,224,.20))!important;
+  border-color:rgba(86,142,178,.42)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.58),0 14px 34px rgba(30,74,92,.16)!important;
+  backdrop-filter:blur(38px) saturate(1.22)!important;
+  -webkit-backdrop-filter:blur(38px) saturate(1.22)!important;
+}
+body.browser-shell.theme-fresh .browser-mode-menu button,
+body.browser-shell.theme-fresh .home-shortcut-menu button,
+body.browser-shell.theme-fresh .browser-shell-settings-panel :is(button,.settings-action,input,select,textarea,.settings-input,.settings-select,.panic-key-display){
+  background:rgba(232,245,246,.54)!important;
+  background-color:rgba(232,245,246,.54)!important;
+  background-image:none!important;
+  border-color:rgba(86,142,178,.38)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.58),0 8px 18px rgba(30,74,92,.10)!important;
+  backdrop-filter:blur(28px) saturate(1.16)!important;
+  -webkit-backdrop-filter:blur(28px) saturate(1.16)!important;
+}
+body.browser-shell.theme-fresh .browser-mode-menu button:hover,
+body.browser-shell.theme-fresh .home-shortcut-menu button:hover,
+body.browser-shell.theme-fresh .browser-shell-settings-panel :is(button,.settings-action):hover{
+  background:rgba(220,238,240,.68)!important;
+  background-color:rgba(220,238,240,.68)!important;
+  border-color:rgba(0,191,174,.50)!important;
+}
+body.browser-shell.theme-fresh .browser-shell-settings-panel .browser-shell-settings-close{
+  background:rgba(232,245,246,.58)!important;
+  background-color:rgba(232,245,246,.58)!important;
+  background-image:none!important;
+  border:1px solid rgba(126,150,214,.48)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.68),0 8px 18px rgba(30,74,92,.14)!important;
+  color:transparent!important;
+  -webkit-text-fill-color:transparent!important;
+}
+body.browser-shell.theme-fresh .browser-shell-settings-panel .browser-shell-settings-close::before{
+  color:var(--fresh-electric,#00f5d4)!important;
+  -webkit-text-fill-color:var(--fresh-electric,#00f5d4)!important;
+  text-shadow:0 0 8px rgba(0,245,212,.42),0 0 18px rgba(0,245,212,.22)!important;
+}
+body.browser-shell.theme-fresh .browser-shell-settings-panel .browser-shell-settings-close:hover{
+  background:rgba(220,238,240,.74)!important;
+  background-color:rgba(220,238,240,.74)!important;
+  border-color:rgba(0,191,174,.54)!important;
+}
+/* //fresh-real-icons-no-borders-final */
+body.browser-shell.theme-fresh .browser-mode-address button::before,
+body.browser-shell.theme-fresh .browser-mode-address button::after{
+  content:none!important;
+  display:none!important;
+  width:0!important;
+  height:0!important;
+  background:none!important;
+  box-shadow:none!important;
+  -webkit-mask:none!important;
+  mask:none!important;
+}
+body.browser-shell.theme-fresh .browser-mode-address button{
+  color:var(--fresh-electric,#00f5d4)!important;
+  -webkit-text-fill-color:var(--fresh-electric,#00f5d4)!important;
+  font-size:0!important;
+  text-indent:0!important;
+  overflow:hidden!important;
+}
+body.browser-shell.theme-fresh .fresh-real-icon{
+  display:grid!important;
+  place-items:center!important;
+  width:100%!important;
+  height:100%!important;
+  color:var(--fresh-electric,#00f5d4)!important;
+  -webkit-text-fill-color:var(--fresh-electric,#00f5d4)!important;
+  font:900 23px/1 Arial,Helvetica,sans-serif!important;
+  text-indent:0!important;
+  text-shadow:0 0 9px rgba(0,245,212,.38),0 0 18px rgba(0,245,212,.18)!important;
+  pointer-events:none!important;
+  transition:transform 1.35s cubic-bezier(.12,.82,.14,1),filter 1.05s ease!important;
+}
+body.browser-shell.theme-fresh .fresh-real-back{
+  width:24px!important;
+  height:24px!important;
+  margin:auto!important;
+  background:var(--fresh-electric,#00f5d4)!important;
+  -webkit-mask:url("../assets/icons/fresh-left-arrow.png") center/contain no-repeat!important;
+  mask:url("../assets/icons/fresh-left-arrow.png") center/contain no-repeat!important;
+  filter:drop-shadow(0 0 8px rgba(0,245,212,.32))!important;
+}
+body.browser-shell.theme-fresh .browser-mode-address button:hover .fresh-real-icon{
+  transform:scale(1.045)!important;
+}
+body.browser-shell.theme-fresh [data-browser-shell-reload]:hover .fresh-real-icon{
+  transform:rotate(14deg) scale(1.035)!important;
+}
+body.browser-shell.theme-fresh .browser-home-normal :is(.quick-tile,.home-shortcut,.home-shortcut-add),
+body.browser-shell.theme-fresh .browser-home-normal :is(.quick-tile,.home-shortcut,.home-shortcut-add):hover{
+  border:0!important;
+  border-color:transparent!important;
+  outline:0!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.42),0 12px 28px rgba(30,74,92,.12)!important;
+}
+body.browser-shell.theme-fresh .browser-home-normal .home-shortcut .home-shortcut-menu-btn,
+body.browser-shell.theme-fresh .browser-home-normal .home-shortcut .home-shortcut-menu-btn:hover,
+body.browser-shell.theme-fresh .browser-home-normal .home-shortcut.menu-open .home-shortcut-menu-btn{
+  border:0!important;
+  border-color:transparent!important;
+  outline:0!important;
+  box-shadow:none!important;
+  background:transparent!important;
+  background-color:transparent!important;
+  background-image:none!important;
+}
+/* //fresh-final-render-fix */
+body.browser-shell.theme-fresh .browser-mode-address button,
+body.browser-shell.theme-fresh .browser-mode-address button:hover,
+body.browser-shell.theme-fresh .browser-mode-address button:focus,
+body.browser-shell.theme-fresh .browser-mode-address button:focus-visible{
+  border:0!important;
+  outline:0!important;
+  color:var(--fresh-electric,#00f5d4)!important;
+  -webkit-text-fill-color:var(--fresh-electric,#00f5d4)!important;
+  background:rgba(232,245,246,.58)!important;
+  background-color:rgba(232,245,246,.58)!important;
+  background-image:none!important;
+  box-shadow:none!important;
+  overflow:hidden!important;
+}
+body.browser-shell.theme-fresh .browser-mode-address button::before,
+body.browser-shell.theme-fresh .browser-mode-address button::after,
+body.browser-shell.theme-fresh .home-shortcut .home-shortcut-menu-btn::before,
+body.browser-shell.theme-fresh .home-shortcut .home-shortcut-menu-btn::after{
+  content:none!important;
+  display:none!important;
+}
+body.browser-shell.theme-fresh .fresh-real-icon,
+body.browser-shell.theme-fresh .shortcut-real-dots{
+  display:grid!important;
+  place-items:center!important;
+  width:100%!important;
+  height:100%!important;
+  min-width:0!important;
+  min-height:0!important;
+  color:var(--fresh-electric,#00f5d4)!important;
+  -webkit-text-fill-color:var(--fresh-electric,#00f5d4)!important;
+  font-size:0!important;
+  line-height:1!important;
+  text-indent:0!important;
+  text-shadow:0 0 10px rgba(0,245,212,.45),0 0 22px rgba(0,245,212,.24)!important;
+  filter:drop-shadow(0 0 8px rgba(0,245,212,.34))!important;
+  pointer-events:none!important;
+  transition:transform 1.25s cubic-bezier(.16,.86,.18,1),filter 1.25s ease!important;
+}
+body.browser-shell.theme-fresh [data-browser-shell-forward] .fresh-real-icon::before,
+body.browser-shell.theme-fresh [data-browser-shell-reload] .fresh-real-icon::before,
+body.browser-shell.theme-fresh [data-browser-shell-bookmark] .fresh-real-icon::before,
+body.browser-shell.theme-fresh [data-browser-shell-menu] .fresh-real-icon::before,
+body.browser-shell.theme-fresh .shortcut-real-dots::before{
+  display:grid!important;
+  place-items:center!important;
+  width:100%!important;
+  height:100%!important;
+  color:var(--fresh-electric,#00f5d4)!important;
+  -webkit-text-fill-color:var(--fresh-electric,#00f5d4)!important;
+  font:900 23px/1 Arial,Helvetica,sans-serif!important;
+  text-indent:0!important;
+}
+body.browser-shell.theme-fresh [data-browser-shell-forward] .fresh-real-icon::before{content:"\279C"!important}
+body.browser-shell.theme-fresh [data-browser-shell-reload] .fresh-real-icon::before{content:"\27F3"!important}
+body.browser-shell.theme-fresh [data-browser-shell-bookmark] .fresh-real-icon::before{content:"\2606"!important}
+body.browser-shell.theme-fresh [data-browser-shell-menu] .fresh-real-icon::before,
+body.browser-shell.theme-fresh .shortcut-real-dots::before{content:"\22EE"!important}
+body.browser-shell.theme-fresh .fresh-real-back{
+  width:24px!important;
+  height:24px!important;
+  margin:auto!important;
+  background:var(--fresh-electric,#00f5d4)!important;
+  -webkit-mask:url("../assets/icons/fresh-left-arrow.png") center/contain no-repeat!important;
+  mask:url("../assets/icons/fresh-left-arrow.png") center/contain no-repeat!important;
+}
+body.browser-shell.theme-fresh .browser-mode-address button:hover .fresh-real-icon{
+  transform:scale(1.035)!important;
+}
+body.browser-shell.theme-fresh [data-browser-shell-reload]:hover .fresh-real-icon{
+  transform:rotate(12deg) scale(1.025)!important;
+}
+body.browser-shell.theme-fresh .browser-home-normal :is(.quick-tile,.home-shortcut,.home-shortcut-add),
+body.browser-shell.theme-fresh .browser-home-normal :is(.quick-tile,.home-shortcut,.home-shortcut-add):hover,
+body.browser-shell.theme-fresh .browser-home-normal :is(.quick-tile,.home-shortcut,.home-shortcut-add):focus,
+body.browser-shell.theme-fresh .browser-home-normal :is(.quick-tile,.home-shortcut,.home-shortcut-add):focus-visible{
+  border:0!important;
+  border-color:transparent!important;
+  outline:0!important;
+  box-shadow:none!important;
+  background:rgba(232,245,246,.52)!important;
+  background-color:rgba(232,245,246,.52)!important;
+  background-image:none!important;
+  backdrop-filter:blur(42px) saturate(1.18)!important;
+  -webkit-backdrop-filter:blur(42px) saturate(1.18)!important;
+  transition:transform 1.05s cubic-bezier(.16,.86,.18,1),background-color 1.05s ease,filter 1.05s ease!important;
+}
+body.browser-shell.theme-fresh .browser-home-normal :is(.quick-tile,.home-shortcut,.home-shortcut-add)::before,
+body.browser-shell.theme-fresh .browser-home-normal :is(.quick-tile,.home-shortcut,.home-shortcut-add)::after{
+  content:none!important;
+  display:none!important;
+  border:0!important;
+  box-shadow:none!important;
+}
+body.browser-shell.theme-fresh .browser-home-normal .home-shortcut .home-shortcut-menu-btn,
+body.browser-shell.theme-fresh .browser-home-normal .home-shortcut .home-shortcut-menu-btn:hover,
+body.browser-shell.theme-fresh .browser-home-normal .home-shortcut.menu-open .home-shortcut-menu-btn{
+  border:0!important;
+  outline:0!important;
+  box-shadow:none!important;
+  background:transparent!important;
+  background-color:transparent!important;
+  background-image:none!important;
+}
+html body.browser-shell.theme-fresh form.browser-mode-address :is(
+  button[data-browser-shell-back],
+  button[data-browser-shell-forward],
+  button[data-browser-shell-reload],
+  button[data-browser-shell-bookmark],
+  button.browser-mode-weather,
+  button[data-browser-shell-menu]
+),
+html body.browser-shell.theme-fresh form.browser-mode-address :is(
+  button[data-browser-shell-back],
+  button[data-browser-shell-forward],
+  button[data-browser-shell-reload],
+  button[data-browser-shell-bookmark],
+  button.browser-mode-weather,
+  button[data-browser-shell-menu]
+):hover,
+html body.browser-shell.theme-fresh .browser-home-normal div.quick-tile.home-shortcut,
+html body.browser-shell.theme-fresh .browser-home-normal button.quick-tile.home-shortcut-add,
+html body.browser-shell.theme-fresh .browser-home-normal div.quick-tile.home-shortcut:hover,
+html body.browser-shell.theme-fresh .browser-home-normal button.quick-tile.home-shortcut-add:hover,
+html body.browser-shell.theme-fresh .browser-home-normal div.quick-tile.home-shortcut button.home-shortcut-menu-btn,
+html body.browser-shell.theme-fresh .browser-home-normal div.quick-tile.home-shortcut button.home-shortcut-menu-btn:hover{
+  border:0!important;
+  border-color:transparent!important;
+  outline:0!important;
+  box-shadow:none!important;
+  position:relative!important;
+  isolation:isolate!important;
+}
+html body.browser-shell.theme-fresh .browser-home-normal div.quick-tile.home-shortcut button.home-shortcut-menu-btn{
+  display:grid!important;
+  place-items:center!important;
+  width:22px!important;
+  height:30px!important;
+  min-width:22px!important;
+  padding:0!important;
+  color:var(--fresh-electric,#00f5d4)!important;
+  -webkit-text-fill-color:var(--fresh-electric,#00f5d4)!important;
+  background:transparent!important;
+  background-color:transparent!important;
+  background-image:none!important;
+}
+html body.browser-shell.theme-fresh .shortcut-real-dots::before{
+  content:"\22EE"!important;
+  display:grid!important;
+  place-items:center!important;
+  color:var(--fresh-electric,#00f5d4)!important;
+  -webkit-text-fill-color:var(--fresh-electric,#00f5d4)!important;
+  font:900 24px/1 Arial,Helvetica,sans-serif!important;
+  text-shadow:0 0 10px rgba(0,245,212,.45),0 0 22px rgba(0,245,212,.24)!important;
+}
+html body.browser-shell.theme-fresh form.browser-mode-address button[data-browser-shell-forward]::before,
+html body.browser-shell.theme-fresh form.browser-mode-address button[data-browser-shell-reload]::before,
+html body.browser-shell.theme-fresh form.browser-mode-address button[data-browser-shell-bookmark]::before,
+html body.browser-shell.theme-fresh form.browser-mode-address button[data-browser-shell-menu]::before{
+  content:""!important;
+  display:grid!important;
+  place-items:center!important;
+  position:absolute!important;
+  inset:0!important;
+  top:0!important;
+  right:0!important;
+  bottom:0!important;
+  left:0!important;
+  width:100%!important;
+  height:100%!important;
+  margin:0!important;
+  padding:0!important;
+  border:0!important;
+  border-radius:0!important;
+  transform:none!important;
+  clip-path:none!important;
+  color:var(--fresh-electric,#00f5d4)!important;
+  -webkit-text-fill-color:var(--fresh-electric,#00f5d4)!important;
+  background:none!important;
+  -webkit-mask:none!important;
+  mask:none!important;
+  font:900 23px/1 Arial,Helvetica,sans-serif!important;
+  text-indent:0!important;
+  text-shadow:0 0 10px rgba(0,245,212,.45),0 0 22px rgba(0,245,212,.24)!important;
+  filter:drop-shadow(0 0 8px rgba(0,245,212,.34))!important;
+  pointer-events:none!important;
+  z-index:2!important;
+  transition:transform 1.25s cubic-bezier(.16,.86,.18,1),filter 1.25s ease!important;
+}
+html body.browser-shell.theme-fresh form.browser-mode-address button[data-browser-shell-forward]::before{content:"\279C"!important}
+html body.browser-shell.theme-fresh form.browser-mode-address button[data-browser-shell-reload]::before{content:"\27F3"!important}
+html body.browser-shell.theme-fresh form.browser-mode-address button[data-browser-shell-bookmark]::before{content:"\2606"!important}
+html body.browser-shell.theme-fresh form.browser-mode-address button[data-browser-shell-menu]::before{content:"\22EE"!important}
+html body.browser-shell.theme-fresh form.browser-mode-address button[data-browser-shell-forward] .fresh-real-icon,
+html body.browser-shell.theme-fresh form.browser-mode-address button[data-browser-shell-reload] .fresh-real-icon,
+html body.browser-shell.theme-fresh form.browser-mode-address button[data-browser-shell-bookmark] .fresh-real-icon,
+html body.browser-shell.theme-fresh form.browser-mode-address button[data-browser-shell-menu] .fresh-real-icon{
+  opacity:0!important;
+}
+html body.browser-shell.theme-fresh form.browser-mode-address button:is([data-browser-shell-forward],[data-browser-shell-reload],[data-browser-shell-bookmark],[data-browser-shell-menu]):hover::before{
+  transform:scale(1.035)!important;
+}
+html body.browser-shell.theme-fresh form.browser-mode-address button[data-browser-shell-reload]:hover::before{
+  transform:rotate(12deg) scale(1.025)!important;
+}
+/* //all-theme-toolbar-shortcut-cloud-final */
+html body.browser-shell :is([data-browser-shell-back],[data-browser-shell-forward],.tool-btn[data-back],.tool-btn[data-forward]){
+  position:relative!important;
+  overflow:hidden!important;
+}
+html body.browser-shell :is([data-browser-shell-back],[data-browser-shell-forward],.tool-btn[data-back],.tool-btn[data-forward])::before{
+  content:"\279C"!important;
+  display:grid!important;
+  place-items:center!important;
+  position:absolute!important;
+  inset:0!important;
+  width:100%!important;
+  height:100%!important;
+  margin:0!important;
+  padding:0!important;
+  border:0!important;
+  background:none!important;
+  -webkit-mask:none!important;
+  mask:none!important;
+  clip-path:none!important;
+  font:900 25px/1 Arial,Helvetica,sans-serif!important;
+  color:currentColor!important;
+  -webkit-text-fill-color:currentColor!important;
+  text-indent:0!important;
+  transform:none!important;
+  transition:transform .82s cubic-bezier(.16,.86,.18,1),filter .82s ease!important;
+}
+html body.browser-shell :is([data-browser-shell-back],.tool-btn[data-back])::before{
+  transform:rotate(180deg)!important;
+}
+html body.browser-shell :is([data-browser-shell-back],.tool-btn[data-back]):hover::before{
+  transform:rotate(180deg) scale(1.045)!important;
+}
+html body.browser-shell :is([data-browser-shell-forward],.tool-btn[data-forward]):hover::before{
+  transform:scale(1.045)!important;
+}
+html body.browser-shell :is([data-browser-shell-back],[data-browser-shell-forward],.tool-btn[data-back],.tool-btn[data-forward])::after{
+  content:none!important;
+  display:none!important;
+}
+html body.browser-shell :is([data-browser-shell-back],[data-browser-shell-forward]) .fresh-real-icon{
+  opacity:0!important;
+}
+html body.browser-shell .browser-home-normal .home-shortcut,
+html body.browser-shell .browser-home-normal .home-shortcut:hover,
+html body.browser-shell .browser-home-normal .home-shortcut:focus-within,
+html body.browser-shell .browser-home-normal .home-shortcut-add,
+html body.browser-shell .browser-home-normal .home-shortcut-add:hover,
+html body.browser-shell .browser-home-normal .home-shortcut-add:focus-visible{
+  position:relative!important;
+  overflow:visible!important;
+  border:1px solid var(--theme-border,rgba(190,148,255,.72))!important;
+  outline:0!important;
+  box-shadow:none!important;
+}
+html body.browser-shell.theme-fresh .browser-home-normal .home-shortcut,
+html body.browser-shell.theme-fresh .browser-home-normal .home-shortcut:hover,
+html body.browser-shell.theme-fresh .browser-home-normal .home-shortcut:focus-within,
+html body.browser-shell.theme-fresh .browser-home-normal .home-shortcut-add,
+html body.browser-shell.theme-fresh .browser-home-normal .home-shortcut-add:hover,
+html body.browser-shell.theme-fresh .browser-home-normal .home-shortcut-add:focus-visible{
+  border-color:rgba(0,191,174,.74)!important;
+}
+html body.browser-shell .browser-home-normal .home-shortcut::before,
+html body.browser-shell .browser-home-normal .home-shortcut::after,
+html body.browser-shell .browser-home-normal .home-shortcut-add::before,
+html body.browser-shell .browser-home-normal .home-shortcut-add::after{
+  content:none!important;
+  display:none!important;
+  border:0!important;
+  box-shadow:none!important;
+}
+html body.browser-shell .browser-home-normal .home-shortcut .home-shortcut-open{
+  border:0!important;
+  outline:0!important;
+  box-shadow:none!important;
+  background:transparent!important;
+}
+html body.browser-shell .browser-home-normal .home-shortcut .home-shortcut-menu-btn,
+html body.browser-shell .browser-home-normal .home-shortcut .home-shortcut-menu-btn:hover,
+html body.browser-shell .browser-home-normal .home-shortcut.menu-open .home-shortcut-menu-btn{
+  position:absolute!important;
+  top:5px!important;
+  right:6px!important;
+  z-index:50!important;
+  display:grid!important;
+  place-items:center!important;
+  width:24px!important;
+  min-width:24px!important;
+  max-width:24px!important;
+  height:18px!important;
+  min-height:18px!important;
+  max-height:18px!important;
+  padding:0!important;
+  border:0!important;
+  outline:0!important;
+  box-shadow:none!important;
+  background:transparent!important;
+  background-color:transparent!important;
+  background-image:none!important;
+  color:var(--theme-border,#f8fafc)!important;
+  -webkit-text-fill-color:var(--theme-border,#f8fafc)!important;
+  font-size:0!important;
+  line-height:0!important;
+  text-indent:0!important;
+}
+html body.browser-shell.theme-fresh .browser-home-normal .home-shortcut .home-shortcut-menu-btn{
+  color:var(--fresh-electric,#00f5d4)!important;
+  -webkit-text-fill-color:var(--fresh-electric,#00f5d4)!important;
+}
+html body.browser-shell .browser-home-normal .home-shortcut .home-shortcut-menu-btn::before,
+html body.browser-shell .browser-home-normal .home-shortcut .home-shortcut-menu-btn::after{
+  content:none!important;
+  display:none!important;
+}
+html body.browser-shell .browser-home-normal .home-shortcut .shortcut-real-dots{
+  display:grid!important;
+  place-items:center!important;
+  width:100%!important;
+  height:100%!important;
+  color:currentColor!important;
+  -webkit-text-fill-color:currentColor!important;
+  font-size:0!important;
+  line-height:1!important;
+  filter:none!important;
+  text-shadow:0 0 8px color-mix(in srgb,currentColor 40%,transparent)!important;
+}
+html body.browser-shell .browser-home-normal .home-shortcut .shortcut-real-dots::before{
+  content:"\2026"!important;
+  display:block!important;
+  color:currentColor!important;
+  -webkit-text-fill-color:currentColor!important;
+  font:900 22px/1 Arial,Helvetica,sans-serif!important;
+  letter-spacing:1px!important;
+  transform:none!important;
+}
+html body.browser-shell .browser-mode-weather,
+html body.browser-shell #weatherRestore{
+  position:relative!important;
+  display:grid!important;
+  place-items:center!important;
+  overflow:hidden!important;
+  color:var(--theme-border,#f8fafc)!important;
+  -webkit-text-fill-color:var(--theme-border,#f8fafc)!important;
+}
+html body.browser-shell.theme-fresh .browser-mode-weather,
+html body.browser-shell.theme-fresh #weatherRestore{
+  color:var(--fresh-electric,#00f5d4)!important;
+  -webkit-text-fill-color:var(--fresh-electric,#00f5d4)!important;
+}
+html body.browser-shell .browser-mode-weather::before,
+html body.browser-shell .browser-mode-weather::after,
+html body.browser-shell #weatherRestore::before,
+html body.browser-shell #weatherRestore::after{
+  content:none!important;
+  display:none!important;
+}
+html body.browser-shell .browser-mode-weather > .weather-cloud-icon,
+html body.browser-shell #weatherRestore > .weather-cloud-icon{
+  position:absolute!important;
+  inset:50% auto auto 50%!important;
+  display:block!important;
+  width:23px!important;
+  height:23px!important;
+  min-width:23px!important;
+  min-height:23px!important;
+  opacity:1!important;
+  visibility:visible!important;
+  background:currentColor!important;
+  background-color:currentColor!important;
+  background-image:none!important;
+  -webkit-mask:url("../assets/icons/cloud-weather.png") center/contain no-repeat!important;
+  mask:url("../assets/icons/cloud-weather.png") center/contain no-repeat!important;
+  transform:translate(-50%,-50%)!important;
+  z-index:4!important;
+  pointer-events:none!important;
+}
+html body.browser-shell{
+  --nyx-shortcut-border:rgba(190,148,255,.72);
+  --nyx-shell-icon:#f8fafc;
+}
+html body.browser-shell.theme-sakura{
+  --nyx-shortcut-border:rgba(249,168,212,.82);
+  --nyx-shell-icon:#f9a8d4;
+}
+html body.browser-shell.theme-emerald{
+  --nyx-shortcut-border:rgba(52,211,153,.82);
+  --nyx-shell-icon:#6ee7b7;
+}
+html body.browser-shell.theme-ruby{
+  --nyx-shortcut-border:rgba(248,113,113,.82);
+  --nyx-shell-icon:#fca5a5;
+}
+html body.browser-shell.theme-fresh{
+  --nyx-shortcut-border:rgba(0,191,174,.74);
+  --nyx-shell-icon:var(--fresh-electric,#00f5d4);
+}
+html body.browser-shell :is(
+  [data-browser-shell-back],
+  [data-browser-shell-forward],
+  [data-browser-shell-reload],
+  [data-browser-shell-bookmark],
+  [data-browser-shell-menu],
+  .browser-mode-weather,
+  .tool-btn[data-back],
+  .tool-btn[data-forward],
+  .tool-btn[data-reload]
+){
+  color:var(--nyx-shell-icon)!important;
+  -webkit-text-fill-color:var(--nyx-shell-icon)!important;
+}
+html body.browser-shell :is([data-browser-shell-back],[data-browser-shell-forward],.tool-btn[data-back],.tool-btn[data-forward])::before{
+  color:var(--nyx-shell-icon)!important;
+  -webkit-text-fill-color:var(--nyx-shell-icon)!important;
+}
+html body.browser-shell .browser-home-normal .home-shortcut,
+html body.browser-shell .browser-home-normal .home-shortcut:hover,
+html body.browser-shell .browser-home-normal .home-shortcut:focus-within,
+html body.browser-shell .browser-home-normal .home-shortcut-add,
+html body.browser-shell .browser-home-normal .home-shortcut-add:hover,
+html body.browser-shell .browser-home-normal .home-shortcut-add:focus-visible{
+  border:1px solid var(--nyx-shortcut-border)!important;
+}
+html body.browser-shell .browser-home-normal .home-shortcut .home-shortcut-menu-btn,
+html body.browser-shell .browser-home-normal .home-shortcut .home-shortcut-menu-btn:hover,
+html body.browser-shell .browser-home-normal .home-shortcut.menu-open .home-shortcut-menu-btn{
+  color:var(--nyx-shell-icon)!important;
+  -webkit-text-fill-color:var(--nyx-shell-icon)!important;
+}
+html body.browser-shell .browser-mode-weather,
+html body.browser-shell #weatherRestore{
+  color:var(--nyx-shell-icon)!important;
+  -webkit-text-fill-color:var(--nyx-shell-icon)!important;
+}
+html body.browser-shell .browser-mode-weather > .weather-cloud-icon,
+html body.browser-shell #weatherRestore > .weather-cloud-icon{
+  background:var(--nyx-shell-icon)!important;
+  background-color:var(--nyx-shell-icon)!important;
+}
+html body.browser-shell.theme-fresh form.browser-mode-address button[data-browser-shell-back]::before{
+  content:"\279C"!important;
+  display:grid!important;
+  place-items:center!important;
+  position:absolute!important;
+  inset:0!important;
+  width:100%!important;
+  height:100%!important;
+  margin:0!important;
+  padding:0!important;
+  border:0!important;
+  background:none!important;
+  -webkit-mask:none!important;
+  mask:none!important;
+  clip-path:none!important;
+  color:var(--nyx-shell-icon)!important;
+  -webkit-text-fill-color:var(--nyx-shell-icon)!important;
+  font:900 25px/1 Arial,Helvetica,sans-serif!important;
+  text-indent:0!important;
+  transform:rotate(180deg)!important;
+  filter:drop-shadow(0 0 8px rgba(0,245,212,.34))!important;
+}
+html body.browser-shell.theme-fresh form.browser-mode-address button[data-browser-shell-back]:hover::before{
+  transform:rotate(180deg) scale(1.045)!important;
+}
+html body.browser-shell.theme-fresh form.browser-mode-address button[data-browser-shell-back] .fresh-real-icon{
+  opacity:0!important;
+}
+html body.browser-shell .browser-home-normal div.quick-tile.home-shortcut,
+html body.browser-shell .browser-home-normal div.quick-tile.home-shortcut:hover,
+html body.browser-shell .browser-home-normal div.quick-tile.home-shortcut:focus-within,
+html body.browser-shell .browser-home-normal button.quick-tile.home-shortcut-add,
+html body.browser-shell .browser-home-normal button.quick-tile.home-shortcut-add:hover,
+html body.browser-shell .browser-home-normal button.quick-tile.home-shortcut-add:focus-visible{
+  border:1px solid var(--nyx-shortcut-border)!important;
+  border-color:var(--nyx-shortcut-border)!important;
+  outline:0!important;
+  box-shadow:none!important;
+}
+html body.browser-shell .browser-home-normal div.quick-tile.home-shortcut button.home-shortcut-open,
+html body.browser-shell .browser-home-normal div.quick-tile.home-shortcut button.home-shortcut-open:hover,
+html body.browser-shell .browser-home-normal div.quick-tile.home-shortcut button.home-shortcut-open:focus-visible{
+  border:0!important;
+  outline:0!important;
+  box-shadow:none!important;
+}
+html body.browser-shell .browser-home-normal div.quick-tile.home-shortcut button.home-shortcut-menu-btn,
+html body.browser-shell .browser-home-normal div.quick-tile.home-shortcut button.home-shortcut-menu-btn:hover,
+html body.browser-shell .browser-home-normal div.quick-tile.home-shortcut.menu-open button.home-shortcut-menu-btn{
+  top:5px!important;
+  right:6px!important;
+  width:24px!important;
+  min-width:24px!important;
+  max-width:24px!important;
+  height:18px!important;
+  min-height:18px!important;
+  max-height:18px!important;
+  border:0!important;
+  border-color:transparent!important;
+  outline:0!important;
+  box-shadow:none!important;
+  background:transparent!important;
+  background-color:transparent!important;
+  background-image:none!important;
+  color:var(--nyx-shell-icon)!important;
+  -webkit-text-fill-color:var(--nyx-shell-icon)!important;
+  font-size:0!important;
+  line-height:0!important;
+}
+html body.browser-shell .browser-home-normal div.quick-tile.home-shortcut button.home-shortcut-menu-btn::before,
+html body.browser-shell .browser-home-normal div.quick-tile.home-shortcut button.home-shortcut-menu-btn::after{
+  content:none!important;
+  display:none!important;
+}
+html body.browser-shell .browser-home-normal div.quick-tile.home-shortcut button.home-shortcut-menu-btn .shortcut-real-dots::before{
+  content:"\2022\2022\2022"!important;
+  display:block!important;
+  color:var(--nyx-shell-icon)!important;
+  -webkit-text-fill-color:var(--nyx-shell-icon)!important;
+  font:900 22px/1 Arial,Helvetica,sans-serif!important;
+  letter-spacing:1px!important;
+}
+html body.browser-shell.theme-fresh .browser-home-normal div.quick-tile.home-shortcut,
+html body.browser-shell.theme-fresh .browser-home-normal div.quick-tile.home-shortcut:hover,
+html body.browser-shell.theme-fresh .browser-home-normal div.quick-tile.home-shortcut:focus-within,
+html body.browser-shell.theme-fresh .browser-home-normal button.quick-tile.home-shortcut-add,
+html body.browser-shell.theme-fresh .browser-home-normal button.quick-tile.home-shortcut-add:hover,
+html body.browser-shell.theme-fresh .browser-home-normal button.quick-tile.home-shortcut-add:focus-visible{
+  border:1px solid var(--nyx-shortcut-border)!important;
+  border-color:var(--nyx-shortcut-border)!important;
+  outline:0!important;
+  box-shadow:none!important;
+}
+html body.browser-shell .browser-home-normal div.quick-tile.home-shortcut > button.home-shortcut-menu-btn,
+html body.browser-shell .browser-home-normal div.quick-tile.home-shortcut > button.home-shortcut-menu-btn:hover,
+html body.browser-shell .browser-home-normal div.quick-tile.home-shortcut.menu-open > button.home-shortcut-menu-btn,
+html body.browser-shell.theme-fresh .browser-home-normal div.quick-tile.home-shortcut > button.home-shortcut-menu-btn,
+html body.browser-shell.theme-fresh .browser-home-normal div.quick-tile.home-shortcut > button.home-shortcut-menu-btn:hover,
+html body.browser-shell.theme-fresh .browser-home-normal div.quick-tile.home-shortcut.menu-open > button.home-shortcut-menu-btn{
+  position:absolute!important;
+  top:4px!important;
+  right:5px!important;
+  bottom:auto!important;
+  left:auto!important;
+  transform:none!important;
+  width:24px!important;
+  height:18px!important;
+  min-width:24px!important;
+  min-height:18px!important;
+  max-width:24px!important;
+  max-height:18px!important;
+  z-index:80!important;
+}
+/* //final-theme-toolbar-polish */
+html body.browser-shell.theme-fresh{
+  --nyx-shortcut-border:rgba(0,245,212,.74);
+  --nyx-shell-icon:var(--fresh-electric,#00f5d4);
+}
+html body.browser-shell .browser-mode-address :is(
+  [data-browser-shell-back],
+  [data-browser-shell-forward],
+  [data-browser-shell-reload],
+  [data-browser-shell-bookmark],
+  [data-browser-shell-menu]
+){
+  position:relative!important;
+  color:var(--nyx-shell-icon,#f8fafc)!important;
+  -webkit-text-fill-color:var(--nyx-shell-icon,#f8fafc)!important;
+  overflow:hidden!important;
+}
+html body.browser-shell .browser-mode-address :is(
+  [data-browser-shell-back],
+  [data-browser-shell-forward],
+  [data-browser-shell-reload],
+  [data-browser-shell-bookmark],
+  [data-browser-shell-menu]
+)::before{
+  display:grid!important;
+  place-items:center!important;
+  position:absolute!important;
+  inset:0!important;
+  width:100%!important;
+  height:100%!important;
+  margin:0!important;
+  padding:0!important;
+  border:0!important;
+  background:none!important;
+  -webkit-mask:none!important;
+  mask:none!important;
+  color:var(--nyx-shell-icon,#f8fafc)!important;
+  -webkit-text-fill-color:var(--nyx-shell-icon,#f8fafc)!important;
+  font:900 24px/1 Arial,Helvetica,sans-serif!important;
+  line-height:1!important;
+  text-indent:0!important;
+  transition:transform 1.35s cubic-bezier(.16,.86,.18,1),filter 1.35s ease,color .45s ease!important;
+  filter:drop-shadow(0 0 8px color-mix(in srgb,var(--nyx-shell-icon,#fff) 36%,transparent))!important;
+}
+html body.browser-shell .browser-mode-address [data-browser-shell-back]::before{
+  content:"\279C"!important;
+  transform:rotate(180deg) translateY(0)!important;
+}
+html body.browser-shell .browser-mode-address [data-browser-shell-forward]::before{
+  content:"\279C"!important;
+  transform:translateY(0)!important;
+}
+html body.browser-shell .browser-mode-address [data-browser-shell-reload]::before{
+  content:"\27F3"!important;
+  transform:rotate(0deg) scale(1)!important;
+}
+html body.browser-shell .browser-mode-address [data-browser-shell-bookmark]::before{
+  content:"\2606"!important;
+  transform:rotate(0deg) scale(1)!important;
+}
+html body.browser-shell .browser-mode-address [data-browser-shell-menu]::before{
+  content:"\22EE"!important;
+  transform:rotate(0deg) scale(1)!important;
+}
+html body.browser-shell .browser-mode-address [data-browser-shell-back]:hover::before{
+  transform:rotate(180deg) translateX(2px) scale(1.045)!important;
+}
+html body.browser-shell .browser-mode-address [data-browser-shell-forward]:hover::before{
+  transform:translateX(2px) scale(1.045)!important;
+}
+html body.browser-shell .browser-mode-address [data-browser-shell-reload]:hover::before{
+  transform:rotate(32deg) scale(1.035)!important;
+}
+html body.browser-shell .browser-mode-address [data-browser-shell-bookmark]:hover::before{
+  transform:rotate(24deg) scale(1.055)!important;
+}
+html body.browser-shell .browser-mode-address [data-browser-shell-menu]:hover::before{
+  transform:scale(1.055)!important;
+}
+html body.browser-shell .browser-mode-address :is(
+  [data-browser-shell-back],
+  [data-browser-shell-forward],
+  [data-browser-shell-reload],
+  [data-browser-shell-bookmark],
+  [data-browser-shell-menu]
+)::after{
+  content:none!important;
+  display:none!important;
+}
+html body.browser-shell .browser-mode-address :is(
+  [data-browser-shell-back],
+  [data-browser-shell-forward],
+  [data-browser-shell-reload],
+  [data-browser-shell-bookmark],
+  [data-browser-shell-menu]
+) .fresh-real-icon{
+  opacity:0!important;
+}
+html body.browser-shell.theme-fresh .browser-mode-shell-tab-close::before,
+html body.browser-shell.theme-fresh .browser-shell-settings-close::before{
+  color:var(--fresh-electric,#00f5d4)!important;
+  -webkit-text-fill-color:var(--fresh-electric,#00f5d4)!important;
+  text-shadow:0 0 10px rgba(0,245,212,.5),0 0 22px rgba(0,245,212,.24)!important;
+}
+html body.browser-shell .browser-home-normal div.quick-tile.home-shortcut,
+html body.browser-shell .browser-home-normal div.quick-tile.home-shortcut:hover,
+html body.browser-shell .browser-home-normal div.quick-tile.home-shortcut:focus-within,
+html body.browser-shell .browser-home-normal button.quick-tile.home-shortcut-add,
+html body.browser-shell .browser-home-normal button.quick-tile.home-shortcut-add:hover,
+html body.browser-shell .browser-home-normal button.quick-tile.home-shortcut-add:focus-visible{
+  border:1px solid var(--nyx-shortcut-border,rgba(190,148,255,.72))!important;
+  border-color:var(--nyx-shortcut-border,rgba(190,148,255,.72))!important;
+  box-shadow:none!important;
+}
+html body.browser-shell .browser-home-normal div.quick-tile.home-shortcut > button.home-shortcut-menu-btn,
+html body.browser-shell .browser-home-normal div.quick-tile.home-shortcut > button.home-shortcut-menu-btn:hover,
+html body.browser-shell .browser-home-normal div.quick-tile.home-shortcut.menu-open > button.home-shortcut-menu-btn{
+  top:3px!important;
+  right:4px!important;
+  width:26px!important;
+  height:18px!important;
+  border:0!important;
+  outline:0!important;
+  box-shadow:none!important;
+  background:transparent!important;
+  color:var(--nyx-shell-icon,#f8fafc)!important;
+  -webkit-text-fill-color:var(--nyx-shell-icon,#f8fafc)!important;
+}
+html body.browser-shell .browser-home-normal div.quick-tile.home-shortcut > button.home-shortcut-menu-btn .shortcut-real-dots::before{
+  content:"\2022\2022\2022"!important;
+  display:block!important;
+  color:var(--nyx-shell-icon,#f8fafc)!important;
+  -webkit-text-fill-color:var(--nyx-shell-icon,#f8fafc)!important;
+  font:900 18px/1 Arial,Helvetica,sans-serif!important;
+  letter-spacing:1px!important;
+}
+/* //compact-shortcut-dots-final */
+html body.browser-shell .browser-home-normal div.quick-tile.home-shortcut > button.home-shortcut-menu-btn,
+html body.browser-shell .browser-home-normal div.quick-tile.home-shortcut > button.home-shortcut-menu-btn:hover,
+html body.browser-shell .browser-home-normal div.quick-tile.home-shortcut.menu-open > button.home-shortcut-menu-btn{
+  top:4px!important;
+  right:4px!important;
+  width:18px!important;
+  height:10px!important;
+  min-width:18px!important;
+  min-height:10px!important;
+  max-width:18px!important;
+  max-height:10px!important;
+  padding:0!important;
+  border:0!important;
+  border-color:transparent!important;
+  border-radius:0!important;
+  outline:0!important;
+  box-shadow:none!important;
+  background:transparent!important;
+  background-color:transparent!important;
+  background-image:none!important;
+  overflow:visible!important;
+  display:grid!important;
+  place-items:center!important;
+}
+html body.browser-shell .browser-home-normal div.quick-tile.home-shortcut > button.home-shortcut-menu-btn::before,
+html body.browser-shell .browser-home-normal div.quick-tile.home-shortcut > button.home-shortcut-menu-btn::after{
+  content:none!important;
+  display:none!important;
+}
+html body.browser-shell .browser-home-normal div.quick-tile.home-shortcut > button.home-shortcut-menu-btn .shortcut-real-dots{
+  position:relative!important;
+  display:block!important;
+  width:4px!important;
+  height:4px!important;
+  min-width:4px!important;
+  min-height:4px!important;
+  border-radius:999px!important;
+  color:var(--nyx-shell-icon,#f8fafc)!important;
+  -webkit-text-fill-color:var(--nyx-shell-icon,#f8fafc)!important;
+  background:currentColor!important;
+  box-shadow:-6px 0 0 currentColor,6px 0 0 currentColor!important;
+  font-size:0!important;
+  line-height:0!important;
+  text-shadow:none!important;
+  filter:none!important;
+  overflow:visible!important;
+}
+html body.browser-shell .browser-home-normal div.quick-tile.home-shortcut > button.home-shortcut-menu-btn .shortcut-real-dots::before,
+html body.browser-shell .browser-home-normal div.quick-tile.home-shortcut > button.home-shortcut-menu-btn .shortcut-real-dots::after{
+  content:none!important;
+  display:none!important;
+}
+html body.browser-shell.theme-fresh form.browser-mode-address button[data-browser-shell-back]:hover::before{
+  transform:rotate(180deg) translateX(2px) scale(1.045)!important;
+}
+html body.browser-shell.theme-fresh form.browser-mode-address button[data-browser-shell-forward]:hover::before{
+  transform:translateX(2px) scale(1.045)!important;
+}
+html body.browser-shell.theme-fresh form.browser-mode-address button[data-browser-shell-reload]:hover::before{
+  transform:rotate(32deg) scale(1.035)!important;
+}
+html body.browser-shell.theme-fresh form.browser-mode-address button[data-browser-shell-bookmark]:hover::before{
+  transform:rotate(24deg) scale(1.055)!important;
+}
+html body.browser-shell.theme-fresh form.browser-mode-address button[data-browser-shell-menu]:hover::before{
+  transform:scale(1.055)!important;
+}
+html body :is(.quick-tile,.home-shortcut,.settings-preset,.apps-panel .quick-tile)[data-domain="traxmojo.com"] .quick-icon,
+html body.browser-shell .browser-home-normal .home-shortcut[data-domain="traxmojo.com"] .quick-icon,
+html body.browser-shell .apps-panel .quick-tile[data-domain="traxmojo.com"] .quick-icon{
+  width:118px!important;
+  height:118px!important;
+  max-width:118px!important;
+  max-height:118px!important;
+  padding:0!important;
+  object-fit:contain!important;
+  object-position:center!important;
+  border:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  transform:scale(1.18)!important;
+}
+html body.browser-shell .browser-home-normal .home-shortcut[data-domain="traxmojo.com"] .quick-icon{
+  width:58px!important;
+  height:58px!important;
+  max-width:58px!important;
+  max-height:58px!important;
+  transform:scale(1.2)!important;
+}
+html body :is(.quick-tile,.home-shortcut,.settings-preset,.apps-panel .quick-tile)[data-domain="traxmojo.com"]:hover .quick-icon{
+  transform:scale(1.34)!important;
+}
+html body.browser-shell .browser-mode-address button[data-browser-shell-menu],
+html body.browser-shell .browser-mode-address button[data-browser-shell-menu]:hover,
+html body.browser-shell .browser-mode-address button[data-browser-shell-menu]:focus,
+html body.browser-shell .browser-mode-address button[data-browser-shell-menu]:focus-visible,
+html body.browser-shell .browser-mode-address button[data-browser-shell-menu]:active{
+  background:rgba(8,7,13,.32)!important;
+  background-color:rgba(8,7,13,.32)!important;
+  background-image:none!important;
+  border-color:color-mix(in srgb,var(--theme-a,#7c3aed) 56%,rgba(255,255,255,.18))!important;
+  box-shadow:none!important;
+  outline:0!important;
+  filter:none!important;
+  color:var(--nyx-shell-icon,#f8fafc)!important;
+  -webkit-text-fill-color:var(--nyx-shell-icon,#f8fafc)!important;
+}
+html body.browser-shell.theme-fresh .browser-mode-address button[data-browser-shell-menu],
+html body.browser-shell.theme-fresh .browser-mode-address button[data-browser-shell-menu]:hover,
+html body.browser-shell.theme-fresh .browser-mode-address button[data-browser-shell-menu]:focus,
+html body.browser-shell.theme-fresh .browser-mode-address button[data-browser-shell-menu]:focus-visible,
+html body.browser-shell.theme-fresh .browser-mode-address button[data-browser-shell-menu]:active{
+  background:rgba(232,245,246,.58)!important;
+  background-color:rgba(232,245,246,.58)!important;
+  border-color:rgba(0,245,212,.64)!important;
+  box-shadow:none!important;
+  outline:0!important;
+  filter:none!important;
+}
+html body.browser-shell .browser-mode-address button[data-browser-shell-menu]::before{
+  color:var(--nyx-shell-icon,#f8fafc)!important;
+  -webkit-text-fill-color:var(--nyx-shell-icon,#f8fafc)!important;
+  background:transparent!important;
+  background-color:transparent!important;
+  background-image:none!important;
+  box-shadow:none!important;
+  border:0!important;
+  border-radius:0!important;
+}

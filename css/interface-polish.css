@@ -1,0 +1,2444 @@
+/* //performance-lite-final */
+html body.performance-lite{
+  --glass-blur:10px!important;
+  --glass-saturate:1.08!important;
+}
+html body.performance-lite :is(.top-os,.window,.titlebar,.dock,.quick-tile,.quick-icon,.glass-card,.weather-panel,.weather-restore,.toast,.browser-message-box,.settings-card,.settings-panel,.settings-app,.settings-main,.settings-side,.browser-tabs,.browser-tools,.browser-mode-menu,.browser-bookmark-panel,.apps-panel,.panel){
+  backdrop-filter:blur(4px) saturate(1.04)!important;
+  -webkit-backdrop-filter:blur(4px) saturate(1.04)!important;
+  box-shadow:0 8px 22px rgba(0,0,0,.16),inset 0 1px 0 rgba(255,255,255,.10)!important;
+}
+html body.performance-lite.theme-fresh :is(.top-os,.window,.titlebar,.browser-tabs,.browser-tools,.dock,.settings-panel,.settings-card,.settings-app,.settings-main,.settings-side,.glass-card,.quick-tile,.quick-icon,.browser-mode-menu,.browser-bookmark-panel,.weather-panel,.weather-restore,.apps-panel,.panel){
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.36),0 8px 18px rgba(59,86,91,.12)!important;
+}
+html body.performance-lite :is(.browser-shell-clock,.desktop-center-clock,.quick-tile,.browser-mode-tab,.browser-mode-shell-tab,.home-shortcut){
+  filter:none!important;
+}
+html body.performance-lite #visualEffects i:nth-child(n+17){
+  display:none!important;
+}
+/* //fresh-electric-aqua-border-final */
+html body.theme-fresh{
+  --theme-border:#00f5d4!important;
+  --nyx-purple-edge:#00f5d4!important;
+  --fresh-line:rgba(0,245,212,.68)!important;
+}
+html body.browser-shell.theme-fresh :is(.top-os,.window,.titlebar,.browser-tabs,.browser-tools,.dock,.settings-panel,.settings-card,.settings-app,.settings-main,.settings-side,.browser-shell-settings-panel,.settings-block,.glass-card,.quick-tile,.quick-icon,.browser-mode-menu,.browser-bookmark-panel,.browser-mode-tab,.browser-mode-shell-tab,.browser-mode-app-button,.browser-mode-address button,.browser-mode-url,.urlbar,.weather-panel,.weather-restore,.apps-panel,.panel,.home-shortcut,.home-shortcut-add,.home-shortcut-menu,.tool-btn,.go-btn,.menu-btn,.settings-action,.settings-preset,input,select,textarea,button){
+  border-color:rgba(0,245,212,.72)!important;
+}
+html body.browser-shell.theme-fresh .browser-shell-settings-panel :is(.settings-block,.settings-card,.settings-input,.settings-select,.settings-action,button,input,select,textarea),
+html body.theme-fresh :is(.settings-card,.settings-block,.settings-input,.settings-select,.settings-action,button,input,select,textarea){
+  border-color:rgba(0,245,212,.72)!important;
+}
+html body.browser-shell.theme-fresh :is(.browser-mode-tab,.browser-mode-shell-tab,.browser-mode-app-button,.browser-mode-address button,.home-shortcut,.home-shortcut-add,.quick-tile,.settings-action,.settings-preset,button):hover{
+  border-color:#00f5d4!important;
+  box-shadow:0 0 0 1px rgba(0,245,212,.30),0 12px 28px rgba(0,245,212,.12),inset 0 1px 0 rgba(255,255,255,.62)!important;
+}
+html body.browser-shell.theme-fresh :is([data-browser-shell-back],[data-browser-shell-forward],[data-browser-shell-reload],[data-browser-shell-bookmark],[data-browser-shell-menu],.browser-mode-weather)::before,
+html body.browser-shell.theme-fresh :is([data-browser-shell-back],[data-browser-shell-forward],[data-browser-shell-reload],[data-browser-shell-bookmark],[data-browser-shell-menu],.browser-mode-weather)::after{
+  color:#00f5d4!important;
+  -webkit-text-fill-color:#00f5d4!important;
+}
+/* //weather-compact-modern-final */
+html body.browser-shell #weatherRestore,
+html body.browser-shell #weatherRestore.show{
+  display:none!important;
+  opacity:0!important;
+  pointer-events:none!important;
+}
+html body.browser-shell .weather-panel{
+  top:94px!important;
+  right:14px!important;
+  width:min(368px,calc(100vw - 28px))!important;
+  max-height:calc(100dvh - 114px)!important;
+  overflow:auto!important;
+  padding:18px!important;
+  border-radius:24px!important;
+  background:radial-gradient(circle at 88% 12%,rgba(141,124,255,.28),transparent 26%),radial-gradient(circle at 18% 8%,rgba(255,255,255,.08),transparent 24%),linear-gradient(155deg,rgba(17,18,32,.96),rgba(12,13,25,.94) 58%,rgba(22,18,39,.96))!important;
+  border:1px solid color-mix(in srgb,var(--theme-a,#8b5cf6) 42%,rgba(255,255,255,.12))!important;
+  box-shadow:0 22px 64px rgba(0,0,0,.42),inset 0 1px 0 rgba(255,255,255,.08)!important;
+  backdrop-filter:blur(18px) saturate(1.12)!important;
+  -webkit-backdrop-filter:blur(18px) saturate(1.12)!important;
+}
+html body.browser-shell .weather-panel::-webkit-scrollbar{width:0}
+html body.browser-shell .weather-search{grid-template-columns:minmax(0,1fr) 44px!important;gap:9px!important;margin-bottom:16px!important}
+html body.browser-shell .weather-search input{
+  height:44px!important;
+  border-radius:13px!important;
+  padding:0 13px 0 40px!important;
+  text-align:left!important;
+  direction:ltr!important;
+  font-size:14px!important;
+  font-weight:650!important;
+  letter-spacing:0!important;
+  background-color:rgba(8,9,20,.64)!important;
+  background-position:8px 50%,24px 26px!important;
+  color:#f4f1ff!important;
+  border-color:rgba(164,144,255,.22)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.05)!important;
+}
+html body.browser-shell .weather-search input::placeholder{color:#8f87ad!important;text-align:left!important}
+html body.browser-shell .weather-search button{
+  width:44px!important;
+  height:44px!important;
+  border-radius:13px!important;
+  background:rgba(12,13,26,.72)!important;
+  border-color:rgba(164,144,255,.22)!important;
+}
+html body.browser-shell .weather-options{height:38px!important;margin:-8px 0 13px!important;font-size:13px!important}
+html body.browser-shell .weather-current{gap:13px!important}
+html body.browser-shell .weather-now{grid-template-columns:56px minmax(0,1fr) minmax(78px,auto)!important;gap:10px!important}
+html body.browser-shell .weather-glyph{width:50px!important;height:50px!important;font-size:34px!important}
+html body.browser-shell .weather-panel .weather-temp{font-size:42px!important;line-height:.9!important}
+html body.browser-shell .weather-panel .weather-desc{font-size:14px!important}
+html body.browser-shell .weather-panel .weather-place{max-width:108px!important;font-size:14px!important;color:#aaa2c8!important}
+html body.browser-shell .weather-region-time{margin-top:-6px!important;font-size:12px!important}
+html body.browser-shell .weather-stat-grid{gap:8px!important}
+html body.browser-shell .weather-stat{
+  min-height:36px!important;
+  padding:0 12px!important;
+  border-radius:12px!important;
+  background:rgba(7,8,18,.52)!important;
+  color:#9188aa!important;
+  font-size:14px!important;
+}
+html body.browser-shell .weather-stat strong{font-size:15px!important}
+html body.browser-shell .weather-forecast-title{margin:2px 0 -1px!important;font-size:12px!important;letter-spacing:.14em!important}
+html body.browser-shell .weather-forecast{gap:6px!important}
+html body.browser-shell .weather-forecast-row{
+  grid-template-columns:58px 30px 52px 1fr!important;
+  min-height:30px!important;
+  padding:0 10px!important;
+  border-radius:10px!important;
+  background:rgba(7,8,18,.42)!important;
+  color:#d8d4ea!important;
+  font-size:14px!important;
+  pointer-events:none!important;
+  cursor:default!important;
+}
+html body.browser-shell .weather-forecast-row .weather-rain-chance{color:#8ec9ff!important}
+html body.browser-shell .weather-forecast-row .weather-high-low{font-size:14px!important}
+html body.browser-shell .weather-status{min-height:12px!important;font-size:11px!important}
+html body.browser-shell.theme-fresh .weather-panel{
+  background:rgba(238,253,255,.74)!important;
+  border-color:rgba(0,245,212,.62)!important;
+  box-shadow:0 18px 54px rgba(20,120,150,.16),inset 0 1px 0 rgba(255,255,255,.75)!important;
+}
+html body.browser-shell.theme-fresh .weather-search input,
+html body.browser-shell.theme-fresh .weather-search button,
+html body.browser-shell.theme-fresh .weather-stat,
+html body.browser-shell.theme-fresh .weather-forecast-row{
+  background:rgba(255,255,255,.42)!important;
+  border-color:rgba(0,245,212,.42)!important;
+}
+html body.browser-shell.theme-fresh .weather-search input{color:#167b8f!important}
+/* //browser-chrome-slim-galaxy-final */
+body.browser-shell{
+  --chrome-black:#04050a;
+  --chrome-black-2:#070812;
+  --chrome-border-gradient:linear-gradient(110deg,
+    color-mix(in srgb,var(--theme-border,#8b5cf6) 92%,#ffffff 8%),
+    color-mix(in srgb,var(--theme-border,#8b5cf6) 48%,#ffffff 22%),
+    color-mix(in srgb,var(--theme-border,#8b5cf6) 86%,#000000 14%));
+}
+body.browser-shell .top-os{
+  height:56px!important;
+  min-height:56px!important;
+  padding:3px 8px 3px!important;
+  grid-template-rows:22px 24px!important;
+  gap:3px!important;
+  background:#04050a!important;
+  background-image:none!important;
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+  filter:none!important;
+  border:1px solid transparent!important;
+  border-bottom-width:2px!important;
+  border-image:var(--chrome-border-gradient) 1!important;
+  box-shadow:0 10px 22px rgba(0,0,0,.42),inset 0 1px 0 rgba(255,255,255,.045)!important;
+}
+body.browser-shell :is(.browser-mode-app-button,.browser-mode-tab,.browser-mode-shell-tab,.browser-mode-address button,.browser-mode-url,.browser-mode-menu,.browser-bookmark-panel){
+  border:1px solid transparent!important;
+  background:
+    linear-gradient(#04050a,#04050a) padding-box,
+    var(--chrome-border-gradient) border-box!important;
+  box-shadow:0 0 0 1px color-mix(in srgb,var(--theme-border,#8b5cf6) 22%,transparent),0 5px 14px rgba(0,0,0,.24)!important;
+}
+body.browser-shell :is(.browser-mode-app-button,.browser-mode-tab,.browser-mode-shell-tab,.browser-mode-address button):hover,
+body.browser-shell .browser-mode-url:focus{
+  background:
+    linear-gradient(#070812,#070812) padding-box,
+    var(--chrome-border-gradient) border-box!important;
+  box-shadow:0 0 0 1px color-mix(in srgb,var(--theme-border,#8b5cf6) 45%,transparent),0 0 14px color-mix(in srgb,var(--theme-border,#8b5cf6) 22%,transparent)!important;
+}
+body.browser-shell .browser-mode-app-button{
+  width:142px!important;
+  max-width:calc(100vw - 132px)!important;
+  height:22px!important;
+  min-height:22px!important;
+  border-radius:6px!important;
+  padding:0 22px 0 28px!important;
+  font-size:10px!important;
+}
+body.browser-shell .browser-mode-app-button::before{
+  left:8px!important;
+  width:12px!important;
+  height:12px!important;
+}
+body.browser-shell .browser-mode-tab,
+body.browser-shell .browser-mode-shell-tab{
+  height:22px!important;
+  min-height:22px!important;
+  border-radius:6px!important;
+  font-size:12px!important;
+  line-height:1!important;
+}
+body.browser-shell .browser-mode-tab{
+  width:22px!important;
+  min-width:22px!important;
+}
+body.browser-shell .browser-mode-shell-tab{
+  min-width:64px!important;
+  max-width:128px!important;
+}
+body.browser-shell .browser-mode-address button{
+  width:24px!important;
+  height:24px!important;
+  min-width:24px!important;
+  min-height:24px!important;
+  border-radius:7px!important;
+  font-size:14px!important;
+  line-height:1!important;
+}
+body.browser-shell .browser-mode-address{
+  grid-template-columns:24px 24px 24px minmax(0,1fr) 24px 24px 28px!important;
+  gap:4px!important;
+}
+body.browser-shell .browser-mode-url{
+  height:24px!important;
+  min-height:24px!important;
+  border-radius:7px!important;
+  font-size:12px!important;
+  padding:0 9px!important;
+}
+body.browser-shell .fresh-real-icon,
+body.browser-shell .browser-mode-address button::before,
+body.browser-shell .browser-mode-address button::after{
+  font-size:17px!important;
+  line-height:1!important;
+}
+body.browser-shell [data-browser-shell-back] .fresh-real-icon,
+body.browser-shell [data-browser-shell-forward] .fresh-real-icon,
+body.browser-shell [data-browser-shell-reload] .fresh-real-icon{
+  width:18px!important;
+  height:18px!important;
+  transform:scale(.74)!important;
+}
+body.browser-shell .browser-mode-weather > .weather-cloud-icon{
+  width:15px!important;
+  height:15px!important;
+}
+body.browser-shell .browser-mode-menu{
+  top:56px!important;
+  right:10px!important;
+  width:146px!important;
+  min-width:146px!important;
+  max-width:min(146px,calc(100vw - 20px))!important;
+  border-radius:0!important;
+  padding:2px!important;
+}
+body.browser-shell .browser-mode-menu button{
+  min-height:24px!important;
+  height:24px!important;
+  padding:0 7px!important;
+  font-size:11px!important;
+  border-radius:0!important;
+}
+body.browser-shell .browser-mode-menu hr{
+  margin:2px 3px!important;
+}
+@media(max-width:520px){
+  body.browser-shell .top-os{height:52px!important;min-height:52px!important;grid-template-rows:21px 22px!important;padding:3px 6px!important}
+  body.browser-shell .browser-mode-app-button{height:21px!important;min-height:21px!important;width:108px!important;font-size:9px!important}
+  body.browser-shell .browser-mode-tab,
+  body.browser-shell .browser-mode-shell-tab{height:21px!important;min-height:21px!important}
+  body.browser-shell .browser-mode-tab{width:21px!important;min-width:21px!important}
+  body.browser-shell .browser-mode-address button{width:22px!important;height:22px!important;min-width:22px!important;min-height:22px!important}
+  body.browser-shell .browser-mode-address{grid-template-columns:22px 22px 22px minmax(0,1fr) 22px 22px 26px!important}
+  body.browser-shell .browser-mode-url{height:22px!important;min-height:22px!important}
+  body.browser-shell .browser-mode-menu{top:52px!important;width:138px!important;min-width:138px!important;max-width:min(138px,calc(100vw - 20px))!important}
+}
+/* //browser-chrome-icon-fit-final */
+html body.browser-shell .browser-mode-address button{
+  display:grid!important;
+  place-items:center!important;
+  padding:0!important;
+  overflow:hidden!important;
+}
+html body.browser-shell .browser-mode-address :is(
+  [data-browser-shell-back],
+  [data-browser-shell-forward],
+  [data-browser-shell-reload],
+  [data-browser-shell-bookmark],
+  [data-browser-shell-menu]
+)::before{
+  display:grid!important;
+  place-items:center!important;
+  inset:0!important;
+  width:100%!important;
+  height:100%!important;
+  font-size:15px!important;
+  line-height:1!important;
+  transform-origin:50% 50%!important;
+}
+html body.browser-shell .browser-mode-address [data-browser-shell-back]::before{
+  transform:rotate(180deg) scale(.86)!important;
+}
+html body.browser-shell .browser-mode-address [data-browser-shell-forward]::before{
+  transform:scale(.86)!important;
+}
+html body.browser-shell .browser-mode-address [data-browser-shell-reload]::before{
+  transform:rotate(0deg) scale(.88)!important;
+}
+html body.browser-shell .browser-mode-address [data-browser-shell-bookmark]::before{
+  font-size:16px!important;
+  transform:rotate(0deg) scale(.86)!important;
+}
+html body.browser-shell .browser-mode-address [data-browser-shell-menu]::before{
+  font-size:16px!important;
+  transform:scale(.72)!important;
+}
+html body.browser-shell .browser-mode-address [data-browser-shell-back]:hover::before{
+  transform:rotate(180deg) translateX(1px) scale(.92)!important;
+}
+html body.browser-shell .browser-mode-address [data-browser-shell-forward]:hover::before{
+  transform:translateX(1px) scale(.92)!important;
+}
+html body.browser-shell .browser-mode-address [data-browser-shell-reload]:hover::before{
+  transform:rotate(24deg) scale(.92)!important;
+}
+html body.browser-shell .browser-mode-address [data-browser-shell-bookmark]:hover::before{
+  transform:rotate(18deg) scale(.92)!important;
+}
+html body.browser-shell .browser-mode-address [data-browser-shell-menu]:hover::before{
+  transform:scale(.78)!important;
+}
+html body.browser-shell .browser-mode-address button > .fresh-real-icon{
+  display:none!important;
+}
+html body.browser-shell .browser-mode-weather > .weather-cloud-icon{
+  width:14px!important;
+  height:14px!important;
+  margin:0!important;
+}
+html body.browser-shell .brand-mini [data-browser-shell-new-tab]{
+  display:grid!important;
+  place-items:center!important;
+  padding:0!important;
+  font-size:15px!important;
+  line-height:1!important;
+}
+html body.browser-shell .brand-mini [data-browser-shell-new-tab] span{
+  display:none!important;
+}
+/* //nyx-blank-page-final */
+body.browser-shell .browser-home{
+  display:grid!important;
+  place-items:center!important;
+  padding:24px!important;
+}
+body.browser-shell .browser-home.hidden{
+  display:none!important;
+}
+body.browser-shell .browser-home .browser-shell-start{
+  display:grid!important;
+}
+body.browser-shell #centerClock,
+body.browser-shell .browser-window.browser-home-page .browser-shell-clock{
+  display:none!important;
+}
+body.browser-shell .browser-home .browser-blank-center{
+  display:none!important;
+}
+body.browser-shell .browser-window.browser-blank-page .browser-home .browser-shell-start{
+  display:none!important;
+}
+body.browser-shell .browser-window.browser-blank-page .browser-home .browser-blank-center{
+  display:grid!important;
+}
+body.browser-shell .browser-window.browser-home-page .browser-home .browser-blank-center{
+  display:none!important;
+}
+body.browser-shell .browser-blank-center{
+  width:min(760px,calc(100vw - 56px))!important;
+  justify-items:center!important;
+  gap:18px!important;
+  margin:0 auto!important;
+  transform:translateY(-2vh);
+}
+body.browser-shell .browser-blank-logo{
+  width:132px!important;
+  height:132px!important;
+  object-fit:contain!important;
+  filter:drop-shadow(0 0 18px color-mix(in srgb,var(--theme-border,#8b5cf6) 48%,transparent))!important;
+}
+body.browser-shell .browser-blank-search{
+  width:min(620px,100%)!important;
+  height:44px!important;
+  display:block!important;
+}
+body.browser-shell .browser-blank-search input{
+  width:100%!important;
+  height:44px!important;
+  border:1px solid transparent!important;
+  border-radius:999px!important;
+  padding:0 16px!important;
+  background:
+    linear-gradient(#04050a,#04050a) padding-box,
+    var(--chrome-border-gradient) border-box!important;
+  color:#f8fafc!important;
+  -webkit-text-fill-color:#f8fafc!important;
+  font:700 15px Outfit,Arial,sans-serif!important;
+  outline:0!important;
+  box-shadow:0 14px 30px rgba(0,0,0,.28)!important;
+}
+body.browser-shell .browser-blank-search button{
+  display:none!important;
+}
+body.browser-shell .browser-blank-center [data-home-shortcuts]{
+  justify-content:center!important;
+}
+body.browser-shell .browser-home [data-home-shortcuts]{
+  width:min(760px,calc(100vw - 56px))!important;
+  display:flex!important;
+  flex-wrap:wrap!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:12px!important;
+  margin:0 auto!important;
+}
+body.browser-shell .browser-window.browser-home-page .browser-home [data-home-shortcuts]{
+  margin-top:22px!important;
+}
+/* //home-shortcuts-row-repair */
+html body.browser-shell .browser-home .home-shortcut-grid.browser-home-normal,
+html body.browser-shell .browser-home .home-shortcut-grid{
+  width:min(760px,calc(100vw - 56px))!important;
+  display:flex!important;
+  flex-direction:row!important;
+  flex-wrap:wrap!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:10px!important;
+  max-height:none!important;
+  overflow:visible!important;
+  margin:0 auto!important;
+}
+html body.browser-shell .browser-window.browser-home-page .browser-home .home-shortcut-grid{
+  margin-top:22px!important;
+}
+html body.browser-shell .browser-home .home-shortcut-grid > .quick-tile{
+  width:72px!important;
+  height:84px!important;
+  min-width:72px!important;
+  min-height:84px!important;
+  max-width:72px!important;
+  max-height:84px!important;
+  border-radius:12px!important;
+  padding:5px!important;
+  display:grid!important;
+  place-items:center!important;
+  gap:4px!important;
+}
+html body.browser-shell .browser-home .home-shortcut-grid .home-shortcut-open{
+  width:100%!important;
+  height:100%!important;
+  min-height:0!important;
+  padding:5px!important;
+  gap:4px!important;
+}
+html body.browser-shell .browser-home .home-shortcut-grid .quick-icon{
+  width:36px!important;
+  height:36px!important;
+  padding:0!important;
+  border-radius:8px!important;
+}
+html body.browser-shell .browser-home .home-shortcut-grid .quick-tile span{
+  max-width:66px!important;
+  overflow:hidden!important;
+  text-overflow:ellipsis!important;
+  white-space:nowrap!important;
+  font-size:11px!important;
+  line-height:1.1!important;
+  text-align:center!important;
+}
+html body.browser-shell .browser-home .home-shortcut-grid .home-shortcut-add b{
+  font-size:24px!important;
+  line-height:1!important;
+}
+/* //blank-tab-open-animation */
+body.browser-shell .browser-window.browser-blank-page .browser-blank-logo{
+  animation:blankLogoRise .72s cubic-bezier(.18,.82,.22,1) both!important;
+}
+body.browser-shell .browser-window.browser-blank-page .browser-blank-search{
+  animation:blankSearchRise .78s cubic-bezier(.18,.82,.22,1) .08s both!important;
+}
+body.browser-shell .browser-window.browser-blank-page .home-shortcut-grid > .quick-tile{
+  animation:blankShortcutRise .72s cubic-bezier(.18,.82,.22,1) both!important;
+}
+body.browser-shell .browser-window.browser-blank-page .home-shortcut-grid > .quick-tile:nth-child(1){animation-delay:.16s!important}
+body.browser-shell .browser-window.browser-blank-page .home-shortcut-grid > .quick-tile:nth-child(2){animation-delay:.21s!important}
+body.browser-shell .browser-window.browser-blank-page .home-shortcut-grid > .quick-tile:nth-child(3){animation-delay:.26s!important}
+body.browser-shell .browser-window.browser-blank-page .home-shortcut-grid > .quick-tile:nth-child(4){animation-delay:.31s!important}
+body.browser-shell .browser-window.browser-blank-page .home-shortcut-grid > .quick-tile:nth-child(5){animation-delay:.36s!important}
+body.browser-shell .browser-window.browser-blank-page .home-shortcut-grid > .quick-tile:nth-child(6){animation-delay:.41s!important}
+body.browser-shell .browser-window.browser-blank-page .home-shortcut-grid > .quick-tile:nth-child(7){animation-delay:.46s!important}
+body.browser-shell .browser-window.browser-blank-page .home-shortcut-grid > .quick-tile:nth-child(8){animation-delay:.51s!important}
+@keyframes blankLogoRise{
+  0%{opacity:0;transform:translateY(20px) scale(.88);filter:blur(8px)}
+  64%{opacity:1;transform:translateY(-3px) scale(1.025);filter:blur(0)}
+  100%{opacity:1;transform:translateY(0) scale(1);filter:blur(0)}
+}
+@keyframes blankSearchRise{
+  0%{opacity:0;transform:translateY(22px) scale(.94);filter:blur(8px)}
+  66%{opacity:1;transform:translateY(-2px) scale(1.01);filter:blur(0)}
+  100%{opacity:1;transform:translateY(0) scale(1);filter:blur(0)}
+}
+@keyframes blankShortcutRise{
+  0%{opacity:0;transform:translate(-22px,28px) scale(.84);filter:blur(7px)}
+  68%{opacity:1;transform:translate(-3px,3px) scale(1.015);filter:blur(0)}
+  100%{opacity:1;transform:translate(0,0) scale(1);filter:blur(0)}
+}
+/* //top-bar-no-blur-final */
+html body.browser-shell :is(.top-os,.top-os::before,.top-os::after){
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+  filter:none!important;
+}
+/* //outfit-font-everywhere-final */
+html,
+body,
+body :is(button,input,select,textarea,label,h1,h2,h3,h4,h5,h6,p,span,strong,small,code,pre,div,a,li,td,th),
+body ::placeholder,
+body *::before,
+body *::after{
+  font-family:Outfit,Arial,sans-serif!important;
+}
+/* //browser-top-clock-visible-final */
+body.browser-shell .top-os > .browser-top-clock{
+  display:flex!important;
+  visibility:visible!important;
+  position:absolute!important;
+  right:12px!important;
+  top:7px!important;
+  width:auto!important;
+  min-width:92px!important;
+  height:22px!important;
+  z-index:40!important;
+  align-items:center!important;
+  justify-content:flex-end!important;
+  color:#f8fafc!important;
+  -webkit-text-fill-color:#f8fafc!important;
+  font-size:13px!important;
+  font-weight:800!important;
+  line-height:1!important;
+  text-indent:0!important;
+  opacity:1!important;
+  pointer-events:none!important;
+}
+/* //normal-text-and-darker-white-theme-final */
+/* //browser-top-bar-comfort-size-final */
+html body.browser-shell .top-os{
+  height:68px!important;
+  min-height:68px!important;
+  padding:5px 9px 5px!important;
+  grid-template-rows:26px 31px!important;
+  gap:4px!important;
+}
+html body.browser-shell .browser-mode-app-button{
+  height:26px!important;
+  min-height:26px!important;
+  width:154px!important;
+  font-size:12px!important;
+  border-radius:7px!important;
+}
+html body.browser-shell .browser-mode-tab,
+html body.browser-shell .browser-mode-shell-tab{
+  height:26px!important;
+  min-height:26px!important;
+  border-radius:7px!important;
+  font-size:13px!important;
+}
+html body.browser-shell .browser-mode-tab{
+  width:26px!important;
+  min-width:26px!important;
+}
+html body.browser-shell .browser-mode-address{
+  grid-template-columns:30px 30px 30px minmax(0,1fr) 30px 30px 34px!important;
+  gap:5px!important;
+}
+html body.browser-shell .browser-mode-address button{
+  width:30px!important;
+  height:30px!important;
+  min-width:30px!important;
+  min-height:30px!important;
+  border-radius:8px!important;
+}
+html body.browser-shell .browser-mode-url{
+  height:30px!important;
+  min-height:30px!important;
+  border-radius:8px!important;
+  font-size:13px!important;
+  padding:0 11px!important;
+}
+html body.browser-shell .fresh-real-icon,
+html body.browser-shell .browser-mode-address button::before,
+html body.browser-shell .browser-mode-address button::after{
+  font-size:18px!important;
+}
+html body.browser-shell .browser-mode-weather > .weather-cloud-icon{
+  width:18px!important;
+  height:18px!important;
+}
+html body.browser-shell .browser-mode-menu{
+  top:68px!important;
+}
+html body.browser-shell .top-os > .browser-top-clock{
+  top:9px!important;
+  right:12px!important;
+  height:24px!important;
+  font-size:13px!important;
+}
+@media(max-width:520px){
+  html body.browser-shell .top-os{height:60px!important;min-height:60px!important;grid-template-rows:24px 27px!important;padding:4px 7px!important}
+  html body.browser-shell .browser-mode-app-button{height:24px!important;min-height:24px!important;width:116px!important}
+  html body.browser-shell .browser-mode-tab,
+  html body.browser-shell .browser-mode-shell-tab{height:24px!important;min-height:24px!important}
+  html body.browser-shell .browser-mode-tab{width:24px!important;min-width:24px!important}
+  html body.browser-shell .browser-mode-address{grid-template-columns:27px 27px 27px minmax(0,1fr) 27px 27px 30px!important}
+  html body.browser-shell .browser-mode-address button{width:27px!important;height:27px!important;min-width:27px!important;min-height:27px!important}
+  html body.browser-shell .browser-mode-url{height:27px!important;min-height:27px!important}
+  html body.browser-shell .browser-mode-menu{top:60px!important}
+}
+html,
+body,
+body :is(button,input,select,textarea,label,h1,h2,h3,h4,h5,h6,p,span,strong,small,code,pre,div,a,li,td,th,b,i,em){
+  font-weight:400!important;
+  font-style:normal!important;
+}
+body.theme-fresh{
+  --accent:#08677a!important;
+  --theme-strong:#075f70!important;
+  --fresh-ink:#075f70!important;
+  --fresh-blue:#176da8!important;
+  --fresh-blue-deep:#11557f!important;
+  --theme-text-gradient:linear-gradient(90deg,#075f70,#0b687a,#176da8)!important;
+}
+body.theme-fresh :is(
+  h1,h2,h3,h4,h5,h6,p,span,label,strong,small,button,a,
+  .home-heading,.home-sub,.titlebar-title,.desktop-center-clock,.browser-shell-clock,
+  .browser-top-clock,.quick-tile span,.dock span,.browser-mode-menu button,
+  .weather-panel,.weather-panel *,
+  .settings-app,.settings-app *, .apps-panel,.apps-panel *
+){
+  color:#075f70!important;
+  -webkit-text-fill-color:#075f70!important;
+  font-weight:400!important;
+  font-style:normal!important;
+}
+body.theme-fresh :is(.browser-mode-url,.urlbar,input,select,textarea)::placeholder{
+  color:#336d78!important;
+  -webkit-text-fill-color:#336d78!important;
+  font-weight:400!important;
+  font-style:normal!important;
+}
+body.browser-shell .top-os > .browser-top-clock,
+body.browser-shell :is(button,input,select,textarea,label,h1,h2,h3,h4,h5,h6,p,span,strong,small,code,pre,div,a,li,td,th,b,i,em),
+body :is(.welcome-title,.welcome-letter,.brand-mini,.brand-button,.user-chip,.home-heading,.desktop-app span,.weather-temp,.weather-panel-title,.weather-forecast-row .weather-day,.weather-stat strong,.settings-action,.settings-preset,.quick-tile,.quick-combo,.shell-page h1,.shell-page p,.settings-main h1,.settings-block h2,.settings-block p,.settings-side button,.settings-input,.settings-select){
+  font-weight:400!important;
+  font-style:normal!important;
+}
+body.browser-shell.theme-fresh :is(
+  button,input,select,textarea,label,h1,h2,h3,h4,h5,h6,p,span,strong,small,code,pre,div,a,li,td,th,b,i,em,
+  .browser-mode-tab,.browser-mode-app-button,.browser-mode-menu button,.browser-mode-url,
+  .browser-mode-address button,.home-shortcut span,.home-shortcut-add span,.quick-tile span,
+  .settings-app,.settings-app *,.weather-panel,.weather-panel *
+){
+  color:#075f70!important;
+  -webkit-text-fill-color:#075f70!important;
+  font-weight:400!important;
+  font-style:normal!important;
+}
+body.browser-shell.theme-fresh .top-os > .browser-top-clock{
+  color:#075f70!important;
+  -webkit-text-fill-color:#075f70!important;
+  font-weight:400!important;
+  font-style:normal!important;
+}
+body.browser-shell:not(.theme-ruby):not(.theme-emerald):not(.theme-sakura):not(.theme-fresh):not(.theme-midnight):not(.custom-bg-active) :is(.browser-home,.browser-window.maximized.browser-blank,.browser-window.maximized:has(.browser-home:not(.hidden))){
+  background:transparent!important;
+  background-image:none!important;
+}
+body.browser-shell:not(.theme-ruby):not(.theme-emerald):not(.theme-sakura):not(.theme-fresh):not(.theme-midnight):not(.custom-bg-active) :is(.browser-window.maximized.browser-blank,.browser-window.maximized:has(.browser-home:not(.hidden)))::before,
+body.browser-shell:not(.theme-ruby):not(.theme-emerald):not(.theme-sakura):not(.theme-fresh):not(.theme-midnight):not(.custom-bg-active) :is(.browser-window.maximized.browser-blank,.browser-window.maximized:has(.browser-home:not(.hidden)))::after{
+  background:transparent!important;
+  background-image:none!important;
+}
+html body:not(.theme-ruby):not(.theme-emerald):not(.theme-sakura):not(.theme-fresh):not(.custom-bg-active)::before,
+html body.browser-shell:not(.theme-ruby):not(.theme-emerald):not(.theme-sakura):not(.theme-fresh):not(.theme-midnight):not(.custom-bg-active)::before{
+  background:linear-gradient(rgba(0,0,0,.12),rgba(0,0,0,.22))!important;
+  background-image:linear-gradient(rgba(0,0,0,.12),rgba(0,0,0,.22))!important;
+}
+html body.theme-ruby:not(.custom-bg-active)::before,
+html body.browser-shell.theme-ruby:not(.custom-bg-active)::before{
+  background:linear-gradient(rgba(60,0,12,.10),rgba(60,0,12,.22)),url("../assets/backgrounds/nyx-blue-light-trails.jpg") center/cover no-repeat!important;
+  background-image:linear-gradient(rgba(60,0,12,.10),rgba(60,0,12,.22)),url("../assets/backgrounds/nyx-blue-light-trails.jpg")!important;
+}
+html body.theme-emerald:not(.custom-bg-active)::before,
+html body.browser-shell.theme-emerald:not(.custom-bg-active)::before{
+  background:linear-gradient(rgba(0,24,12,.08),rgba(0,24,12,.20)),url("../assets/backgrounds/nyx-blue-light-trails.jpg") center/cover no-repeat!important;
+  background-image:linear-gradient(rgba(0,24,12,.08),rgba(0,24,12,.20)),url("../assets/backgrounds/nyx-blue-light-trails.jpg")!important;
+}
+html body.theme-sakura:not(.custom-bg-active)::before,
+html body.browser-shell.theme-sakura:not(.custom-bg-active)::before{
+  background:linear-gradient(rgba(40,0,28,.06),rgba(40,0,28,.18)),url("../assets/backgrounds/nyx-blue-light-trails.jpg") center/cover no-repeat!important;
+  background-image:linear-gradient(rgba(40,0,28,.06),rgba(40,0,28,.18)),url("../assets/backgrounds/nyx-blue-light-trails.jpg")!important;
+}
+body.browser-shell.theme-ruby:not(.custom-bg-active) :is(.browser-home,.browser-window.maximized.browser-blank,.browser-window.maximized:has(.browser-home:not(.hidden))){
+  background:transparent!important;
+  background-image:none!important;
+}
+body.browser-shell.theme-ruby:not(.custom-bg-active) :is(.browser-window.maximized.browser-blank,.browser-window.maximized:has(.browser-home:not(.hidden)))::before,
+body.browser-shell.theme-ruby:not(.custom-bg-active) :is(.browser-window.maximized.browser-blank,.browser-window.maximized:has(.browser-home:not(.hidden)))::after{
+  background:transparent!important;
+  background-image:none!important;
+}
+body.browser-shell.theme-emerald:not(.custom-bg-active) :is(.browser-home,.browser-window.maximized.browser-blank,.browser-window.maximized:has(.browser-home:not(.hidden))){
+  background:transparent!important;
+  background-image:none!important;
+}
+body.browser-shell.theme-emerald:not(.custom-bg-active) :is(.browser-window.maximized.browser-blank,.browser-window.maximized:has(.browser-home:not(.hidden)))::before,
+body.browser-shell.theme-emerald:not(.custom-bg-active) :is(.browser-window.maximized.browser-blank,.browser-window.maximized:has(.browser-home:not(.hidden)))::after{
+  background:transparent!important;
+  background-image:none!important;
+}
+body.browser-shell.theme-sakura:not(.custom-bg-active) :is(.browser-home,.browser-window.maximized.browser-blank,.browser-window.maximized:has(.browser-home:not(.hidden))){
+  background:transparent!important;
+  background-image:none!important;
+}
+body.browser-shell.theme-sakura:not(.custom-bg-active) :is(.browser-window.maximized.browser-blank,.browser-window.maximized:has(.browser-home:not(.hidden)))::before,
+body.browser-shell.theme-sakura:not(.custom-bg-active) :is(.browser-window.maximized.browser-blank,.browser-window.maximized:has(.browser-home:not(.hidden)))::after{
+  background:transparent!important;
+  background-image:none!important;
+}
+html body.theme-fresh:not(.custom-bg-active)::before,
+html body.browser-shell.theme-fresh:not(.custom-bg-active)::before,
+html body.theme-fresh:not(.theme-ruby):not(.theme-emerald):not(.theme-sakura):not(.custom-bg-active)::before,
+html body.browser-shell.theme-fresh:not(.theme-ruby):not(.theme-emerald):not(.theme-sakura):not(.custom-bg-active)::before{
+  background:linear-gradient(rgba(255,255,255,.10),rgba(255,255,255,.18)),url("../assets/backgrounds/nyx-blue-light-trails.jpg") center/cover no-repeat!important;
+  background-image:linear-gradient(rgba(255,255,255,.10),rgba(255,255,255,.18)),url("../assets/backgrounds/nyx-blue-light-trails.jpg")!important;
+}
+body.browser-shell.theme-fresh:not(.custom-bg-active) :is(.browser-home,.browser-window.maximized.browser-blank,.browser-window.maximized:has(.browser-home:not(.hidden))){
+  background:transparent!important;
+  background-image:none!important;
+}
+body.browser-shell.theme-fresh:not(.custom-bg-active) :is(.browser-window.maximized.browser-blank,.browser-window.maximized:has(.browser-home:not(.hidden)))::before,
+body.browser-shell.theme-fresh:not(.custom-bg-active) :is(.browser-window.maximized.browser-blank,.browser-window.maximized:has(.browser-home:not(.hidden)))::after{
+  background:transparent!important;
+  background-image:none!important;
+}
+/* //final-bar-theme-and-loader-polish */
+.welcome-progress{display:none!important}
+.post-cover-loader{
+  position:fixed;
+  left:50%;
+  top:12px;
+  z-index:40000;
+  width:min(540px,calc(100vw - 34px));
+  height:18px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  opacity:0;
+  transform:translate(-50%,-10px);
+  pointer-events:none;
+  transition:opacity .22s ease,transform .22s ease;
+  color:var(--theme-strong,#f8fafc);
+  -webkit-text-fill-color:var(--theme-strong,#f8fafc);
+  font-size:11px;
+  letter-spacing:0;
+}
+.post-cover-loader.active{opacity:1;transform:translate(-50%,0)}
+.post-cover-loader-track{
+  position:relative;
+  flex:1;
+  height:4px;
+  border-radius:999px;
+  overflow:hidden;
+  background:rgba(255,255,255,.18);
+  box-shadow:0 0 0 1px rgba(255,255,255,.08),0 8px 22px rgba(0,0,0,.22);
+}
+.post-cover-loader-fill{
+  display:block;
+  width:0%;
+  height:100%;
+  border-radius:inherit;
+  background:var(--accent,#b889ff);
+  transition:width .2s ease;
+}
+.post-cover-loader-label{max-width:170px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.post-cover-loader-percent{min-width:34px;text-align:right}
+html body.browser-shell{--bar:52px!important}
+html body.browser-shell .top-os{
+  height:52px!important;
+  min-height:52px!important;
+  max-height:52px!important;
+  grid-template-rows:21px 22px!important;
+  gap:3px!important;
+  padding:3px 6px!important;
+  overflow:hidden!important;
+  background:#070711!important;
+  background-image:none!important;
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+}
+html body.browser-shell .top-os::before,
+html body.browser-shell .top-os::after{display:none!important;content:none!important}
+html body.browser-shell .window.maximized{
+  top:52px!important;
+  height:calc(100dvh - 52px)!important;
+}
+html body.browser-shell .browser-mode-menu{top:52px!important}
+html body.browser-shell .browser-mode-address button[data-browser-shell-menu]::before,
+html body.browser-shell .browser-mode-address button[data-browser-shell-menu] .fresh-real-icon{
+  font-size:20px!important;
+  line-height:1!important;
+}
+html body.browser-shell .browser-shell-settings-panel{position:relative!important}
+html body.browser-shell .browser-shell-settings-close,
+html body.browser-shell .browser-shell-settings-panel .browser-shell-settings-close{
+  position:sticky!important;
+  top:4px!important;
+  right:4px!important;
+  float:right!important;
+  margin:-4px -4px 2px auto!important;
+  width:22px!important;
+  height:22px!important;
+  min-width:22px!important;
+  min-height:22px!important;
+  padding:0!important;
+  border:0!important;
+  outline:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  background-image:none!important;
+  box-shadow:none!important;
+  color:var(--theme-strong,#f8fafc)!important;
+  -webkit-text-fill-color:var(--theme-strong,#f8fafc)!important;
+  font-size:18px!important;
+  line-height:20px!important;
+  text-align:center!important;
+  z-index:50!important;
+}
+html body.browser-shell .browser-shell-settings-close::before,
+html body.browser-shell .browser-shell-settings-close::after{display:none!important;content:none!important}
+html body.theme-fresh{
+  --accent:#54ebd9!important;
+  --theme-a:#ffffff!important;
+  --theme-b:#ffffff!important;
+  --theme-strong:#0b7280!important;
+  --theme-soft:#ffffff!important;
+  --theme-border:#54ebd9!important;
+  --fresh-ink:#0b7280!important;
+  --fresh-blue:#0b7280!important;
+  --fresh-blue-deep:#0b7280!important;
+  --theme-text-gradient:linear-gradient(90deg,#0b7280,#159cab,#31c9bc)!important;
+  color:#0b7280!important;
+  background:#ffffff!important;
+  background-image:none!important;
+}
+html body.browser-shell.theme-fresh .top-os{
+  background:rgba(255,255,255,.86)!important;
+  background-image:none!important;
+}
+html body.browser-shell.theme-fresh :is(.top-os,.window,.titlebar,.browser-tabs,.browser-tools,.browser-mode-menu,.browser-bookmark-panel,.settings-panel,.settings-card,.settings-app,.settings-main,.settings-side,.browser-shell-settings-panel,.settings-block,.glass-card,.quick-tile,.quick-icon,.browser-mode-tab,.browser-mode-shell-tab,.browser-mode-app-button,.browser-mode-address button,.browser-mode-url,.urlbar,.weather-panel,.weather-restore,.apps-panel,.panel,.home-shortcut,.home-shortcut-add,.home-shortcut-menu,.tool-btn,.go-btn,.menu-btn,.settings-action,.settings-preset,input,select,textarea,button){
+  background-color:rgba(255,255,255,.72)!important;
+  background-image:none!important;
+  border-color:rgba(84,235,217,.68)!important;
+  color:#0b7280!important;
+  -webkit-text-fill-color:#0b7280!important;
+}
+html body.browser-shell.theme-fresh :is(.browser-mode-url,.urlbar,input,select,textarea){background-color:rgba(255,255,255,.82)!important}
+html body.browser-shell.theme-fresh .browser-mode-address button{background-color:rgba(255,255,255,.62)!important}
+html body.theme-fresh select option{
+  background:#ffffff!important;
+  color:#0b7280!important;
+  -webkit-text-fill-color:#0b7280!important;
+}
+html body.theme-fresh #visualEffects,
+html body.theme-fresh #visualEffects i,
+html body.theme-fresh #visualEffects i::before{
+  color:#f9a8d4!important;
+  -webkit-text-fill-color:#f9a8d4!important;
+  text-shadow:0 0 12px rgba(244,114,182,.72),0 8px 20px rgba(255,255,255,.36)!important;
+}
+html body.theme-fresh .post-cover-loader{
+  color:#0b7280!important;
+  -webkit-text-fill-color:#0b7280!important;
+}
+html body.theme-fresh .post-cover-loader-track{
+  background:rgba(255,255,255,.56)!important;
+  box-shadow:0 0 0 1px rgba(84,235,217,.42),0 8px 22px rgba(11,114,128,.14)!important;
+}
+html body.theme-fresh .post-cover-loader-fill{background:#54ebd9!important}
+html body.browser-shell.theme-fresh .top-os{
+  background:rgba(255,255,255,.86)!important;
+  background-image:none!important;
+  box-shadow:none!important;
+}
+html body.browser-shell .browser-shell-settings-panel > .browser-shell-settings-close,
+html body.browser-shell .browser-shell-settings-panel > .browser-shell-settings-close:hover,
+html body.browser-shell .browser-shell-settings-panel > .browser-shell-settings-close:focus,
+html body.browser-shell .browser-shell-settings-panel > .browser-shell-settings-close:focus-visible{
+  position:sticky!important;
+  top:4px!important;
+  right:4px!important;
+  float:right!important;
+  margin:-4px -4px 2px auto!important;
+  width:22px!important;
+  height:22px!important;
+  min-width:22px!important;
+  min-height:22px!important;
+  padding:0!important;
+  border:0!important;
+  border-width:0!important;
+  border-style:none!important;
+  outline:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  background-color:transparent!important;
+  background-image:none!important;
+  box-shadow:none!important;
+  text-indent:0!important;
+  color:var(--theme-strong,#f8fafc)!important;
+  -webkit-text-fill-color:var(--theme-strong,#f8fafc)!important;
+  font-size:18px!important;
+  line-height:20px!important;
+  text-align:center!important;
+}
+html body.browser-shell.theme-fresh .browser-shell-settings-panel > .browser-shell-settings-close,
+html body.browser-shell.theme-fresh .browser-shell-settings-panel > .browser-shell-settings-close:hover,
+html body.browser-shell.theme-fresh .browser-shell-settings-panel > .browser-shell-settings-close:focus,
+html body.browser-shell.theme-fresh .browser-shell-settings-panel > .browser-shell-settings-close:focus-visible{
+  color:#54ebd9!important;
+  -webkit-text-fill-color:#54ebd9!important;
+}
+html body.browser-shell .browser-shell-settings-panel > .browser-shell-settings-close::before,
+html body.browser-shell .browser-shell-settings-panel > .browser-shell-settings-close::after{
+  display:none!important;
+  content:none!important;
+}
+/* //small-bottom-shortcut-bar-final */
+html body.browser-shell .browser-home{
+  position:relative!important;
+}
+html body.browser-shell .browser-home-normal.home-shortcut-grid,
+html body.browser-shell .browser-window.browser-blank-page .home-shortcut-grid,
+html body.browser-shell [data-home-shortcuts]{
+  position:absolute!important;
+  left:50%!important;
+  right:auto!important;
+  bottom:22px!important;
+  top:auto!important;
+  width:auto!important;
+  max-width:min(92vw,760px)!important;
+  height:48px!important;
+  min-height:48px!important;
+  display:flex!important;
+  flex-direction:row!important;
+  align-items:center!important;
+  justify-content:center!important;
+  grid-template-columns:none!important;
+  grid-auto-flow:column!important;
+  gap:7px!important;
+  padding:5px 7px!important;
+  margin:0!important;
+  overflow:visible!important;
+  border:1px solid var(--nyx-shortcut-border,rgba(190,148,255,.72))!important;
+  border-radius:14px!important;
+  background:rgba(7,7,17,.58)!important;
+  background-image:none!important;
+  box-shadow:0 12px 32px rgba(0,0,0,.20),inset 0 1px 0 rgba(255,255,255,.08)!important;
+  transform:translateX(-50%)!important;
+  z-index:18!important;
+}
+html body.browser-shell.theme-fresh .browser-home-normal.home-shortcut-grid,
+html body.browser-shell.theme-fresh .browser-window.browser-blank-page .home-shortcut-grid,
+html body.browser-shell.theme-fresh [data-home-shortcuts]{
+  background:rgba(255,255,255,.62)!important;
+  border-color:rgba(84,235,217,.78)!important;
+  box-shadow:0 12px 28px rgba(11,114,128,.12),inset 0 1px 0 rgba(255,255,255,.42)!important;
+}
+html body.browser-shell .browser-home-normal .quick-tile.home-shortcut,
+html body.browser-shell .browser-home-normal .quick-tile.home-shortcut:hover,
+html body.browser-shell .browser-home-normal .quick-tile.home-shortcut:focus-within,
+html body.browser-shell .browser-home-normal .quick-tile.home-shortcut-add,
+html body.browser-shell .browser-home-normal .quick-tile.home-shortcut-add:hover,
+html body.browser-shell .browser-home-normal .quick-tile.home-shortcut-add:focus-visible{
+  position:relative!important;
+  flex:0 0 38px!important;
+  width:38px!important;
+  min-width:38px!important;
+  max-width:38px!important;
+  height:38px!important;
+  min-height:38px!important;
+  max-height:38px!important;
+  padding:0!important;
+  margin:0!important;
+  display:grid!important;
+  place-items:center!important;
+  border:0!important;
+  outline:0!important;
+  border-radius:10px!important;
+  background:transparent!important;
+  background-image:none!important;
+  box-shadow:none!important;
+  overflow:visible!important;
+  transition:transform .34s cubic-bezier(.2,.8,.2,1),background-color .34s ease!important;
+}
+html body.browser-shell .browser-home-normal .quick-tile.home-shortcut:hover,
+html body.browser-shell .browser-home-normal .quick-tile.home-shortcut-add:hover{
+  transform:translateY(-3px) scale(1.06)!important;
+  background:rgba(255,255,255,.10)!important;
+}
+html body.browser-shell.theme-fresh .browser-home-normal .quick-tile.home-shortcut:hover,
+html body.browser-shell.theme-fresh .browser-home-normal .quick-tile.home-shortcut-add:hover{
+  background:rgba(84,235,217,.14)!important;
+}
+html body.browser-shell .browser-home-normal .home-shortcut .home-shortcut-open,
+html body.browser-shell .browser-home-normal .home-shortcut .home-shortcut-open:hover,
+html body.browser-shell .browser-home-normal .home-shortcut .home-shortcut-open:focus-visible,
+html body.browser-shell .browser-home-normal .home-shortcut-add{
+  width:100%!important;
+  height:100%!important;
+  min-width:0!important;
+  padding:0!important;
+  display:grid!important;
+  place-items:center!important;
+  border:0!important;
+  outline:0!important;
+  background:transparent!important;
+  background-image:none!important;
+  box-shadow:none!important;
+}
+html body.browser-shell .home-shortcut-glyph{
+  width:22px!important;
+  height:22px!important;
+  display:block!important;
+  background:var(--nyx-shell-icon,#f8fafc)!important;
+  -webkit-mask:var(--shortcut-mask) center/contain no-repeat!important;
+  mask:var(--shortcut-mask) center/contain no-repeat!important;
+  filter:drop-shadow(0 0 8px color-mix(in srgb,var(--nyx-shell-icon,#f8fafc) 54%,transparent))!important;
+}
+html body.browser-shell .browser-home-normal .home-shortcut .quick-icon{
+  width:22px!important;
+  height:22px!important;
+  min-width:22px!important;
+  min-height:22px!important;
+  max-width:22px!important;
+  max-height:22px!important;
+  object-fit:contain!important;
+  border:0!important;
+  border-radius:6px!important;
+  background:transparent!important;
+  box-shadow:none!important;
+}
+html body.browser-shell .browser-home-normal .home-shortcut span:not(.shortcut-real-dots):not(.home-shortcut-glyph),
+html body.browser-shell .browser-home-normal .home-shortcut-add span{
+  position:absolute!important;
+  width:1px!important;
+  height:1px!important;
+  overflow:hidden!important;
+  clip:rect(0 0 0 0)!important;
+  white-space:nowrap!important;
+}
+html body.browser-shell .browser-home-normal .home-shortcut-add b{
+  color:var(--nyx-shell-icon,#f8fafc)!important;
+  -webkit-text-fill-color:var(--nyx-shell-icon,#f8fafc)!important;
+  font-size:24px!important;
+  line-height:1!important;
+}
+html body.browser-shell .browser-home-normal div.quick-tile.home-shortcut button.home-shortcut-menu-btn,
+html body.browser-shell .browser-home-normal div.quick-tile.home-shortcut button.home-shortcut-menu-btn:hover,
+html body.browser-shell .browser-home-normal div.quick-tile.home-shortcut.menu-open button.home-shortcut-menu-btn{
+  top:-4px!important;
+  right:-4px!important;
+  width:16px!important;
+  height:16px!important;
+  min-width:16px!important;
+  min-height:16px!important;
+  max-width:16px!important;
+  max-height:16px!important;
+  padding:0!important;
+  border:0!important;
+  border-radius:999px!important;
+  background:rgba(7,7,17,.58)!important;
+  box-shadow:none!important;
+  display:grid!important;
+  place-items:center!important;
+}
+html body.browser-shell.theme-fresh .browser-home-normal div.quick-tile.home-shortcut button.home-shortcut-menu-btn,
+html body.browser-shell.theme-fresh .browser-home-normal div.quick-tile.home-shortcut button.home-shortcut-menu-btn:hover,
+html body.browser-shell.theme-fresh .browser-home-normal div.quick-tile.home-shortcut.menu-open button.home-shortcut-menu-btn{
+  background:rgba(255,255,255,.66)!important;
+}
+html body.browser-shell .browser-home-normal div.quick-tile.home-shortcut button.home-shortcut-menu-btn .shortcut-real-dots,
+html body.browser-shell .browser-home-normal div.quick-tile.home-shortcut button.home-shortcut-menu-btn .shortcut-real-dots::before{
+  content:"..."!important;
+  color:var(--nyx-shell-icon,#f8fafc)!important;
+  -webkit-text-fill-color:var(--nyx-shell-icon,#f8fafc)!important;
+  font:900 12px/1 Arial,Helvetica,sans-serif!important;
+  letter-spacing:0!important;
+}
+html body.browser-shell .home-shortcut-menu{
+  bottom:42px!important;
+  top:auto!important;
+  min-width:96px!important;
+}
+html body.browser-shell [data-home-shortcuts]{
+  width:max-content!important;
+  min-width:0!important;
+  max-width:calc(100vw - 24px)!important;
+}
+html body.browser-shell [data-home-shortcuts] > .quick-tile.home-shortcut,
+html body.browser-shell [data-home-shortcuts] > .quick-tile.home-shortcut:hover,
+html body.browser-shell [data-home-shortcuts] > .quick-tile.home-shortcut:focus-within,
+html body.browser-shell [data-home-shortcuts] > .quick-tile.home-shortcut-add,
+html body.browser-shell [data-home-shortcuts] > .quick-tile.home-shortcut-add:hover,
+html body.browser-shell [data-home-shortcuts] > .quick-tile.home-shortcut-add:focus-visible{
+  position:relative!important;
+  inset:auto!important;
+  flex:0 0 38px!important;
+  width:38px!important;
+  min-width:38px!important;
+  max-width:38px!important;
+  height:38px!important;
+  min-height:38px!important;
+  max-height:38px!important;
+  padding:0!important;
+  margin:0!important;
+  border:0!important;
+  border-width:0!important;
+  outline:0!important;
+  box-shadow:none!important;
+  animation:none!important;
+}
+html body.browser-shell [data-home-shortcuts] > .quick-tile.home-shortcut:not(:hover),
+html body.browser-shell [data-home-shortcuts] > .quick-tile.home-shortcut-add:not(:hover){
+  transform:none!important;
+}
+html body.browser-shell [data-home-shortcuts] > .quick-tile.home-shortcut:hover,
+html body.browser-shell [data-home-shortcuts] > .quick-tile.home-shortcut-add:hover{
+  transform:translateY(-3px) scale(1.06)!important;
+}
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts]{
+  width:max-content!important;
+  min-width:0!important;
+  max-width:calc(100vw - 24px)!important;
+  inline-size:max-content!important;
+}
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut:hover,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut:focus-within,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > button.quick-tile.home-shortcut-add,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > button.quick-tile.home-shortcut-add:hover,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > button.quick-tile.home-shortcut-add:focus-visible{
+  border:0 none transparent!important;
+  border-width:0!important;
+  border-color:transparent!important;
+  box-shadow:none!important;
+}
+/* //welcome-loader-and-shortcut-layer-fix */
+.welcome-card .welcome-progress{
+  display:block!important;
+  position:relative!important;
+  width:min(420px,72vw)!important;
+  height:4px!important;
+  margin:22px auto 0!important;
+  border:0!important;
+  border-radius:999px!important;
+  overflow:hidden!important;
+  background:rgba(255,255,255,.18)!important;
+  box-shadow:0 0 0 1px rgba(255,255,255,.08),0 8px 22px rgba(0,0,0,.22)!important;
+}
+.welcome-card .welcome-progress::before{
+  content:""!important;
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  border-radius:inherit!important;
+  background:var(--accent,#b889ff)!important;
+  background-image:none!important;
+  transform:translateX(-100%)!important;
+  animation:welcomeLoad 2.4s ease forwards!important;
+}
+body.theme-fresh .welcome-card .welcome-progress{
+  background:rgba(255,255,255,.56)!important;
+  box-shadow:0 0 0 1px rgba(84,235,217,.42),0 8px 22px rgba(11,114,128,.14)!important;
+}
+body.theme-fresh .welcome-card .welcome-progress::before{
+  background:#54ebd9!important;
+}
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts]{
+  overflow:visible!important;
+  z-index:26!important;
+}
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > .quick-tile{
+  overflow:visible!important;
+  isolation:isolate!important;
+}
+html body.browser-shell .browser-home-normal .home-shortcut .home-shortcut-open{
+  position:relative!important;
+  z-index:1!important;
+}
+html body.browser-shell .home-shortcut-glyph{
+  width:20px!important;
+  height:20px!important;
+  margin:auto!important;
+  position:relative!important;
+  z-index:1!important;
+}
+html body.browser-shell .browser-home-normal .home-shortcut .quick-icon{
+  width:20px!important;
+  height:20px!important;
+  min-width:20px!important;
+  min-height:20px!important;
+  max-width:20px!important;
+  max-height:20px!important;
+}
+html body.browser-shell .browser-home-normal div.quick-tile.home-shortcut > button.home-shortcut-menu-btn,
+html body.browser-shell .browser-home-normal div.quick-tile.home-shortcut > button.home-shortcut-menu-btn:hover,
+html body.browser-shell .browser-home-normal div.quick-tile.home-shortcut.menu-open > button.home-shortcut-menu-btn{
+  top:-7px!important;
+  right:-7px!important;
+  width:15px!important;
+  height:15px!important;
+  min-width:15px!important;
+  min-height:15px!important;
+  max-width:15px!important;
+  max-height:15px!important;
+  padding:0!important;
+  display:grid!important;
+  place-items:center!important;
+  overflow:visible!important;
+  z-index:12!important;
+  border:1px solid color-mix(in srgb,var(--nyx-shell-icon,#f8fafc) 42%,transparent)!important;
+  border-radius:999px!important;
+  background:rgba(7,7,17,.86)!important;
+  background-image:none!important;
+  box-shadow:0 4px 12px rgba(0,0,0,.22)!important;
+}
+html body.browser-shell.theme-fresh .browser-home-normal div.quick-tile.home-shortcut > button.home-shortcut-menu-btn,
+html body.browser-shell.theme-fresh .browser-home-normal div.quick-tile.home-shortcut > button.home-shortcut-menu-btn:hover,
+html body.browser-shell.theme-fresh .browser-home-normal div.quick-tile.home-shortcut.menu-open > button.home-shortcut-menu-btn{
+  background:rgba(255,255,255,.88)!important;
+  border-color:rgba(84,235,217,.74)!important;
+  box-shadow:0 4px 12px rgba(11,114,128,.14)!important;
+}
+html body.browser-shell .browser-home-normal div.quick-tile.home-shortcut > button.home-shortcut-menu-btn .shortcut-real-dots,
+html body.browser-shell .browser-home-normal div.quick-tile.home-shortcut > button.home-shortcut-menu-btn .shortcut-real-dots::before{
+  display:block!important;
+  width:auto!important;
+  height:auto!important;
+  overflow:visible!important;
+  clip:auto!important;
+  content:"..."!important;
+  color:var(--nyx-shell-icon,#f8fafc)!important;
+  -webkit-text-fill-color:var(--nyx-shell-icon,#f8fafc)!important;
+  font:900 10px/1 Arial,Helvetica,sans-serif!important;
+  letter-spacing:-1px!important;
+  text-align:center!important;
+  transform:translateY(-1px)!important;
+}
+html body.browser-shell .home-shortcut-menu{
+  z-index:80!important;
+}
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > .home-shortcut.menu-open{
+  z-index:90!important;
+}
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > .home-shortcut.menu-open .home-shortcut-menu{
+  z-index:120!important;
+}
+/* //top-menu-and-shortcut-visibility-final */
+html body.browser-shell .top-os{
+  overflow:visible!important;
+  z-index:300!important;
+}
+html body.browser-shell.menu-open .browser-mode-menu,
+html body.browser-shell .browser-mode-menu{
+  position:fixed!important;
+  top:52px!important;
+  right:8px!important;
+  z-index:50000!important;
+  overflow:visible!important;
+  pointer-events:auto!important;
+}
+/* //browser-top-bar-comfort-size-true-final */
+html body.browser-shell{--bar:68px!important}
+html body.browser-shell .top-os{
+  height:68px!important;
+  min-height:68px!important;
+  max-height:68px!important;
+  padding:5px 9px 5px!important;
+  grid-template-rows:26px 31px!important;
+  gap:4px!important;
+}
+html body.browser-shell .window.maximized{
+  top:68px!important;
+  height:calc(100dvh - 68px)!important;
+}
+html body.browser-shell .browser-mode-menu{
+  top:68px!important;
+}
+html body.browser-shell .browser-mode-address{
+  grid-template-columns:30px 30px 30px minmax(0,1fr) 30px 30px 34px!important;
+  gap:5px!important;
+}
+html body.browser-shell .browser-mode-address button{
+  width:30px!important;
+  height:30px!important;
+  min-width:30px!important;
+  min-height:30px!important;
+  border-radius:8px!important;
+}
+html body.browser-shell .browser-mode-url{
+  height:30px!important;
+  min-height:30px!important;
+  border-radius:8px!important;
+  font-size:13px!important;
+  padding:0 11px!important;
+}
+html body.browser-shell .browser-mode-app-button,
+html body.browser-shell .browser-mode-tab,
+html body.browser-shell .browser-mode-shell-tab{
+  height:26px!important;
+  min-height:26px!important;
+  border-radius:7px!important;
+}
+@media(max-width:520px){
+  html body.browser-shell{--bar:60px!important}
+  html body.browser-shell .top-os{height:60px!important;min-height:60px!important;max-height:60px!important;grid-template-rows:24px 27px!important;padding:4px 7px!important}
+  html body.browser-shell .window.maximized{top:60px!important;height:calc(100dvh - 60px)!important}
+  html body.browser-shell .browser-mode-menu{top:60px!important}
+}
+html body.browser-shell.menu-open .browser-mode-menu{
+  display:grid!important;
+  opacity:1!important;
+  visibility:visible!important;
+  transform:none!important;
+}
+html body.browser-shell .browser-window.maximized,
+html body.browser-shell .browser-body,
+html body.browser-shell .browser-home{
+  overflow:visible!important;
+}
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts]{
+  height:54px!important;
+  min-height:54px!important;
+  bottom:18px!important;
+  padding:6px 8px!important;
+  gap:8px!important;
+  border-radius:16px!important;
+}
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut:hover,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut:focus-within,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > button.quick-tile.home-shortcut-add,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > button.quick-tile.home-shortcut-add:hover,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > button.quick-tile.home-shortcut-add:focus-visible{
+  flex-basis:42px!important;
+  width:42px!important;
+  min-width:42px!important;
+  max-width:42px!important;
+  height:42px!important;
+  min-height:42px!important;
+  max-height:42px!important;
+  overflow:visible!important;
+}
+html body.browser-shell .browser-home-normal .home-shortcut .home-shortcut-open,
+html body.browser-shell .browser-home-normal .home-shortcut .home-shortcut-open:hover,
+html body.browser-shell .browser-home-normal .home-shortcut .home-shortcut-open:focus-visible{
+  overflow:visible!important;
+}
+html body.browser-shell .home-shortcut-glyph{
+  width:27px!important;
+  height:27px!important;
+  min-width:27px!important;
+  min-height:27px!important;
+  max-width:27px!important;
+  max-height:27px!important;
+  transform:none!important;
+}
+html body.browser-shell .browser-home-normal .home-shortcut .quick-icon{
+  width:27px!important;
+  height:27px!important;
+  min-width:27px!important;
+  min-height:27px!important;
+  max-width:27px!important;
+  max-height:27px!important;
+}
+html body.browser-shell .browser-home-normal div.quick-tile.home-shortcut > button.home-shortcut-menu-btn,
+html body.browser-shell .browser-home-normal div.quick-tile.home-shortcut > button.home-shortcut-menu-btn:hover,
+html body.browser-shell .browser-home-normal div.quick-tile.home-shortcut.menu-open > button.home-shortcut-menu-btn{
+  top:-4px!important;
+  right:2px!important;
+  width:13px!important;
+  height:13px!important;
+  min-width:13px!important;
+  min-height:13px!important;
+  max-width:13px!important;
+  max-height:13px!important;
+  z-index:30!important;
+  background:rgba(7,7,17,.92)!important;
+  border:1px solid color-mix(in srgb,var(--nyx-shell-icon,#f8fafc) 60%,transparent)!important;
+  box-shadow:0 2px 8px rgba(0,0,0,.24)!important;
+}
+html body.browser-shell.theme-fresh .browser-home-normal div.quick-tile.home-shortcut > button.home-shortcut-menu-btn,
+html body.browser-shell.theme-fresh .browser-home-normal div.quick-tile.home-shortcut > button.home-shortcut-menu-btn:hover,
+html body.browser-shell.theme-fresh .browser-home-normal div.quick-tile.home-shortcut.menu-open > button.home-shortcut-menu-btn{
+  background:rgba(255,255,255,.96)!important;
+  border-color:rgba(11,114,128,.62)!important;
+}
+html body.browser-shell .browser-home-normal div.quick-tile.home-shortcut > button.home-shortcut-menu-btn .shortcut-real-dots,
+html body.browser-shell .browser-home-normal div.quick-tile.home-shortcut > button.home-shortcut-menu-btn .shortcut-real-dots::before{
+  font-size:9px!important;
+  line-height:1!important;
+  letter-spacing:-1px!important;
+  color:var(--nyx-shell-icon,#f8fafc)!important;
+  -webkit-text-fill-color:var(--nyx-shell-icon,#f8fafc)!important;
+  transform:translateY(-1px)!important;
+}
+html body.browser-shell.theme-fresh .browser-home-normal div.quick-tile.home-shortcut > button.home-shortcut-menu-btn .shortcut-real-dots,
+html body.browser-shell.theme-fresh .browser-home-normal div.quick-tile.home-shortcut > button.home-shortcut-menu-btn .shortcut-real-dots::before{
+  color:#0b7280!important;
+  -webkit-text-fill-color:#0b7280!important;
+}
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut > button.home-shortcut-open{
+  justify-items:center!important;
+  padding-left:0!important;
+}
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut > button.home-shortcut-open .home-shortcut-glyph,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut > button.home-shortcut-open .quick-icon{
+  margin-left:0!important;
+  margin-right:auto!important;
+  transform:translateX(0)!important;
+}
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut > button.home-shortcut-open .home-shortcut-glyph,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut > button.home-shortcut-open .quick-icon{
+  width:23px!important;
+  height:23px!important;
+  min-width:23px!important;
+  min-height:23px!important;
+  max-width:23px!important;
+  max-height:23px!important;
+}
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut > button.home-shortcut-menu-btn,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut > button.home-shortcut-menu-btn:hover,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut.menu-open > button.home-shortcut-menu-btn{
+  top:-10px!important;
+  right:5px!important;
+  inline-size:16px!important;
+  block-size:18px!important;
+  width:16px!important;
+  height:18px!important;
+  min-width:16px!important;
+  min-height:18px!important;
+  max-width:16px!important;
+  max-height:18px!important;
+  border:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+}
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut > button.home-shortcut-menu-btn .shortcut-real-dots,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut > button.home-shortcut-menu-btn .shortcut-real-dots::before{
+  font-size:12px!important;
+  letter-spacing:-1px!important;
+  text-shadow:0 1px 3px rgba(0,0,0,.35)!important;
+}
+html body.browser-shell.theme-fresh .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut > button.home-shortcut-menu-btn .shortcut-real-dots,
+html body.browser-shell.theme-fresh .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut > button.home-shortcut-menu-btn .shortcut-real-dots::before{
+  color:#0b7280!important;
+  -webkit-text-fill-color:#0b7280!important;
+  text-shadow:0 1px 3px rgba(255,255,255,.55)!important;
+}
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut > button.home-shortcut-open{
+  justify-items:center!important;
+  place-items:center!important;
+  padding-left:0!important;
+}
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut > button.home-shortcut-open .home-shortcut-glyph,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut > button.home-shortcut-open .quick-icon{
+  margin:auto!important;
+  justify-self:center!important;
+  align-self:center!important;
+  transform:none!important;
+}
+/* //theme-tint-original-shortcut-images */
+html body.browser-shell{
+  --nyx-shortcut-image-filter:brightness(0) saturate(100%) invert(97%) sepia(5%) saturate(851%) hue-rotate(181deg) brightness(103%) contrast(98%);
+}
+html body.browser-shell.theme-sakura{
+  --nyx-shortcut-image-filter:brightness(0) saturate(100%) invert(83%) sepia(30%) saturate(793%) hue-rotate(286deg) brightness(101%) contrast(95%);
+}
+html body.browser-shell.theme-emerald{
+  --nyx-shortcut-image-filter:brightness(0) saturate(100%) invert(83%) sepia(19%) saturate(1317%) hue-rotate(96deg) brightness(92%) contrast(94%);
+}
+html body.browser-shell.theme-ruby{
+  --nyx-shortcut-image-filter:brightness(0) saturate(100%) invert(75%) sepia(31%) saturate(1336%) hue-rotate(309deg) brightness(101%) contrast(98%);
+}
+html body.browser-shell.theme-fresh{
+  --nyx-shortcut-image-filter:brightness(0) saturate(100%) invert(78%) sepia(96%) saturate(1138%) hue-rotate(106deg) brightness(101%) contrast(101%);
+}
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut:is([data-domain="geforcenow"],[data-domain="games"]) .quick-icon{
+  opacity:0!important;
+  filter:none!important;
+}
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut:is([data-domain="geforcenow"],[data-domain="games"]) .home-shortcut-open{
+  position:relative!important;
+}
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut:is([data-domain="geforcenow"],[data-domain="games"]) .home-shortcut-open::after{
+  content:""!important;
+  position:absolute!important;
+  left:50%!important;
+  top:50%!important;
+  width:27px!important;
+  height:27px!important;
+  transform:translate(-50%,-50%)!important;
+  background:var(--nyx-shell-icon,#f8fafc)!important;
+  filter:drop-shadow(0 0 8px color-mix(in srgb,var(--nyx-shell-icon,#f8fafc) 50%,transparent))!important;
+  pointer-events:none!important;
+  z-index:2!important;
+}
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut[data-domain="geforcenow"] .home-shortcut-open::after{
+  -webkit-mask:url("/assets/icons/dock-nvidia.png") center/contain no-repeat!important;
+  mask:url("/assets/icons/dock-nvidia.png") center/contain no-repeat!important;
+}
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut[data-domain="games"] .home-shortcut-open::after{
+  -webkit-mask:url("/assets/icons/dock-controller.png") center/contain no-repeat!important;
+  mask:url("/assets/icons/dock-controller.png") center/contain no-repeat!important;
+}
+/* //final-shortcut-theme-color-stability */
+html body.browser-shell{
+  --nyx-final-shortcut-icon:#f8fafc;
+}
+html body.browser-shell.theme-sakura{
+  --nyx-final-shortcut-icon:#f9a8d4;
+}
+html body.browser-shell.theme-emerald{
+  --nyx-final-shortcut-icon:#6ee7b7;
+}
+html body.browser-shell.theme-ruby{
+  --nyx-final-shortcut-icon:#fca5a5;
+}
+html body.browser-shell.theme-fresh{
+  --nyx-final-shortcut-icon:#00f5d4;
+}
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] .home-shortcut-glyph,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] .home-shortcut:hover .home-shortcut-glyph,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] .home-shortcut:focus-within .home-shortcut-glyph{
+  display:block!important;
+  visibility:visible!important;
+  opacity:1!important;
+  background:var(--nyx-final-shortcut-icon)!important;
+  background-color:var(--nyx-final-shortcut-icon)!important;
+  filter:drop-shadow(0 0 8px color-mix(in srgb,var(--nyx-final-shortcut-icon) 50%,transparent))!important;
+}
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut:is([data-domain="geforcenow"],[data-domain="games"]) .home-shortcut-open::after,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut:is([data-domain="geforcenow"],[data-domain="games"]):hover .home-shortcut-open::after,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut:is([data-domain="geforcenow"],[data-domain="games"]):focus-within .home-shortcut-open::after{
+  content:""!important;
+  display:block!important;
+  visibility:visible!important;
+  opacity:1!important;
+  background:var(--nyx-final-shortcut-icon)!important;
+  background-color:var(--nyx-final-shortcut-icon)!important;
+  filter:drop-shadow(0 0 8px color-mix(in srgb,var(--nyx-final-shortcut-icon) 50%,transparent))!important;
+}
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut:is([data-domain="geforcenow"],[data-domain="games"]) .quick-icon,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut:is([data-domain="geforcenow"],[data-domain="games"]):hover .quick-icon,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut:is([data-domain="geforcenow"],[data-domain="games"]):focus-within .quick-icon{
+  opacity:0!important;
+  visibility:hidden!important;
+}
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut > button.home-shortcut-menu-btn .shortcut-real-dots,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut > button.home-shortcut-menu-btn .shortcut-real-dots::before{
+  color:var(--nyx-final-shortcut-icon)!important;
+  -webkit-text-fill-color:var(--nyx-final-shortcut-icon)!important;
+}
+html body.browser-shell.theme-fresh .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut > button.home-shortcut-menu-btn .shortcut-real-dots,
+html body.browser-shell.theme-fresh .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut > button.home-shortcut-menu-btn .shortcut-real-dots::before{
+  color:#0b7280!important;
+  -webkit-text-fill-color:#0b7280!important;
+}
+/* //slow-hover-and-weather-final */
+html body.browser-shell :is(
+  button,
+  .quick-tile,
+  .quick-icon,
+  .home-shortcut-glyph,
+  .browser-mode-tab,
+  .browser-mode-app-button,
+  .browser-mode-address button,
+  .browser-mode-menu button,
+  .settings-action,
+  .settings-preset,
+  .tool-btn,
+  .go-btn,
+  .menu-btn
+){
+  transition:
+    transform .68s cubic-bezier(.16,1,.3,1),
+    background-color .68s ease,
+    border-color .68s ease,
+    box-shadow .68s ease,
+    color .68s ease,
+    opacity .68s ease,
+    filter .68s ease!important;
+}
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > button.quick-tile.home-shortcut-add{
+  transition:
+    transform .78s cubic-bezier(.16,1,.3,1),
+    background-color .78s ease,
+    border-color .78s ease,
+    box-shadow .78s ease,
+    filter .78s ease!important;
+  will-change:transform;
+}
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut:hover,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > button.quick-tile.home-shortcut-add:hover{
+  transform:translateY(-3px) scale(1.045)!important;
+}
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] .home-shortcut-glyph{
+  transition:
+    transform .78s cubic-bezier(.16,1,.3,1),
+    background-color .78s ease,
+    filter .78s ease,
+    opacity .78s ease!important;
+}
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] .home-shortcut:hover .home-shortcut-glyph{
+  transform:scale(1.04)!important;
+}
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut:is([data-domain="geforcenow"],[data-domain="games"]) .home-shortcut-open::after{
+  transition:
+    transform .78s cubic-bezier(.16,1,.3,1),
+    background-color .78s ease,
+    filter .78s ease,
+    opacity .78s ease!important;
+}
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut:is([data-domain="geforcenow"],[data-domain="games"]):hover .home-shortcut-open::after,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut:is([data-domain="geforcenow"],[data-domain="games"]):focus-within .home-shortcut-open::after{
+  transform:translate(-50%,-50%) scale(1.04)!important;
+}
+html body.browser-shell .weather-panel{
+  transform-origin:top right!important;
+  transition:
+    transform .62s cubic-bezier(.16,1,.3,1),
+    opacity .62s ease,
+    filter .62s ease!important;
+  animation:none!important;
+  will-change:transform,opacity,filter;
+}
+html body.browser-shell .weather-panel.opening{
+  display:block!important;
+  animation:nyxWeatherOpenSlow .62s cubic-bezier(.16,1,.3,1) both!important;
+}
+html body.browser-shell .weather-panel.closing{
+  pointer-events:none!important;
+  animation:nyxWeatherCloseSlow .52s cubic-bezier(.7,0,.2,1) both!important;
+}
+html body.browser-shell .weather-restore{
+  transition:
+    transform .62s cubic-bezier(.16,1,.3,1),
+    opacity .62s ease,
+    background-color .62s ease,
+    border-color .62s ease,
+    box-shadow .62s ease!important;
+}
+html body.browser-shell .weather-restore.show{
+  animation:nyxWeatherRestoreIn .56s cubic-bezier(.16,1,.3,1) both!important;
+}
+@keyframes nyxWeatherOpenSlow{
+  0%{opacity:0;transform:translateY(-36px) scale(.965);filter:blur(10px)}
+  58%{opacity:1;filter:blur(1px)}
+  100%{opacity:1;transform:translateY(0) scale(1);filter:blur(0)}
+}
+@keyframes nyxWeatherCloseSlow{
+  0%{opacity:1;transform:translateY(0) scale(1);filter:blur(0)}
+  100%{opacity:0;transform:translateY(-32px) scale(.965);filter:blur(8px)}
+}
+@keyframes nyxWeatherRestoreIn{
+  0%{opacity:0;transform:translateY(-10px) scale(.9)}
+  100%{opacity:1;transform:translateY(0) scale(1)}
+}
+/* //shortcut-dots-and-new-tab-cleanup-final */
+html body.browser-shell .browser-mode-menu > [data-browser-shell-new-tab]{
+  display:none!important;
+  pointer-events:none!important;
+}
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut > button.home-shortcut-menu-btn,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut > button.home-shortcut-menu-btn:hover,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut.menu-open > button.home-shortcut-menu-btn,
+html body.browser-shell.theme-fresh .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut > button.home-shortcut-menu-btn,
+html body.browser-shell.theme-fresh .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut > button.home-shortcut-menu-btn:hover,
+html body.browser-shell.theme-fresh .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut.menu-open > button.home-shortcut-menu-btn{
+  position:absolute!important;
+  top:4px!important;
+  right:4px!important;
+  inline-size:10px!important;
+  block-size:16px!important;
+  width:10px!important;
+  height:16px!important;
+  min-width:10px!important;
+  min-height:16px!important;
+  max-width:10px!important;
+  max-height:16px!important;
+  padding:0!important;
+  margin:0!important;
+  display:grid!important;
+  place-items:center!important;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  background-image:none!important;
+  box-shadow:none!important;
+  outline:0!important;
+  overflow:visible!important;
+  transform:none!important;
+  z-index:70!important;
+}
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut > button.home-shortcut-menu-btn::before,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut > button.home-shortcut-menu-btn::after{
+  content:none!important;
+  display:none!important;
+}
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut > button.home-shortcut-menu-btn .shortcut-real-dots,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut > button.home-shortcut-menu-btn .shortcut-real-dots::before,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut > button.home-shortcut-menu-btn .shortcut-real-dots::after{
+  content:none!important;
+  display:block!important;
+  width:4px!important;
+  height:4px!important;
+  min-width:4px!important;
+  min-height:4px!important;
+  max-width:4px!important;
+  max-height:4px!important;
+  padding:0!important;
+  margin:0!important;
+  border:0!important;
+  border-radius:50%!important;
+  background:var(--nyx-final-shortcut-icon,var(--nyx-shell-icon,#f8fafc))!important;
+  color:transparent!important;
+  -webkit-text-fill-color:transparent!important;
+  font-size:0!important;
+  line-height:0!important;
+  letter-spacing:0!important;
+  text-shadow:none!important;
+  box-shadow:0 -6px 0 var(--nyx-final-shortcut-icon,var(--nyx-shell-icon,#f8fafc)),0 6px 0 var(--nyx-final-shortcut-icon,var(--nyx-shell-icon,#f8fafc))!important;
+  opacity:.95!important;
+  overflow:visible!important;
+  transform:none!important;
+}
+/* //horizontal-dots-slower-hover-menu-border-final */
+html body.browser-shell :is(
+  button,
+  .quick-tile,
+  .quick-icon,
+  .home-shortcut-glyph,
+  .browser-mode-tab,
+  .browser-mode-app-button,
+  .browser-mode-address button,
+  .browser-mode-menu button,
+  .settings-action,
+  .settings-preset,
+  .tool-btn,
+  .go-btn,
+  .menu-btn
+){
+  transition:
+    transform 1.05s cubic-bezier(.16,1,.3,1),
+    background-color 1.05s ease,
+    border-color 1.05s ease,
+    box-shadow 1.05s ease,
+    color 1.05s ease,
+    opacity 1.05s ease,
+    filter 1.05s ease!important;
+}
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > button.quick-tile.home-shortcut-add{
+  transition:
+    transform 1.15s cubic-bezier(.16,1,.3,1),
+    background-color 1.15s ease,
+    border-color 1.15s ease,
+    box-shadow 1.15s ease,
+    filter 1.15s ease!important;
+}
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut:hover,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > button.quick-tile.home-shortcut-add:hover{
+  transform:translateY(-2px) scale(1.035)!important;
+}
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut > button.home-shortcut-menu-btn{
+  inline-size:18px!important;
+  block-size:10px!important;
+  width:18px!important;
+  height:10px!important;
+}
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut > button.home-shortcut-menu-btn .shortcut-real-dots,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut > button.home-shortcut-menu-btn .shortcut-real-dots::before,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut > button.home-shortcut-menu-btn .shortcut-real-dots::after{
+  width:4px!important;
+  height:4px!important;
+  min-width:4px!important;
+  min-height:4px!important;
+  max-width:4px!important;
+  max-height:4px!important;
+  box-shadow:-6px 0 0 var(--nyx-final-shortcut-icon,var(--nyx-shell-icon,#f8fafc)),6px 0 0 var(--nyx-final-shortcut-icon,var(--nyx-shell-icon,#f8fafc))!important;
+}
+html body.browser-shell .browser-mode-menu{
+  border:1px solid var(--accent,#7c3aed)!important;
+  box-shadow:0 16px 38px rgba(0,0,0,.38)!important;
+  overflow:hidden!important;
+}
+html body.browser-shell .browser-mode-menu button,
+html body.browser-shell .browser-mode-menu button:hover,
+html body.browser-shell .browser-mode-menu button:focus-visible{
+  border:0!important;
+  outline:0!important;
+  box-shadow:none!important;
+  border-radius:0!important;
+}
+html body.browser-shell .browser-mode-menu hr{
+  height:1px!important;
+  margin:0!important;
+  border:0!important;
+  background:color-mix(in srgb,var(--accent,#7c3aed) 55%,transparent)!important;
+}
+html body.browser-shell.menu-open .browser-mode-menu,
+html body.browser-shell .browser-mode-menu{
+  overflow:hidden!important;
+}
+html body.browser-shell.menu-open .browser-mode-menu > button,
+html body.browser-shell.menu-open .browser-mode-menu > button:hover,
+html body.browser-shell.menu-open .browser-mode-menu > button:focus-visible,
+html body.browser-shell .browser-mode-menu > button,
+html body.browser-shell .browser-mode-menu > button:hover,
+html body.browser-shell .browser-mode-menu > button:focus-visible{
+  border:0!important;
+  outline:0!important;
+  box-shadow:none!important;
+  border-radius:0!important;
+  background-clip:padding-box!important;
+}
+/* //post-cover-fullscreen-loader-final */
+body.post-cover-loading .post-cover-loader{
+  left:0!important;
+  top:0!important;
+  right:auto!important;
+  bottom:auto!important;
+  z-index:90000!important;
+  width:100vw!important;
+  height:100vh!important;
+  padding:0!important;
+  display:grid!important;
+  grid-template-columns:minmax(0,min(520px,72vw)) 52px!important;
+  grid-template-areas:"label percent" "track track"!important;
+  align-content:center!important;
+  justify-content:center!important;
+  gap:12px 14px!important;
+  opacity:0!important;
+  transform:none!important;
+  pointer-events:auto!important;
+  background:radial-gradient(circle at 50% 42%,rgba(124,58,237,.24),transparent 32%),#05050b!important;
+  color:var(--theme-strong,#f8fafc)!important;
+  -webkit-text-fill-color:var(--theme-strong,#f8fafc)!important;
+  transition:opacity .32s ease!important;
+}
+body.post-cover-loading .post-cover-loader.active{
+  opacity:1!important;
+  transform:none!important;
+}
+body.post-cover-loading .post-cover-loader-label{
+  grid-area:label!important;
+  max-width:none!important;
+  font-size:18px!important;
+  line-height:1.2!important;
+  white-space:nowrap!important;
+  overflow:hidden!important;
+  text-overflow:ellipsis!important;
+}
+body.post-cover-loading .post-cover-loader-percent{
+  grid-area:percent!important;
+  min-width:52px!important;
+  font-size:18px!important;
+  text-align:right!important;
+}
+body.post-cover-loading .post-cover-loader-track{
+  grid-area:track!important;
+  width:100%!important;
+  height:7px!important;
+  background:rgba(255,255,255,.14)!important;
+  box-shadow:0 0 0 1px rgba(255,255,255,.08),0 16px 40px rgba(0,0,0,.42)!important;
+}
+body.post-cover-loading .post-cover-loader-fill{
+  background:var(--accent,#b889ff)!important;
+  transition:width .24s ease!important;
+}
+body.theme-ruby.post-cover-loading .post-cover-loader{background:radial-gradient(circle at 50% 42%,rgba(171,26,26,.28),transparent 34%),#070306!important}
+body.theme-emerald.post-cover-loading .post-cover-loader{background:radial-gradient(circle at 50% 42%,rgba(16,171,59,.24),transparent 34%),#03100b!important}
+body.theme-sakura.post-cover-loading .post-cover-loader{background:radial-gradient(circle at 50% 42%,rgba(249,168,212,.30),transparent 34%),#100714!important}
+body.theme-fresh.post-cover-loading .post-cover-loader{
+  background:radial-gradient(circle at 50% 42%,rgba(84,235,217,.34),transparent 35%),#efffff!important;
+  color:#0b7280!important;
+  -webkit-text-fill-color:#0b7280!important;
+}
+/* //panic-effects-dropdown-polish-final */
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut > button.home-shortcut-menu-btn,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut > button.home-shortcut-menu-btn:hover,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut.menu-open > button.home-shortcut-menu-btn,
+html body.browser-shell.theme-fresh .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut > button.home-shortcut-menu-btn,
+html body.browser-shell.theme-fresh .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut > button.home-shortcut-menu-btn:hover,
+html body.browser-shell.theme-fresh .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut.menu-open > button.home-shortcut-menu-btn{
+  top:-4px!important;
+  right:2px!important;
+  transform:none!important;
+  translate:none!important;
+  transition:color .42s ease,background-color .42s ease!important;
+}
+html body.browser-shell .browser-mode-menu,
+html body.browser-shell .browser-mode-menu *,
+html body.browser-shell .browser-mode-menu > button{
+  font-weight:400!important;
+  font-style:normal!important;
+}
+html body .welcome-card .welcome-progress,
+html body .welcome-card .welcome-progress::before{
+  display:none!important;
+  animation:none!important;
+}
+html body.browser-shell .browser-mode-menu > button,
+html body.browser-shell.menu-open .browser-mode-menu > button{
+  font-weight:400!important;
+  font-style:normal!important;
+}
+/* //final-debug-polish */
+html body.browser-shell:not(.theme-ruby):not(.theme-emerald):not(.theme-sakura):not(.theme-fresh):not(.theme-midnight){
+  --nyx-shell-icon:#b889ff!important;
+  --theme-strong:#c7a7ff!important;
+  --theme-border:#8b5cf6!important;
+  --accent:#8b5cf6!important;
+}
+html body.browser-shell:not(.theme-ruby):not(.theme-emerald):not(.theme-sakura):not(.theme-fresh):not(.theme-midnight) :is(.home-shortcut-glyph,.browser-mode-address button .fresh-real-icon,.browser-mode-weather .weather-cloud-icon){
+  color:#c7a7ff!important;
+  -webkit-text-fill-color:#c7a7ff!important;
+  background-color:#c7a7ff!important;
+}
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > .quick-tile.home-shortcut,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > .quick-tile.home-shortcut-add{
+  transition:transform 1.15s cubic-bezier(.16,1,.3,1),background-color 1.15s ease,filter 1.15s ease!important;
+  will-change:transform!important;
+}
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > .quick-tile.home-shortcut:hover,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > .quick-tile.home-shortcut-add:hover{
+  transform:translateY(-2px) scale(1.045)!important;
+}
+/* //blank-search-and-shortcut-hover-repair */
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] .home-shortcut-glyph,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] .home-shortcut:hover .home-shortcut-glyph,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] .quick-icon,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] .home-shortcut:hover .quick-icon{
+  display:block!important;
+  opacity:1!important;
+  visibility:visible!important;
+  transform:none!important;
+  filter:drop-shadow(0 0 8px color-mix(in srgb,var(--nyx-shell-icon,#f8fafc) 54%,transparent))!important;
+  pointer-events:none!important;
+}
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] .home-shortcut:hover .home-shortcut-open,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] .home-shortcut:hover .home-shortcut-open:hover{
+  opacity:1!important;
+  visibility:visible!important;
+  background:transparent!important;
+  background-image:none!important;
+}
+/* //original-shortcut-recolor-final */
+html body.browser-shell{
+  --nyx-final-shortcut-icon:#c7a7ff!important;
+  --nyx-shell-icon:#c7a7ff!important;
+  --nyx-shortcut-image-filter:brightness(0) saturate(100%) invert(68%) sepia(57%) saturate(1206%) hue-rotate(218deg) brightness(101%) contrast(102%)!important;
+}
+html body.browser-shell.theme-ruby{
+  --nyx-final-shortcut-icon:#fca5a5!important;
+  --nyx-shell-icon:#fca5a5!important;
+  --nyx-shortcut-image-filter:brightness(0) saturate(100%) invert(76%) sepia(22%) saturate(1828%) hue-rotate(310deg) brightness(102%) contrast(98%)!important;
+}
+html body.browser-shell.theme-emerald{
+  --nyx-final-shortcut-icon:#6ee7b7!important;
+  --nyx-shell-icon:#6ee7b7!important;
+  --nyx-shortcut-image-filter:brightness(0) saturate(100%) invert(79%) sepia(28%) saturate(1029%) hue-rotate(98deg) brightness(93%) contrast(92%)!important;
+}
+html body.browser-shell.theme-sakura{
+  --nyx-final-shortcut-icon:#f9a8d4!important;
+  --nyx-shell-icon:#f9a8d4!important;
+  --nyx-shortcut-image-filter:brightness(0) saturate(100%) invert(84%) sepia(31%) saturate(938%) hue-rotate(286deg) brightness(102%) contrast(96%)!important;
+}
+html body.browser-shell.theme-fresh{
+  --nyx-final-shortcut-icon:#0f8fa3!important;
+  --nyx-shell-icon:#0f8fa3!important;
+  --nyx-shortcut-image-filter:brightness(0) saturate(100%) invert(47%) sepia(97%) saturate(974%) hue-rotate(146deg) brightness(91%) contrast(92%)!important;
+}
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut:is([data-domain="geforcenow"],[data-domain="games"]) .home-shortcut-open::after,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut:is([data-domain="geforcenow"],[data-domain="games"]):hover .home-shortcut-open::after,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut:is([data-domain="geforcenow"],[data-domain="games"]):focus-within .home-shortcut-open::after{
+  display:none!important;
+  content:none!important;
+}
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut:is([data-domain="geforcenow"],[data-domain="games"]) .quick-icon,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut:is([data-domain="geforcenow"],[data-domain="games"]):hover .quick-icon,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut:is([data-domain="geforcenow"],[data-domain="games"]):focus-within .quick-icon{
+  display:block!important;
+  opacity:1!important;
+  visibility:visible!important;
+  filter:var(--nyx-shortcut-image-filter)!important;
+}
+/* //exact-original-shortcut-theme-recolor */
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut:is([data-domain="geforcenow"],[data-domain="games"]) .home-shortcut-open{
+  position:relative!important;
+}
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut:is([data-domain="geforcenow"],[data-domain="games"]) .quick-icon,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut:is([data-domain="geforcenow"],[data-domain="games"]):hover .quick-icon,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut:is([data-domain="geforcenow"],[data-domain="games"]):focus-within .quick-icon{
+  display:block!important;
+  opacity:0!important;
+  visibility:hidden!important;
+  filter:none!important;
+}
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut:is([data-domain="geforcenow"],[data-domain="games"]) .home-shortcut-open::after,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut:is([data-domain="geforcenow"],[data-domain="games"]):hover .home-shortcut-open::after,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut:is([data-domain="geforcenow"],[data-domain="games"]):focus-within .home-shortcut-open::after{
+  content:""!important;
+  display:block!important;
+  position:absolute!important;
+  left:50%!important;
+  top:50%!important;
+  width:27px!important;
+  height:27px!important;
+  transform:translate(-50%,-50%)!important;
+  opacity:1!important;
+  visibility:visible!important;
+  background:var(--nyx-final-shortcut-icon,var(--nyx-shell-icon,#b889ff))!important;
+  filter:drop-shadow(0 0 8px color-mix(in srgb,var(--nyx-final-shortcut-icon,var(--nyx-shell-icon,#b889ff)) 50%,transparent))!important;
+  pointer-events:none!important;
+  z-index:1!important;
+}
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut[data-domain="geforcenow"] .home-shortcut-open::after{
+  -webkit-mask:url("/assets/icons/dock-nvidia.png") center/contain no-repeat!important;
+  mask:url("/assets/icons/dock-nvidia.png") center/contain no-repeat!important;
+}
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut[data-domain="games"] .home-shortcut-open::after{
+  -webkit-mask:url("/assets/icons/dock-controller.png") center/contain no-repeat!important;
+  mask:url("/assets/icons/dock-controller.png") center/contain no-repeat!important;
+}
+/* //tab-and-blank-shortcut-animation-final */
+html body.browser-shell .browser-mode-shell-tab{
+  transform-origin:left center!important;
+  transition:
+    transform .72s cubic-bezier(.16,1,.3,1),
+    opacity .72s ease,
+    max-width .72s cubic-bezier(.16,1,.3,1),
+    width .72s cubic-bezier(.16,1,.3,1),
+    margin .72s cubic-bezier(.16,1,.3,1),
+    filter .72s ease!important;
+}
+html body.browser-shell .browser-mode-shell-tab.tab-opening{
+  animation:nyxShellTabOpenSmooth 1.05s cubic-bezier(.16,1,.3,1) both!important;
+}
+html body.browser-shell .browser-mode-shell-tab.closing{
+  pointer-events:none!important;
+  animation:nyxShellTabCloseSmooth .58s cubic-bezier(.55,0,.2,1) forwards!important;
+}
+@keyframes nyxShellTabOpenSmooth{
+  0%{opacity:0;max-width:0;min-width:0;width:0;padding-left:0;padding-right:0;margin-right:0;transform:translateX(-18px) translateY(4px) scale(.9);filter:blur(8px)}
+  56%{opacity:1;max-width:160px;min-width:78px;transform:translateX(3px) translateY(-1px) scale(1.025);filter:blur(0)}
+  100%{opacity:1;max-width:160px;min-width:78px;transform:translateX(0) translateY(0) scale(1);filter:blur(0)}
+}
+@keyframes nyxShellTabCloseSmooth{
+  0%{opacity:1;max-width:160px;min-width:78px;transform:translateX(0) translateY(0) scale(1);filter:blur(0)}
+  100%{opacity:0;max-width:0;min-width:0;width:0;padding-left:0;padding-right:0;margin-left:-6px;margin-right:0;transform:translateX(-18px) translateY(-5px) scale(.88);filter:blur(5px)}
+}
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > .quick-tile.home-shortcut,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > .quick-tile.home-shortcut-add{
+  opacity:1!important;
+  visibility:visible!important;
+  transition:
+    transform 2.35s cubic-bezier(.16,1,.3,1),
+    background-color 2.35s ease,
+    border-color 2.35s ease,
+    box-shadow 2.35s ease,
+    filter 2.35s ease,
+    opacity 2.35s ease!important;
+  will-change:transform!important;
+}
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > .quick-tile.home-shortcut:hover,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > .quick-tile.home-shortcut-add:hover{
+  opacity:1!important;
+  visibility:visible!important;
+  transform:translateY(-2px) scale(1.035)!important;
+}
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] .home-shortcut-open,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] .home-shortcut:hover .home-shortcut-open,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] .home-shortcut:focus-within .home-shortcut-open{
+  opacity:1!important;
+  visibility:visible!important;
+  filter:none!important;
+  transition:
+    transform 2.35s cubic-bezier(.16,1,.3,1),
+    opacity 2.35s ease,
+    filter 2.35s ease!important;
+}
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] .home-shortcut-glyph,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] .home-shortcut:hover .home-shortcut-glyph,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] .home-shortcut:focus-within .home-shortcut-glyph{
+  display:block!important;
+  opacity:1!important;
+  visibility:visible!important;
+  background:var(--nyx-final-shortcut-icon,var(--nyx-shell-icon,#c7a7ff))!important;
+  background-color:var(--nyx-final-shortcut-icon,var(--nyx-shell-icon,#c7a7ff))!important;
+  transform:scale(1)!important;
+  transition:
+    transform 2.35s cubic-bezier(.16,1,.3,1),
+    background-color 2.35s ease,
+    filter 2.35s ease,
+    opacity 2.35s ease!important;
+}
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] .home-shortcut:hover .home-shortcut-glyph,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] .home-shortcut:focus-within .home-shortcut-glyph{
+  transform:scale(1.025)!important;
+}
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] .home-shortcut .quick-icon,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] .home-shortcut:hover .quick-icon,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] .home-shortcut:focus-within .quick-icon{
+  display:block!important;
+  opacity:1!important;
+  visibility:visible!important;
+  transition:
+    transform 2.35s cubic-bezier(.16,1,.3,1),
+    filter 2.35s ease,
+    opacity 2.35s ease!important;
+}
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut:is([data-domain="geforcenow"],[data-domain="games"]) .quick-icon,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut:is([data-domain="geforcenow"],[data-domain="games"]):hover .quick-icon,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut:is([data-domain="geforcenow"],[data-domain="games"]):focus-within .quick-icon{
+  opacity:0!important;
+  visibility:hidden!important;
+}
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut:is([data-domain="geforcenow"],[data-domain="games"]) .home-shortcut-open::after,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut:is([data-domain="geforcenow"],[data-domain="games"]):hover .home-shortcut-open::after,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut:is([data-domain="geforcenow"],[data-domain="games"]):focus-within .home-shortcut-open::after{
+  display:block!important;
+  opacity:1!important;
+  visibility:visible!important;
+  transform:translate(-50%,-50%) scale(1)!important;
+  transition:
+    transform 2.35s cubic-bezier(.16,1,.3,1),
+    background-color 2.35s ease,
+    filter 2.35s ease,
+    opacity 2.35s ease!important;
+}
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut:is([data-domain="geforcenow"],[data-domain="games"]):hover .home-shortcut-open::after,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut:is([data-domain="geforcenow"],[data-domain="games"]):focus-within .home-shortcut-open::after{
+  transform:translate(-50%,-50%) scale(1.025)!important;
+}
+html body.browser-shell.runtime-lag-guard .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > .quick-tile.home-shortcut,
+html body.browser-shell.runtime-lag-guard .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > .quick-tile.home-shortcut-add,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > .quick-tile.home-shortcut,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > .quick-tile.home-shortcut-add,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] .home-shortcut-open,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] .home-shortcut-glyph,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] .home-shortcut .quick-icon{
+  transition-duration:2.35s!important;
+  transition-timing-function:cubic-bezier(.16,1,.3,1)!important;
+}
+/* //extra-slow-shortcut-icon-hover-final */
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] .home-shortcut .home-shortcut-glyph,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] .home-shortcut:hover .home-shortcut-glyph,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] .home-shortcut:focus-within .home-shortcut-glyph,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] .home-shortcut .quick-icon,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] .home-shortcut:hover .quick-icon,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] .home-shortcut:focus-within .quick-icon,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] .home-shortcut .home-shortcut-open::after,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] .home-shortcut:hover .home-shortcut-open::after,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] .home-shortcut:focus-within .home-shortcut-open::after{
+  transition:
+    transform 4s cubic-bezier(.16,1,.3,1),
+    opacity 4s ease,
+    filter 4s ease,
+    background-color 4s ease!important;
+  transition-duration:4s!important;
+  transition-timing-function:cubic-bezier(.16,1,.3,1)!important;
+}
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] .home-shortcut:hover .home-shortcut-glyph,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] .home-shortcut:focus-within .home-shortcut-glyph,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] .home-shortcut:hover .quick-icon,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] .home-shortcut:focus-within .quick-icon{
+  transform:scale(1.015)!important;
+}
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] .home-shortcut:hover .home-shortcut-open::after,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] .home-shortcut:focus-within .home-shortcut-open::after{
+  transform:translate(-50%,-50%) scale(1.015)!important;
+}
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut:is([data-domain="geforcenow"],[data-domain="games"]) .home-shortcut-open::after,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut:is([data-domain="geforcenow"],[data-domain="games"]):hover .home-shortcut-open::after,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut:is([data-domain="geforcenow"],[data-domain="games"]):focus-within .home-shortcut-open::after{
+  transition:
+    transform 4s cubic-bezier(.16,1,.3,1),
+    opacity 4s ease,
+    filter 4s ease,
+    background-color 4s ease!important;
+  transition-duration:4s!important;
+  transition-timing-function:cubic-bezier(.16,1,.3,1)!important;
+}
+/* //extra-slower-shortcut-arrow-final */
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > .quick-tile.home-shortcut,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > .quick-tile.home-shortcut-add,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] .home-shortcut-open{
+  transition:
+    transform 6s cubic-bezier(.22,.61,.36,1),
+    background-color 6s ease,
+    border-color 6s ease,
+    box-shadow 6s ease,
+    filter 6s ease,
+    opacity 6s ease!important;
+  transition-duration:6s!important;
+  transition-timing-function:cubic-bezier(.22,.61,.36,1)!important;
+}
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > .quick-tile.home-shortcut:hover,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > .quick-tile.home-shortcut-add:hover{
+  transform:translateY(-1px) scale(1.018)!important;
+}
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] .home-shortcut .home-shortcut-glyph,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] .home-shortcut:hover .home-shortcut-glyph,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] .home-shortcut:focus-within .home-shortcut-glyph,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] .home-shortcut .quick-icon,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] .home-shortcut:hover .quick-icon,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] .home-shortcut:focus-within .quick-icon,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] .home-shortcut .home-shortcut-open::after,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] .home-shortcut:hover .home-shortcut-open::after,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] .home-shortcut:focus-within .home-shortcut-open::after{
+  transition:
+    transform 6s cubic-bezier(.22,.61,.36,1),
+    opacity 6s ease,
+    filter 6s ease,
+    background-color 6s ease!important;
+  transition-duration:6s!important;
+  transition-timing-function:cubic-bezier(.22,.61,.36,1)!important;
+}
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] .home-shortcut:hover .home-shortcut-glyph,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] .home-shortcut:focus-within .home-shortcut-glyph,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] .home-shortcut:hover .quick-icon,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] .home-shortcut:focus-within .quick-icon{
+  transform:scale(1.006)!important;
+}
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] .home-shortcut:hover .home-shortcut-open::after,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] .home-shortcut:focus-within .home-shortcut-open::after{
+  transform:translate(-50%,-50%) scale(1.006)!important;
+}
+/* //shortcut-dots-hover-stability-final */
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut > button.home-shortcut-menu-btn,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut > button.home-shortcut-menu-btn:hover,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut > button.home-shortcut-menu-btn:focus-visible,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut.menu-open > button.home-shortcut-menu-btn{
+  top:-4px!important;
+  right:2px!important;
+  transform:none!important;
+  translate:none!important;
+  scale:1!important;
+  rotate:0deg!important;
+  transition:color .42s ease,background-color .42s ease,opacity .42s ease!important;
+}
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut > button.home-shortcut-menu-btn .shortcut-real-dots,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut > button.home-shortcut-menu-btn:hover .shortcut-real-dots{
+  transform:none!important;
+  translate:none!important;
+  scale:1!important;
+}
+/* //hidden-dropdown-click-guard-final */
+html body.browser-shell .home-shortcut:not(.menu-open) .home-shortcut-menu,
+html body.browser-shell .browser-bookmark-panel[hidden],
+html body.browser-shell:not(.menu-open) .browser-mode-menu{
+  pointer-events:none!important;
+}
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut > button.home-shortcut-menu-btn{
+  top:-4px!important;
+  right:2px!important;
+  inline-size:18px!important;
+  block-size:18px!important;
+  width:18px!important;
+  height:18px!important;
+  min-width:18px!important;
+  min-height:18px!important;
+  max-width:18px!important;
+  max-height:18px!important;
+  background:transparent!important;
+  border:0!important;
+  box-shadow:none!important;
+  overflow:visible!important;
+  cursor:pointer!important;
+}
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut:not(:hover):not(:focus-within):not(.menu-open) > button.home-shortcut-menu-btn{
+  pointer-events:none!important;
+}
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut:hover > button.home-shortcut-menu-btn,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut:focus-within > button.home-shortcut-menu-btn,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut.menu-open > button.home-shortcut-menu-btn{
+  pointer-events:auto!important;
+}
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut > button.home-shortcut-menu-btn .shortcut-real-dots{
+  display:block!important;
+  pointer-events:none!important;
+}
+/* //runtime-guard-slow-shortcut-hover-final */
+html body.browser-shell.runtime-lag-guard .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > .quick-tile.home-shortcut,
+html body.browser-shell.runtime-lag-guard .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > .quick-tile.home-shortcut-add,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > .quick-tile.home-shortcut,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > .quick-tile.home-shortcut-add{
+  transition-property:transform,background-color,border-color,box-shadow,filter,opacity!important;
+  transition-duration:1.15s,1.15s,1.15s,1.15s,1.15s,1.15s!important;
+  transition-timing-function:cubic-bezier(.22,.61,.36,1),ease,ease,ease,ease,ease!important;
+}
+html body.browser-shell.runtime-lag-guard .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > .quick-tile.home-shortcut:hover,
+html body.browser-shell.runtime-lag-guard .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > .quick-tile.home-shortcut-add:hover,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > .quick-tile.home-shortcut:hover,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > .quick-tile.home-shortcut-add:hover{
+  transform:translateY(-1px) scale(1.018)!important;
+}
+html body.browser-shell.runtime-lag-guard .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] .home-shortcut .home-shortcut-glyph,
+html body.browser-shell.runtime-lag-guard .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] .home-shortcut .quick-icon,
+html body.browser-shell.runtime-lag-guard .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] .home-shortcut .home-shortcut-open::after,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] .home-shortcut .home-shortcut-glyph,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] .home-shortcut .quick-icon,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] .home-shortcut .home-shortcut-open::after{
+  transition-property:transform,opacity,filter,background-color!important;
+  transition-duration:1.15s,1.15s,1.15s,1.15s!important;
+  transition-timing-function:cubic-bezier(.22,.61,.36,1),ease,ease,ease!important;
+}
+html body.browser-shell.runtime-lag-guard .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > .quick-tile.home-shortcut:has(> button.home-shortcut-menu-btn:hover),
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > .quick-tile.home-shortcut:has(> button.home-shortcut-menu-btn:hover){
+  transform:none!important;
+}
+html body.browser-shell.runtime-lag-guard .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > .quick-tile.home-shortcut:hover,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > .quick-tile.home-shortcut:hover,
+html body.browser-shell.runtime-lag-guard .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > .quick-tile.home-shortcut:focus-within,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > .quick-tile.home-shortcut:focus-within{
+  transform:none!important;
+}
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut > button.home-shortcut-menu-btn,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut > button.home-shortcut-menu-btn:hover,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut.menu-open > button.home-shortcut-menu-btn{
+  top:-4px!important;
+  right:2px!important;
+  width:18px!important;
+  height:18px!important;
+  min-width:18px!important;
+  min-height:18px!important;
+  max-width:18px!important;
+  max-height:18px!important;
+  transform:none!important;
+  translate:none!important;
+  transition:color .42s ease,background-color .42s ease,opacity .42s ease!important;
+}
+/* //final-top-bar-menu-offset-debug-fix */
+html body.browser-shell #browserModeMenu,
+html body.browser-shell.menu-open #browserModeMenu{
+  top:68px!important;
+  right:8px!important;
+  z-index:50000!important;
+}
+html body,html body *:not(.fresh-real-icon):not(.weather-cloud-icon){font-family:var(--nyx-font)!important}
+/* //browser-top-bar-size-and-color-unification-final */
+html body.browser-shell{--bar:84px!important}
+html body.browser-shell .top-os{
+  height:84px!important;
+  min-height:84px!important;
+  max-height:84px!important;
+  padding:7px 12px!important;
+  grid-template-rows:31px 37px!important;
+  gap:4px!important;
+}
+html body.browser-shell .window.maximized{
+  top:84px!important;
+  height:calc(100dvh - 84px)!important;
+}
+html body.browser-shell #browserModeMenu,
+html body.browser-shell.menu-open #browserModeMenu,
+html body.browser-shell .browser-mode-menu{top:84px!important}
+html body.browser-shell .browser-mode-app-button,
+html body.browser-shell .browser-mode-tab,
+html body.browser-shell .browser-mode-shell-tab{
+  height:31px!important;
+  min-height:31px!important;
+  border-radius:8px!important;
+}
+html body.browser-shell .browser-mode-app-button{width:170px!important;font-size:13px!important}
+html body.browser-shell .browser-mode-tab{width:31px!important;min-width:31px!important}
+html body.browser-shell .browser-mode-address{
+  grid-template-columns:36px 36px 36px minmax(0,1fr) 36px 36px 40px!important;
+  gap:6px!important;
+}
+html body.browser-shell .browser-mode-address button{
+  width:36px!important;
+  height:36px!important;
+  min-width:36px!important;
+  min-height:36px!important;
+  border-radius:9px!important;
+}
+html body.browser-shell .browser-mode-url{
+  height:36px!important;
+  min-height:36px!important;
+  border-radius:9px!important;
+  padding:0 13px!important;
+  font-size:14px!important;
+}
+html body.browser-shell [data-browser-shell-reload] .fresh-real-icon{
+  display:inline-grid!important;
+  place-items:center!important;
+  font-size:14px!important;
+  line-height:1!important;
+  transform:scale(.78)!important;
+  transform-origin:center!important;
+}
+html body.browser-shell .top-os > .browser-top-clock{
+  top:10px!important;
+  right:14px!important;
+  height:27px!important;
+  font-size:14px!important;
+}
+html body.browser-shell.theme-fresh .top-os.top-os{
+  background:#eafffc!important;
+  background-color:#eafffc!important;
+  background-image:none!important;
+  border-color:#8ce9df!important;
+}
+html body.browser-shell.theme-fresh .top-os :is(.browser-mode-app-button,.browser-mode-tab,.browser-mode-shell-tab),
+html body.browser-shell.theme-fresh .top-os .browser-mode-address button,
+html body.browser-shell.theme-fresh .top-os .browser-mode-url{
+  background:#ffffff!important;
+  background-image:none!important;
+  border-color:#9cebe2!important;
+  color:#0b7f8c!important;
+  -webkit-text-fill-color:#0b7f8c!important;
+  box-shadow:0 1px 3px rgba(11,127,140,.08)!important;
+}
+html body.browser-shell.theme-fresh :is(.browser-mode-app-button,.browser-mode-tab,.browser-mode-shell-tab,.browser-mode-address button):hover{
+  background:#f2fffd!important;
+  border-color:#5fd9cd!important;
+}

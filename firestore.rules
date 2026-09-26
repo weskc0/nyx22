@@ -1,0 +1,66 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    function ownsDocument(uid) {
+      return signedIn() && request.auth.uid == uid;
+    }
+
+    function isOwner() {
+      return signedIn()
+        && get(/databases/$(database)/documents/nyxUserAdministration/$(request.auth.uid)).data.role == "owner";
+    }
+
+    // Nyx writes through authenticated server routes using Firebase Admin.
+    // Client writes stay disabled so role, subscription, audit, and ban data
+    // cannot be forged from a browser.
+    match /nyxUserAdministration/{uid} {
+      allow read: if isOwner() || ownsDocument(uid);
+      allow write: if false;
+    }
+
+    match /nyxUserProfiles/{uid} {
+      allow read: if isOwner() || ownsDocument(uid);
+      allow write: if false;
+    }
+
+    match /nyxUserActivity/{uid} {
+      allow read: if isOwner() || ownsDocument(uid);
+      allow write: if false;
+    }
+
+    match /nyxAuditLog/{eventId} {
+      allow read: if isOwner();
+      allow write: if false;
+    }
+
+    match /nyxUsernames/{username} {
+      allow read: if isOwner();
+      allow write: if false;
+    }
+
+    match /nyxPresenceSessions/{sessionId} {
+      allow read, write: if false;
+    }
+
+    match /nyxProfileMedia/{mediaId} {
+      allow read, write: if false;
+      match /chunks/{chunkId} {
+        allow read, write: if false;
+      }
+    }
+
+    match /nyxSiteSettings/{settingId} {
+      allow read: if isOwner();
+      allow write: if false;
+    }
+
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

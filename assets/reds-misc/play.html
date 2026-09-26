@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GMS Game</title>
+  <style>
+    *{box-sizing:border-box;font-weight:400!important;font-style:normal!important}
+    html,body{height:100%;margin:0;background:#0b0f17;color:#f8fafc;font-family:Outfit,Arial,sans-serif}
+    .loading{position:fixed;inset:0;z-index:2;display:grid;place-items:center;padding:24px;background:#0b0f17;text-align:center}
+    .loading.hidden{display:none}
+    .box{max-width:540px;width:min(540px,calc(100vw - 48px));border:1px solid #fb7185;border-radius:16px;padding:24px;background:#111827}
+    .progress-row{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:10px;color:#f8fafc;font-size:15px}
+    .progress-track{height:6px;overflow:hidden;border-radius:999px;background:rgba(248,250,252,.14)}
+    .progress-fill{width:0;height:100%;border-radius:999px;background:#fb7185;transition:width .2s ease}
+    .box button{margin-top:14px;border:1px solid #fb7185;border-radius:10px;background:#0f172a;color:#f8fafc;padding:9px 14px;font:inherit;cursor:pointer}
+    .game-frame{position:fixed;inset:0;width:100%;height:100%;border:0;background:#0b0f17}
+  </style>
+</head>
+<body>
+  <script>
+    location.replace('/assets/gms-games/play.html' + location.search);
+  </script>
+  <div class="loading">
+    <div class="box" id="status">
+      <div class="progress-row"><span id="progressLabel">Loading</span><span id="progressPercent">0%</span></div>
+      <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+  </div>
+  <iframe id="gameFrame" class="game-frame" title="GMS game" sandbox="allow-same-origin allow-scripts allow-forms allow-modals allow-pointer-lock allow-popups allow-downloads allow-presentation" allow="fullscreen; pointer-lock; gamepad; autoplay"></iframe>
+  <script>
+    const loading=document.querySelector('.loading');
+    const status=document.getElementById('status');
+    const progressLabel=document.getElementById('progressLabel');
+    const progressPercent=document.getElementById('progressPercent');
+    const progressFill=document.getElementById('progressFill');
+    const frame=document.getElementById('gameFrame');
+    const params=new URLSearchParams(location.search);
+    const game=String(params.get('game') || '').replace(/^\/+/,'');
+    const gba=String(params.get('gba') || '').trim();
+    let progressTimer=0;
+    let launched=false;
+    let lastGameSrcdoc='';
+    let lastGameBlobUrl='';
+    function setProgress(value,label='Loading'){
+      const percent=Math.max(0,Math.min(100,Math.round(value)));
+      progressLabel.textContent=percent>=100 ? 'Launched' : label;
+      progressPercent.textContent=`${percent}%`;
+      progressFill.style.width=`${percent}%`;
+      loading.classList.remove('hidden');
+    }
+    function startProgress(){
+      clearInterval(progressTimer);
+      launched=false;
+      let progress=8;
+      setProgress(progress);
+      progressTimer=setInterval(()=>{progress=Math.min(94,progress+Math.max(1,(96-progress)*.1));setProgress(progress)},210);
+    }
+    function finishProgress(){
+      if(launched) return;
+      launched=true;
+      clearInterval(progressTimer);
+      setProgress(100,'Launched');
+      parent.postMessage({type:'nyx:game-launched'},'*');
+      setTimeout(()=>loading.classList.add('hidden'),650);
+    }
+    function fail(message){
+      clearInterval(progressTimer);
+      status.innerHTML='';
+      status.append(document.createTextNode(message));
+      const retry=document.createElement('button');
+      retry.type='button';
+      retry.textContent='Retry';
+      retry.addEventListener('click',()=>location.reload());
+      const library=document.createElement('button');
+      library.type='button';
+      library.textContent='Open game library';
+      library.addEventListener('click',()=>location.href='/assets/gms-games/index.html');
+      status.append(document.createElement('br'),retry,document.createTextNode(' '),library);
+      loading.classList.remove('hidden');
+    }
+    function safeGamePath(path){
+      if(!path || path.includes('..') || path.includes('\\') || !/^misc\/[a-z0-9_.() -]+(?:\/[a-z0-9_.() -]+)*\.html?$/i.test(path)) return '';
+      return path;
+    }
+    function safeGbaId(value){
+      if(!value || !/^[a-z0-9_+.-]+$/i.test(value)) return '';
+      return value;
+    }
+    function rewrite(html,path){
+      const safeFetchGuard=`<script>(()=>{const nativeFetch=window.fetch?.bind(window);if(nativeFetch)window.fetch=(input,init)=>{const url=input instanceof Request?input.url:String(input||'');if(/^about:/i.test(url))return Promise.resolve(new Response(null,{status:204,statusText:'No Content'}));return nativeFetch(input,init)};try{const nativeOpen=XMLHttpRequest.prototype.open;XMLHttpRequest.prototype.open=function(method,url,...rest){if(/^about:/i.test(String(url||'')))url='data:,';return nativeOpen.call(this,method,url,...rest)}}catch{}})()<\/script>`;
+      const base=`https://raw.githubusercontent.com/isaacduh123/reds-exploit-corner/main/${path.replace(/[^/]+$/,'')}`;
+      const repoRoot='https://raw.githubusercontent.com/isaacduh123/reds-exploit-corner/main/';
+      const proxyUrl=url=>`${location.origin}/gms-games-proxy?url=${encodeURIComponent(url)}`;
+      const toProxy=(raw)=>{
+        try{
+          const url=new URL(raw.startsWith('/') ? raw.slice(1) : raw,raw.startsWith('/') ? repoRoot : base);
+          if(!['raw.githubusercontent.com','cdn.jsdelivr.net','rawcdn.githack.com','raw.githack.com'].includes(url.hostname)) return raw;
+          return proxyUrl(url.href);
+        }catch{return raw}
+      };
+      const source=String(html || '')
+        .replace(/<base\b[^>]*>/gi,'')
+        .replace(/<script\b[^>]*src=["']\/js\/main\.js["'][^>]*>\s*<\/script>/gi,'')
+        .replace(/<script\b[^>]*src=["'][^"']*(?:imasdk|googlesyndication|doubleclick|pagead|googletagmanager|google-analytics)[^"']*["'][^>]*>\s*<\/script>/gi,'')
+        .replace(/((?:src|href)=["'])(?![a-z][a-z0-9+.-]*:|\/\/|#|data:|blob:)([^"']+)/gi,(_m,prefix,raw)=>`${prefix}${toProxy(raw)}`)
+        .replace(/((?:dataUrl|codeUrl|asmUrl|memUrl|frameworkUrl|loaderUrl)\s*[:=]\s*["'])(?![a-z][a-z0-9+.-]*:|\/\/|#|data:|blob:)([^"']+)/gi,(_m,prefix,raw)=>`${prefix}${toProxy(raw)}`)
+        .replace(/url\((["']?)(?![a-z][a-z0-9+.-]*:|\/\/|#|data:|blob:)([^"')]+)\1\)/gi,(_m,quote,raw)=>`url(${quote}${toProxy(raw.trim())}${quote})`)
+        .replace(/https?:\/\/[^\s"'<>\\)]+/gi,raw=>toProxy(raw));
+      const fit=`<style>html,body{width:100%!important;height:100%!important;margin:0!important;padding:0!important;overflow:hidden!important;background:#05070d!important;display:flex!important;align-items:center!important;justify-content:center!important}canvas,object,embed,ruffle-player,ruffle-object,#game,#game-container,#unity-container,#unity-canvas,#ruffle,#player{display:block!important;margin:0!important;max-width:none!important;max-height:none!important;transform-origin:center center!important}</style><script>(()=>{const q='#unity-container,#game-container,#game,#ruffle,ruffle-player,ruffle-object,object,embed,canvas,#unity-canvas,#player';const fit=()=>{document.documentElement.style.setProperty('width','100%','important');document.documentElement.style.setProperty('height','100%','important');document.body?.style.setProperty('width','100%','important');document.body?.style.setProperty('height','100%','important');document.body?.style.setProperty('margin','0','important');document.body?.style.setProperty('overflow','hidden','important');document.body?.style.setProperty('display','flex','important');document.body?.style.setProperty('align-items','center','important');document.body?.style.setProperty('justify-content','center','important');const list=[...document.querySelectorAll(q)].filter(el=>{const r=el.getBoundingClientRect();return r.width>20&&r.height>20&&getComputedStyle(el).display!=='none'}).sort((a,b)=>{const ar=a.getBoundingClientRect();const br=b.getBoundingClientRect();return br.width*br.height-ar.width*ar.height});const target=list[0];if(!target)return;const r=target.getBoundingClientRect();const tag=target.tagName.toLowerCase();const id=(target.id||'').toLowerCase();const isContainer=/unity|game-container|^game$/.test(id)&&tag!=='canvas';const baseW=isContainer?innerWidth:Number(target.getAttribute('width'))||r.width||innerWidth;const baseH=isContainer?innerHeight:Number(target.getAttribute('height'))||r.height||innerHeight;const scale=isContainer?1:Math.min(Math.max(Math.min(innerWidth/baseW,innerHeight/baseH),1),4);target.style.setProperty('position','fixed','important');target.style.setProperty('left','50%','important');target.style.setProperty('top','50%','important');target.style.setProperty('width',isContainer?'100vw':baseW+'px','important');target.style.setProperty('height',isContainer?'100vh':baseH+'px','important');target.style.setProperty('margin','0','important');target.style.setProperty('max-width','none','important');target.style.setProperty('max-height','none','important');target.style.setProperty('object-fit','contain','important');target.style.setProperty('transform','translate(-50%,-50%) scale('+scale+')','important');target.style.setProperty('transform-origin','center center','important')};addEventListener('load',()=>{fit();setTimeout(fit,500);setTimeout(fit,1800)});document.addEventListener('DOMContentLoaded',()=>{fit();setTimeout(fit,500);setTimeout(fit,1800)});setInterval(fit,1200)})()<\/script>`;
+      const guard=`<script>(()=>{const base=${JSON.stringify(base)};const repoRoot=${JSON.stringify(repoRoot)};const prox=${JSON.stringify(location.origin+'/gms-games-proxy?url=')};const hosts=['raw.githubusercontent.com','cdn.jsdelivr.net','rawcdn.githack.com','raw.githack.com'];const blocked=/(?:googletagmanager|google-analytics|googlesyndication|doubleclick|facebook|recaptcha|pagead|cdn\\\\.r9x\\\\.in)/i;const own=u=>{try{const raw=String(u||'').trim();if(!raw||raw.startsWith('#')||/^(?:javascript|data|blob|about):/i.test(raw))return raw||'about:blank';const url=new URL(raw.startsWith('/')?raw.slice(1):raw,raw.startsWith('/')?repoRoot:base);if(blocked.test(url.href))return 'about:blank';if(hosts.includes(url.hostname))return prox+encodeURIComponent(url.href);return url.href}catch{return u}};const ready=()=>parent.postMessage({type:'gms-games:ready'},'*');const protectFrame=node=>{try{if(!node||String(node.tagName||'').toUpperCase()!=='IFRAME')return;const raw=node.getAttribute('src');if(!raw||/^(?:about|data|blob):/i.test(raw))return;const next=own(raw);if(next&&next!==raw)node.setAttribute('src',next)}catch{}};const nativeFetch=window.fetch?.bind(window);if(nativeFetch)window.fetch=(input,init)=>{try{if(input instanceof Request)return nativeFetch(new Request(own(input.url),input),init);return nativeFetch(own(input),init)}catch{return nativeFetch(input,init)}};const open=XMLHttpRequest.prototype.open;XMLHttpRequest.prototype.open=function(method,url,...rest){return open.call(this,method,own(url),...rest)};const NativeWorker=window.Worker;if(NativeWorker)window.Worker=function(url,opts){return new NativeWorker(own(url),opts)};try{const setAttr=Element.prototype.setAttribute;Element.prototype.setAttribute=function(name,value){if(String(name).toLowerCase()==='src'&&String(this.tagName||'').toUpperCase()==='IFRAME')value=own(value);return setAttr.call(this,name,value)}}catch{}try{const srcDesc=Object.getOwnPropertyDescriptor(HTMLIFrameElement.prototype,'src');if(srcDesc?.set)Object.defineProperty(HTMLIFrameElement.prototype,'src',{configurable:true,enumerable:srcDesc.enumerable,get:srcDesc.get,set(value){srcDesc.set.call(this,own(value))}})}catch{}try{new MutationObserver(list=>{for(const item of list)for(const node of item.addedNodes){protectFrame(node);node.querySelectorAll?.('iframe[src]').forEach(protectFrame)}}).observe(document.documentElement,{childList:true,subtree:true})}catch{}window.open=(url)=>{if(url) location.href=own(url);return null};document.addEventListener('click',event=>{const link=event.target?.closest?.('a[href]');if(!link)return;const href=link.getAttribute('href');if(!href||href.startsWith('#')||/^(?:javascript|data|blob):/i.test(href))return;event.preventDefault();event.stopImmediatePropagation();location.href=own(href)},true);document.addEventListener('submit',event=>{const form=event.target;if(!form||String(form.tagName||'').toUpperCase()!=='FORM')return;event.preventDefault();event.stopImmediatePropagation();const action=form.getAttribute('action')||location.href;location.href=own(action)},true);document.addEventListener('DOMContentLoaded',()=>{document.querySelectorAll('iframe[src]').forEach(protectFrame);setTimeout(ready,1800)});window.addEventListener('load',()=>{document.querySelectorAll('iframe[src]').forEach(protectFrame);setTimeout(ready,800)});setTimeout(ready,6500)})()<\/script>`;
+      return /<head([^>]*)>/i.test(source) ? source.replace(/<head([^>]*)>/i,`<head$1><base href="${base}">${fit}${safeFetchGuard}${guard}`) : `<base href="${base}">${fit}${safeFetchGuard}${guard}${source}`;
+    }
+    function frameLooksLikeNyx(){
+      try{
+        const href=frame.contentWindow.location.href;
+        if(href===location.origin+'/' || href===location.origin+'/index.html') return true;
+        const title=frame.contentDocument?.title || '';
+        return /^nyx$/i.test(title.trim());
+      }catch{return false}
+    }
+    window.addEventListener('message',event=>{
+      if(event.source!==frame.contentWindow) return;
+      if(event.data?.type==='gms-games:ready') finishProgress();
+    });
+    frame.addEventListener('load',()=>setTimeout(()=>{
+      if(frameLooksLikeNyx()){
+        if(lastGameSrcdoc){
+          frame.removeAttribute('src');
+          frame.srcdoc=lastGameSrcdoc;
+        }
+        fail('Blocked a GMS game redirect back into Nyx.');
+        return;
+      }
+      finishProgress();
+    },1800));
+    const gamePath=safeGamePath(game);
+    const gbaId=safeGbaId(gba);
+    function loadHtmlGame(path){
+      startProgress();
+      fetch(`/gms-games-fetch?path=${encodeURIComponent(path)}`,{cache:'no-store'})
+        .then(response=>{if(!response.ok) throw new Error(`HTTP ${response.status}`); setProgress(58); return response.text()})
+        .then(html=>{setProgress(78); lastGameSrcdoc=rewrite(html,path); frame.removeAttribute('src'); frame.srcdoc=lastGameSrcdoc; setProgress(88); setTimeout(finishProgress,7500)})
+        .catch(error=>fail(`Could not load GMS game: ${error.message}`));
+    }
+    function loadGbaGame(romId){
+      const path='misc/emulator/gba/launcher.html';
+      startProgress();
+      fetch(`/gms-games-fetch?path=${encodeURIComponent(path)}`,{cache:'no-store'})
+        .then(response=>{if(!response.ok) throw new Error(`HTTP ${response.status}`); setProgress(58); return response.text()})
+        .then(html=>{
+          setProgress(78);
+          const rewritten=rewrite(html,path);
+          if(lastGameBlobUrl) URL.revokeObjectURL(lastGameBlobUrl);
+          lastGameBlobUrl=URL.createObjectURL(new Blob([rewritten],{type:'text/html'}));
+          frame.removeAttribute('srcdoc');
+          frame.src=`${lastGameBlobUrl}#${encodeURIComponent(romId)}`;
+          setProgress(88);
+          setTimeout(finishProgress,9000);
+        })
+        .catch(error=>fail(`Could not load GBA game: ${error.message}`));
+    }
+    if(gbaId){
+      loadGbaGame(gbaId);
+    }else if(!gamePath){
+      fail('Missing GMS game path.');
+    }else{
+      loadHtmlGame(gamePath);
+    }
+  </script>
+</body>
+</html>
+

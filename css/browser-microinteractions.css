@@ -1,0 +1,792 @@
+/* Browser chrome motion polish. This intentionally preserves the existing shell layout. */
+body.browser-shell :is(.browser-mode-app-button,.browser-mode-tab,.browser-mode-shell-tab,.browser-mode-address button,.browser-mode-url,.window-controls button){
+  transition:transform 160ms cubic-bezier(.2,.75,.25,1),background-color 160ms ease,border-color 160ms ease,box-shadow 160ms ease,color 140ms ease,opacity 140ms ease;
+}
+
+body.browser-shell :is(.browser-mode-app-button,.browser-mode-tab,.browser-mode-shell-tab,.browser-mode-address button):hover{
+  transform:translateY(-1px) scale(1.015);
+}
+body.browser-shell :is(.browser-mode-app-button,.browser-mode-tab,.browser-mode-shell-tab,.browser-mode-address button):active{
+  transform:translateY(0) scale(.975);
+  transition-duration:80ms;
+}
+body.browser-shell :is(.browser-mode-app-button,.browser-mode-tab,.browser-mode-shell-tab,.browser-mode-address button,.window-controls button):focus-visible{
+  outline:2px solid color-mix(in srgb,var(--theme-accent,#8aa7ff) 82%,white);
+  outline-offset:2px;
+}
+
+body.browser-shell .browser-mode-shell-tab{
+  border-color:rgba(191,207,240,.17)!important;
+  background:rgba(20,27,40,.6)!important;
+  box-shadow:inset 0 1px rgba(255,255,255,.035),0 1px rgba(0,0,0,.16)!important;
+  will-change:transform;
+  cursor:grab;
+}
+body.browser-shell.nyx-tab-reordering .browser-mode-shell-tab{transition:none!important}
+body.browser-shell .browser-mode-shell-tab.tab-dragging{opacity:.42!important;cursor:grabbing;transform:scale(.985)!important}
+body.browser-shell .browser-mode-shell-tab.tab-drop-before{box-shadow:inset 3px 0 0 var(--theme-accent,#8aa7ff),inset 0 1px rgba(255,255,255,.06)!important}
+body.browser-shell .browser-mode-shell-tab.tab-drop-after{box-shadow:inset -3px 0 0 var(--theme-accent,#8aa7ff),inset 0 1px rgba(255,255,255,.06)!important}
+body.browser-shell .browser-mode-shell-tab:hover{
+  border-color:rgba(191,207,240,.33)!important;
+  background:rgba(44,57,78,.72)!important;
+  box-shadow:inset 0 1px rgba(255,255,255,.06),0 5px 12px rgba(0,0,0,.16)!important;
+}
+body.browser-shell .browser-mode-shell-tab.active{
+  color:#f8fbff!important;
+  border-color:color-mix(in srgb,var(--theme-accent,#8aa7ff) 52%,rgba(191,207,240,.3))!important;
+  background:linear-gradient(180deg,rgba(82,103,139,.62),rgba(37,48,66,.82))!important;
+  box-shadow:inset 0 2px color-mix(in srgb,var(--theme-accent,#8aa7ff) 76%,white),inset 0 1px rgba(255,255,255,.1),0 4px 12px rgba(0,0,0,.2)!important;
+}
+body.browser-shell .browser-mode-shell-tab.tab-opening{
+  animation:browserTabSettle 180ms cubic-bezier(.2,.8,.25,1) both!important;
+}
+@keyframes browserTabSettle{from{opacity:0;transform:translateX(-7px) scale(.985)}to{opacity:1;transform:translateX(0) scale(1)}}
+
+body.browser-shell .browser-mode-shell-tab-close{
+  transition:transform 140ms ease,background-color 140ms ease,opacity 140ms ease!important;
+}
+body.browser-shell .browser-mode-shell-tab-close:hover{
+  transform:translateY(-50%) scale(1)!important;
+  background:rgba(255,255,255,.13)!important;
+}
+body.browser-shell .browser-mode-shell-tab-close:active{transform:translateY(-50%) scale(.88)!important}
+
+body.browser-shell .browser-mode-url{
+  border-color:transparent!important;
+  background:rgba(7,12,21,.64)!important;
+  box-shadow:inset 0 1px rgba(255,255,255,.025)!important;
+  caret-color:var(--theme-accent,#9ab2ff);
+}
+body.browser-shell .browser-mode-url:hover{border-color:rgba(191,207,240,.29)!important;background:rgba(11,18,30,.78)!important}
+body.browser-shell .browser-mode-url:focus{
+  border-color:color-mix(in srgb,var(--theme-accent,#8aa7ff) 70%,white)!important;
+  background:rgba(11,18,30,.96)!important;
+  box-shadow:0 0 0 3px color-mix(in srgb,var(--theme-accent,#8aa7ff) 18%,transparent),inset 0 1px rgba(255,255,255,.045)!important;
+}
+body.browser-shell .browser-mode-address button:hover{background-color:rgba(86,108,145,.26)!important;box-shadow:inset 0 1px rgba(255,255,255,.08),0 3px 9px rgba(0,0,0,.14)!important}
+body.browser-shell .browser-mode-address [data-browser-shell-reload]:active .fresh-real-icon{transform:rotate(115deg);transition:transform 180ms ease}
+body.browser-shell .browser-mode-address [data-browser-shell-bookmark][aria-pressed="true"]{color:color-mix(in srgb,var(--theme-accent,#8aa7ff) 75%,white)!important;background-color:color-mix(in srgb,var(--theme-accent,#8aa7ff) 16%,transparent)!important}
+
+body.browser-shell .window-controls button{transition:background-color 150ms ease,color 150ms ease,transform 150ms ease!important}
+body.browser-shell .window-controls button:hover{background:rgba(255,255,255,.09);color:#fff}
+body.browser-shell .window-controls button:active{transform:scale(.92)}
+body.browser-shell .window-controls .close:hover{background:#dc4a58;color:#fff}
+
+@media(prefers-reduced-motion:reduce){
+  body.browser-shell :is(.browser-mode-app-button,.browser-mode-tab,.browser-mode-shell-tab,.browser-mode-address button,.browser-mode-url,.window-controls button,.browser-mode-shell-tab-close){transition:none!important}
+  body.browser-shell .browser-mode-shell-tab.tab-opening{animation:none!important}
+}
+
+/* Nyx browser chrome: use the compact navigation system shared with the Wisp test browser. */
+html body.browser-shell.browser-shell form.browser-mode-address{
+  grid-template-columns:repeat(4,36px) minmax(0,1fr) 36px 36px 44px!important;
+}
+html body.browser-shell.browser-shell form.browser-mode-address button.browser-nav-control{
+  position:relative!important;
+  display:grid!important;
+  place-items:center!important;
+  width:36px!important;
+  height:36px!important;
+  padding:0!important;
+  border:0!important;
+  border-radius:9px!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  color:color-mix(in srgb,var(--theme-text,#f8fafc) 88%,var(--theme-accent,#8aa7ff))!important;
+  -webkit-text-fill-color:currentColor!important;
+  overflow:visible!important;
+  text-indent:0!important;
+  transition:color 160ms ease,background-color 160ms ease,transform 160ms cubic-bezier(.2,.75,.25,1),box-shadow 160ms ease!important;
+}
+html body:not(#nyx-browser-microinteractions).browser-shell.browser-shell form.browser-mode-address button.browser-nav-control{
+  border:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+}
+html body.browser-shell.browser-shell form.browser-mode-address button.browser-nav-control::before,
+html body.browser-shell.browser-shell form.browser-mode-address button.browser-nav-control::after{
+  content:none!important;
+  display:none!important;
+}
+html body:not(#nyx-browser-microinteractions).browser-shell.browser-shell form.browser-mode-address button.browser-nav-control::before,
+html body:not(#nyx-browser-microinteractions).browser-shell.browser-shell form.browser-mode-address button.browser-nav-control::after{
+  content:none!important;
+  display:none!important;
+  width:0!important;
+  height:0!important;
+  background:none!important;
+  box-shadow:none!important;
+  filter:none!important;
+}
+html body.browser-shell.browser-shell form.browser-mode-address button.browser-nav-control svg{
+  display:block!important;
+  width:19px!important;
+  height:19px!important;
+  fill:none!important;
+  stroke:currentColor!important;
+  stroke-width:1.85!important;
+  stroke-linecap:round!important;
+  stroke-linejoin:round!important;
+  filter:none!important;
+  transform:none!important;
+  transition:transform 180ms cubic-bezier(.2,.75,.25,1),filter 160ms ease!important;
+}
+/* Keep the SVG navigation icons on the active palette instead of inheriting
+   the chrome's near-white text color. Match the final theme contract's
+   specificity so custom colors remain authoritative. */
+html[data-nyx-theme][data-nyx-theme] body.browser-shell.browser-shell:is(body,#nyx-themed-nav-icons):is(body,#nyx-themed-nav-controls)
+  .top-os.top-os form.browser-mode-address button.browser-nav-control{
+  color:var(--theme-accent,#8aa7ff)!important;
+  -webkit-text-fill-color:currentColor!important;
+}
+html body.browser-shell.browser-shell form.browser-mode-address button.browser-nav-control:hover{
+  background:color-mix(in srgb,var(--theme-accent,#8aa7ff) 13%,transparent)!important;
+  color:color-mix(in srgb,var(--theme-accent,#8aa7ff) 60%,white)!important;
+  box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--theme-accent,#8aa7ff) 22%,transparent)!important;
+  transform:translateY(-1px)!important;
+}
+html[data-nyx-theme][data-nyx-theme] body.browser-shell.browser-shell:is(body,#nyx-themed-nav-icons):is(body,#nyx-themed-nav-controls)
+  .top-os.top-os form.browser-mode-address button.browser-nav-control:hover{
+  color:color-mix(in srgb,var(--theme-accent,#8aa7ff) 78%,var(--theme-text,#f8fafc) 22%)!important;
+}
+html body:not(#nyx-browser-microinteractions).browser-shell.browser-shell form.browser-mode-address button.browser-nav-control:hover{
+  background:color-mix(in srgb,var(--theme-accent,#8aa7ff) 13%,transparent)!important;
+  box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--theme-accent,#8aa7ff) 22%,transparent)!important;
+}
+html body.browser-shell.browser-shell form.browser-mode-address button.browser-nav-control:active{
+  transform:translateY(0) scale(.92)!important;
+}
+html body.browser-shell.browser-shell form.browser-mode-address button.browser-nav-control:focus-visible{
+  outline:2px solid color-mix(in srgb,var(--theme-accent,#8aa7ff) 80%,white)!important;
+  outline-offset:1px!important;
+}
+html body.browser-shell.browser-shell form.browser-mode-address button[data-browser-shell-back].browser-nav-control:hover svg{
+  transform:translateX(-1px)!important;
+}
+html body.browser-shell.browser-shell form.browser-mode-address button[data-browser-shell-forward].browser-nav-control:hover svg{
+  transform:translateX(1px)!important;
+}
+html body.browser-shell.browser-shell form.browser-mode-address button[data-browser-shell-reload].browser-nav-control:hover svg{
+  transform:rotate(28deg)!important;
+}
+
+@media(max-width:760px){
+  html body.browser-shell.browser-shell form.browser-mode-address{
+    grid-template-columns:repeat(4,28px) minmax(80px,1fr) 28px 28px 32px!important;
+    gap:4px!important;
+  }
+  html body.browser-shell.browser-shell form.browser-mode-address button.browser-nav-control{
+    width:28px!important;
+    height:28px!important;
+    border-radius:7px!important;
+  }
+  html body.browser-shell.browser-shell form.browser-mode-address button.browser-nav-control svg{
+    width:17px!important;
+    height:17px!important;
+  }
+}
+
+/* These selectors intentionally match the legacy chrome specificity that uses !important. */
+html body:not(#nyx-browser-microinteractions).browser-shell :is(.browser-mode-app-button,.browser-mode-tab,.browser-mode-shell-tab,.browser-mode-address button,.browser-mode-url,.window-controls button){
+  transition:transform 160ms cubic-bezier(.2,.75,.25,1),background-color 160ms ease,border-color 160ms ease,box-shadow 160ms ease,color 140ms ease,opacity 140ms ease!important;
+}
+html body:not(#nyx-browser-microinteractions).browser-shell :is(.browser-mode-app-button,.browser-mode-tab,.browser-mode-shell-tab,.browser-mode-address button):hover{transform:translateY(-1px) scale(1.015)!important}
+html body:not(#nyx-browser-microinteractions).browser-shell :is(.browser-mode-app-button,.browser-mode-tab,.browser-mode-shell-tab,.browser-mode-address button):active{transform:translateY(0) scale(.975)!important;transition-duration:80ms!important}
+html body:not(#nyx-browser-microinteractions).browser-shell .browser-mode-shell-tab{
+  background:rgba(20,27,40,.6)!important;
+  box-shadow:inset 0 1px rgba(255,255,255,.035),0 1px rgba(0,0,0,.16)!important;
+}
+html body:not(#nyx-browser-microinteractions).browser-shell .browser-mode-shell-tab.active{
+  background:linear-gradient(180deg,rgba(82,103,139,.62),rgba(37,48,66,.82))!important;
+  box-shadow:inset 0 2px color-mix(in srgb,var(--theme-accent,#8aa7ff) 76%,white),inset 0 1px rgba(255,255,255,.1),0 4px 12px rgba(0,0,0,.2)!important;
+}
+html body:not(#nyx-browser-microinteractions).browser-shell .browser-mode-url:focus{
+  background:rgba(11,18,30,.96)!important;
+  box-shadow:0 0 0 3px color-mix(in srgb,var(--theme-accent,#8aa7ff) 18%,transparent),inset 0 1px rgba(255,255,255,.045)!important;
+}
+html body.browser-shell.browser-shell .browser-mode-shell-tab.tab-opening{animation:browserTabSettle 180ms cubic-bezier(.2,.8,.25,1) both!important}
+
+/* Wide, lightweight top tabs inspired by the Wisp test shell. */
+html[data-nyx-theme][data-nyx-theme] body.browser-shell.browser-shell:is(body,#nyx-wide-tab-strip):is(body,#nyx-wide-tab-controls)
+  .top-os.top-os .brand-mini{
+  align-items:center!important;
+  gap:9px!important;
+}
+
+html[data-nyx-theme][data-nyx-theme] body.browser-shell.browser-shell:is(body,#nyx-wide-tab-strip):is(body,#nyx-wide-tab-controls)
+  .top-os.top-os .brand-mini > :is(.browser-mode-app-button,.browser-mode-shell-tab){
+  display:flex!important;
+  flex:0 0 248px!important;
+  align-items:center!important;
+  justify-content:flex-start!important;
+  width:248px!important;
+  min-width:150px!important;
+  max-width:248px!important;
+  height:36px!important;
+  min-height:36px!important;
+  padding:0 14px!important;
+  gap:9px!important;
+  border:1px solid transparent!important;
+  border-radius:10px!important;
+  background:color-mix(in srgb,var(--theme-field,#111827) 90%,var(--theme-panel,#1b2230))!important;
+  color:var(--theme-text,#f8fafc)!important;
+  -webkit-text-fill-color:currentColor!important;
+  box-shadow:inset 0 1px 0 color-mix(in srgb,var(--theme-text,#f8fafc) 7%,transparent)!important;
+  font-size:14px!important;
+  font-weight:600!important;
+  text-align:left!important;
+}
+
+html[data-nyx-theme][data-nyx-theme] body.browser-shell.browser-shell:is(body,#nyx-wide-tab-strip):is(body,#nyx-wide-tab-controls)
+  .top-os.top-os .brand-mini > :is(.browser-mode-app-button,.browser-mode-shell-tab) > span{
+  font-size:14px!important;
+  font-weight:600!important;
+  line-height:1!important;
+}
+
+html[data-nyx-theme][data-nyx-theme] body.browser-shell.browser-shell:is(body,#nyx-wide-tab-strip):is(body,#nyx-wide-tab-controls)
+  .top-os.top-os .brand-mini > :is(.browser-mode-app-button,.browser-mode-shell-tab).active{
+  border-color:transparent!important;
+  background:color-mix(in srgb,var(--theme-field,#111827) 82%,var(--theme-panel,#1b2230) 18%)!important;
+  box-shadow:inset 0 1px 0 color-mix(in srgb,var(--theme-text,#f8fafc) 10%,transparent)!important;
+}
+
+html[data-nyx-theme][data-nyx-theme] body.browser-shell.browser-shell:is(body,#nyx-wide-tab-strip):is(body,#nyx-wide-tab-controls)
+  .top-os.top-os .brand-mini > :is(.browser-mode-app-button,.browser-mode-shell-tab):hover{
+  border-color:color-mix(in srgb,var(--theme-border,#334155) 52%,var(--theme-accent,#8aa7ff) 48%)!important;
+  background:color-mix(in srgb,var(--theme-panel,#1b2230) 82%,var(--theme-accent,#8aa7ff) 18%)!important;
+  box-shadow:inset 0 1px 0 color-mix(in srgb,var(--theme-text,#f8fafc) 12%,transparent)!important;
+  transform:translateY(-1px)!important;
+  filter:none!important;
+}
+
+html[data-nyx-theme][data-nyx-theme] body.browser-shell.browser-shell:is(body,#nyx-wide-tab-strip):is(body,#nyx-wide-tab-controls)
+  .top-os.top-os .brand-mini > button[data-browser-shell-home] > .browser-home-icon{
+  display:block!important;
+  width:20px!important;
+  height:20px!important;
+  flex:0 0 20px!important;
+  border:0!important;
+  background:var(--theme-accent,#8aa7ff)!important;
+  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='black' d='M19.7 15.1A8.45 8.45 0 0 1 8.9 4.3a8.5 8.5 0 1 0 10.8 10.8Z'/%3E%3C/svg%3E") center/contain no-repeat!important;
+  mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='black' d='M19.7 15.1A8.45 8.45 0 0 1 8.9 4.3a8.5 8.5 0 1 0 10.8 10.8Z'/%3E%3C/svg%3E") center/contain no-repeat!important;
+}
+
+html[data-nyx-theme][data-nyx-theme] body.browser-shell.browser-shell:is(body,#nyx-wide-tab-strip):is(body,#nyx-wide-tab-controls)
+  .top-os.top-os .brand-mini > .browser-mode-shell-tab .browser-mode-tab-icon{
+  width:19px!important;
+  height:19px!important;
+  flex:0 0 19px!important;
+  border-radius:5px!important;
+  object-fit:cover!important;
+}
+
+html[data-nyx-theme][data-nyx-theme] body.browser-shell.browser-shell:is(body,#nyx-wide-tab-strip):is(body,#nyx-wide-tab-controls)
+  .top-os.top-os .brand-mini > button[data-browser-shell-new-tab]{
+  width:36px!important;
+  min-width:36px!important;
+  max-width:36px!important;
+  height:36px!important;
+  min-height:36px!important;
+  padding:0!important;
+  border:0!important;
+  border-radius:9px!important;
+  background:transparent!important;
+  color:var(--theme-accent,#8aa7ff)!important;
+  -webkit-text-fill-color:currentColor!important;
+  box-shadow:none!important;
+}
+
+html[data-nyx-theme][data-nyx-theme] body.browser-shell.browser-shell:is(body,#nyx-wide-tab-strip):is(body,#nyx-wide-tab-controls)
+  .top-os.top-os .brand-mini > button[data-browser-shell-new-tab]::before{
+  content:"+"!important;
+  display:block!important;
+  width:auto!important;
+  height:auto!important;
+  border:0!important;
+  background:none!important;
+  color:currentColor!important;
+  font:500 23px/1 "Outfit","Segoe UI",sans-serif!important;
+}
+
+html[data-nyx-theme][data-nyx-theme] body.browser-shell.browser-shell:is(body,#nyx-wide-tab-strip):is(body,#nyx-wide-tab-controls)
+  .top-os.top-os .brand-mini > button[data-browser-shell-new-tab]:hover{
+  border:0!important;
+  background:color-mix(in srgb,var(--theme-accent,#8aa7ff) 10%,transparent)!important;
+  box-shadow:none!important;
+  transform:none!important;
+}
+
+html[data-nyx-theme][data-nyx-theme] body.browser-shell.browser-shell:is(body,#nyx-wide-tab-strip):is(body,#nyx-wide-tab-controls)
+  .top-os.top-os .brand-mini > .browser-mode-shell-tab .browser-mode-shell-tab-close{
+  opacity:0!important;
+  transition:opacity 150ms ease,background-color 150ms ease!important;
+}
+
+html[data-nyx-theme][data-nyx-theme] body.browser-shell.browser-shell:is(body,#nyx-wide-tab-strip):is(body,#nyx-wide-tab-controls)
+  .top-os.top-os .brand-mini > .browser-mode-shell-tab:is(:hover,:focus-within) .browser-mode-shell-tab-close{
+  opacity:1!important;
+}
+
+@media(max-width:620px){
+  html[data-nyx-theme][data-nyx-theme] body.browser-shell.browser-shell:is(body,#nyx-wide-tab-strip):is(body,#nyx-wide-tab-controls)
+    .top-os.top-os .brand-mini > :is(.browser-mode-app-button,.browser-mode-shell-tab){
+    width:154px!important;
+    flex-basis:154px!important;
+    min-width:112px!important;
+    max-width:154px!important;
+  }
+}
+
+/* Midnight uses the same neutral near-black foundation as the Wisp test
+   chrome. Keep its blue identity in accents, icons, and interaction states
+   instead of tinting every large surface navy. */
+html[data-nyx-theme="midnight"]{
+  --nyx-page-canvas:#0d0e12!important;
+  background-color:#0d0e12!important;
+}
+html[data-nyx-theme="midnight"] body.browser-shell.theme-midnight{
+  --nyx-unified-canvas:#0d0e12!important;
+  --nyx-unified-top:#0d0e12!important;
+  --nyx-unified-field:#17181c!important;
+  --nyx-unified-dot:#202126!important;
+  --nyx-home-panel:#131419!important;
+  --nyx-home-panel-soft:#18191d!important;
+  --nyx-home-line:#303238!important;
+  --nyx-chrome-base:#18191d!important;
+  --nyx-chrome-deep:#090a0d!important;
+  --nyx-chrome-active:#202126!important;
+  --nyx-chrome-hover:#1a1b20!important;
+  --nyx-dot-color:#202126!important;
+  --theme-bg:#0d0e12!important;
+  --theme-panel:#131419!important;
+  --theme-panel-soft:#18191d!important;
+  --theme-field:#17181c!important;
+  background-color:#0d0e12!important;
+}
+@media(prefers-reduced-motion:reduce){
+  html body:not(#nyx-browser-microinteractions).browser-shell :is(.browser-mode-app-button,.browser-mode-tab,.browser-mode-shell-tab,.browser-mode-address button,.browser-mode-url,.window-controls button,.browser-mode-shell-tab-close){transition:none!important}
+  html body:is(body,#nyx-hover-specificity).browser-shell :is(.browser-mode-app-button,.browser-mode-tab,.browser-mode-shell-tab,.browser-mode-address button,.browser-mode-url,.window-controls button,.browser-mode-shell-tab-close){transition:none!important}
+  html body.browser-shell.browser-shell .browser-mode-shell-tab.tab-opening{animation:none!important}
+}
+
+/* Borderless toolbar controls stay quiet at rest and resolve into full
+   clarity when the user aims at them. */
+html[data-nyx-theme][data-nyx-theme] body.browser-shell.browser-shell:is(body,#nyx-borderless-toolbar):is(body,#nyx-soft-toolbar):is(body,#nyx-toolbar-clarity)
+  .top-os.top-os form.browser-mode-address > button:is(
+    [data-browser-shell-back],
+    [data-browser-shell-forward],
+    [data-browser-shell-reload],
+    [data-browser-shell-home-nav],
+    [data-browser-shell-bookmark],
+    .browser-mode-weather,
+    [data-browser-shell-menu]
+  ){
+  border:1px solid transparent!important;
+  background:color-mix(in srgb,var(--theme-field,#111827) 88%,transparent)!important;
+  box-shadow:none!important;
+  opacity:.66!important;
+  filter:none!important;
+  transition:opacity 170ms ease,background-color 170ms ease,color 170ms ease,transform 160ms cubic-bezier(.2,.75,.25,1)!important;
+}
+
+html[data-nyx-theme][data-nyx-theme] body.browser-shell.browser-shell:is(body,#nyx-borderless-toolbar):is(body,#nyx-soft-toolbar):is(body,#nyx-toolbar-clarity)
+  .top-os.top-os form.browser-mode-address > button:is(
+    [data-browser-shell-back],
+    [data-browser-shell-forward],
+    [data-browser-shell-reload],
+    [data-browser-shell-home-nav],
+    [data-browser-shell-bookmark],
+    .browser-mode-weather,
+    [data-browser-shell-menu]
+  ):is(:hover,:focus-visible,:active){
+  border-color:color-mix(in srgb,var(--theme-border,#334155) 52%,var(--theme-accent,#8aa7ff) 48%)!important;
+  background:color-mix(in srgb,var(--theme-accent,#8aa7ff) 14%,var(--theme-field,#111827))!important;
+  box-shadow:none!important;
+  opacity:1!important;
+  filter:none!important;
+}
+
+/* Exact desktop dimensions from wisp-test/src/style.css. Nyx chrome is zoomed
+   to 80%, so each source value is divided by .8 to preserve the same rendered
+   CSS size: 86px chrome, 205x30 tab, 30px buttons, and 16px button symbols. */
+@media(min-width:621px){
+  html body.browser-shell.browser-shell{
+    --nyx-interface-bar:86px!important;
+    --bar:86px!important;
+  }
+  html[data-nyx-theme][data-nyx-theme] body.browser-shell.browser-shell:is(body,#nyx-reference-chrome):is(body,#nyx-reference-layout):is(body,#nyx-reference-controls)
+    .top-os.top-os{
+    height:107.5px!important;
+    min-height:107.5px!important;
+    max-height:107.5px!important;
+    padding:0!important;
+    grid-template-rows:48.75px 58.75px!important;
+    gap:0!important;
+    border-bottom:1px solid var(--theme-border,rgba(148,163,184,.28))!important;
+  }
+  html[data-nyx-theme][data-nyx-theme] body.browser-shell.browser-shell:is(body,#nyx-reference-chrome):is(body,#nyx-reference-layout):is(body,#nyx-reference-controls)
+    .top-os.top-os .brand-mini{
+    height:48.75px!important;
+    min-height:48.75px!important;
+    padding:6.25px 15px 5px!important;
+    gap:7.5px!important;
+  }
+  html[data-nyx-theme][data-nyx-theme] body.browser-shell.browser-shell:is(body,#nyx-reference-chrome):is(body,#nyx-reference-layout):is(body,#nyx-reference-controls)
+    .top-os.top-os .brand-mini > :is(.browser-mode-app-button,.browser-mode-shell-tab){
+    flex:0 0 256.25px!important;
+    width:256.25px!important;
+    min-width:256.25px!important;
+    max-width:256.25px!important;
+    height:37.5px!important;
+    min-height:37.5px!important;
+    max-height:37.5px!important;
+    padding:0 15px!important;
+    gap:10px!important;
+    border-radius:10px!important;
+    font-size:15px!important;
+    font-weight:500!important;
+  }
+  html[data-nyx-theme][data-nyx-theme] body.browser-shell.browser-shell:is(body,#nyx-reference-chrome):is(body,#nyx-reference-layout):is(body,#nyx-reference-controls)
+    .top-os.top-os .brand-mini > :is(.browser-mode-app-button,.browser-mode-shell-tab) > span{
+    font-size:15px!important;
+    font-weight:500!important;
+  }
+  html[data-nyx-theme][data-nyx-theme] body.browser-shell.browser-shell:is(body,#nyx-reference-chrome):is(body,#nyx-reference-layout):is(body,#nyx-reference-controls)
+    .top-os.top-os .brand-mini > button[data-browser-shell-home] > .browser-home-icon{
+    width:18.75px!important;
+    height:18.75px!important;
+    flex-basis:18.75px!important;
+  }
+  html[data-nyx-theme][data-nyx-theme] body.browser-shell.browser-shell:is(body,#nyx-reference-chrome):is(body,#nyx-reference-layout):is(body,#nyx-reference-controls)
+    .top-os.top-os .brand-mini > button[data-browser-shell-new-tab]{
+    width:37.5px!important;
+    min-width:37.5px!important;
+    max-width:37.5px!important;
+    height:37.5px!important;
+    min-height:37.5px!important;
+    max-height:37.5px!important;
+    border-radius:10px!important;
+  }
+  html[data-nyx-theme][data-nyx-theme] body.browser-shell.browser-shell:is(body,#nyx-reference-chrome):is(body,#nyx-reference-layout):is(body,#nyx-reference-controls)
+    .top-os.top-os .brand-mini > button[data-browser-shell-new-tab]::before{
+    font-size:25px!important;
+  }
+  html[data-nyx-theme][data-nyx-theme] body.browser-shell.browser-shell:is(body,#nyx-reference-chrome):is(body,#nyx-reference-layout):is(body,#nyx-reference-controls)
+    .top-os.top-os > .browser-top-clock{
+    top:0!important;
+    right:15px!important;
+    display:flex!important;
+    align-items:center!important;
+    height:48.75px!important;
+    font-size:13.75px!important;
+    line-height:1!important;
+    font-weight:400!important;
+    opacity:1!important;
+  }
+  html[data-nyx-theme][data-nyx-theme] body.browser-shell.browser-shell:is(body,#nyx-reference-chrome):is(body,#nyx-reference-layout):is(body,#nyx-reference-controls)
+    .top-os.top-os form.browser-mode-address{
+    box-sizing:border-box!important;
+    height:58.75px!important;
+    min-height:58.75px!important;
+    padding:6.25px 12.5px 10px!important;
+    align-self:stretch!important;
+    align-items:center!important;
+    grid-template-columns:repeat(4,37.5px) minmax(0,1fr) repeat(3,37.5px)!important;
+    gap:5px!important;
+  }
+  html[data-nyx-theme][data-nyx-theme] body.browser-shell.browser-shell:is(body,#nyx-reference-chrome):is(body,#nyx-reference-layout):is(body,#nyx-reference-controls)
+    .top-os.top-os form.browser-mode-address > :is(button,.browser-mode-url){
+    align-self:center!important;
+    margin-top:0!important;
+  }
+  html[data-nyx-theme][data-nyx-theme] body.browser-shell.browser-shell:is(body,#nyx-reference-chrome):is(body,#nyx-reference-layout):is(body,#nyx-reference-controls)
+    .top-os.top-os form.browser-mode-address > button:is(button,#nyx-reference-button){
+    width:37.5px!important;
+    min-width:37.5px!important;
+    max-width:37.5px!important;
+    height:37.5px!important;
+    min-height:37.5px!important;
+    max-height:37.5px!important;
+    padding:0!important;
+    background:transparent!important;
+    border:1px solid transparent!important;
+    border-radius:11.25px!important;
+    box-shadow:none!important;
+    opacity:.86!important;
+  }
+  html[data-nyx-theme][data-nyx-theme] body.browser-shell.browser-shell:is(body,#nyx-reference-chrome):is(body,#nyx-reference-layout):is(body,#nyx-reference-controls)
+    .top-os.top-os form.browser-mode-address > button:is(button,#nyx-reference-button):is(:hover,:focus-visible,:active){
+    background:color-mix(in srgb,var(--theme-accent,#8aa7ff) 12%,transparent)!important;
+    border-color:color-mix(in srgb,var(--theme-border,#334155) 52%,var(--theme-accent,#8aa7ff) 48%)!important;
+    opacity:1!important;
+  }
+  html[data-nyx-theme][data-nyx-theme] body.browser-shell.browser-shell:is(body,#nyx-reference-chrome):is(body,#nyx-reference-layout):is(body,#nyx-reference-controls)
+    .top-os.top-os form.browser-mode-address button.browser-nav-control svg{
+    width:20px!important;
+    height:20px!important;
+    stroke-width:1.7!important;
+  }
+  html[data-nyx-theme][data-nyx-theme] body.browser-shell.browser-shell:is(body,#nyx-reference-chrome):is(body,#nyx-reference-layout):is(body,#nyx-reference-controls)
+    .top-os.top-os form.browser-mode-address > button[data-browser-shell-bookmark] > .fresh-real-icon,
+  html[data-nyx-theme][data-nyx-theme] body.browser-shell.browser-shell:is(body,#nyx-reference-chrome):is(body,#nyx-reference-layout):is(body,#nyx-reference-controls)
+    .top-os.top-os form.browser-mode-address > button[data-browser-shell-menu] > .fresh-real-icon{
+    display:grid!important;
+    place-items:center!important;
+    width:20px!important;
+    height:20px!important;
+    font-size:20px!important;
+    line-height:1!important;
+  }
+  html[data-nyx-theme][data-nyx-theme] body.browser-shell.browser-shell:is(body,#nyx-reference-chrome):is(body,#nyx-reference-layout):is(body,#nyx-reference-controls)
+    .top-os.top-os form.browser-mode-address > button[data-browser-shell-bookmark]{
+    font-size:20px!important;
+    line-height:1!important;
+  }
+  html[data-nyx-theme][data-nyx-theme] body.browser-shell.browser-shell:is(body,#nyx-reference-chrome):is(body,#nyx-reference-layout):is(body,#nyx-reference-controls)
+    .top-os.top-os form.browser-mode-address > .browser-mode-weather > .weather-cloud-icon{
+    width:20px!important;
+    min-width:20px!important;
+    height:20px!important;
+    min-height:20px!important;
+  }
+  html[data-nyx-theme][data-nyx-theme] body.browser-shell.browser-shell:is(body,#nyx-reference-chrome):is(body,#nyx-reference-layout):is(body,#nyx-reference-controls)
+    .top-os.top-os form.browser-mode-address > .browser-mode-url{
+    box-sizing:border-box!important;
+    width:calc(100% - 10px)!important;
+    min-width:0!important;
+    height:42.5px!important;
+    min-height:42.5px!important;
+    max-height:42.5px!important;
+    margin:0 5px!important;
+    padding:0 15px 0 50px!important;
+    border:1px solid transparent!important;
+    border-radius:12.5px!important;
+    background-color:var(--theme-field,#17181c)!important;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2390939e' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='m20 20-4-4'/%3E%3C/svg%3E")!important;
+    background-repeat:no-repeat!important;
+    background-position:15px center!important;
+    background-size:18.75px 18.75px!important;
+    font-size:15px!important;
+  }
+  html[data-nyx-theme][data-nyx-theme] body.browser-shell.browser-shell:is(body,#nyx-reference-chrome):is(body,#nyx-reference-layout):is(body,#nyx-reference-controls)
+    .top-os.top-os form.browser-mode-address > .browser-mode-url:hover{
+    border-color:color-mix(in srgb,var(--theme-border,#334155) 52%,var(--theme-accent,#8aa7ff) 48%)!important;
+  }
+  html[data-nyx-theme][data-nyx-theme] body.browser-shell.browser-shell:is(body,#nyx-reference-chrome):is(body,#nyx-reference-layout):is(body,#nyx-reference-controls)
+    .top-os.top-os form.browser-mode-address > .browser-mode-url:focus{
+    border-color:color-mix(in srgb,var(--theme-accent,#8aa7ff) 70%,white)!important;
+    box-shadow:0 0 0 3px color-mix(in srgb,var(--theme-accent,#8aa7ff) 18%,transparent)!important;
+  }
+  html[data-nyx-theme][data-nyx-theme] body.browser-shell.browser-shell:is(body,#nyx-reference-chrome):is(body,#nyx-reference-layout):is(body,#nyx-reference-controls)
+    #desktop > .window.maximized{
+    top:86px!important;
+    height:calc(100dvh - 86px)!important;
+    max-height:calc(100dvh - 86px)!important;
+    border-top:0!important;
+  }
+  html[data-nyx-theme][data-nyx-theme] body.browser-shell.browser-shell:is(body,#nyx-reference-chrome):is(body,#nyx-reference-layout):is(body,#nyx-reference-controls)
+    :is(#browserModeMenu,.browser-mode-menu,.browser-bookmark-panel){
+    top:86px!important;
+  }
+}
+
+@media(max-width:620px){
+  html body.browser-shell.browser-shell{
+    --nyx-interface-bar:94px!important;
+    --bar:94px!important;
+  }
+  html[data-nyx-theme][data-nyx-theme] body.browser-shell.browser-shell:is(body,#nyx-reference-chrome):is(body,#nyx-reference-layout):is(body,#nyx-reference-controls)
+    .top-os.top-os{
+    height:117.5px!important;
+    min-height:117.5px!important;
+    max-height:117.5px!important;
+    padding:0!important;
+    grid-template-rows:55px 62.5px!important;
+    gap:0!important;
+  }
+  html[data-nyx-theme][data-nyx-theme] body.browser-shell.browser-shell:is(body,#nyx-reference-chrome):is(body,#nyx-reference-layout):is(body,#nyx-reference-controls)
+    .top-os.top-os .brand-mini{
+    height:55px!important;
+    min-height:55px!important;
+    padding:5px 10px!important;
+  }
+  html[data-nyx-theme][data-nyx-theme] body.browser-shell.browser-shell:is(body,#nyx-reference-chrome):is(body,#nyx-reference-layout):is(body,#nyx-reference-controls)
+    .top-os.top-os .brand-mini > :is(.browser-mode-app-button,.browser-mode-shell-tab){
+    flex-basis:192.5px!important;
+    width:192.5px!important;
+    min-width:140px!important;
+    max-width:192.5px!important;
+    height:45px!important;
+    min-height:45px!important;
+    max-height:45px!important;
+  }
+  html[data-nyx-theme][data-nyx-theme] body.browser-shell.browser-shell:is(body,#nyx-reference-chrome):is(body,#nyx-reference-layout):is(body,#nyx-reference-controls)
+    .top-os.top-os > .browser-top-clock{
+    top:0!important;
+    right:10px!important;
+    display:flex!important;
+    align-items:center!important;
+    height:55px!important;
+    font-size:16.25px!important;
+    line-height:1!important;
+    font-weight:400!important;
+  }
+  html[data-nyx-theme][data-nyx-theme] body.browser-shell.browser-shell:is(body,#nyx-reference-chrome):is(body,#nyx-reference-layout):is(body,#nyx-reference-controls)
+    .top-os.top-os form.browser-mode-address{
+    height:62.5px!important;
+    min-height:62.5px!important;
+    padding:0 7.5px!important;
+    grid-template-columns:repeat(4,42.5px) minmax(75px,1fr) 42.5px 42.5px 45px!important;
+    gap:5px!important;
+  }
+  html[data-nyx-theme][data-nyx-theme] body.browser-shell.browser-shell:is(body,#nyx-reference-chrome):is(body,#nyx-reference-layout):is(body,#nyx-reference-controls)
+    .top-os.top-os form.browser-mode-address > :is(button,.browser-mode-url){
+    height:42.5px!important;
+    min-height:42.5px!important;
+    max-height:42.5px!important;
+    align-self:center!important;
+    border-color:transparent!important;
+  }
+  html[data-nyx-theme][data-nyx-theme] body.browser-shell.browser-shell:is(body,#nyx-reference-chrome):is(body,#nyx-reference-layout):is(body,#nyx-reference-controls)
+    .top-os.top-os form.browser-mode-address > button{
+    width:42.5px!important;
+    min-width:42.5px!important;
+    max-width:42.5px!important;
+    padding:0!important;
+    border:1px solid transparent!important;
+    background:transparent!important;
+    box-shadow:none!important;
+  }
+  html[data-nyx-theme][data-nyx-theme] body.browser-shell.browser-shell:is(body,#nyx-reference-chrome):is(body,#nyx-reference-layout):is(body,#nyx-reference-controls)
+    .top-os.top-os form.browser-mode-address > button:is(:hover,:focus-visible,:active){
+    border-color:color-mix(in srgb,var(--theme-border,#334155) 52%,var(--theme-accent,#8aa7ff) 48%)!important;
+  }
+  html[data-nyx-theme][data-nyx-theme] body.browser-shell.browser-shell:is(body,#nyx-reference-chrome):is(body,#nyx-reference-layout):is(body,#nyx-reference-controls)
+    .top-os.top-os form.browser-mode-address > .browser-mode-url:hover{
+    border-color:color-mix(in srgb,var(--theme-border,#334155) 52%,var(--theme-accent,#8aa7ff) 48%)!important;
+  }
+  html[data-nyx-theme][data-nyx-theme] body.browser-shell.browser-shell:is(body,#nyx-reference-chrome):is(body,#nyx-reference-layout):is(body,#nyx-reference-controls)
+    .top-os.top-os form.browser-mode-address > .browser-mode-url:focus{
+    border-color:color-mix(in srgb,var(--theme-accent,#8aa7ff) 70%,white)!important;
+    box-shadow:0 0 0 3px color-mix(in srgb,var(--theme-accent,#8aa7ff) 18%,transparent)!important;
+  }
+  html[data-nyx-theme][data-nyx-theme] body.browser-shell.browser-shell:is(body,#nyx-reference-chrome):is(body,#nyx-reference-layout):is(body,#nyx-reference-controls)
+    #desktop > .window.maximized{
+    top:94px!important;
+    height:calc(100dvh - 94px)!important;
+    max-height:calc(100dvh - 94px)!important;
+    border-top:0!important;
+  }
+  html[data-nyx-theme][data-nyx-theme] body.browser-shell.browser-shell:is(body,#nyx-reference-chrome):is(body,#nyx-reference-layout):is(body,#nyx-reference-controls)
+    :is(#browserModeMenu,.browser-mode-menu,.browser-bookmark-panel){
+    top:94px!important;
+  }
+}
+
+/* Final rendered Midnight surfaces. The repeated identity guards intentionally
+   outrank the accumulated legacy theme selectors that set direct backgrounds. */
+html[data-nyx-theme="midnight"][data-nyx-theme="midnight"]
+  body.browser-shell.browser-shell.theme-midnight:is(body,#nyx-midnight-final-1):is(body,#nyx-midnight-final-2):is(body,#nyx-midnight-final-3):is(body,#nyx-midnight-final-4){
+  background-color:#0d0e12!important;
+}
+html[data-nyx-theme="midnight"][data-nyx-theme="midnight"]
+  body.browser-shell.browser-shell.theme-midnight:not(.custom-bg-active):is(body,#nyx-midnight-final-1):is(body,#nyx-midnight-final-2):is(body,#nyx-midnight-final-3):is(body,#nyx-midnight-final-4){
+  background-image:none!important;
+}
+html[data-nyx-theme="midnight"][data-nyx-theme="midnight"]
+  body.browser-shell.browser-shell.theme-midnight:is(body,#nyx-midnight-final-1):is(body,#nyx-midnight-final-2):is(body,#nyx-midnight-final-3):is(body,#nyx-midnight-final-4)
+  .top-os.top-os{
+  background-color:#0d0e12!important;
+  background-image:none!important;
+}
+html[data-nyx-theme="midnight"][data-nyx-theme="midnight"]
+  body.browser-shell.browser-shell.theme-midnight:not(.custom-bg-active):is(body,#nyx-midnight-final-1):is(body,#nyx-midnight-final-2):is(body,#nyx-midnight-final-3):is(body,#nyx-midnight-final-4)
+  :is(#desktop,.browser-window.maximized,.browser-home,.browser-shell-settings-overlay){
+  background-color:#0d0e12!important;
+}
+
+/* Midnight keeps one blue-gray interaction color across labels, icons, and
+   controls so the default violet palette cannot leak into this theme. */
+html[data-nyx-theme="midnight"][data-nyx-theme="midnight"]
+  body.browser-shell.browser-shell.theme-midnight:is(body,#nyx-midnight-white-buttons):is(body,#nyx-midnight-white-controls){
+  --nyx-home-wordmark:#9eb7d9!important;
+  --nyx-chrome-accent:#789edc!important;
+  --nyx-chrome-bright:#9eb7d9!important;
+  --nyx-shell-icon:#9eb7d9!important;
+  --nyx-final-shortcut-icon:#9eb7d9!important;
+  --theme-accent:#789edc!important;
+  --theme-a:#789edc!important;
+  --theme-b:#9eb7d9!important;
+  --accent:#789edc!important;
+}
+html[data-nyx-theme="midnight"][data-nyx-theme="midnight"]
+  body.browser-shell.browser-shell.theme-midnight:is(body,#nyx-midnight-white-buttons):is(body,#nyx-midnight-white-controls):is(body,#nyx-midnight-white-icons):is(body,#nyx-midnight-white-glyphs):is(body,#nyx-midnight-white-labels)
+  button:is(button,#nyx-midnight-white-button){
+  color:var(--nyx-home-wordmark)!important;
+  -webkit-text-fill-color:var(--nyx-home-wordmark)!important;
+}
+html[data-nyx-theme="midnight"][data-nyx-theme="midnight"]
+  body.browser-shell.browser-shell.theme-midnight:is(body,#nyx-midnight-white-buttons):is(body,#nyx-midnight-white-controls)
+  .top-os.top-os .brand-mini > button[data-browser-shell-home] > .browser-home-icon{
+  background:var(--nyx-home-wordmark)!important;
+}
+html[data-nyx-theme="midnight"][data-nyx-theme="midnight"]
+  body.browser-shell.browser-shell.theme-midnight:is(body,#nyx-midnight-white-buttons):is(body,#nyx-midnight-white-controls)
+  .top-os.top-os .browser-mode-address :is(.fresh-real-icon,.weather-cloud-icon,.weather-cloud-icon::before,.weather-cloud-icon::after){
+  color:var(--nyx-home-wordmark)!important;
+  -webkit-text-fill-color:var(--nyx-home-wordmark)!important;
+  border-color:var(--nyx-home-wordmark)!important;
+}
+
+/* One motion tempo for hoverable Nyx controls. Keeping a transparent resting
+   border prevents geometry shifts while the hover border fades in. */
+html[data-nyx-theme]{--nyx-hover-speed:180ms}
+html[data-nyx-theme][data-nyx-theme] body.browser-shell.browser-shell:is(body,#nyx-hover-speed-a):is(body,#nyx-hover-speed-b):is(body,#nyx-hover-speed-c):is(body,#nyx-hover-speed-d) :is(
+  button,
+  a,
+  input,
+  select,
+  textarea,
+  [role="button"],
+  .browser-mode-url,
+  .nyx-home-search,
+  .nyx-home-actions,
+  .home-shortcut-open,
+  .home-shortcut-glyph,
+  .quick-icon,
+  .settings-action,
+  .settings-toggle
+){
+  transition-duration:var(--nyx-hover-speed)!important;
+  transition-delay:0ms!important;
+}
+html[data-nyx-theme][data-nyx-theme] body.browser-shell.browser-shell:is(body,#nyx-hover-speed-a):is(body,#nyx-hover-speed-b):is(body,#nyx-hover-speed-c):is(body,#nyx-hover-speed-d) :is(
+  button,
+  a,
+  [role="button"],
+  .home-shortcut-open,
+  .home-shortcut-glyph,
+  .quick-icon
+)::before,
+html[data-nyx-theme][data-nyx-theme] body.browser-shell.browser-shell:is(body,#nyx-hover-speed-a):is(body,#nyx-hover-speed-b):is(body,#nyx-hover-speed-c):is(body,#nyx-hover-speed-d) :is(
+  button,
+  a,
+  [role="button"],
+  .home-shortcut-open,
+  .home-shortcut-glyph,
+  .quick-icon
+)::after{
+  transition-duration:var(--nyx-hover-speed)!important;
+  transition-delay:0ms!important;
+}
+@media(prefers-reduced-motion:reduce){
+  html[data-nyx-theme][data-nyx-theme] body.browser-shell.browser-shell:is(body,#nyx-hover-speed-a):is(body,#nyx-hover-speed-b):is(body,#nyx-hover-speed-c):is(body,#nyx-hover-speed-d) :is(
+    button,a,input,select,textarea,[role="button"],.browser-mode-url,.nyx-home-search,.nyx-home-actions,.home-shortcut-open,.home-shortcut-glyph,.quick-icon,.settings-action,.settings-toggle
+  ),
+  html[data-nyx-theme][data-nyx-theme] body.browser-shell.browser-shell:is(body,#nyx-hover-speed-a):is(body,#nyx-hover-speed-b):is(body,#nyx-hover-speed-c):is(body,#nyx-hover-speed-d) :is(button,a,[role="button"],.home-shortcut-open,.home-shortcut-glyph,.quick-icon)::before,
+  html[data-nyx-theme][data-nyx-theme] body.browser-shell.browser-shell:is(body,#nyx-hover-speed-a):is(body,#nyx-hover-speed-b):is(body,#nyx-hover-speed-c):is(body,#nyx-hover-speed-d) :is(button,a,[role="button"],.home-shortcut-open,.home-shortcut-glyph,.quick-icon)::after{
+    transition-duration:1ms!important;
+    transition-delay:0ms!important;
+  }
+}

@@ -1,0 +1,328 @@
+/* Final hover behavior: one quiet translucent blur across the Nyx interface. */
+html body{
+  --nyx-hover-surface:color-mix(in srgb,var(--nyx-home-wordmark,var(--theme-strong,#a9bddf)) 11%,transparent);
+  --nyx-hover-border:color-mix(in srgb,var(--nyx-home-wordmark,var(--theme-strong,#a9bddf)) 34%,transparent);
+}
+
+/* The ID option inside :is() intentionally wins over legacy theme !important rules. */
+html body:is(body,#nyx-hover-specificity) :is(
+  button:not(.home-shortcut-open):not(.home-shortcut-add):not(.home-shortcut-menu-btn),
+  .quick-tile:not(.home-shortcut):not(.home-shortcut-add),
+  .settings-action,
+  .settings-preset,
+  .setup-theme-card,
+  .bg-choice,
+  .desktop-shortcut,
+  .desktop-app,
+  .game-card,
+  .browser-search-suggestion,
+  .weather-restore,
+  .weather-forecast-row,
+  a.visit-link,
+  a.link-btn
+):not(:disabled){
+  transition:background-color .2s ease,border-color .2s ease,color .2s ease,opacity .2s ease,backdrop-filter .2s ease!important;
+  will-change:background-color,border-color,backdrop-filter!important;
+}
+
+html body:is(body,#nyx-hover-specificity) :is(
+  button:not(.home-shortcut-open):not(.home-shortcut-add):not(.home-shortcut-menu-btn),
+  .quick-tile:not(.home-shortcut):not(.home-shortcut-add),
+  .settings-action,
+  .settings-preset,
+  .setup-theme-card,
+  .bg-choice,
+  .desktop-shortcut,
+  .desktop-app,
+  .game-card,
+  .browser-search-suggestion,
+  .weather-restore,
+  .weather-forecast-row,
+  a.visit-link,
+  a.link-btn
+):not(:disabled):hover{
+  transform:none!important;
+  translate:none!important;
+  rotate:none!important;
+  scale:1!important;
+  animation:none!important;
+  filter:none!important;
+  text-shadow:none!important;
+  box-shadow:none!important;
+  border-color:var(--nyx-hover-border)!important;
+  background-color:var(--nyx-hover-surface)!important;
+  background-image:none!important;
+  backdrop-filter:blur(14px) saturate(1.1)!important;
+  -webkit-backdrop-filter:blur(14px) saturate(1.1)!important;
+}
+
+html body:is(body,#nyx-hover-specificity) :is(input,select,textarea,.settings-input,.settings-select):hover{
+  transform:none!important;
+  translate:none!important;
+  rotate:none!important;
+  scale:1!important;
+  animation:none!important;
+  filter:none!important;
+  box-shadow:none!important;
+}
+
+/* The large chrome address field is intentionally static. It keeps a quiet
+   border for structure, but has no glow or pointer-hover response. */
+html body.browser-shell:is(body,#nyx-hover-specificity) .top-os form.browser-mode-address > input.browser-mode-url,
+html body.browser-shell:is(body,#nyx-hover-specificity) .top-os form.browser-mode-address > input.browser-mode-url:hover{
+  transform:none!important;
+  translate:none!important;
+  scale:1!important;
+  animation:none!important;
+  filter:none!important;
+  border-color:color-mix(in srgb,var(--nyx-home-wordmark,var(--theme-strong,#a9bddf)) 22%,transparent)!important;
+  box-shadow:none!important;
+  outline:none!important;
+  transition:none!important;
+}
+html body.browser-shell:is(body,#nyx-hover-specificity) .top-os form.browser-mode-address > input.browser-mode-url:focus{
+  border-color:color-mix(in srgb,var(--nyx-home-wordmark,var(--theme-strong,#a9bddf)) 42%,transparent)!important;
+  box-shadow:none!important;
+  outline:none!important;
+}
+
+html body:is(body,#nyx-hover-specificity) button.nyx-button-click{
+  animation:none!important;
+}
+
+/* New tabs finish their entrance once without hover interrupting/restarting it. */
+html body.browser-shell .browser-mode-shell-tab.tab-opening{
+  pointer-events:none!important;
+}
+
+/* Active chrome tabs previously replayed a scale animation every time hover
+   ended. Keep settled tabs at their final geometry; hover changes color only. */
+html body.browser-shell:is(body,#nyx-hover-specificity) .top-os .brand-mini > .browser-mode-app-button,
+html body.browser-shell:is(body,#nyx-hover-specificity) .top-os .brand-mini > .browser-mode-shell-tab:not(.tab-opening),
+html body.browser-shell:is(body,#nyx-hover-specificity) .top-os .brand-mini > .browser-mode-shell-tab:not(.tab-opening):hover{
+  transform:none!important;
+  translate:none!important;
+  scale:1!important;
+  animation:none!important;
+  transition:background-color .2s ease,border-color .2s ease,color .2s ease,backdrop-filter .2s ease!important;
+}
+
+html body:is(body,#nyx-hover-specificity) .quick-tile:not(.home-shortcut):hover :is(.quick-icon,.home-shortcut-glyph,.dock-icon,img,svg),
+html body:is(body,#nyx-hover-specificity) :is(.settings-action,.settings-preset,button:not(.home-shortcut-open)):hover > :is(.quick-icon,.nyx-home-action-icon,svg,img){
+  transform:none!important;
+  translate:none!important;
+  rotate:none!important;
+  scale:1!important;
+  animation:none!important;
+  box-shadow:none!important;
+}
+
+/* Shortcut icons are absolutely centered with translateX(-50%). Do not let the
+   global hover reset remove that centering transform. */
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts]
+  .home-shortcut :is(.quick-icon,.home-shortcut-glyph),
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts]
+  .home-shortcut:hover :is(.quick-icon,.home-shortcut-glyph),
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts]
+  .home-shortcut:focus-within :is(.quick-icon,.home-shortcut-glyph){
+  transform:translateX(-50%)!important;
+  translate:none!important;
+  rotate:none!important;
+}
+
+/* Preserve structural centering while removing hover rotation and scaling. */
+html body:is(body,#nyx-hover-specificity) .browser-mode-shell-tab-close:hover{
+  transform:translateY(-50%)!important;
+}
+html body:is(body,#nyx-hover-specificity) .browser-mode-shell-tab-close:hover::before{
+  transform:translate(-50%,-50%) rotate(0deg)!important;
+}
+html body:is(body,#nyx-hover-specificity) :is(.browser-shell-settings-close,.browser-shell-settings-panel .browser-shell-settings-close):hover{
+  transform:none!important;
+  translate:none!important;
+  rotate:none!important;
+  scale:1!important;
+}
+html body:is(body,#nyx-hover-specificity) :is(.browser-shell-settings-close,.browser-shell-settings-panel .browser-shell-settings-close):hover::before{
+  transform:translate(-50%,-50%) rotate(0deg)!important;
+}
+html body:is(body,#nyx-hover-specificity) :is([data-browser-shell-back],[data-browser-shell-forward]):hover::before{
+  transform:translate(-50%,-50%)!important;
+}
+html body:is(body,#nyx-hover-specificity) [data-browser-shell-menu]:hover::before,
+html body:is(body,#nyx-hover-specificity) .menu-btn:hover::before{
+  transform:translate(-50%,-50%)!important;
+}
+html body:is(body,#nyx-hover-specificity) [data-browser-shell-reload]:hover::before,
+html body:is(body,#nyx-hover-specificity) .tool-btn[data-reload]:hover::before{
+  transform:translate(-50%,-50%)!important;
+}
+html body:is(body,#nyx-hover-specificity) .menu-btn:hover{
+  transform:translateY(-50%)!important;
+}
+html body:is(body,#nyx-hover-specificity) :is(.browser-tab button,.new-tab):hover::before,
+html body:is(body,#nyx-hover-specificity) .brand-mini [data-browser-shell-new-tab]:hover::before,
+html body:is(body,#nyx-hover-specificity) .home-shortcut-add:hover b{
+  transform:rotate(0deg)!important;
+}
+html body:is(body,#nyx-hover-specificity) .window-controls [data-close]:hover::before{
+  transform:translate(-50%,-50%) rotate(45deg)!important;
+}
+html body:is(body,#nyx-hover-specificity) .window-controls [data-close]:hover::after{
+  transform:translate(-50%,-50%) rotate(-45deg)!important;
+}
+
+html body.browser-shell:is(body,#nyx-hover-specificity) .browser-home .home-shortcut .home-shortcut-open::before,
+html body.browser-shell:is(body,#nyx-hover-specificity) .browser-home .home-shortcut:hover .home-shortcut-open::before{
+  content:""!important;
+  display:block!important;
+  position:absolute!important;
+  pointer-events:none!important;
+  left:36px!important;
+  right:auto!important;
+  top:3px!important;
+  bottom:auto!important;
+  width:44px!important;
+  height:44px!important;
+  box-sizing:border-box!important;
+  transform:translateX(-50%)!important;
+  border:1px solid color-mix(in srgb,var(--nyx-home-wordmark,var(--theme-strong,#a9bddf)) 18%,transparent)!important;
+  background-color:color-mix(in srgb,var(--nyx-home-wordmark,var(--theme-strong,#a9bddf)) 3%,transparent)!important;
+  background-image:none!important;
+  box-shadow:none!important;
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+  transition:background-color .2s ease,border-color .2s ease,backdrop-filter .2s ease!important;
+}
+
+html body.browser-shell:is(body,#nyx-hover-specificity) .browser-home .home-shortcut:hover .home-shortcut-open::before{
+  box-shadow:none!important;
+  border:1px solid var(--nyx-hover-border)!important;
+  background-color:var(--nyx-hover-surface)!important;
+  background-image:none!important;
+  backdrop-filter:blur(14px) saturate(1.1)!important;
+  -webkit-backdrop-filter:blur(14px) saturate(1.1)!important;
+}
+
+/* Shortcut tiles contain their own round hover surface. Keep the outer tile and
+   inner button transparent so they cannot stack into a square block. */
+html body.browser-shell:is(body,#nyx-hover-specificity) .browser-home .home-shortcut,
+html body.browser-shell:is(body,#nyx-hover-specificity) .browser-home .home-shortcut:hover,
+html body.browser-shell:is(body,#nyx-hover-specificity) .browser-home .home-shortcut .home-shortcut-open,
+html body.browser-shell:is(body,#nyx-hover-specificity) .browser-home .home-shortcut .home-shortcut-open:hover,
+html body.browser-shell:is(body,#nyx-hover-specificity) .browser-home .home-shortcut-add,
+html body.browser-shell:is(body,#nyx-hover-specificity) .browser-home .home-shortcut-add:hover{
+  transform:none!important;
+  translate:none!important;
+  scale:1!important;
+  border-color:transparent!important;
+  background-color:transparent!important;
+  background-image:none!important;
+  box-shadow:none!important;
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+}
+
+html body:is(body,#nyx-hover-specificity) .browser-home .home-shortcut-add:hover b{
+  transform:none!important;
+  border:1px solid var(--nyx-hover-border)!important;
+  background-color:var(--nyx-hover-surface)!important;
+  background-image:none!important;
+  box-shadow:none!important;
+  backdrop-filter:blur(14px) saturate(1.1)!important;
+  -webkit-backdrop-filter:blur(14px) saturate(1.1)!important;
+}
+
+/* Chrome icons use full-button pseudo-elements. Keep that structural box fixed
+   so entering hover cannot pull the glyph half a button up and left. */
+html body:is(body,#nyx-hover-specificity) .browser-mode-address [data-browser-shell-menu]::before,
+html body:is(body,#nyx-hover-specificity) .browser-mode-address [data-browser-shell-menu]:hover::before{
+  position:absolute!important;
+  inset:50% auto auto 50%!important;
+  width:16px!important;
+  height:16px!important;
+  display:block!important;
+  transform:translate(-50%,-50%)!important;
+  transition:color .2s ease!important;
+}
+
+/* Settings navigation has a deliberate selected-row fill. The generic hover
+   surface must not replace it or make an active row flash between two colors. */
+html body.browser-shell:is(body,#nyx-hover-specificity) .browser-shell-settings-panel .nyx-settings-side{
+  background:rgba(17,24,39,.72)!important;
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+}
+
+html body.browser-shell:is(body,#nyx-hover-specificity) .browser-shell-settings-panel .nyx-settings-nav button:hover{
+  transform:none!important;
+  border-color:transparent!important;
+  background:var(--nyx-hover-surface)!important;
+  background-image:none!important;
+  color:#a0b0c8!important;
+  -webkit-text-fill-color:#a0b0c8!important;
+  box-shadow:none!important;
+  filter:none!important;
+  backdrop-filter:blur(14px) saturate(1.1)!important;
+  -webkit-backdrop-filter:blur(14px) saturate(1.1)!important;
+}
+
+html body.browser-shell:is(body,#nyx-hover-specificity) .browser-shell-settings-panel .nyx-settings-nav button.active,
+html body.browser-shell:is(body,#nyx-hover-specificity) .browser-shell-settings-panel .nyx-settings-nav button.active:hover{
+  background:color-mix(in srgb,#7898bd 30%,transparent)!important;
+  backdrop-filter:blur(14px) saturate(1.1)!important;
+  -webkit-backdrop-filter:blur(14px) saturate(1.1)!important;
+}
+
+/* The compact chrome menu needs a visible, stationary row hover. */
+html body.browser-shell:is(body,#nyx-hover-specificity) .browser-mode-menu button:hover{
+  transform:none!important;
+  border-color:var(--nyx-hover-border)!important;
+  background:var(--nyx-hover-surface)!important;
+  background-image:none!important;
+  box-shadow:none!important;
+  filter:none!important;
+  backdrop-filter:blur(18px) saturate(1.08)!important;
+  -webkit-backdrop-filter:blur(18px) saturate(1.08)!important;
+}
+
+/* Settings cards are permanent glass. Hover must not darken them or alter
+   their geometry; only controls inside the cards receive hover feedback. */
+html body.browser-shell:is(body,#nyx-hover-specificity) .browser-shell-settings-panel .nyx-settings-group{
+  background:transparent!important;
+}
+html body.browser-shell:is(body,#nyx-hover-specificity) .browser-shell-settings-panel .nyx-settings-group > .settings-block,
+html body.browser-shell:is(body,#nyx-hover-specificity) .browser-shell-settings-panel .nyx-settings-group > .settings-block:hover,
+html body:is(body,#nyx-hover-specificity) .settings-window .settings-card,
+html body:is(body,#nyx-hover-specificity) .settings-window .settings-card:hover{
+  transform:none!important;
+  animation:none!important;
+  filter:none!important;
+  box-shadow:none!important;
+  background:color-mix(in srgb,#18283e 68%,transparent)!important;
+  backdrop-filter:blur(16px) saturate(1.08)!important;
+  -webkit-backdrop-filter:blur(16px) saturate(1.08)!important;
+}
+
+@media(prefers-reduced-motion:reduce){
+  html body:is(body,#nyx-hover-specificity) :is(button,.quick-tile,.settings-action,.settings-preset,.setup-theme-card,.bg-choice){
+    transition:none!important;
+  }
+}
+
+/* GeForce Now and Study now use the stable in-flow glyph element. Suppress
+   their older generated icon so each shortcut renders exactly once. */
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts]
+  > div.quick-tile.home-shortcut:is([data-domain="geforcenow"],[data-domain="games"])
+  .home-shortcut-open::after,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts]
+  > div.quick-tile.home-shortcut:is([data-domain="geforcenow"],[data-domain="games"]):hover
+  .home-shortcut-open::after,
+html body.browser-shell .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts]
+  > div.quick-tile.home-shortcut:is([data-domain="geforcenow"],[data-domain="games"]):focus-within
+  .home-shortcut-open::after{
+  content:none!important;
+  display:none!important;
+  visibility:hidden!important;
+  opacity:0!important;
+}

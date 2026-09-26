@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Remote Game</title>
+  <style>
+    *{box-sizing:border-box}
+    html,body{width:100%;height:100%;margin:0;overflow:hidden;background:#05070d;color:#f3f6ff;font-family:Outfit,Inter,Segoe UI,sans-serif}
+    iframe{position:fixed;inset:0;width:100%;height:100%;border:0;background:#05070d}
+    .state{position:fixed;inset:0;z-index:2;display:grid;place-items:center;padding:24px;background:#05070d}
+    .state[hidden]{display:none}
+    .panel{width:min(420px,calc(100vw - 40px));padding:22px;border:1px solid rgba(145,166,214,.26);border-radius:16px;background:#0c111d;text-align:center;box-shadow:0 18px 46px rgba(0,0,0,.34)}
+    .spinner{width:30px;height:30px;margin:0 auto 14px;border:3px solid rgba(145,166,214,.2);border-top-color:#91a6d6;border-radius:50%;animation:spin .8s linear infinite}
+    h1{margin:0 0 7px;font-size:17px;font-weight:600}
+    p{margin:0;color:#9da7b8;font-size:14px;line-height:1.45}
+    button{min-height:36px;margin-top:14px;padding:0 14px;border:1px solid rgba(145,166,214,.38);border-radius:10px;background:#151d2d;color:#f3f6ff;font:inherit;cursor:pointer}
+    button:hover{background:#1b263a}
+    @keyframes spin{to{transform:rotate(360deg)}}
+    @media(prefers-reduced-motion:reduce){.spinner{animation:none}}
+  </style>
+</head>
+<body>
+  <div class="state" id="state">
+    <div class="panel">
+      <div class="spinner" id="spinner"></div>
+      <h1 id="heading">Opening game</h1>
+      <p id="detail">Preparing the original game source through Nyx.</p>
+      <button id="retry" type="button" hidden>Retry</button>
+    </div>
+  </div>
+  <iframe id="game" title="Remote game" sandbox="allow-same-origin allow-scripts allow-forms allow-modals allow-pointer-lock allow-downloads allow-presentation" allow="fullscreen; autoplay; gamepad; encrypted-media; clipboard-write" allowfullscreen></iframe>
+  <script>
+    const params=new URLSearchParams(location.search);
+    const source=params.get('url') || '';
+    const frame=document.getElementById('game');
+    const state=document.getElementById('state');
+    const spinner=document.getElementById('spinner');
+    const heading=document.getElementById('heading');
+    const detail=document.getElementById('detail');
+    const retry=document.getElementById('retry');
+    let launchTimer=0;
+
+    function validSource(value){
+      try{
+        const url=new URL(value);
+        return /^https?:$/.test(url.protocol) ? url.href : '';
+      }catch{return ''}
+    }
+
+    function proxyOwner(){
+      let current=window;
+      for(let depth=0;depth<4;depth++){
+        try{
+          if(typeof current.nyxProxyGameUrl==='function') return current;
+          if(current.parent===current) break;
+          current=current.parent;
+        }catch{break}
+      }
+      return null;
+    }
+
+    function fail(message){
+      clearTimeout(launchTimer);
+      spinner.hidden=true;
+      heading.textContent='Game could not open';
+      detail.textContent=message;
+      retry.hidden=false;
+      state.hidden=false;
+      parent.postMessage({type:'nyx:game-failed'},'*');
+    }
+
+    async function launch(){
+      const target=validSource(source);
+      if(!target){fail('The catalog supplied an invalid game address.');return}
+      spinner.hidden=false;
+      heading.textContent='Opening game';
+      detail.textContent='Preparing the original game source through Nyx.';
+      retry.hidden=true;
+      state.hidden=false;
+      frame.removeAttribute('src');
+      try{
+        const owner=proxyOwner();
+        const destination=owner ? await owner.nyxProxyGameUrl(target) : target;
+        if(!destination){fail('Nyx could not prepare this game source.');return}
+        launchTimer=setTimeout(()=>fail('The original game host did not respond.'),30000);
+        frame.src=destination;
+      }catch(error){
+        fail(error?.message || 'The original game host could not be reached.');
+      }
+    }
+
+    frame.addEventListener('load',()=>{
+      if(!frame.src) return;
+      clearTimeout(launchTimer);
+      setTimeout(()=>{state.hidden=true;parent.postMessage({type:'nyx:game-launched'},'*')},500);
+    });
+    frame.addEventListener('error',()=>fail('The original game host refused the connection.'));
+    retry.addEventListener('click',launch);
+    launch();
+  </script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+*
+!package.json
+!package-lock.json
+!wisp-server.js
+!Dockerfile.wisp

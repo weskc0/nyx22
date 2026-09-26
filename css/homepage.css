@@ -1,0 +1,1298 @@
+/* Minimal Nyx browser home: wordmark, live presence, and shortcut dock. */
+html body.browser-shell{
+  --nyx-home-wordmark:#78aaff;
+  --nyx-home-wordmark-gradient:linear-gradient(100deg,#eff6ff 0%,#93c5fd 32%,#3b82f6 66%,#1e3a8a 100%);
+  --nyx-home-text:#eaf2ff;
+  --nyx-home-muted:#b6c2da;
+  --nyx-home-panel:rgba(2,5,20,.82);
+  --nyx-home-panel-soft:rgba(4,9,28,.68);
+  --nyx-home-line:rgba(106,158,255,.42);
+}
+html body.browser-shell.theme-midnight{--nyx-home-wordmark:#78aaff;--nyx-home-wordmark-gradient:linear-gradient(100deg,#eff6ff 0%,#93c5fd 32%,#3b82f6 66%,#1e3a8a 100%);--nyx-home-line:rgba(96,165,250,.46)}
+html body.browser-shell.theme-ruby{--nyx-home-wordmark:#fb7185;--nyx-home-wordmark-gradient:linear-gradient(100deg,#fff1f2 0%,#fb7185 34%,#ef4444 66%,#7f1d1d 100%);--nyx-home-line:rgba(251,113,133,.46);--nyx-home-panel:rgba(21,3,9,.84)}
+html body.browser-shell.theme-emerald{--nyx-home-wordmark:#34d399;--nyx-home-wordmark-gradient:linear-gradient(100deg,#ecfdf5 0%,#6ee7b7 32%,#10b981 64%,#065f46 100%);--nyx-home-line:rgba(52,211,153,.46);--nyx-home-panel:rgba(1,18,15,.84)}
+html body.browser-shell.theme-sakura{--nyx-home-wordmark:#f472b6;--nyx-home-wordmark-gradient:linear-gradient(100deg,#fff1f2 0%,#fbcfe8 30%,#f472b6 64%,#be185d 100%);--nyx-home-line:rgba(244,114,182,.48);--nyx-home-panel:rgba(24,3,17,.84)}
+html body.browser-shell.theme-fresh{--nyx-home-wordmark:#0f8fa3;--nyx-home-wordmark-gradient:linear-gradient(100deg,#f0fdfa 0%,#5eead4 32%,#14b8a6 66%,#0f766e 100%);--nyx-home-text:#075f70;--nyx-home-muted:#376b72;--nyx-home-line:rgba(14,165,164,.42);--nyx-home-panel:rgba(226,252,248,.9);--nyx-home-panel-soft:rgba(236,255,252,.72)}
+
+/* Theme-aware startup loading palette. */
+html body{
+  --nyx-load-bright:#eaf6ff;
+  --nyx-load-mid:#67a7ff;
+  --nyx-load-accent:#3b82f6;
+  --nyx-load-deep:#1d4ed8;
+  --nyx-load-muted:#9bb9e7;
+  --nyx-load-surface:#0b1835;
+  --nyx-load-bg:#050916;
+  --nyx-load-deep-bg:#02030a;
+  --nyx-load-glow:rgba(59,130,246,.55);
+}
+html body.theme-midnight{
+  --nyx-load-bright:#eaf6ff;--nyx-load-mid:#67a7ff;--nyx-load-accent:#3b82f6;--nyx-load-deep:#1d4ed8;--nyx-load-muted:#9bb9e7;--nyx-load-surface:#0b1835;--nyx-load-bg:#050916;--nyx-load-deep-bg:#02030a;--nyx-load-glow:rgba(59,130,246,.55);
+}
+html body.theme-ruby{
+  --nyx-load-bright:#fff1f2;--nyx-load-mid:#fb7185;--nyx-load-accent:#ef4444;--nyx-load-deep:#991b1b;--nyx-load-muted:#fda4af;--nyx-load-surface:#2b0810;--nyx-load-bg:#140308;--nyx-load-deep-bg:#070103;--nyx-load-glow:rgba(239,68,68,.5);
+}
+html body.theme-emerald{
+  --nyx-load-bright:#ecfdf5;--nyx-load-mid:#6ee7b7;--nyx-load-accent:#10b981;--nyx-load-deep:#047857;--nyx-load-muted:#6ee7b7;--nyx-load-surface:#08291f;--nyx-load-bg:#03140f;--nyx-load-deep-bg:#010906;--nyx-load-glow:rgba(16,185,129,.48);
+}
+html body.theme-sakura{
+  --nyx-load-bright:#fff1f2;--nyx-load-mid:#f9a8d4;--nyx-load-accent:#f472b6;--nyx-load-deep:#be185d;--nyx-load-muted:#fbcfe8;--nyx-load-surface:#351126;--nyx-load-bg:#1b0713;--nyx-load-deep-bg:#0b0208;--nyx-load-glow:rgba(244,114,182,.5);
+}
+html body.theme-fresh{
+  --nyx-load-bright:#f0fdfa;--nyx-load-mid:#5eead4;--nyx-load-accent:#14b8a6;--nyx-load-deep:#0f766e;--nyx-load-muted:#176b73;--nyx-load-surface:#c9f4ef;--nyx-load-bg:#e8fbf9;--nyx-load-deep-bg:#b9e7e9;--nyx-load-glow:rgba(20,184,166,.38);
+}
+
+html body .setup-launch-screen{
+  background:
+    linear-gradient(color-mix(in srgb,var(--nyx-load-bg) 84%,transparent),color-mix(in srgb,var(--nyx-load-bg) 92%,transparent)),
+    linear-gradient(90deg,color-mix(in srgb,var(--nyx-load-accent) 9%,transparent) 1px,transparent 1px),
+    linear-gradient(color-mix(in srgb,var(--nyx-load-accent) 9%,transparent) 1px,transparent 1px),
+    radial-gradient(ellipse at 50% 52%,var(--nyx-load-surface) 0%,var(--nyx-load-bg) 54%,var(--nyx-load-deep-bg) 100%)!important;
+  background-size:auto,28px 28px,28px 28px,auto!important;
+}
+html body #setupLaunchScreen .setup-launch-card h2{
+  background:linear-gradient(100deg,var(--nyx-load-deep),var(--nyx-load-mid) 52%,var(--nyx-load-accent))!important;
+  background-clip:text!important;
+  -webkit-background-clip:text!important;
+  color:transparent!important;
+  -webkit-text-fill-color:transparent!important;
+  filter:drop-shadow(0 6px 10px color-mix(in srgb,var(--nyx-load-deep) 48%,transparent)) drop-shadow(0 0 11px color-mix(in srgb,var(--nyx-load-glow) 58%,transparent))!important;
+}
+html body #setupLaunchScreen .nyx-title-shimmer{
+  background-image:linear-gradient(90deg,transparent 0%,color-mix(in srgb,var(--nyx-load-deep) 20%,transparent) 36%,var(--nyx-load-deep) 42%,var(--nyx-load-accent) 47%,var(--nyx-load-bright) 50%,var(--nyx-load-accent) 53%,var(--nyx-load-deep) 58%,color-mix(in srgb,var(--nyx-load-deep) 20%,transparent) 64%,transparent 100%)!important;
+  background-size:260% 100%!important;
+  background-repeat:no-repeat!important;
+  background-clip:text!important;
+  -webkit-background-clip:text!important;
+  color:transparent!important;
+  -webkit-text-fill-color:transparent!important;
+}
+html body #setupLaunchScreen .nyx-loading-progress{
+  display:block!important;
+  visibility:visible!important;
+  opacity:1!important;
+  height:4px!important;
+  min-height:4px!important;
+  box-sizing:border-box!important;
+  border:0!important;
+  background:color-mix(in srgb,var(--nyx-load-accent) 16%,var(--nyx-load-deep-bg))!important;
+  box-shadow:none!important;
+}
+html body #setupLaunchScreen .nyx-loading-progress > span{
+  display:block!important;
+  visibility:visible!important;
+  opacity:1!important;
+  background:var(--nyx-load-accent)!important;
+  box-shadow:none!important;
+}
+html body #setupLaunchScreen .nyx-loading-progress > span::after{content:none!important;background:none!important;animation:none!important}
+html body #setupLaunchScreen .nyx-loading-percent{color:var(--nyx-load-mid)!important;-webkit-text-fill-color:var(--nyx-load-mid)!important;text-shadow:none!important}
+html body #setupLaunchScreen .nyx-loading-spinner{
+  border-color:color-mix(in srgb,var(--nyx-load-accent) 24%,transparent)!important;
+  border-top-color:var(--nyx-load-bright)!important;
+  border-right-color:var(--nyx-load-accent)!important;
+  box-shadow:0 0 9px var(--nyx-load-glow),inset 0 0 6px color-mix(in srgb,var(--nyx-load-deep) 28%,transparent)!important;
+}
+html body #setupLaunchScreen .setup-launch-card .nyx-loading-stage{color:var(--nyx-load-muted)!important;-webkit-text-fill-color:var(--nyx-load-muted)!important}
+html body #setupLaunchScreen .setup-launch-card .setup-launch-credit{color:color-mix(in srgb,var(--nyx-load-muted) 74%,var(--nyx-load-bg))!important;-webkit-text-fill-color:color-mix(in srgb,var(--nyx-load-muted) 74%,var(--nyx-load-bg))!important}
+
+html body.browser-shell .browser-window.browser-home-page .browser-home{
+  position:relative!important;
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:center!important;
+  justify-content:center!important;
+  padding:clamp(16px,2.2vw,30px)!important;
+  overflow:hidden!important;
+  isolation:isolate;
+}
+html body.browser-shell .browser-window.browser-home-page .browser-home::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  pointer-events:none;
+  background:
+    radial-gradient(circle at 50% 48%,color-mix(in srgb,var(--nyx-home-wordmark) 9%,transparent),transparent 34%),
+    linear-gradient(180deg,rgba(0,2,10,.08),rgba(0,2,10,.26));
+}
+html body.browser-shell .browser-window .browser-home.hidden,
+html body.browser-shell .browser-window.browser-home-page .browser-home.hidden{
+  display:none!important;
+}
+html body.browser-shell .browser-home .nyx-home-hero{
+  position:relative!important;
+  z-index:2;
+  width:min(760px,calc(100vw - 64px))!important;
+  min-height:0!important;
+  display:grid!important;
+  justify-items:center!important;
+  gap:20px!important;
+  margin:0!important;
+  padding:0!important;
+  border:0!important;
+  border-radius:0!important;
+  background:none!important;
+  box-shadow:none!important;
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+  color:var(--nyx-home-wordmark)!important;
+  text-align:center;
+  pointer-events:auto!important;
+  transform:translateY(clamp(-34px,-3.5vh,-14px))!important;
+  translate:none!important;
+  filter:none!important;
+  animation:none!important;
+}
+html body.browser-shell .browser-home .nyx-home-hero::before,
+html body.browser-shell .browser-home .nyx-home-hero::after{content:none!important}
+html body.browser-shell .browser-window.browser-home-page .browser-home h1.nyx-home-title{
+  margin:0!important;
+  padding:0!important;
+  background:var(--nyx-home-wordmark-gradient)!important;
+  background-size:100% 100%!important;
+  background-position:center!important;
+  background-clip:text!important;
+  -webkit-background-clip:text!important;
+  color:transparent!important;
+  -webkit-text-fill-color:transparent!important;
+  font-family:Outfit,Arial,sans-serif!important;
+  font-size:clamp(42px,5.2vw,64px)!important;
+  font-weight:400!important;
+  font-variation-settings:"wght" 400!important;
+  letter-spacing:-.055em!important;
+  line-height:1!important;
+  text-indent:-.035em;
+  text-shadow:none!important;
+  filter:none!important;
+  animation:none!important;
+}
+
+html body.browser-shell .browser-window.browser-home-page .nyx-home-search{
+  position:relative!important;
+  width:100%!important;
+  height:66px!important;
+  display:flex!important;
+  align-items:center!important;
+  margin:0!important;
+  border:1px solid color-mix(in srgb,var(--nyx-home-line) 86%,rgba(255,255,255,.10))!important;
+  border-radius:26px!important;
+  background:color-mix(in srgb,var(--nyx-home-panel-soft) 92%,transparent)!important;
+  background-image:linear-gradient(110deg,color-mix(in srgb,var(--nyx-home-wordmark) 7%,transparent),transparent 44%)!important;
+  box-shadow:0 22px 58px rgba(0,0,0,.30),inset 0 1px 0 rgba(255,255,255,.065),0 0 34px color-mix(in srgb,var(--nyx-home-wordmark) 7%,transparent)!important;
+  backdrop-filter:blur(22px) saturate(1.12)!important;
+  -webkit-backdrop-filter:blur(22px) saturate(1.12)!important;
+  overflow:hidden!important;
+  transition:border-color .24s ease,box-shadow .24s ease,background-color .24s ease!important;
+}
+html body.browser-shell .browser-window.browser-home-page .nyx-home-search:focus-within{
+  border-color:color-mix(in srgb,var(--nyx-home-wordmark) 76%,rgba(255,255,255,.18))!important;
+  box-shadow:0 24px 64px rgba(0,0,0,.34),inset 0 1px 0 rgba(255,255,255,.10),0 0 34px color-mix(in srgb,var(--nyx-home-wordmark) 20%,transparent)!important;
+}
+html body.browser-shell .browser-window.browser-home-page .nyx-home-search-icon{
+  width:25px;
+  height:25px;
+  flex:0 0 25px;
+  margin-left:28px;
+  background:var(--nyx-home-wordmark)!important;
+  background-image:none!important;
+  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='11' cy='11' r='7' fill='none' stroke='black' stroke-width='1.8'/%3E%3Cpath d='m16.2 16.2 4 4' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E") center/contain no-repeat;
+  mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='11' cy='11' r='7' fill='none' stroke='black' stroke-width='1.8'/%3E%3Cpath d='m16.2 16.2 4 4' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E") center/contain no-repeat;
+}
+html body.browser-shell .browser-window.browser-home-page .nyx-home-search input{
+  min-width:0!important;
+  height:100%!important;
+  flex:1 1 auto!important;
+  padding:0 20px!important;
+  border:0!important;
+  border-radius:0!important;
+  outline:0!important;
+  background:transparent!important;
+  background-image:none!important;
+  color:var(--nyx-home-text)!important;
+  -webkit-text-fill-color:var(--nyx-home-text)!important;
+  box-shadow:none!important;
+  font:400 clamp(15px,1.2vw,18px) Outfit,Arial,sans-serif!important;
+  letter-spacing:.01em!important;
+}
+html body.browser-shell .browser-window.browser-home-page .nyx-home-search input::placeholder{
+  color:var(--nyx-home-muted)!important;
+  -webkit-text-fill-color:var(--nyx-home-muted)!important;
+  opacity:.84!important;
+}
+html body.browser-shell .browser-window.browser-home-page .nyx-home-actions{
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:14px!important;
+  margin:0!important;
+}
+html body.browser-shell .browser-window.browser-home-page .nyx-home-actions > button{
+  min-width:164px!important;
+  height:58px!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:13px!important;
+  padding:0 24px!important;
+  border:1px solid color-mix(in srgb,var(--nyx-home-line) 72%,rgba(255,255,255,.08))!important;
+  border-radius:999px!important;
+  background-color:color-mix(in srgb,var(--nyx-home-panel-soft) 58%,transparent)!important;
+  background-image:linear-gradient(130deg,color-mix(in srgb,var(--nyx-home-wordmark) 10%,transparent),rgba(255,255,255,.015) 46%,transparent 72%)!important;
+  color:var(--nyx-home-text)!important;
+  -webkit-text-fill-color:var(--nyx-home-text)!important;
+  box-shadow:0 14px 36px rgba(0,0,0,.22),inset 0 1px 0 rgba(255,255,255,.09)!important;
+  backdrop-filter:blur(28px) saturate(1.34)!important;
+  -webkit-backdrop-filter:blur(28px) saturate(1.34)!important;
+  font:400 15px Outfit,Arial,sans-serif!important;
+  transition:transform .22s ease,border-color .22s ease,background-color .22s ease,box-shadow .22s ease!important;
+}
+html body.browser-shell .browser-window.browser-home-page .nyx-home-actions > button:hover{
+  transform:translateY(-2px)!important;
+  border-color:color-mix(in srgb,var(--nyx-home-wordmark) 78%,rgba(255,255,255,.16))!important;
+  background-color:color-mix(in srgb,var(--nyx-home-panel-soft) 55%,var(--nyx-home-wordmark))!important;
+  box-shadow:0 18px 42px rgba(0,0,0,.28),0 0 26px color-mix(in srgb,var(--nyx-home-wordmark) 12%,transparent),inset 0 1px 0 rgba(255,255,255,.08)!important;
+}
+html body.browser-shell .browser-window.browser-home-page .nyx-home-actions > button > span:last-child{
+  background:none!important;
+  background-image:none!important;
+  color:currentColor!important;
+  -webkit-text-fill-color:currentColor!important;
+  font-weight:400!important;
+}
+html body.browser-shell .browser-window.browser-home-page .nyx-home-action-icon{
+  width:23px;
+  height:23px;
+  flex:0 0 23px;
+  background:var(--nyx-home-wordmark)!important;
+  background-image:none!important;
+}
+html body.browser-shell .nyx-home-action-apps{
+  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill='none' stroke='black' stroke-width='1.7'%3E%3Crect x='3' y='3' width='7' height='7' rx='1'/%3E%3Crect x='14' y='3' width='7' height='7' rx='1'/%3E%3Crect x='3' y='14' width='7' height='7' rx='1'/%3E%3Crect x='14' y='14' width='7' height='7' rx='1'/%3E%3C/g%3E%3C/svg%3E") center/contain no-repeat;
+  mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill='none' stroke='black' stroke-width='1.7'%3E%3Crect x='3' y='3' width='7' height='7' rx='1'/%3E%3Crect x='14' y='3' width='7' height='7' rx='1'/%3E%3Crect x='3' y='14' width='7' height='7' rx='1'/%3E%3Crect x='14' y='14' width='7' height='7' rx='1'/%3E%3C/g%3E%3C/svg%3E") center/contain no-repeat;
+}
+html body.browser-shell .nyx-home-action-games{
+  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M7.2 7.2h9.6c2 0 3.3 1.1 3.8 3.3l1 4.3c.5 2.1-.4 3.8-2.2 4.1-1.2.2-2.1-.4-3.3-2.2H7.9c-1.2 1.8-2.1 2.4-3.3 2.2-1.8-.3-2.7-2-2.2-4.1l1-4.3c.5-2.2 1.8-3.3 3.8-3.3Z' fill='none' stroke='black' stroke-width='1.6'/%3E%3Cpath d='M7 10v4m-2-2h4m7-1h.01M18 13h.01' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E") center/contain no-repeat;
+  mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M7.2 7.2h9.6c2 0 3.3 1.1 3.8 3.3l1 4.3c.5 2.1-.4 3.8-2.2 4.1-1.2.2-2.1-.4-3.3-2.2H7.9c-1.2 1.8-2.1 2.4-3.3 2.2-1.8-.3-2.7-2-2.2-4.1l1-4.3c.5-2.2 1.8-3.3 3.8-3.3Z' fill='none' stroke='black' stroke-width='1.6'/%3E%3Cpath d='M7 10v4m-2-2h4m7-1h.01M18 13h.01' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E") center/contain no-repeat;
+}
+html body.browser-shell .nyx-home-action-study{
+  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 3.5h8.5L19 8v12.5H6z' fill='none' stroke='black' stroke-width='1.6' stroke-linejoin='round'/%3E%3Cpath d='M14.5 3.5V8H19M9 12h7M9 15h7M9 18h5' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat;
+  mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 3.5h8.5L19 8v12.5H6z' fill='none' stroke='black' stroke-width='1.6' stroke-linejoin='round'/%3E%3Cpath d='M14.5 3.5V8H19M9 12h7M9 15h7M9 18h5' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat;
+}
+html body.browser-shell .nyx-home-action-settings{
+  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M19.4 13a7.7 7.7 0 0 0 .05-1 7.7 7.7 0 0 0-.05-1l2.05-1.6-2-3.46-2.5 1a8 8 0 0 0-1.74-1L14.83 3h-4l-.38 2.94a8 8 0 0 0-1.74 1l-2.5-1-2 3.46L6.26 11a7.7 7.7 0 0 0-.05 1 7.7 7.7 0 0 0 .05 1l-2.05 1.6 2 3.46 2.5-1a8 8 0 0 0 1.74 1l.38 2.94h4l.38-2.94a8 8 0 0 0 1.74-1l2.5 1 2-3.46L19.4 13Z' fill='none' stroke='black' stroke-width='1.35' stroke-linejoin='round'/%3E%3Ccircle cx='12.83' cy='12' r='2.6' fill='none' stroke='black' stroke-width='1.5'/%3E%3C/svg%3E") center/contain no-repeat;
+  mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M19.4 13a7.7 7.7 0 0 0 .05-1 7.7 7.7 0 0 0-.05-1l2.05-1.6-2-3.46-2.5 1a8 8 0 0 0-1.74-1L14.83 3h-4l-.38 2.94a8 8 0 0 0-1.74 1l-2.5-1-2 3.46L6.26 11a7.7 7.7 0 0 0-.05 1 7.7 7.7 0 0 0 .05 1l-2.05 1.6 2 3.46 2.5-1a8 8 0 0 0 1.74 1l.38 2.94h4l.38-2.94a8 8 0 0 0 1.74-1l2.5 1 2-3.46L19.4 13Z' fill='none' stroke='black' stroke-width='1.35' stroke-linejoin='round'/%3E%3Ccircle cx='12.83' cy='12' r='2.6' fill='none' stroke='black' stroke-width='1.5'/%3E%3C/svg%3E") center/contain no-repeat;
+}
+html body.nyx-startup-reveal.browser-shell .browser-home .nyx-home-hero,
+html body.nyx-startup-prep.browser-shell .browser-home .nyx-home-hero{
+  opacity:1!important;
+  animation:none!important;
+  translate:none!important;
+  filter:none!important;
+}
+
+html body.browser-shell .nyx-home-presence{
+  position:absolute;
+  z-index:8;
+  left:22px;
+  top:22px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  min-height:30px;
+  padding:0 12px;
+  border:1px solid var(--nyx-home-line);
+  border-radius:999px;
+  background:color-mix(in srgb,var(--nyx-home-panel) 88%,transparent);
+  color:var(--nyx-home-muted)!important;
+  font:400 12px Outfit,Arial,sans-serif!important;
+  letter-spacing:.04em;
+  box-shadow:0 8px 24px rgba(0,0,0,.18);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+}
+html body.browser-shell .nyx-home-presence-dot{
+  width:7px;
+  height:7px;
+  flex:0 0 7px;
+  border-radius:50%;
+  background:var(--nyx-home-wordmark);
+}
+
+html body.browser-shell .browser-window.browser-home-page .browser-home .home-shortcut-grid{
+  position:absolute!important;
+  left:50%!important;
+  right:auto!important;
+  top:auto!important;
+  bottom:24px!important;
+  flex-wrap:nowrap!important;
+  width:auto!important;
+  max-width:min(780px,calc(100vw - 64px))!important;
+  min-height:68px!important;
+  margin:0!important;
+  padding:7px 12px!important;
+  border:1px solid var(--nyx-home-line)!important;
+  border-radius:22px!important;
+  background:color-mix(in srgb,var(--nyx-home-panel) 88%,transparent)!important;
+  box-shadow:0 14px 32px rgba(0,0,0,.22),0 1px 0 rgba(255,255,255,.05) inset!important;
+  backdrop-filter:blur(16px) saturate(1.08)!important;
+  -webkit-backdrop-filter:blur(16px) saturate(1.08)!important;
+  overflow-x:auto!important;
+  overflow-y:visible!important;
+  transform:translateX(-50%)!important;
+  z-index:10!important;
+  scrollbar-width:none;
+}
+html body.browser-shell .browser-window.browser-home-page .browser-home .home-shortcut-grid::-webkit-scrollbar{display:none}
+html body.browser-shell .browser-window.browser-home-page .browser-home .home-shortcut-grid > .quick-tile{
+  width:60px!important;
+  height:58px!important;
+  min-width:60px!important;
+  min-height:58px!important;
+  max-width:60px!important;
+  max-height:58px!important;
+}
+
+/* DogeUB-inspired layout and coloring are intentionally limited to Default. */
+html body.browser-shell.theme-default .browser-window.browser-home-page .browser-home{
+  gap:22px!important;
+}
+html body.browser-shell.theme-default .browser-window.browser-home-page .browser-home::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:0;
+  pointer-events:none;
+  background-image:radial-gradient(circle,color-mix(in srgb,var(--nyx-home-wordmark) 28%,transparent) 1.15px,transparent 1.35px);
+  background-size:24px 24px;
+  background-position:0 0;
+  opacity:.34;
+  -webkit-mask-image:linear-gradient(to bottom,rgba(0,0,0,.78),rgba(0,0,0,.42) 48%,transparent 96%);
+  mask-image:linear-gradient(to bottom,rgba(0,0,0,.78),rgba(0,0,0,.42) 48%,transparent 96%);
+}
+html body.browser-shell.theme-default .browser-home .nyx-home-hero{
+  gap:16px!important;
+  transform:none!important;
+}
+html body.browser-shell.theme-default .browser-window.browser-home-page .nyx-home-search{
+  width:min(640px,100%)!important;
+  height:54px!important;
+  border-radius:21px!important;
+}
+html body.browser-shell.theme-default .browser-window.browser-home-page .nyx-home-search-icon{
+  width:21px;
+  height:21px;
+  flex:0 0 21px;
+  margin-left:22px;
+}
+html body.browser-shell.theme-default .browser-window.browser-home-page .nyx-home-search input{
+  padding:0 16px!important;
+  font:400 clamp(14px,1.05vw,16px) Outfit,Arial,sans-serif!important;
+}
+html body.browser-shell.theme-default .browser-window.browser-home-page .nyx-home-actions{
+  gap:10px!important;
+}
+html body.browser-shell.theme-default .browser-window.browser-home-page .nyx-home-actions > button{
+  min-width:132px!important;
+  height:46px!important;
+  gap:10px!important;
+  padding:0 19px!important;
+  font-size:14px!important;
+}
+html body.browser-shell.theme-default .browser-window.browser-home-page .nyx-home-action-icon{
+  width:20px;
+  height:20px;
+  flex:0 0 20px;
+}
+html body.browser-shell.theme-default .browser-window.browser-home-page .browser-home .home-shortcut-grid{
+  position:relative!important;
+  left:auto!important;
+  right:auto!important;
+  top:auto!important;
+  bottom:auto!important;
+  display:flex!important;
+  align-items:flex-start!important;
+  justify-content:center!important;
+  gap:12px!important;
+  max-width:min(760px,calc(100vw - 40px))!important;
+  min-height:84px!important;
+  padding:0!important;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  background-image:none!important;
+  box-shadow:none!important;
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+  transform:none!important;
+}
+html body.browser-shell.theme-default .browser-window.browser-home-page .browser-home .home-shortcut-grid > .quick-tile{
+  width:72px!important;
+  height:82px!important;
+  min-width:72px!important;
+  min-height:82px!important;
+  max-width:72px!important;
+  max-height:82px!important;
+  border:0!important;
+  border-radius:14px!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  overflow:visible!important;
+}
+html body.browser-shell.theme-default .browser-window.browser-home-page .browser-home .home-shortcut-grid .home-shortcut-open{
+  position:relative!important;
+  width:100%!important;
+  height:100%!important;
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:center!important;
+  justify-content:flex-start!important;
+  gap:7px!important;
+  padding:8px 2px 4px!important;
+  border:0!important;
+  border-radius:14px!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  transform:none!important;
+}
+html body.browser-shell.theme-default .browser-window.browser-home-page .browser-home .home-shortcut-grid .home-shortcut-open::before{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:3px;
+  width:44px;
+  height:44px;
+  border:1px solid color-mix(in srgb,var(--nyx-home-line) 72%,rgba(255,255,255,.08));
+  border-radius:50%;
+  background:color-mix(in srgb,var(--nyx-home-panel-soft) 78%,transparent);
+  box-shadow:0 8px 20px rgba(0,0,0,.22),inset 0 1px 0 rgba(255,255,255,.08);
+  backdrop-filter:blur(16px) saturate(1.18);
+  -webkit-backdrop-filter:blur(16px) saturate(1.18);
+  transform:translateX(-50%);
+  transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease;
+}
+html body.browser-shell.theme-default .browser-window.browser-home-page .browser-home .home-shortcut-grid .home-shortcut:hover .home-shortcut-open::before{
+  border-color:var(--nyx-home-wordmark);
+  box-shadow:0 10px 24px rgba(0,0,0,.26),0 0 18px color-mix(in srgb,var(--nyx-home-wordmark) 20%,transparent),inset 0 1px 0 rgba(255,255,255,.1);
+  transform:translateX(-50%) scale(1.06);
+}
+html body.browser-shell.theme-default .browser-window.browser-home-page .browser-home .home-shortcut-grid :is(.quick-icon,.home-shortcut-glyph){
+  position:relative!important;
+  z-index:1!important;
+  width:28px!important;
+  height:28px!important;
+  min-width:28px!important;
+  min-height:28px!important;
+  margin:5px 0 4px!important;
+  border:0!important;
+  border-radius:8px!important;
+  background-color:var(--nyx-home-wordmark)!important;
+  box-shadow:none!important;
+  object-fit:contain!important;
+}
+html body.browser-shell.theme-default .browser-window.browser-home-page .browser-home .home-shortcut-grid .home-shortcut-open > span:last-child,
+html body.browser-shell.theme-default .browser-window.browser-home-page .browser-home .home-shortcut-grid .home-shortcut-add > span{
+  position:relative!important;
+  z-index:1!important;
+  width:72px!important;
+  height:auto!important;
+  overflow:hidden!important;
+  clip:auto!important;
+  color:var(--nyx-home-text)!important;
+  -webkit-text-fill-color:var(--nyx-home-text)!important;
+  font:400 11px/1.15 Outfit,Arial,sans-serif!important;
+  text-align:center!important;
+  text-overflow:ellipsis!important;
+  white-space:nowrap!important;
+}
+html body.browser-shell.theme-default .browser-window.browser-home-page .browser-home .home-shortcut-grid .home-shortcut-add{
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:center!important;
+  justify-content:flex-start!important;
+  gap:7px!important;
+  padding:8px 2px 4px!important;
+}
+html body.browser-shell.theme-default .browser-window.browser-home-page .browser-home .home-shortcut-grid .home-shortcut-add b{
+  width:44px!important;
+  height:44px!important;
+  display:grid!important;
+  place-items:center!important;
+  border:1px solid color-mix(in srgb,var(--nyx-home-line) 72%,rgba(255,255,255,.08))!important;
+  border-radius:50%!important;
+  background:color-mix(in srgb,var(--nyx-home-panel-soft) 78%,transparent)!important;
+  color:var(--nyx-home-wordmark)!important;
+  -webkit-text-fill-color:var(--nyx-home-wordmark)!important;
+  box-shadow:0 8px 20px rgba(0,0,0,.22),inset 0 1px 0 rgba(255,255,255,.08)!important;
+  font:300 25px/1 Outfit,Arial,sans-serif!important;
+}
+html body.browser-shell.theme-default .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > div.quick-tile.home-shortcut,
+html body.browser-shell.theme-default .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > button.quick-tile.home-shortcut-add{
+  position:relative!important;
+  inset:auto!important;
+  flex:0 0 72px!important;
+  width:72px!important;
+  min-width:72px!important;
+  max-width:72px!important;
+  height:82px!important;
+  min-height:82px!important;
+  max-height:82px!important;
+  padding:0!important;
+  margin:0!important;
+  border:0!important;
+  box-shadow:none!important;
+  transform:none!important;
+}
+html body.browser-shell.theme-default .browser-home-normal div.quick-tile.home-shortcut > button.home-shortcut-open{
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:center!important;
+  justify-content:flex-start!important;
+}
+html body.browser-shell.theme-default .browser-home-normal .home-shortcut :is(.quick-icon,.home-shortcut-glyph){
+  width:28px!important;
+  height:28px!important;
+  min-width:28px!important;
+  min-height:28px!important;
+  max-width:28px!important;
+  max-height:28px!important;
+  margin:5px 0 4px!important;
+}
+html body.browser-shell.theme-default .browser-home-normal .home-shortcut span:not(.shortcut-real-dots):not(.home-shortcut-glyph),
+html body.browser-shell.theme-default .browser-home-normal .home-shortcut-add > span{
+  position:relative!important;
+  width:72px!important;
+  height:auto!important;
+  overflow:hidden!important;
+  clip:auto!important;
+  white-space:nowrap!important;
+}
+html body.browser-shell.theme-default .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > button.quick-tile.home-shortcut-add{
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:center!important;
+  justify-content:flex-start!important;
+  gap:7px!important;
+  padding:8px 2px 4px!important;
+}
+html body.browser-shell.theme-default .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts] > button.quick-tile.home-shortcut-add > b{
+  position:relative!important;
+  inset:auto!important;
+  flex:0 0 44px!important;
+  width:44px!important;
+  height:44px!important;
+  margin:0!important;
+  transform:none!important;
+}
+html body.browser-shell.theme-default .browser-home-normal div.quick-tile.home-shortcut > button.home-shortcut-menu-btn{
+  opacity:0!important;
+  transition:opacity .18s ease!important;
+}
+html body.browser-shell.theme-default .browser-home-normal div.quick-tile.home-shortcut:hover > button.home-shortcut-menu-btn,
+html body.browser-shell.theme-default .browser-home-normal div.quick-tile.home-shortcut.menu-open > button.home-shortcut-menu-btn{
+  opacity:1!important;
+}
+
+/* Default palette foundation: charcoal canvas with cool blue type. */
+html body.browser-shell.theme-default{
+  --nyx-home-wordmark:#eef4ff;
+  --nyx-home-wordmark-gradient:linear-gradient(90deg,#f4f7ff,#dce8ff);
+  --nyx-home-text:#dbe8ff;
+  --nyx-home-muted:#91a4c2;
+  --nyx-home-panel:#0d1522;
+  --nyx-home-panel-soft:#111a29;
+  --nyx-home-line:#26364f;
+  --nyx-chrome-accent:#6f9ee8;
+  --nyx-chrome-bright:#9fc1f7;
+  --nyx-chrome-base:#0b1320;
+  --nyx-chrome-deep:#070d17;
+  --nyx-chrome-active:#17243a;
+  --nyx-chrome-hover:#1c2d49;
+  --nyx-shell-icon:#a9c7f8!important;
+  --nyx-final-shortcut-icon:#a9c7f8!important;
+  background:#151d2b!important;
+}
+html body.browser-shell.theme-default #nyxWaveBg,
+html body.browser-shell.theme-default .nyx-wave-bg,
+html body.browser-shell.theme-default:not(.three-d-backgrounds) #defaultVantaBg{display:none!important}
+html body.browser-shell.theme-default .top-os{
+  background:#09111d!important;
+  background-image:none!important;
+  border-bottom:1px solid #1f2b3d!important;
+  box-shadow:none!important;
+}
+html body.browser-shell.theme-default .top-os.top-os .browser-mode-url{
+  background:#111a29!important;
+  background-image:none!important;
+  border-color:#26364f!important;
+  color:#dbe8ff!important;
+  -webkit-text-fill-color:#dbe8ff!important;
+  box-shadow:none!important;
+}
+html body.browser-shell.theme-default .browser-window.browser-home-page,
+html body.browser-shell.theme-default .browser-window.browser-home-page .browser-home{
+  background:#151d2b!important;
+  background-image:none!important;
+  border-color:#26364f!important;
+}
+html body.browser-shell.theme-midnight.theme-default:not(.custom-bg-active) :is(.browser-home,.browser-window.maximized.browser-blank,.browser-window.maximized:has(.browser-home:not(.hidden))),
+html body.browser-shell.theme-midnight.theme-default:not(.custom-bg-active) :is(.browser-window.maximized.browser-blank,.browser-window.maximized:has(.browser-home:not(.hidden)))::before,
+html body.browser-shell.theme-midnight.theme-default:not(.custom-bg-active) :is(.browser-window.maximized.browser-blank,.browser-window.maximized:has(.browser-home:not(.hidden)))::after{
+  background-color:#151d2b!important;
+  background-image:none!important;
+}
+html body.browser-shell.theme-default .browser-window.browser-home-page .browser-home{
+  justify-content:flex-start!important;
+  gap:27px!important;
+  padding:58px 24px 24px!important;
+}
+html body.browser-shell.theme-default .browser-window.browser-home-page .browser-home::before{
+  z-index:0!important;
+  background:linear-gradient(180deg,rgba(7,12,21,.28),transparent 120px)!important;
+}
+html body.browser-shell.theme-default .browser-window.browser-home-page .browser-home::after{
+  background-image:radial-gradient(circle,#202b3d 2.7px,transparent 3px)!important;
+  background-size:24px 24px!important;
+  opacity:.72!important;
+  -webkit-mask-image:none!important;
+  mask-image:none!important;
+}
+html body.browser-shell.theme-default .browser-home .nyx-home-hero{
+  width:100%!important;
+  max-width:none!important;
+  gap:34px!important;
+}
+html body.browser-shell.theme-default .browser-window.browser-home-page .browser-home h1.nyx-home-title{
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:13px!important;
+  background:none!important;
+  color:#eef4ff!important;
+  -webkit-text-fill-color:#eef4ff!important;
+  font-size:52px!important;
+  font-weight:650!important;
+  font-variation-settings:"wght" 650!important;
+  letter-spacing:-.045em!important;
+  text-indent:0!important;
+}
+html body.browser-shell.theme-default .browser-window.browser-home-page .browser-home h1.nyx-home-title::before{
+  content:"";
+  width:28px;
+  height:40px;
+  flex:0 0 28px;
+  background:#eef4ff;
+  clip-path:polygon(42% 0,100% 0,70% 38%,100% 38%,25% 100%,43% 56%,0 56%);
+}
+html body.browser-shell.theme-default .browser-window.browser-home-page .nyx-home-search{
+  width:min(650px,calc(100vw - 48px))!important;
+  height:54px!important;
+  border:1px solid #273751!important;
+  border-radius:12px!important;
+  background:#111a29!important;
+  background-image:none!important;
+  box-shadow:0 8px 22px rgba(2,6,13,.18)!important;
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+}
+html body.browser-shell.theme-default .browser-window.browser-home-page .nyx-home-search::before{
+  content:"N";
+  order:1;
+  width:27px;
+  height:27px;
+  flex:0 0 27px;
+  display:grid;
+  place-items:center;
+  margin-left:14px;
+  border-radius:50%;
+  background:#263b5d;
+  color:#dce9ff;
+  font:600 14px/1 Outfit,Arial,sans-serif;
+}
+html body.browser-shell.theme-default .browser-window.browser-home-page .nyx-home-search input{
+  order:2;
+  padding:0 12px!important;
+  color:#b9c9e3!important;
+  -webkit-text-fill-color:#b9c9e3!important;
+  font-size:16px!important;
+}
+html body.browser-shell.theme-default .browser-window.browser-home-page .nyx-home-search input::placeholder{
+  color:#9eb0cd!important;
+  -webkit-text-fill-color:#9eb0cd!important;
+  opacity:1!important;
+}
+html body.browser-shell.theme-default .browser-window.browser-home-page .nyx-home-search-icon{
+  order:3;
+  width:19px;
+  height:19px;
+  flex:0 0 19px;
+  margin:0 17px 0 6px;
+  background:#a7bad8!important;
+}
+html body.browser-shell.theme-default .browser-window.browser-home-page .nyx-home-actions{
+  position:absolute!important;
+  top:-42px!important;
+  right:0!important;
+  z-index:4!important;
+  gap:24px!important;
+}
+html body.browser-shell.theme-default .browser-window.browser-home-page .nyx-home-actions > button{
+  min-width:0!important;
+  width:auto!important;
+  height:32px!important;
+  gap:7px!important;
+  padding:0!important;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  background-image:none!important;
+  color:#a9c3ee!important;
+  -webkit-text-fill-color:#a9c3ee!important;
+  box-shadow:none!important;
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+  font-size:15px!important;
+}
+html body.browser-shell.theme-default .browser-window.browser-home-page .nyx-home-actions > button:hover{
+  transform:translateY(-1px)!important;
+  color:#eef4ff!important;
+  -webkit-text-fill-color:#eef4ff!important;
+  background:transparent!important;
+  box-shadow:none!important;
+}
+html body.browser-shell.theme-default .browser-window.browser-home-page .nyx-home-action-icon{
+  width:17px;
+  height:17px;
+  flex:0 0 17px;
+  background:#a9c3ee!important;
+}
+html body.browser-shell.theme-default .nyx-home-presence{
+  left:24px;
+  top:18px;
+  min-height:28px;
+  padding:0!important;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  color:#91a4c2!important;
+  box-shadow:none!important;
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+}
+html body.browser-shell.theme-default .nyx-home-presence-dot{
+  background:#72a7ff!important;
+  box-shadow:0 0 9px rgba(114,167,255,.4)!important;
+}
+html body.browser-shell.theme-default .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts]{
+  gap:18px!important;
+}
+html body.browser-shell.theme-default .browser-window.browser-home-page .browser-home .home-shortcut-grid .home-shortcut-open::before,
+html body.browser-shell.theme-default .browser-window.browser-home-page .browser-home .home-shortcut-grid .home-shortcut-add b{
+  border:0!important;
+  background:#0c1421!important;
+  box-shadow:0 4px 12px rgba(0,0,0,.25)!important;
+}
+html body.browser-shell.theme-default .browser-window.browser-home-page .browser-home .home-shortcut-grid .home-shortcut:hover .home-shortcut-open::before{
+  background:#16233a!important;
+  border:0!important;
+  box-shadow:0 5px 15px rgba(0,0,0,.3),0 0 0 1px #314766!important;
+}
+html body.browser-shell.theme-default .browser-home-normal .home-shortcut .quick-icon{
+  background:transparent!important;
+  filter:none!important;
+}
+html body.browser-shell.theme-default .browser-window.browser-home-page .browser-home .home-shortcut-grid .home-shortcut-open > span:last-child,
+html body.browser-shell.theme-default .browser-window.browser-home-page .browser-home .home-shortcut-grid .home-shortcut-add > span{
+  color:#a9bee2!important;
+  -webkit-text-fill-color:#a9bee2!important;
+  font-size:12px!important;
+}
+
+@media(max-width:720px){
+  html body.browser-shell.theme-default .browser-window.browser-home-page .browser-home{padding:72px 12px 18px!important}
+  html body.browser-shell.theme-default .browser-window.browser-home-page .browser-home h1.nyx-home-title{font-size:44px!important}
+  html body.browser-shell.theme-default .browser-window.browser-home-page .nyx-home-actions{top:-57px!important;right:4px!important;gap:12px!important}
+  html body.browser-shell.theme-default .browser-window.browser-home-page .nyx-home-actions > button{font-size:12px!important}
+  html body.browser-shell.theme-default .browser-window.browser-home-page .nyx-home-action-icon{width:15px;height:15px;flex-basis:15px}
+  html body.browser-shell.theme-default .nyx-home-presence{left:12px;top:17px}
+}
+
+/* Keep the startup screen readable without making every line heavily bold. */
+html body .setup-launch-card,
+html body .setup-launch-card :is(h2,p,strong){font-family:Outfit,Arial,sans-serif!important}
+html body .setup-launch-card h2{
+  font-weight:500!important;
+  letter-spacing:.015em!important;
+}
+html body .setup-launch-card :is(.nyx-loading-percent,.nyx-loading-stage){
+  font-weight:400!important;
+  letter-spacing:.085em!important;
+}
+html body .setup-launch-card .setup-launch-credit{
+  font-weight:300!important;
+  letter-spacing:.11em!important;
+}
+
+@media(max-width:720px){
+  html body.browser-shell .browser-window.browser-home-page .browser-home{padding:16px 12px!important}
+  html body.browser-shell .browser-home .nyx-home-hero{width:calc(100vw - 28px)!important;gap:15px!important;transform:translateY(-30px)!important}
+  html body.browser-shell .browser-window.browser-home-page .browser-home h1.nyx-home-title{font-size:42px!important}
+  html body.browser-shell .browser-window.browser-home-page .nyx-home-search{height:58px!important;border-radius:21px!important}
+  html body.browser-shell .browser-window.browser-home-page .nyx-home-search-icon{width:22px;height:22px;flex-basis:22px;margin-left:20px}
+  html body.browser-shell .browser-window.browser-home-page .nyx-home-search input{padding:0 14px!important;font-size:15px!important}
+  html body.browser-shell .browser-window.browser-home-page .nyx-home-actions{width:100%!important;gap:8px!important}
+  html body.browser-shell .browser-window.browser-home-page .nyx-home-actions > button{min-width:0!important;height:52px!important;flex:1 1 0!important;padding:0 10px!important;border-radius:999px!important;gap:8px!important;font-size:13px!important}
+  html body.browser-shell .browser-window.browser-home-page .nyx-home-action-icon{width:20px;height:20px;flex-basis:20px}
+  html body.browser-shell .nyx-home-presence{left:12px;top:12px;min-height:28px;padding:0 10px;font-size:11px!important}
+  html body.browser-shell .browser-window.browser-home-page .browser-home .home-shortcut-grid{
+    max-width:calc(100vw - 24px)!important;
+    justify-content:flex-start!important;
+    bottom:12px!important;
+  }
+  html body.browser-shell.theme-default .browser-home .nyx-home-hero{transform:none!important}
+  html body.browser-shell.theme-default .browser-window.browser-home-page .nyx-home-search{height:52px!important;border-radius:19px!important}
+  html body.browser-shell.theme-default .browser-window.browser-home-page .nyx-home-search-icon{width:20px;height:20px;flex-basis:20px;margin-left:18px}
+  html body.browser-shell.theme-default .browser-window.browser-home-page .nyx-home-search input{padding:0 13px!important;font-size:14px!important}
+  html body.browser-shell.theme-default .browser-window.browser-home-page .browser-home .home-shortcut-grid{bottom:auto!important}
+}
+@media(prefers-reduced-motion:reduce){
+  html body.browser-shell .browser-home .nyx-home-hero,
+  html body.browser-shell .browser-home .nyx-home-title{animation:none!important;transition:none!important}
+}
+
+/* Original Default homepage: a quiet orbital command center. */
+html body.browser-shell.theme-default .browser-window.browser-home-page .browser-home{
+  justify-content:flex-start!important;
+  gap:36px!important;
+  padding:clamp(94px,14vh,138px) 24px 28px!important;
+}
+html body.browser-shell.theme-default .browser-window.browser-home-page .browser-home::before{
+  content:""!important;
+  position:absolute!important;
+  inset:0!important;
+  z-index:0!important;
+  background:linear-gradient(180deg,rgba(7,12,21,.30),transparent 150px)!important;
+}
+html body.browser-shell.theme-default .browser-home .nyx-home-hero{
+  width:min(720px,calc(100vw - 48px))!important;
+  gap:20px!important;
+  transform:none!important;
+}
+html body.browser-shell.theme-default .browser-home .nyx-home-hero::before{
+  content:"NYX  /  NIGHT WORKSPACE"!important;
+  position:relative!important;
+  inset:auto!important;
+  display:block!important;
+  width:auto!important;
+  height:auto!important;
+  margin:0 0 -7px!important;
+  background:none!important;
+  color:#7f94b5!important;
+  -webkit-text-fill-color:#7f94b5!important;
+  font:500 10px/1 Outfit,Arial,sans-serif!important;
+  letter-spacing:.28em!important;
+}
+html body.browser-shell.theme-default .browser-home .nyx-home-hero::after{content:none!important}
+html body.browser-shell.theme-default .browser-window.browser-home-page .browser-home h1.nyx-home-title{
+  gap:14px!important;
+  font-size:50px!important;
+  font-weight:400!important;
+  font-variation-settings:"wght" 400!important;
+  letter-spacing:.01em!important;
+}
+html body.browser-shell.theme-default .browser-window.browser-home-page .browser-home h1.nyx-home-title::before{
+  width:46px!important;
+  height:46px!important;
+  flex:0 0 46px!important;
+  border:0!important;
+  border-radius:0!important;
+  background-color:transparent!important;
+  background-image:var(--nyx-themed-logo-url,url("/assets/icons/nyx-logo.png"))!important;
+  background-position:center!important;
+  background-size:195%!important;
+  background-repeat:no-repeat!important;
+  box-shadow:none!important;
+  clip-path:none!important;
+  transform:none!important;
+}
+html body.browser-shell.theme-default .browser-window.browser-home-page .nyx-home-search{
+  width:min(680px,calc(100vw - 48px))!important;
+  height:58px!important;
+  border-color:#2b3d59!important;
+  border-radius:18px!important;
+  background:#0e1725!important;
+  box-shadow:0 16px 36px rgba(2,6,13,.20),inset 0 1px 0 rgba(255,255,255,.035)!important;
+}
+html body.browser-shell.theme-default .browser-window.browser-home-page .nyx-home-search::before{content:none!important}
+html body.browser-shell.theme-default .browser-window.browser-home-page .nyx-home-search-icon{
+  order:1!important;
+  width:20px!important;
+  height:20px!important;
+  flex:0 0 20px!important;
+  margin:0 0 0 21px!important;
+  background:#91acd5!important;
+}
+html body.browser-shell.theme-default .browser-window.browser-home-page .nyx-home-search input{
+  order:2!important;
+  padding:0 17px!important;
+  font-size:15px!important;
+  letter-spacing:.012em!important;
+}
+html body.browser-shell.theme-default .browser-window.browser-home-page .nyx-home-actions{
+  position:relative!important;
+  inset:auto!important;
+  z-index:4!important;
+  width:min(470px,100%)!important;
+  height:48px!important;
+  display:grid!important;
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  gap:4px!important;
+  padding:4px!important;
+  border:1px solid #24344d!important;
+  border-radius:15px!important;
+  background:rgba(10,18,30,.78)!important;
+  box-shadow:0 10px 25px rgba(2,6,13,.16)!important;
+}
+html body.browser-shell.theme-default .browser-window.browser-home-page .nyx-home-actions > button{
+  width:100%!important;
+  min-width:0!important;
+  height:38px!important;
+  justify-content:center!important;
+  gap:8px!important;
+  padding:0 13px!important;
+  box-sizing:border-box!important;
+  border:1px solid transparent!important;
+  border-radius:10px!important;
+  overflow:hidden!important;
+  color:#9eb3d4!important;
+  -webkit-text-fill-color:#9eb3d4!important;
+  font-size:13px!important;
+}
+html body.browser-shell.theme-default .browser-window.browser-home-page .nyx-home-actions > button:hover{
+  transform:none!important;
+  background:#17253a!important;
+  color:#edf4ff!important;
+  -webkit-text-fill-color:#edf4ff!important;
+}
+html body.browser-shell.theme-default .browser-window.browser-home-page .nyx-home-action-icon{
+  width:16px!important;
+  height:16px!important;
+  flex:0 0 16px!important;
+  background:#86a2cd!important;
+}
+html body.browser-shell.theme-default .nyx-home-presence{
+  left:22px!important;
+  top:20px!important;
+  min-height:30px!important;
+  padding:0 11px!important;
+  border:1px solid #26364f!important;
+  border-radius:999px!important;
+  background:rgba(10,18,30,.76)!important;
+  box-shadow:0 8px 20px rgba(2,6,13,.12)!important;
+}
+html body.browser-shell.theme-default .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts]{
+  gap:13px!important;
+  margin-top:2px!important;
+}
+html body.browser-shell.theme-default .browser-window.browser-home-page .browser-home .home-shortcut-grid .home-shortcut-open::before,
+html body.browser-shell.theme-default .browser-window.browser-home-page .browser-home .home-shortcut-grid .home-shortcut-add b{
+  border:1px solid #22324a!important;
+  background:#0d1624!important;
+  box-shadow:0 8px 18px rgba(2,6,13,.18)!important;
+}
+html body.browser-shell.theme-default .browser-window.browser-home-page .browser-home .home-shortcut-grid .home-shortcut:hover .home-shortcut-open::before{
+  border-color:#45658f!important;
+  background:#152238!important;
+  box-shadow:0 9px 20px rgba(2,6,13,.24),0 0 18px rgba(111,158,232,.10)!important;
+}
+
+/* Center every original themed shortcut glyph inside its 44px circle. */
+html body.browser-shell.theme-default .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts]
+  > div.quick-tile.home-shortcut .home-shortcut-open > :is(.quick-icon,.home-shortcut-glyph){
+  position:absolute!important;
+  left:50%!important;
+  top:11px!important;
+  width:28px!important;
+  height:28px!important;
+  min-width:28px!important;
+  min-height:28px!important;
+  max-width:28px!important;
+  max-height:28px!important;
+  margin:0!important;
+  transform:translateX(-50%)!important;
+  transform-origin:center!important;
+}
+html body.browser-shell.theme-default .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts]
+  > div.quick-tile.home-shortcut .home-shortcut-open > span:last-child{
+  margin-top:52px!important;
+}
+html body.browser-shell.theme-default .browser-home div.quick-grid.home-shortcut-grid.browser-home-normal[data-home-shortcuts]
+  > div.quick-tile.home-shortcut:is([data-domain="geforcenow"],[data-domain="games"]) .home-shortcut-open::after{
+  left:50%!important;
+  top:25px!important;
+  transform:translate(-50%,-50%)!important;
+}
+
+/* One consistent Default palette for every tab and address-bar control. */
+html body.browser-shell.theme-default .top-os.top-os :is(
+  .browser-mode-app-button,
+  .browser-mode-shell-tab,
+  .browser-mode-tab,
+  .browser-mode-address > button
+){
+  background-color:#0b1320!important;
+  background-image:none!important;
+  border-color:#26364f!important;
+  color:#9fc1f7!important;
+  -webkit-text-fill-color:#9fc1f7!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.035)!important;
+}
+html body.browser-shell.theme-default .top-os.top-os .brand-mini > :is(
+  .browser-mode-app-button,
+  .browser-mode-shell-tab,
+  .browser-mode-tab
+).active{
+  background-color:#17243a!important;
+  background-image:none!important;
+  border-color:#45658f!important;
+  color:#dce9ff!important;
+  -webkit-text-fill-color:#dce9ff!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.055)!important;
+}
+html body.browser-shell.theme-default .top-os.top-os :is(
+  .browser-mode-app-button,
+  .browser-mode-shell-tab,
+  .browser-mode-tab,
+  .browser-mode-address > button
+):hover{
+  background-color:#1c2d49!important;
+  background-image:none!important;
+  border-color:#5677a4!important;
+  color:#eef4ff!important;
+  -webkit-text-fill-color:#eef4ff!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.065)!important;
+}
+html body.browser-shell.theme-default .top-os.top-os .browser-mode-address > button::before{
+  color:#9fc1f7!important;
+  -webkit-text-fill-color:#9fc1f7!important;
+  filter:none!important;
+}
+html body.browser-shell.theme-default .top-os.top-os :is(.browser-mode-shell-tab-close,.browser-mode-app-button)::after{
+  color:#91acd5!important;
+  -webkit-text-fill-color:#91acd5!important;
+}
+html body.browser-shell.theme-default .top-os > .browser-top-clock{
+  color:#9eb3d4!important;
+  -webkit-text-fill-color:#9eb3d4!important;
+}
+
+@media(max-width:720px){
+  html body.browser-shell.theme-default .browser-window.browser-home-page .browser-home{
+    gap:24px!important;
+    padding:76px 12px 20px!important;
+  }
+  html body.browser-shell.theme-default .browser-home .nyx-home-hero{
+    width:calc(100vw - 24px)!important;
+    gap:16px!important;
+  }
+  html body.browser-shell.theme-default .browser-home .nyx-home-hero::before{font-size:9px!important;letter-spacing:.19em!important}
+  html body.browser-shell.theme-default .browser-window.browser-home-page .browser-home h1.nyx-home-title{font-size:42px!important}
+  html body.browser-shell.theme-default .browser-window.browser-home-page .browser-home h1.nyx-home-title::before{width:39px!important;height:39px!important;flex-basis:39px!important}
+  html body.browser-shell.theme-default .browser-window.browser-home-page .nyx-home-search{width:100%!important;height:54px!important;border-radius:16px!important}
+  html body.browser-shell.theme-default .browser-window.browser-home-page .nyx-home-search-icon{width:19px!important;height:19px!important;flex-basis:19px!important;margin-left:17px!important}
+  html body.browser-shell.theme-default .browser-window.browser-home-page .nyx-home-actions{width:100%!important;height:46px!important}
+  html body.browser-shell.theme-default .browser-window.browser-home-page .nyx-home-actions > button{height:36px!important;padding:0 8px!important;font-size:12px!important}
+  html body.browser-shell.theme-default .nyx-home-presence{left:12px!important;top:12px!important}
+}
+
+/* Tint both the dark fill and light linework of the supplied Nyx mark by theme. */
+html body.browser-shell{
+  --nyx-themed-logo-url:url("/assets/icons/nyx-logo.png");
+  --nyx-title-theme-color:#92b7ed;
+}
+html body.browser-shell.theme-ruby{
+  --nyx-title-theme-color:#e97b8d;
+}
+html body.browser-shell.theme-emerald{
+  --nyx-title-theme-color:#53cda3;
+}
+html body.browser-shell.theme-sakura{
+  --nyx-title-theme-color:#df91bd;
+}
+html body.browser-shell.theme-fresh{
+  --nyx-title-theme-color:#2aa59d;
+}
+html body.browser-shell .browser-window.browser-home-page .browser-home h1.nyx-home-title{
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:14px!important;
+}
+html body.browser-shell:is(.theme-default,.theme-midnight,.theme-ruby,.theme-emerald,.theme-sakura,.theme-fresh) .browser-window.browser-home-page .browser-home h1.nyx-home-title::before{
+  content:""!important;
+  width:54px!important;
+  height:54px!important;
+  flex:0 0 54px!important;
+  border:0!important;
+  border-radius:0!important;
+  background-color:transparent!important;
+  background-image:var(--nyx-themed-logo-url)!important;
+  background-position:center!important;
+  background-size:205%!important;
+  background-repeat:no-repeat!important;
+  background-blend-mode:normal!important;
+  -webkit-mask:none!important;
+  mask:none!important;
+  box-shadow:none!important;
+  clip-path:none!important;
+  transform:none!important;
+  filter:none!important;
+}
+@media(max-width:720px){
+  html body.browser-shell:is(.theme-default,.theme-midnight,.theme-ruby,.theme-emerald,.theme-sakura,.theme-fresh) .browser-window.browser-home-page .browser-home h1.nyx-home-title::before{
+    width:46px!important;
+    height:46px!important;
+    flex-basis:46px!important;
+  }
+}
+html body.browser-shell:is(.theme-default,.theme-midnight,.theme-ruby,.theme-emerald,.theme-sakura,.theme-fresh) .browser-window.browser-home-page .browser-home h1.nyx-home-title{
+  background:none!important;
+  color:var(--nyx-title-theme-color)!important;
+  -webkit-text-fill-color:var(--nyx-title-theme-color)!important;
+}
+
+/* The dotted field is drawn on canvas so it can react to the pointer. */
+html body.browser-shell.theme-default .browser-window.browser-home-page .browser-home::after{
+  content:none!important;
+  background:none!important;
+}
+html body.browser-shell .nyx-home-dot-field{
+  position:absolute;
+  inset:0;
+  z-index:0;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+  opacity:.72;
+  --nyx-dot-color:#202b3d;
+}
+html body.browser-shell:not(.theme-default) .nyx-home-dot-field{display:none}
+
+/* Compact live weather summary; the existing report opens when this is clicked. */
+html body .browser-window .browser-home .nyx-home-weather{
+  position:absolute!important;
+  left:22px!important;
+  bottom:22px!important;
+  z-index:8!important;
+  width:auto!important;
+  min-width:166px!important;
+  max-width:240px!important;
+  height:48px!important;
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:flex-start!important;
+  gap:9px!important;
+  margin:0!important;
+  padding:0 18px!important;
+  border:1px solid color-mix(in srgb,var(--nyx-home-line,rgba(126,162,220,.32)) 78%,transparent)!important;
+  border-radius:999px!important;
+  background-color:color-mix(in srgb,var(--nyx-home-panel-soft,rgba(8,14,28,.82)) 68%,transparent)!important;
+  background-image:none!important;
+  color:var(--nyx-home-text,#e8eef9)!important;
+  -webkit-text-fill-color:var(--nyx-home-text,#e8eef9)!important;
+  box-shadow:none!important;
+  backdrop-filter:blur(18px) saturate(1.08)!important;
+  -webkit-backdrop-filter:blur(18px) saturate(1.08)!important;
+  font-family:Outfit,Arial,sans-serif!important;
+  cursor:pointer!important;
+}
+html body .browser-window .browser-home .nyx-home-weather-icon{
+  display:inline-grid;
+  flex:0 0 25px;
+  width:25px;
+  height:25px;
+  place-items:center;
+  font-size:21px;
+  line-height:1;
+}
+html body .browser-window .browser-home .nyx-home-weather strong{
+  flex:0 0 auto;
+  font-size:17px!important;
+  font-weight:600!important;
+  letter-spacing:-.01em;
+}
+html body .browser-window .browser-home .nyx-home-weather > span:last-child{
+  min-width:0;
+  overflow:hidden;
+  color:var(--nyx-home-muted,#99a9c4)!important;
+  -webkit-text-fill-color:var(--nyx-home-muted,#99a9c4)!important;
+  font-size:15px!important;
+  font-weight:400!important;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+@media (max-width:720px){
+  html body .browser-window .browser-home .nyx-home-weather{
+    left:12px!important;
+    bottom:12px!important;
+    min-width:0!important;
+    height:42px!important;
+    padding:0 14px!important;
+  }
+  html body .browser-window .browser-home .nyx-home-weather > span:last-child{display:none}
+}
+
+/* Keep depth shadows, but remove colored glow from the homepage. */
+html body.browser-shell .browser-window.browser-home-page .browser-home :is(.nyx-home-title,.nyx-home-search,.nyx-home-actions,.home-shortcut-open,.home-shortcut-add){
+  text-shadow:none!important;
+}
+html body.browser-shell .browser-window.browser-home-page .browser-home :is(.quick-icon,.home-shortcut-glyph,.nyx-home-action-icon,.nyx-home-search-icon){
+  filter:none!important;
+}
+html body.browser-shell.theme-default .browser-window.browser-home-page .browser-home .home-shortcut-grid .quick-icon{
+  filter:brightness(.92)!important;
+}
+html body.browser-shell.theme-default .browser-window.browser-home-page .browser-home .home-shortcut-grid .home-shortcut-glyph{
+  background-color:#86a2cd!important;
+}
+
+/* Use the same supplied mark anywhere Nyx needs a compact brand icon. */
+:is(.setup-welcome-logo,.setup-final-logo,.lion-ai-mark)[data-nyx-logo]{
+  border:0!important;
+  border-radius:0!important;
+  background-color:transparent!important;
+  background-image:var(--nyx-themed-logo-url,url("/assets/icons/nyx-logo.png"))!important;
+  background-position:center!important;
+  background-repeat:no-repeat!important;
+  background-size:205%!important;
+  box-shadow:none!important;
+  color:transparent!important;
+  filter:none!important;
+}
+html body.browser-shell .browser-window.browser-home-page .nyx-home-presence-dot{
+  box-shadow:none!important;
+}
+html body.browser-shell .browser-window.browser-home-page .nyx-home-search,
+html body.browser-shell .browser-window.browser-home-page .nyx-home-search:focus-within{
+  box-shadow:0 16px 36px rgba(2,6,13,.24),inset 0 1px 0 rgba(255,255,255,.055)!important;
+}
+html body.browser-shell .browser-window.browser-home-page .nyx-home-actions > button:hover{
+  transform:none!important;
+  animation:none!important;
+  border-color:color-mix(in srgb,var(--nyx-home-line) 78%,transparent)!important;
+  background-color:color-mix(in srgb,var(--nyx-home-panel-soft) 62%,transparent)!important;
+  background-image:none!important;
+  box-shadow:none!important;
+  backdrop-filter:blur(18px) saturate(1.08)!important;
+  -webkit-backdrop-filter:blur(18px) saturate(1.08)!important;
+  filter:none!important;
+}
+html body.browser-shell .browser-window.browser-home-page .nyx-home-actions > button:active,
+html body.browser-shell .browser-window.browser-home-page .nyx-home-actions > button.nyx-button-click{
+  transform:none!important;
+  animation:none!important;
+  filter:none!important;
+}
+html body.browser-shell.theme-default .browser-window.browser-home-page .browser-home .home-shortcut-grid .home-shortcut:hover .home-shortcut-open::before{
+  box-shadow:0 9px 20px rgba(2,6,13,.24)!important;
+}

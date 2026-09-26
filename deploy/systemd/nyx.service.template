@@ -1,0 +1,20 @@
+[Unit]
+Description=Nyx web application
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=nyx
+Group=nyx
+WorkingDirectory=__NYX_ROOT__
+EnvironmentFile=-/etc/nyx/nyx.env
+ExecStart=/usr/bin/node __NYX_ROOT__/server.js
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=15
+NoNewPrivileges=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

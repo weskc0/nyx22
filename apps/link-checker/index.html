@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="dark light">
+  <title>Link Checker</title>
+  <link rel="icon" type="image/svg+xml" href="../../assets/icons/link-checker.svg">
+  <link rel="stylesheet" href="./styles.css?v=20260728-fern-8">
+</head>
+<body>
+  <main class="utility-shell checker-shell">
+    <header class="utility-header">
+      <span class="brand-lockup" aria-label="Nyx utilities">
+        <span class="brand-mark" aria-hidden="true"><img src="../../assets/icons/nyx-app-192.png" alt=""></span>
+        <span class="brand-copy"><strong>nyx</strong><span>utilities</span></span>
+      </span>
+      <div class="utility-nav" aria-label="Nyx utility pages">
+        <a class="utility-nav-item" href="../link-checker/" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 14a5 5 0 007.5.5l2-2a5 5 0 00-7-7l-1.1 1.1M14 10a5 5 0 00-7.5-.5l-2 2a5 5 0 007 7l1.1-1.1" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg><span>Link Checker</span></a>
+        <a class="utility-nav-item" href="../link-generator/"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M3 12h18M5.5 5.5l13 13M18.5 5.5l-13 13" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><span>Generator</span></a>
+      </div>
+      <span class="api-status" data-api-status><i aria-hidden="true"></i><span>Connecting</span></span>
+    </header>
+
+    <section class="utility-intro" aria-labelledby="page-title">
+      <span class="intro-mark" aria-hidden="true">&#8734;</span>
+      <div><h1 id="page-title">Link Checker</h1><p>by Midnight</p></div>
+    </section>
+
+    <section class="checker-card surface" aria-labelledby="checker-title">
+      <div class="section-bar">
+        <div class="section-id">
+        <div>
+          <h2 id="checker-title">Check a website</h2>
+          <p>See how available content filters currently classify a URL.</p>
+        </div>
+        </div>
+        <span class="privacy-chip"><i aria-hidden="true"></i> API check</span>
+      </div>
+      <form class="check-form" data-check-form>
+        <label class="url-field">
+          <span>Website or URL</span>
+          <div class="input-shell">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 14a5 5 0 007.5.5l2-2a5 5 0 00-7-7l-1.1 1.1M14 10a5 5 0 00-7.5-.5l-2 2a5 5 0 007 7l1.1-1.1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            <input data-url-input name="url" type="text" inputmode="url" autocomplete="url" spellcheck="false" placeholder="example.com" required>
+          </div>
+        </label>
+        <label class="filter-field">
+          <span>Content filter</span>
+          <select data-filter-select name="filter" aria-label="Content filter">
+            <option value="all">All filters</option>
+          </select>
+        </label>
+        <button class="primary-action" data-check-button type="submit">
+          <span>Run check</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-5-5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </form>
+      <div class="notice" data-notice role="status" aria-live="polite" hidden></div>
+    </section>
+
+    <section class="results-section surface" data-results-section hidden aria-labelledby="results-title">
+      <div class="results-head">
+        <div>
+          <p class="eyebrow">Report</p>
+          <h2 id="results-title" data-results-title>Results</h2>
+        </div>
+        <button class="quiet-action" data-copy-results type="button">Copy report</button>
+      </div>
+      <div class="summary-grid" aria-label="Result summary">
+        <article class="summary-card blocked"><span>Blocked</span><strong data-count-blocked>0</strong></article>
+        <article class="summary-card allowed"><span>Allowed</span><strong data-count-allowed>0</strong></article>
+        <article class="summary-card info"><span>Informational</span><strong data-count-info>0</strong></article>
+        <article class="summary-card error"><span>Errors</span><strong data-count-error>0</strong></article>
+      </div>
+      <div class="result-list" data-result-list></div>
+    </section>
+
+    <section class="preview-section surface" data-preview-section hidden aria-labelledby="preview-title">
+      <div class="preview-head">
+        <div>
+          <p class="eyebrow">Page preview</p>
+          <h2 id="preview-title">Website details</h2>
+        </div>
+        <button class="quiet-action" data-screenshot-button type="button">View screenshot</button>
+      </div>
+      <article class="site-preview">
+        <img class="site-favicon" data-preview-favicon alt="">
+        <div class="site-copy">
+          <strong data-preview-title>Website</strong>
+          <span data-preview-host></span>
+          <p data-preview-description>No description available.</p>
+        </div>
+        <a class="visit-link" data-preview-link href="#" target="_blank" rel="noopener noreferrer" aria-label="Open checked website in a new tab">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 5h5v5M10 14l9-9M19 14v5H5V5h5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </article>
+      <div class="screenshot-wrap" data-screenshot-wrap hidden>
+        <div class="screenshot-loading" data-screenshot-loading>Rendering screenshot…</div>
+        <img data-screenshot-image alt="Screenshot of the checked website" hidden>
+      </div>
+    </section>
+  </main>
+  <script src="./app.js?v=20260718-dogeub-utility-1"></script>
+</body>
+</html>

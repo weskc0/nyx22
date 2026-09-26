@@ -1,0 +1,127 @@
+[build]
+  command = "npm run build:netlify"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"
+  WISP_URL = "wss://nyx-temporary-production.up.railway.app/wisp/"
+
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+  external_node_modules = ["express", "serverless-http", "eruda", "firebase-admin", "@mercuryworkshop/wisp-js", "@titaniumnetwork-dev/ultraviolet", "@mercuryworkshop/bare-mux", "@mercuryworkshop/scramjet", "@mercuryworkshop/scramjet-controller", "@mercuryworkshop/epoxy-transport", "@mercuryworkshop/libcurl-transport"]
+
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/api/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/game-cover"
+  to = "/.netlify/functions/api/game-cover"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/seraph-*"
+  to = "/.netlify/functions/api/seraph-:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/gn-math-*"
+  to = "/.netlify/functions/api/gn-math-:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/duckmath-*"
+  to = "/.netlify/functions/api/duckmath-:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/gms-games-*"
+  to = "/.netlify/functions/api/gms-games-:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/reds-misc-*"
+  to = "/.netlify/functions/api/reds-misc-:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/nyx-compat/*"
+  to = "/.netlify/functions/api/nyx-compat/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/healthz"
+  to = "/.netlify/functions/api/healthz"
+  status = 200
+  force = true
+
+# Existing files win over these rules. Missing assets return a real 404 instead
+# of accidentally receiving index.html.
+[[redirects]]
+  from = "/assets/*"
+  to = "/404.html"
+  status = 404
+
+[[redirects]]
+  from = "/service/*"
+  to = "/404.html"
+  status = 404
+
+[[redirects]]
+  from = "/~/sj/*"
+  to = "/404.html"
+  status = 404
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[[headers]]
+  for = "/index.html"
+  [headers.values]
+    Cache-Control = "no-store, no-cache, must-revalidate"
+
+[[headers]]
+  for = "/startup-studyhub.html"
+  [headers.values]
+    Cache-Control = "no-store, no-cache, must-revalidate"
+
+[[headers]]
+  for = "/app.webmanifest"
+  [headers.values]
+    Cache-Control = "no-store, no-cache, must-revalidate"
+    Content-Type = "application/manifest+json"
+
+[[headers]]
+  for = "/runtime-config.js"
+  [headers.values]
+    Cache-Control = "no-store, no-cache, must-revalidate"
+
+[[headers]]
+  for = "/*.sw.js"
+  [headers.values]
+    Cache-Control = "no-store, no-cache, must-revalidate"
+    Service-Worker-Allowed = "/"
+
+[[headers]]
+  for = "/uv.sw.js"
+  [headers.values]
+    Cache-Control = "no-store, no-cache, must-revalidate"
+    Service-Worker-Allowed = "/"
+
+[[headers]]
+  for = "/scramjet.sw.js"
+  [headers.values]
+    Cache-Control = "no-store, no-cache, must-revalidate"
+    Service-Worker-Allowed = "/"

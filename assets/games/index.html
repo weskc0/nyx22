@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>Nyx Study</title>
+  <link rel="stylesheet" href="/assets/games/games.css?v=20260803-hover-speed-v3">
+  <script type="module" src="/assets/games/games.js?v=20260803-catclass-v3"></script>
+</head>
+<body>
+  <main class="library">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">Nyx arcade</p>
+        <h1>Study</h1>
+        <p class="subtitle">One library, one search, and no duplicate titles.</p>
+      </div>
+      <div class="controls">
+        <label class="sort-field library-field">
+          <span class="sr-only">Game collection</span>
+          <select id="gameLibrary">
+            <option value="games">Study</option>
+            <option value="misc">Misc. Study</option>
+          </select>
+        </label>
+        <label class="search-field">
+          <span class="sr-only">Search study library</span>
+          <span aria-hidden="true">⌕</span>
+          <input id="gameSearch" type="search" autocomplete="off" placeholder="Search all study items">
+        </label>
+        <label class="sort-field">
+          <span class="sr-only">Sort study items</span>
+          <select id="gameSort">
+            <option value="az">A–Z</option>
+            <option value="za">Z–A</option>
+          </select>
+        </label>
+      </div>
+    </header>
+
+    <div class="library-meta">
+      <p id="gameCount" role="status" aria-live="polite">Loading game library…</p>
+      <div id="catalogProgress" class="catalog-progress" aria-hidden="true"><span></span></div>
+    </div>
+
+    <section id="gameGrid" class="game-grid" aria-label="Game library"></section>
+    <section id="emptyState" class="empty-state" hidden>
+      <span aria-hidden="true">⌕</span>
+      <h2>No study items found</h2>
+      <p>Try a shorter or different search.</p>
+    </section>
+  </main>
+
+  <section id="gamePlayer" class="player" role="dialog" aria-modal="true" aria-labelledby="playerTitle" hidden>
+    <header class="player-toolbar">
+      <button id="closePlayer" class="toolbar-button back-button" type="button">← <span>All study items</span></button>
+      <h2 id="playerTitle">Game</h2>
+      <div class="player-actions">
+        <button id="reloadGame" class="toolbar-button icon-button" type="button" title="Reload game" aria-label="Reload game">↻</button>
+        <button id="fullscreenGame" class="toolbar-button icon-button" type="button" title="Fullscreen" aria-label="Fullscreen">⛶</button>
+      </div>
+    </header>
+    <div class="player-stage">
+      <div id="playerLoading" class="player-loading" role="status">
+        <span class="spinner" aria-hidden="true"></span>
+        <span id="playerLoadingText">Loading game…</span>
+        <button id="retryGame" class="toolbar-button" type="button" hidden>Retry all sources</button>
+      </div>
+      <iframe id="gameFrame" title="Game" allow="autoplay; fullscreen; gamepad; keyboard-map; clipboard-read; clipboard-write" allowfullscreen></iframe>
+    </div>
+  </section>
+</body>
+</html>

@@ -1,0 +1,41 @@
+{
+  "id": "/",
+  "name": "Nyx",
+  "short_name": "Nyx",
+  "description": "Nyx night workspace for browsing, studying, apps, and utilities.",
+  "start_url": "/?source=installed-app",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#07111f",
+  "theme_color": "#0b1628",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "/assets/icons/nyx-app-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/assets/icons/nyx-app-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Open Nyx",
+      "short_name": "Home",
+      "url": "/?source=installed-app",
+      "icons": [
+        {
+          "src": "/assets/icons/nyx-app-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    }
+  ],
+  "prefer_related_applications": false
+}

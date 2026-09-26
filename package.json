@@ -1,0 +1,37 @@
+{
+  "name": "nyx22",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "start:wisp": "node wisp-server.js",
+    "dev": "node server.js",
+    "dev:accounts": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/start-local-accounts.ps1",
+    "build:netlify": "node scripts/build-netlify.mjs",
+    "check:branding": "node scripts/check-branding.mjs",
+    "check:deploy": "node scripts/check-deploy.mjs && npm run check:branding"
+  },
+  "engines": {
+    "node": ">=20 <25"
+  },
+  "dependencies": {
+    "@mercuryworkshop/bare-mux": "2.1.9",
+    "@mercuryworkshop/epoxy-transport": "^2.1.28",
+    "@mercuryworkshop/libcurl-transport": "^2.0.5",
+    "@mercuryworkshop/scramjet": "2.0.67-alpha.2",
+    "@mercuryworkshop/scramjet-controller": "0.0.14",
+    "@mercuryworkshop/wisp-js": "0.4.1",
+    "@titaniumnetwork-dev/ultraviolet": "^3.2.10",
+    "eruda": "3.4.3",
+    "express": "5.2.1",
+    "firebase-admin": "13.10.0",
+    "serverless-http": "^4.0.0",
+    "three": "^0.134.0",
+    "vanta": "^0.5.24"
+  },
+  "devDependencies": {
+    "@ffmpeg-installer/ffmpeg": "^1.1.0",
+    "@playwright/test": "^1.61.1"
+  }
+}

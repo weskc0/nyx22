@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ռʏӼ</title>
+<!-- //startup-cloak -->
+<link id="appFavicon" rel="icon" type="image/png" sizes="256x256" href="./assets/icons/nyx-logo.png">
+<link rel="manifest" href="/app.webmanifest">
+<link rel="apple-touch-icon" href="/assets/icons/nyx-app-192.png">
+<meta name="theme-color" content="#0b1628">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VN6FKYM8D3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-VN6FKYM8D3');
+</script>
+<script src="js/nyx-logo.js?v=20260728-fern-v4"></script>
+<script>
+(() => {
+  const favicon=document.getElementById('appFavicon');
+  let savedIcon='';
+  let theme='default';
+  try{
+    savedIcon=localStorage.getItem('nyx.tabFavicon') || '';
+    theme=localStorage.getItem('nyx.theme') || 'default';
+  }catch{}
+  const isNyxSource=!savedIcon || /nyx-logo\.png/i.test(savedIcon);
+  if(savedIcon && !isNyxSource){
+    favicon.href=savedIcon;
+    return;
+  }
+  window.NyxLogo?.croppedUrl(theme).then(url=>{
+    favicon.href=url;
+  }).catch(()=>{});
+})();
+</script>
+<script src="startup.js?v=20260726-chromebook-layout-1"></script>
+  <link rel="stylesheet" href="styles.css?v=20260803-download-safety-v85">
+<link rel="stylesheet" href="css/public-profile-polish.css?v=20260731-v1">
+<link rel="stylesheet" href="css/owner-dashboard-polish.css?v=20260731-v1">
+<link rel="stylesheet" href="css/browser-microinteractions.css?v=20260803-tab-reorder-v22">
+<style>
+html.nyx-studyhub-starting,html.nyx-studyhub-starting body{overflow:hidden!important}
+#nyxStudyHubStartup{position:fixed;z-index:2147483647;inset:0;display:block;width:100vw;height:100dvh;border:0;background:#f2eee4;opacity:1;pointer-events:auto!important;transition:opacity .35s ease;isolation:isolate}
+#nyxStudyHubStartup.is-leaving{opacity:0;pointer-events:none}
+html.nyx-studyhub-starting #setupLaunchScreen{display:none!important;opacity:0!important;pointer-events:none!important}
+@media(prefers-reduced-motion:reduce){#nyxStudyHubStartup{transition:none}}
+</style>
+<script>document.documentElement.classList.add('nyx-studyhub-starting')</script>
+</head>
+<body>
+<!-- //math-gated-studyhub-startup -->
+  <iframe id="nyxStudyHubStartup" src="startup-studyhub.html?v=20260730-math-lessons-v9" title="StudyHub startup math question" tabindex="0" referrerpolicy="no-referrer"></iframe>
+<script>
+(() => {
+  const splash=document.getElementById('nyxStudyHubStartup');
+  const root=document.documentElement;
+  let removeTimer=0;
+  let finished=false;
+  const removeSplash=()=>{
+    splash?.remove();
+    root.classList.remove('nyx-studyhub-starting');
+  };
+  const finishSplash=(duration=350)=>{
+    if(finished)return;
+    finished=true;
+    clearTimeout(removeTimer);
+    splash?.classList.add('is-leaving');
+    removeTimer=setTimeout(removeSplash,duration);
+  };
+  const onMessage=event=>{
+    if(event.source!==splash?.contentWindow||event.data?.type!=='nyx-studyhub')return;
+    if(event.data.action==='interactive-ready')return;
+    if(event.data.action==='math-passed')finishSplash(350);
+  };
+  addEventListener('message',onMessage);
+  addEventListener('pagehide',()=>{
+    clearTimeout(removeTimer);
+    removeEventListener('message',onMessage);
+  },{once:true});
+})();
+</script>
+<!-- //background-image -->
+<img id="customBgImage" class="custom-bg-image" alt="" referrerpolicy="no-referrer">
+<iframe id="nyxWaveBg" class="nyx-wave-bg" src="assets/backgrounds/animated-blue-wave.html" title="" tabindex="-1" aria-hidden="true"></iframe>
+<div id="defaultVantaBg" aria-hidden="true" inert></div>
+<div id="rubyVantaBg" aria-hidden="true" inert></div>
+<div id="whiteVantaBg" aria-hidden="true" inert></div>
+<div id="emeraldVantaBg" aria-hidden="true" inert></div>
+<div id="sakuraVantaBg" aria-hidden="true" inert></div>
+<!-- //setup-screen -->
+<div id="setupScreen" class="setup-screen" aria-hidden="true">
+  <div class="setup-panel">
+    <div class="setup-header">
+      <span class="setup-eyebrow">NYX / FIRST RUN</span>
+      <h1>Customize Nyx</h1>
+      <p data-setup-subtitle>Pick the basics before nyx opens.</p>
+      <div class="setup-progress" aria-hidden="true">
+        <span class="setup-dot active"></span>
+        <span class="setup-dot"></span>
+        <span class="setup-dot"></span>
+        <span class="setup-dot"></span>
+        <span class="setup-dot"></span>
+        <span class="setup-dot"></span>
+        <span class="setup-dot"></span>
+        <span class="setup-dot"></span>
+      </div>
+    </div>
+    <div class="setup-grid">
+      <section class="setup-step active" data-setup-step="0">
+        <div class="setup-welcome-step">
+          <div class="setup-welcome-logo" data-nyx-logo aria-label="Nyx"></div>
+          <h2>Welcome to Nyx</h2>
+          <p>Customize your experience before Nyx opens. Pick your look, effects, browser, search engine, and font in a few quick steps.</p>
+          <span class="setup-welcome-hint"><kbd>Enter</kbd> to continue</span>
+        </div>
+      </section>
+      <section class="setup-step" data-setup-step="1">
+        <h2>Profile</h2>
+        <p>Choose the name Nyx uses for your home screen.</p>
+        <div class="setup-name">
+          <label for="setupName">Username</label>
+          <input id="setupName" placeholder="Set username" autocomplete="nickname">
+        </div>
+      </section>
+      <section class="setup-step" data-setup-step="2">
+        <h2>Look</h2>
+        <p>Pick a theme by previewing how Nyx will look.</p>
+        <div class="setup-field setup-hidden-select">
+          <label for="setupTheme">Theme</label>
+          <select id="setupTheme" data-theme-value tabindex="-1" aria-hidden="true">
+            <option value="default">Default</option>
+            <option value="ruby">Ruby</option>
+            <option value="emerald">Emerald</option>
+            <option value="sakura">Sakura</option>
+            <option value="fresh">Fern</option>
+            <option value="midnight">Midnight</option>
+          </select>
+        </div>
+        <div class="setup-theme-grid" data-setup-theme-grid>
+          <button class="setup-theme-card selected" data-setup-theme-card="default" type="button">
+            <span class="setup-theme-preview default"></span>
+            <span class="setup-theme-name">Default</span>
+          </button>
+          <button class="setup-theme-card" data-setup-theme-card="ruby" type="button">
+            <span class="setup-theme-preview ruby"></span>
+            <span class="setup-theme-name">Ruby</span>
+          </button>
+          <button class="setup-theme-card" data-setup-theme-card="emerald" type="button">
+            <span class="setup-theme-preview emerald"></span>
+            <span class="setup-theme-name">Emerald</span>
+          </button>
+          <button class="setup-theme-card" data-setup-theme-card="sakura" type="button">
+            <span class="setup-theme-preview sakura"></span>
+            <span class="setup-theme-name">Sakura</span>
+          </button>
+          <button class="setup-theme-card" data-setup-theme-card="fresh" type="button">
+            <span class="setup-theme-preview fresh"></span>
+            <span class="setup-theme-name">Fern</span>
+          </button>
+          <button class="setup-theme-card" data-setup-theme-card="midnight" type="button">
+            <span class="setup-theme-preview midnight"></span>
+            <span class="setup-theme-name">Midnight</span>
+          </button>
+        </div>
+      </section>
+      <section class="setup-step" data-setup-step="3">
+        <h2>Effects</h2>
+        <p>Choose the particles Nyx shows in browser mode.</p>
+        <div class="setup-field">
+          <label for="setupEffect">Effects</label>
+          <select id="setupEffect" data-effect-value>
+            <option value="none">None</option>
+            <option value="rain">Rain</option>
+            <option value="stars">Stars</option>
+            <option value="hearts">Hearts</option>
+            <option value="pokeballs">Pokeballs</option>
+            <option value="flowers">Flowers</option>
+            <option value="emeralds">Emeralds</option>
+          </select>
+        </div>
+      </section>
+      <section class="setup-step" data-setup-step="4">
+        <h2>Browser</h2>
+        <p>Pick how browsing and search should open.</p>
+        <div class="setup-custom-grid">
+          <div class="setup-field">
+            <label for="setupBrowserMode">Browser</label>
+            <select id="setupBrowserMode" data-browser-mode-select>
+              <option value="auto">Auto (Scramjet + Libcurl)</option>
+              <option value="scramjet" selected>Scramjet</option>
+              <option value="ultraviolet">Ultraviolet</option>
+              <option value="iframe">Iframe</option>
+            </select>
+          </div>
+          <div class="setup-field">
+            <label for="setupEngine">Search Engine</label>
+            <select id="setupEngine" data-browser-engine>
+              <option value="duckduckgo">DuckDuckGo</option>
+              <option value="google">Google</option>
+              <option value="bing">Bing</option>
+            </select>
+          </div>
+        </div>
+      </section>
+      <section class="setup-step" data-setup-step="5">
+        <h2>Font</h2>
+        <p>Choose the text style used across Nyx.</p>
+        <div class="setup-field">
+          <label for="setupFont">Font</label>
+          <select id="setupFont" data-font-value></select>
+        </div>
+      </section>
+      <section class="setup-step" data-setup-step="6">
+        <h2>Preview</h2>
+        <p>Quick check before Nyx launches.</p>
+        <div class="setup-final-preview">
+          <div class="setup-final-stage" data-setup-final-stage data-theme="default">
+            <div class="setup-final-logo" data-nyx-logo aria-label="Nyx"></div>
+            <div class="setup-final-search">Search or enter a URL</div>
+            <div class="setup-final-shortcuts"><span></span><span></span><span></span><span></span></div>
+          </div>
+          <div class="setup-final-list">
+            <div class="setup-final-row"><span>Theme</span><strong data-setup-preview-theme>Default</strong></div>
+            <div class="setup-final-row"><span>Effect</span><strong data-setup-preview-effect>None</strong></div>
+            <div class="setup-final-row"><span>Browser</span><strong data-setup-preview-browser>Scramjet</strong></div>
+            <div class="setup-final-row"><span>Search</span><strong data-setup-preview-engine>DuckDuckGo</strong></div>
+            <div class="setup-final-row"><span>Font</span><strong data-setup-preview-font>Outfit</strong></div>
+          </div>
+        </div>
+      </section>
+      <section class="setup-step" data-setup-step="7">
+        <div class="setup-shortcut-page">
+          <h2>Shortcuts</h2>
+          <p class="setup-shortcut-intro">Nyx uses Left Alt for browser controls so the shortcuts still feel familiar while staying inside Nyx.</p>
+          <div class="setup-shortcut-grid">
+            <div class="setup-shortcut-card"><span>Switch tabs left to right</span><kbd>Alt + 1-9</kbd></div>
+            <div class="setup-shortcut-card"><span>Focus the URL bar</span><kbd>Alt + L / D</kbd></div>
+            <div class="setup-shortcut-card"><span>Open a new tab</span><kbd>Alt + T</kbd></div>
+            <div class="setup-shortcut-card"><span>Close the current tab</span><kbd>Alt + W</kbd></div>
+            <div class="setup-shortcut-card"><span>Reload the current tab</span><kbd>Alt + R</kbd></div>
+            <div class="setup-shortcut-card"><span>Go back or forward</span><kbd>Alt + Arrows</kbd></div>
+            <div class="setup-shortcut-card"><span>Select all text</span><kbd>Alt + A</kbd></div>
+            <div class="setup-shortcut-card"><span>Copy, cut, paste</span><kbd>Alt + C/X/V</kbd></div>
+            <div class="setup-shortcut-card"><span>Undo or redo text edits</span><kbd>Alt + Z/Y</kbd></div>
+            <div class="setup-shortcut-card"><span>Close menus and suggestions</span><kbd>Esc</kbd></div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <div class="setup-actions">
+      <span class="setup-copyright">© 2026 Nyx</span>
+      <button data-skip-setup>Skip</button>
+      <button data-setup-back type="button" hidden>Back</button>
+      <button class="primary" data-setup-next type="button">Next</button>
+      <button class="primary" data-finish-setup hidden>Start Nyx</button>
+    </div>
+  </div>
+</div>
+<div id="setupLaunchScreen" class="setup-launch-screen" aria-hidden="true">
+  <div class="setup-launch-card">
+    <div class="nyx-loading-row">
+      <div class="nyx-loading-progress" role="progressbar" aria-label="Starting Nyx" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span></span></div>
+      <strong class="nyx-loading-percent" data-nyx-loading-percent>0%</strong>
+    </div>
+  </div>
+</div>
+<!-- //cloak-launch-menu -->
+<div id="chromeOsAltDim" class="chromeos-alt-dim" aria-hidden="true"></div>
+<div id="cloakLaunchScreen" class="cloak-launch-screen" aria-hidden="true">
+  <div class="cloak-launch-panel">
+    <h1>ռʏӼ</h1>
+    <p>Please type one of the following:</p>
+    <div class="cloak-mode-list">
+      <div class="cloak-mode-row"><code>'a'</code><span>= about:blank</span></div>
+      <div class="cloak-mode-row"><code>'b'</code><span>= blob cloaking</span></div>
+      <div class="cloak-mode-row"><code>'m'</code><span>= current tab</span></div>
+      <div class="cloak-mode-row"><code>'ac'</code><span>= same tab cloak anchored</span></div>
+      <div class="cloak-mode-row"><code>'bc'</code><span>= blob cloaking anchored</span></div>
+      <div class="cloak-mode-row"><code>'mc'</code><span>= current tab anchored</span></div>
+    </div>
+    <input class="cloak-input" data-cloak-input autocomplete="off" spellcheck="false" aria-label="Cloak mode">
+    <div class="cloak-submit-actions">
+      <button class="primary" data-cloak-submit>OK</button>
+      <button data-cloak-cancel>Cancel</button>
+    </div>
+    <p class="cloak-status" data-cloak-status></p>
+  </div>
+</div>
+<!-- //visual-effects -->
+<div id="visualEffects" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+<!-- //top-bar-title-clock -->
+<div class="top-os">
+  <div class="brand-mini"><span id="brandName">ռʏӼ</span><span>|</span><button id="userGreeting" class="user-chip needs-name" data-open="settings">Set username</button></div>
+  <div class="status-icons"><button class="top-fullscreen" data-page-fullscreen title="Fullscreen" aria-label="Fullscreen"></button><span id="clock">--:--</span></div>
+</div>
+<!-- //desktop-home -->
+<main id="desktop">
+  <div class="desktop-shortcuts">
+    <button class="desktop-shortcut" data-open="browser"><span class="icon">🌐</span>Browser</button>
+    <button class="desktop-shortcut" data-open="updates"><span class="icon">*</span>Updates</button>
+    <button class="desktop-shortcut" data-open="settings"><span class="icon">Set</span>Settings</button>
+  </div>
+  <div class="desktop-center-clock" id="centerClock">--:--:--</div>
+  <form class="desktop-search" data-desktop-search>
+    <input name="q" placeholder="Find your Course" autocomplete="off">
+    <button type="submit" title="Search">Go</button>
+  </form>
+  <!-- //weather-widget -->
+  <aside id="weatherPanel" class="weather-panel minimized" aria-label="Weather">
+    <div class="weather-effects" aria-hidden="true"><span class="fx-sun"></span><span class="fx-cloud"></span><span class="fx-rain"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="fx-wind"></span><span class="fx-snow"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="fx-tumble"><i></i><i></i></span></div>
+    <div class="weather-panel-head">
+      <span class="weather-panel-title">Weather</span>
+      <div class="weather-head-actions">
+        <button class="weather-icon-btn" data-weather-refresh title="Refresh weather" aria-label="Refresh weather"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11a8 8 0 1 0-2.35 5.65"/><path d="M20 4v7h-7"/></svg></button>
+        <button class="weather-icon-btn" data-weather-minimize title="Close weather" aria-label="Close weather"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12"/><path d="M18 6L6 18"/></svg></button>
+      </div>
+    </div>
+    <form class="weather-search" data-weather-search>
+      <label class="weather-search-box">
+        <span class="weather-search-symbol" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 16 16" fill="none"><circle cx="7" cy="7" r="5"/><line x1="13" y1="13" x2="10.5" y2="10.5"/></svg></span>
+        <input data-weather-query placeholder="Search a city..." autocomplete="off" spellcheck="false" aria-label="Search location">
+      </label>
+      <button type="submit" title="Search location" aria-label="Search location"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 21s-7-6.3-7-11a7 7 0 1 1 14 0c0 4.7-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></button>
+    </form>
+    <select class="weather-options" data-weather-options hidden aria-label="Select matching location"></select>
+    <div class="weather-current">
+      <div class="weather-now">
+        <div class="weather-glyph" data-weather-icon aria-hidden="true"><svg class="nyx-weather-symbol nyx-weather-symbol-cloud" viewBox="0 0 24 24" focusable="false"><path class="nyx-weather-cloud-fill" d="M6.4 18.2h10.3a4.25 4.25 0 0 0 .5-8.47 6.05 6.05 0 0 0-11.55 1.83A3.38 3.38 0 0 0 6.4 18.2Z"/></svg></div>
+        <div class="weather-temp-wrap">
+          <div class="weather-temp" data-weather-temp>--&deg;</div>
+          <div class="weather-desc" data-weather-desc>Loading weather...</div>
+        </div>
+        <strong class="weather-place" data-weather-place>Los Angeles</strong>
+      </div>
+      <span class="weather-region-time" data-weather-time>Local time --:--</span>
+      <div class="weather-stat-grid">
+        <div class="weather-stat"><span>Feels like</span><strong data-weather-feels>--&deg;</strong></div>
+        <div class="weather-stat"><span>Humidity</span><strong data-weather-humidity>--%</strong></div>
+        <div class="weather-stat"><span>Wind</span><strong data-weather-wind>-- mph</strong></div>
+        <div class="weather-stat"><span>Precip</span><strong data-weather-precip>-- in</strong></div>
+      </div>
+      <div class="weather-forecast-title">7-day forecast</div>
+      <div class="weather-forecast" data-weather-forecast></div>
+      <div class="weather-status" data-weather-status></div>
+    </div>
+  </aside>
+</main>
+<button id="weatherRestore" class="weather-restore" title="Open weather" aria-label="Open weather" data-weather-summary="Weather"><span class="weather-cloud-icon" aria-hidden="true"></span></button>
+<!-- //dock-app-launcher -->
+<nav class="dock">
+  <button title="Home" data-open="home">🪐</button>
+  <button title="Study" data-open="apps">🎮</button>
+  <button title="Apps" data-open="apps">Apps</button>
+  <button title="Links" data-open="links">Links</button>
+  <button title="Browser" data-open="browser">Web</button>
+  <button title="Discord" data-url="https://discord.com/app">DC</button>
+  <button title="Settings" data-open="settings">Set</button>
+</nav>
+<div class="toast" id="toast"></div>
+<!-- //main-app-script -->
+<script src="./assets/vendor/three.r134.min.js"></script>
+<script src="./assets/vendor/vanta.net.min.js"></script>
+<script src="./assets/vendor/vanta.globe.min.js"></script>
+<script src="./assets/vendor/vanta.birds.min.js"></script>
+<script src="./assets/vendor/vanta.dots.min.js"></script>
+<script src="./assets/vendor/vanta.clouds.min.js"></script>
+<script src="/runtime-config.js"></script>
+<script src="js/loading-screen.js?v=20260730-studyhub-input-v11"></script>
+<script src="js/pwa-install.js?v=20260803-singlefile-current-v5"></script>
+<script src="js/owner-dashboard.js?v=20260804-role-permissions-v8"></script>
+<script src="script.js?v=20260804-role-permissions-v9"></script>
+</body>
+</html>

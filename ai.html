@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="color-scheme" content="dark">
+  <title>Nyx AI</title>
+  <link rel="icon" type="image/png" href="/assets/icons/nyx-logo.png" data-nyx-logo>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/ai-workspace.css?v=20260803-image-attachments-v4">
+  <script src="/js/nyx-logo.js?v=20260717-theme-crescent-v1" defer></script>
+  <script src="/js/ai-workspace.js?v=20260803-image-attachments-v4" defer></script>
+</head>
+<body>
+  <main class="ai-app" data-ai-app>
+    <aside class="ai-sidebar" id="aiSidebar" aria-label="AI conversations">
+      <header class="ai-sidebar-header">
+        <div class="ai-sidebar-brand">
+          <span class="ai-sidebar-brand-mark" data-nyx-logo aria-hidden="true"></span>
+          <span><strong>Nyx AI</strong><small>Workspace</small></span>
+        </div>
+        <button class="ai-sidebar-close" id="sidebarClose" type="button" aria-label="Close conversation sidebar">
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m15 6-6 6 6 6"/></svg>
+        </button>
+      </header>
+
+      <nav class="ai-sidebar-actions" aria-label="Conversation actions">
+        <button class="ai-new-chat" id="newChat" type="button">
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+          <span>New chat</span>
+        </button>
+        <button class="ai-temporary-chat" id="temporaryChat" type="button" aria-pressed="false">
+          <span class="ai-sidebar-action-icon"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 9 9M12 7v5l3 2M17 3h4v4"/></svg></span>
+          <span><strong>Temporary chat</strong><small>Not saved to history</small></span>
+        </button>
+      </nav>
+
+      <section class="ai-history" aria-labelledby="aiHistoryTitle">
+        <header><h2 id="aiHistoryTitle">Chats</h2><span id="threadCount">0</span></header>
+        <div class="ai-thread-list" id="threadList" role="list"></div>
+        <p class="ai-history-empty" id="historyEmpty">Your conversations will appear here.</p>
+      </section>
+
+      <footer class="ai-sidebar-footer">
+        <button class="ai-profile-button" id="aiProfile" type="button" aria-label="Open your Nyx profile">
+          <span class="ai-profile-avatar"><img id="profileAvatar" alt="" hidden><span id="profileInitial">N</span></span>
+          <span class="ai-profile-copy"><strong id="profileName">Profile</strong><small id="profileHandle">Open your Nyx profile</small></span>
+          <svg class="ai-profile-chevron" aria-hidden="true" viewBox="0 0 20 20"><path d="m7 4 6 6-6 6"/></svg>
+        </button>
+      </footer>
+    </aside>
+    <button class="ai-sidebar-scrim" id="sidebarScrim" type="button" aria-label="Close conversation sidebar"></button>
+
+    <section class="ai-workspace">
+      <header class="ai-header">
+      <div class="ai-header-inner">
+        <div class="ai-brand">
+          <button class="ai-sidebar-toggle" id="sidebarToggle" type="button" aria-label="Open conversation sidebar" aria-controls="aiSidebar" aria-expanded="false">
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+          </button>
+          <div class="ai-brand-mark" data-nyx-logo aria-hidden="true"></div>
+          <div class="ai-brand-copy">
+            <span>NYX INTELLIGENCE</span>
+            <h1>Nyx AI</h1>
+          </div>
+          <span class="ai-header-divider" aria-hidden="true"></span>
+          <p class="ai-thread-title" id="threadTitle">New conversation</p>
+        </div>
+
+        <div class="ai-header-actions">
+          <div class="ai-model-picker" id="modelPicker">
+            <button class="ai-model-trigger" id="modelTrigger" type="button" aria-haspopup="listbox" aria-expanded="false" aria-controls="modelMenu">
+              <span class="ai-model-status" aria-hidden="true"></span>
+              <span class="ai-model-selected" id="modelSelected">GPT-5.4 Mini</span>
+              <svg aria-hidden="true" viewBox="0 0 20 20"><path d="m6 8 4 4 4-4"/></svg>
+            </button>
+            <select class="sr-only" id="model" tabindex="-1" aria-hidden="true">
+              <option value="chatgpt-5.4-mini">GPT-5.4 Mini</option>
+            </select>
+            <div class="ai-model-menu" id="modelMenu" role="listbox" aria-label="AI model" tabindex="-1" hidden>
+              <div class="ai-model-menu-header">
+                <strong>Select model</strong>
+                <span data-model-count>1 available</span>
+              </div>
+              <div class="ai-model-options" id="modelOptions"></div>
+            </div>
+          </div>
+          <button class="ai-clear" id="clear" type="button" title="Clear conversation" aria-label="Clear conversation">
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M3 6h18M8 6V4h8v2M7 6l1 14h8l1-14M10 10v6M14 10v6"/></svg>
+            <span>Clear</span>
+          </button>
+        </div>
+      </div>
+      </header>
+
+      <section class="ai-feed" id="feed" role="log" aria-live="polite" aria-relevant="additions text" aria-busy="false">
+        <div class="ai-conversation" id="conversation"></div>
+      </section>
+
+      <footer class="ai-composer-shell">
+        <div class="ai-composer-wrap">
+          <form class="ai-composer" id="form">
+          <input class="sr-only" id="imageInput" type="file" accept="image/png,image/jpeg,image/webp,image/gif" tabindex="-1">
+          <div class="ai-attachment-preview" id="attachmentPreview" hidden>
+            <img id="attachmentThumbnail" alt="Attached image preview">
+            <span class="ai-attachment-copy">
+              <strong id="attachmentName"></strong>
+              <small id="attachmentStatus" aria-live="polite">Ready to send</small>
+            </span>
+            <button class="ai-attachment-remove" id="removeAttachment" type="button" title="Remove image" aria-label="Remove attached image">
+              <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m7 7 10 10M17 7 7 17"/></svg>
+            </button>
+          </div>
+          <label class="sr-only" for="input">Message Nyx AI</label>
+          <textarea id="input" rows="1" maxlength="4000" placeholder="Ask Nyx AI anything…" aria-label="Message Nyx AI"></textarea>
+          <div class="ai-composer-footer">
+            <button class="ai-attach" id="attachImage" type="button" title="Attach an image" aria-label="Attach an image" aria-controls="imageInput">
+              <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 6v12M6 12h12"/><path d="m19 15 2.3-2.3a2.4 2.4 0 0 0-3.4-3.4l-8.2 8.2a4 4 0 0 1-5.7-5.7l8.5-8.5"/></svg>
+            </button>
+            <span class="ai-composer-hint"><kbd>Enter</kbd> to send · <kbd>Shift</kbd> + <kbd>Enter</kbd> for a new line</span>
+            <span class="ai-character-count" id="characterCount" aria-live="off">0 / 4000</span>
+            <button class="ai-send" id="send" type="submit" title="Send message" aria-label="Send message">
+              <svg class="ai-send-arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="m12 19V5m0 0-6 6m6-6 6 6"/></svg>
+              <span class="ai-send-spinner" aria-hidden="true"></span>
+            </button>
+          </div>
+          </form>
+          <p class="ai-disclaimer">Nyx AI can make mistakes. Verify important information.</p>
+        </div>
+      </footer>
+    </section>
+  </main>
+</body>
+</html>
